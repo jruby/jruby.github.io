@@ -1,0 +1,250 @@
+---
+layout: post
+title: JRuby 1.7.1. Released
+---
+The JRuby community is pleased to announce the release of JRuby 1.7.1
+
+- Homepage: [http://www.jruby.org/](http://www.jruby.org/)
+- Download: [http://www.jruby.org/download](http://www.jruby.org/download)
+
+JRuby 1.7.1 is our first update release since JRuby 1.7.0.  The primary goal of 1.7 point releases is to fill out any missing compatibility issues with Ruby 1.9.3.  The feedback we have gotten (along with patches) has ended up being a subtantial release.
+
+We also addressed security vulnerability CVE-2012-5370 and stopped using MurmurHash2 as our hashing algorithm (now using same Hashing algorithm as Perl).  All users are recommended to upgrade to JRuby 1.7.1.
+
+Changes of note:
+- New hashing algorithm to address CVE-2012-5370
+- Update standard lib to match MRI patchlevel 1.9.3p327
+- Several fixes to new io/console.rb implementation
+- system/spawn/popen fixes and additional options hash fixes
+- Several SSL fixes (jruby-openssl release coming soon for 1.6.8 users)
+- IO.select not erroneously reporting data to be read
+- Psych YAML engine updated to latest
+- 113 issues fixed since 1.7.0
+
+### Jira Issues resolved since 1.7.0
+
+<ul>
+<li>[<a href='https://jira.codehaus.org/browse/JRUBY-1608'>JRUBY-1608</a>] -         STDIN/STDOUT &quot;not a tty&quot; under Kernel.system
+</li>
+<li>[<a href='https://jira.codehaus.org/browse/JRUBY-2724'>JRUBY-2724</a>] -         Can not create Ruby on rails application while using UNC path folder
+</li>
+<li>[<a href='https://jira.codehaus.org/browse/JRUBY-3622'>JRUBY-3622</a>] -         newInstance and getDeclaredConstructor fail to respect class overridden in JRuby
+</li>
+<li>[<a href='https://jira.codehaus.org/browse/JRUBY-3756'>JRUBY-3756</a>] -         Jirb terminates immediately if &quot;special character&quot; encountered
+</li>
+<li>[<a href='https://jira.codehaus.org/browse/JRUBY-3786'>JRUBY-3786</a>] -         RubyGems tests are not green; fix remaining failures/errors
+</li>
+<li>[<a href='https://jira.codehaus.org/browse/JRUBY-3917'>JRUBY-3917</a>] -         Module#public does not follow method redefinition
+</li>
+<li>[<a href='https://jira.codehaus.org/browse/JRUBY-4732'>JRUBY-4732</a>] -         Clean up anything that calls dataGetStruct on a wrapped Java object to get the object
+</li>
+<li>[<a href='https://jira.codehaus.org/browse/JRUBY-4756'>JRUBY-4756</a>] -         Interface that has abstract methods final in Ruby hierarchy break &quot;real class&quot; implementation
+</li>
+<li>[<a href='https://jira.codehaus.org/browse/JRUBY-4890'>JRUBY-4890</a>] -         Unicode characters are lost when embedding JRuby even if the calling code performs no conversion to byte[]
+</li>
+<li>[<a href='https://jira.codehaus.org/browse/JRUBY-5303'>JRUBY-5303</a>] -         [1.9] Wrong parameters parse for method signatures with default values
+</li>
+<li>[<a href='https://jira.codehaus.org/browse/JRUBY-5323'>JRUBY-5323</a>] -         control-c in cmd while running webrick rails app does not kill jruby.exe
+</li>
+<li>[<a href='https://jira.codehaus.org/browse/JRUBY-5349'>JRUBY-5349</a>] -         Process.spawn ignores output params
+</li>
+<li>[<a href='https://jira.codehaus.org/browse/JRUBY-5427'>JRUBY-5427</a>] -         1.9 mode slower on redblack benchmark than 1.8 mode
+</li>
+<li>[<a href='https://jira.codehaus.org/browse/JRUBY-5529'>JRUBY-5529</a>] -         [1.9] undefined method `read_nonblock&#39; for #&lt;OpenSSL::SSL::SSLSocket:0x246adb31&gt; (NoMethodError)
+</li>
+<li>[<a href='https://jira.codehaus.org/browse/JRUBY-5692'>JRUBY-5692</a>] -         PDFKit fails on Windows JRuby - IO.popen and Double Quotes
+</li>
+<li>[<a href='https://jira.codehaus.org/browse/JRUBY-5798'>JRUBY-5798</a>] -         &#39;defined?&#39; for constant should not invoke auto-load
+</li>
+<li>[<a href='https://jira.codehaus.org/browse/JRUBY-5986'>JRUBY-5986</a>] -         $! is not set to nil in an ensure block where no exception is raised
+</li>
+<li>[<a href='https://jira.codehaus.org/browse/JRUBY-6025'>JRUBY-6025</a>] -         Precompiled class raises exception, but in interpreted mode - works well.
+</li>
+<li>[<a href='https://jira.codehaus.org/browse/JRUBY-6105'>JRUBY-6105</a>] -         become_java! returns nil for Ruby classes that inherit from Java classes 
+</li>
+<li>[<a href='https://jira.codehaus.org/browse/JRUBY-6126'>JRUBY-6126</a>] -         [1.9] [RubySpec] In 1.9 mode, for should yield only as many values as there are arguments
+</li>
+<li>[<a href='https://jira.codehaus.org/browse/JRUBY-6162'>JRUBY-6162</a>] -         IO.popen doesn&#39;t wait until a process ends but returns immediately
+</li>
+<li>[<a href='https://jira.codehaus.org/browse/JRUBY-6195'>JRUBY-6195</a>] -         [1.9] Process.spawn (and related methods) ignore option hash
+</li>
+<li>[<a href='https://jira.codehaus.org/browse/JRUBY-6247'>JRUBY-6247</a>] -         NULL handling inconsistent with Ruby
+</li>
+<li>[<a href='https://jira.codehaus.org/browse/JRUBY-6312'>JRUBY-6312</a>] -         JRuby 1.7 non-indy constant lookup performance has degraded
+</li>
+<li>[<a href='https://jira.codehaus.org/browse/JRUBY-6339'>JRUBY-6339</a>] -         JRuby can&#39;t load from JAR files on a path with a &#39;#&#39; symbol (breaks Tomcat 7 Parallel Deployment)
+</li>
+<li>[<a href='https://jira.codehaus.org/browse/JRUBY-6346'>JRUBY-6346</a>] -         Error establishing SSL connections: OpenSSL::SSL::SSLError: Socket closed
+</li>
+<li>[<a href='https://jira.codehaus.org/browse/JRUBY-6391'>JRUBY-6391</a>] -         undefined method `write_nonblock&#39; for OpenSSL::SSL::SSLSocket
+</li>
+<li>[<a href='https://jira.codehaus.org/browse/JRUBY-6409'>JRUBY-6409</a>] -         Open3.popen3(...) is broken in 1.9 mode
+</li>
+<li>[<a href='https://jira.codehaus.org/browse/JRUBY-6516'>JRUBY-6516</a>] -         IO.select times out with ssl connection
+</li>
+<li>[<a href='https://jira.codehaus.org/browse/JRUBY-6521'>JRUBY-6521</a>] -         Invokedynamic leads to unusual errors in RubyGems dependency logic
+</li>
+<li>[<a href='https://jira.codehaus.org/browse/JRUBY-6563'>JRUBY-6563</a>] -         each_with_index yields invalid values when custom Enumerable class calls Proc#call
+</li>
+<li>[<a href='https://jira.codehaus.org/browse/JRUBY-6581'>JRUBY-6581</a>] -         &quot;yield called out of block&quot; for Enumerators created with enum_for
+</li>
+<li>[<a href='https://jira.codehaus.org/browse/JRUBY-6610'>JRUBY-6610</a>] -         JRuby 1.9 mode require does multiple requires and extra file system searching
+</li>
+<li>[<a href='https://jira.codehaus.org/browse/JRUBY-6622'>JRUBY-6622</a>] -         Unable to Load encrypted Private Key pem file
+</li>
+<li>[<a href='https://jira.codehaus.org/browse/JRUBY-6636'>JRUBY-6636</a>] -         OpenSSL::X509::Certificate and OpenSSL::PKey::RSA constructors don&#39;t accept File objects
+</li>
+<li>[<a href='https://jira.codehaus.org/browse/JRUBY-6656'>JRUBY-6656</a>] -         JRuby subclass cannot call super with arguments if parent constructor is varargs
+</li>
+<li>[<a href='https://jira.codehaus.org/browse/JRUBY-6673'>JRUBY-6673</a>] -         MacOS installer is not updated via our build system and hardcodes version numbers
+</li>
+<li>[<a href='https://jira.codehaus.org/browse/JRUBY-6696'>JRUBY-6696</a>] -         32 bit jruby cannot run with 64 bit JVM installed
+</li>
+<li>[<a href='https://jira.codehaus.org/browse/JRUBY-6699'>JRUBY-6699</a>] -         OpenSSL::PKey::RSA.new fails on Windows
+</li>
+<li>[<a href='https://jira.codehaus.org/browse/JRUBY-6738'>JRUBY-6738</a>] -         Kernel.load(..., true) --&gt; scope problem
+</li>
+<li>[<a href='https://jira.codehaus.org/browse/JRUBY-6744'>JRUBY-6744</a>] -         We are at p204 but 1.9.3 is only at p194
+</li>
+<li>[<a href='https://jira.codehaus.org/browse/JRUBY-6749'>JRUBY-6749</a>] -         respond_to? caching disabled in 1.9 mode due to respond_to_missing? logic
+</li>
+<li>[<a href='https://jira.codehaus.org/browse/JRUBY-6751'>JRUBY-6751</a>] -         java_signature does not affect method signature at runtime
+</li>
+<li>[<a href='https://jira.codehaus.org/browse/JRUBY-6758'>JRUBY-6758</a>] -         Test suite time outs: org.jruby.test.Batch-With-Multiple-Tests:test_socket
+</li>
+<li>[<a href='https://jira.codehaus.org/browse/JRUBY-6763'>JRUBY-6763</a>] -         Incorrect handling of arguments by method object
+</li>
+<li>[<a href='https://jira.codehaus.org/browse/JRUBY-6777'>JRUBY-6777</a>] -         RubyFixnum.java - two methods fail to detect some long integer overflows
+</li>
+<li>[<a href='https://jira.codehaus.org/browse/JRUBY-6826'>JRUBY-6826</a>] -         OpenSSL::PKey::RSAError: Neither PUB key nor PRIV key:
+</li>
+<li>[<a href='https://jira.codehaus.org/browse/JRUBY-6841'>JRUBY-6841</a>] -         State file use in UUID gem causes severe performance degradation
+</li>
+<li>[<a href='https://jira.codehaus.org/browse/JRUBY-6856'>JRUBY-6856</a>] -         Kernel#system and backquote suppress important errors
+</li>
+<li>[<a href='https://jira.codehaus.org/browse/JRUBY-6870'>JRUBY-6870</a>] -         IO.select says there is data but read_nonblock raises &#39;read would raise&#39; using SSLSocket
+</li>
+<li>[<a href='https://jira.codehaus.org/browse/JRUBY-6887'>JRUBY-6887</a>] -         Thread.current.object_id inside an Enumerator is different from outside it
+</li>
+<li>[<a href='https://jira.codehaus.org/browse/JRUBY-6891'>JRUBY-6891</a>] -         SSLSocket.accept forces reverse DNS lookup, not required for most SSL and sometimes causes very poor performance
+</li>
+<li>[<a href='https://jira.codehaus.org/browse/JRUBY-6920'>JRUBY-6920</a>] -         Regression: test_env precompiled with invokedynamic
+</li>
+<li>[<a href='https://jira.codehaus.org/browse/JRUBY-6931'>JRUBY-6931</a>] -         console outputs in windows are wrong for UTF-8, windows
+</li>
+<li>[<a href='https://jira.codehaus.org/browse/JRUBY-6943'>JRUBY-6943</a>] -         io/console extension missing in 1.9 mode (jgem push causes JRuby to fail)
+</li>
+<li>[<a href='https://jira.codehaus.org/browse/JRUBY-6944'>JRUBY-6944</a>] -         JRUBY-6891 Breaks Server Name Indication (SNI)
+</li>
+<li>[<a href='https://jira.codehaus.org/browse/JRUBY-6945'>JRUBY-6945</a>] -         append_features called with non-class
+</li>
+<li>[<a href='https://jira.codehaus.org/browse/JRUBY-6949'>JRUBY-6949</a>] -         system() silently fails when options are passed
+</li>
+<li>[<a href='https://jira.codehaus.org/browse/JRUBY-6954'>JRUBY-6954</a>] -         Time.new does not respect UTC offset in the 7-argument form
+</li>
+<li>[<a href='https://jira.codehaus.org/browse/JRUBY-6955'>JRUBY-6955</a>] -         Cannot define method &lt;=&gt;, get ClassLoader.java:286:in `defineClass&#39;: java.lang.NoClassDefFoundError: test$method__3$RUBY$\=\^=\_
+</li>
+<li>[<a href='https://jira.codehaus.org/browse/JRUBY-6958'>JRUBY-6958</a>] -         Cast error inheriting from a Java class with precompile code.
+</li>
+<li>[<a href='https://jira.codehaus.org/browse/JRUBY-6959'>JRUBY-6959</a>] -         Cannot meta-program java signature
+</li>
+<li>[<a href='https://jira.codehaus.org/browse/JRUBY-6960'>JRUBY-6960</a>] -         Failure to start ant from JRuby 1.7.0*
+</li>
+<li>[<a href='https://jira.codehaus.org/browse/JRUBY-6961'>JRUBY-6961</a>] -         Loading jruby-openssl gem on jruby-1.7.0 can cause &quot;private method `verify_mode&#39; called for #&lt;OpenSSL::SSL::SSLContext...&quot; error
+</li>
+<li>[<a href='https://jira.codehaus.org/browse/JRUBY-6962'>JRUBY-6962</a>] -         Unimplemented methods OpenSSL::PKCS7#type=, OpenSSL::PKCS7#add_data
+</li>
+<li>[<a href='https://jira.codehaus.org/browse/JRUBY-6963'>JRUBY-6963</a>] -         PKCS7 structures that have their content encapsulated in a sequence are not imported correctly
+</li>
+<li>[<a href='https://jira.codehaus.org/browse/JRUBY-6964'>JRUBY-6964</a>] -         DateTime#to_time creates wrong Time objects sometimes
+</li>
+<li>[<a href='https://jira.codehaus.org/browse/JRUBY-6966'>JRUBY-6966</a>] -         Open3.popen3 does not take optional environment hash as first argument
+</li>
+<li>[<a href='https://jira.codehaus.org/browse/JRUBY-6970'>JRUBY-6970</a>] -         __FILE__ has strange &#39;jar:&#39; prefix when inside a gem in a jar.
+</li>
+<li>[<a href='https://jira.codehaus.org/browse/JRUBY-6972'>JRUBY-6972</a>] -         system(&quot;...&amp;&amp;...&quot;) should  work in windows
+</li>
+<li>[<a href='https://jira.codehaus.org/browse/JRUBY-6973'>JRUBY-6973</a>] -         Release jruby-openssl-0.8.0 gem
+</li>
+<li>[<a href='https://jira.codehaus.org/browse/JRUBY-6974'>JRUBY-6974</a>] -         Timeout.timeout not working using UDPSocket
+</li>
+<li>[<a href='https://jira.codehaus.org/browse/JRUBY-6978'>JRUBY-6978</a>] -         try/rescue should treat native Exceptions like rubys StandardError
+</li>
+<li>[<a href='https://jira.codehaus.org/browse/JRUBY-6983'>JRUBY-6983</a>] -         UNIXServer.open ignores the block arg
+</li>
+<li>[<a href='https://jira.codehaus.org/browse/JRUBY-6984'>JRUBY-6984</a>] -         OpenSSL::X509::Name.parse raises NullPointerException
+</li>
+<li>[<a href='https://jira.codehaus.org/browse/JRUBY-6987'>JRUBY-6987</a>] -         Ruboto build failures with recent master
+</li>
+<li>[<a href='https://jira.codehaus.org/browse/JRUBY-6994'>JRUBY-6994</a>] -         exec() in chdir block doesn&#39;t inherit cwd
+</li>
+<li>[<a href='https://jira.codehaus.org/browse/JRUBY-6995'>JRUBY-6995</a>] -         Raising an Exception from #each wrapped in Enumerator.new results in StopIteration
+</li>
+<li>[<a href='https://jira.codehaus.org/browse/JRUBY-6997'>JRUBY-6997</a>] -         Newline in UTF-16 (BE and LE) incorrect under windows
+</li>
+<li>[<a href='https://jira.codehaus.org/browse/JRUBY-6998'>JRUBY-6998</a>] -         IO::NULL undefined (should be === File::NULL)
+</li>
+<li>[<a href='https://jira.codehaus.org/browse/JRUBY-6999'>JRUBY-6999</a>] -         Encoding from Windows-1252 to UTF-8 results in transcoding error
+</li>
+<li>[<a href='https://jira.codehaus.org/browse/JRUBY-7000'>JRUBY-7000</a>] -         to_path should be unconditional
+</li>
+<li>[<a href='https://jira.codehaus.org/browse/JRUBY-7002'>JRUBY-7002</a>] -         File.join does not handle &#39;\&#39; on Unix systems properly
+</li>
+<li>[<a href='https://jira.codehaus.org/browse/JRUBY-7004'>JRUBY-7004</a>] -         Implement Etc.sysconfdir and Etc.systmpdir
+</li>
+<li>[<a href='https://jira.codehaus.org/browse/JRUBY-7008'>JRUBY-7008</a>] -         Undefined method `search_convpath&#39; for Encoding::Converter:Class
+</li>
+<li>[<a href='https://jira.codehaus.org/browse/JRUBY-4739'>JRUBY-4739</a>] -         Make source dist be inclusive by default so we do not keep missing new files/folders added to our source tree
+</li>
+<li>[<a href='https://jira.codehaus.org/browse/JRUBY-5205'>JRUBY-5205</a>] -         Make hashy arguments faster
+</li>
+<li>[<a href='https://jira.codehaus.org/browse/JRUBY-5620'>JRUBY-5620</a>] -         Mixed perf on String#to_i versus Ruby 1.9 and Rubinius
+</li>
+<li>[<a href='https://jira.codehaus.org/browse/JRUBY-5799'>JRUBY-5799</a>] -         InternalJavaProxy needs setInvocationHandler
+</li>
+<li>[<a href='https://jira.codehaus.org/browse/JRUBY-5800'>JRUBY-5800</a>] -         Encapsulate @java_proxy_class computation in JavaProxy
+</li>
+<li>[<a href='https://jira.codehaus.org/browse/JRUBY-6453'>JRUBY-6453</a>] -         Make String/ByteList creation facilities part of RedBridge APIs
+</li>
+<li>[<a href='https://jira.codehaus.org/browse/JRUBY-6491'>JRUBY-6491</a>] -         Pushing your changes of Rubygems to Rubygems upstream
+</li>
+<li>[<a href='https://jira.codehaus.org/browse/JRUBY-6500'>JRUBY-6500</a>] -         Compiler improvements
+</li>
+<li>[<a href='https://jira.codehaus.org/browse/JRUBY-6643'>JRUBY-6643</a>] -         jrubyc AOT Java compilation doesn&#39;t identify failure cause
+</li>
+<li>[<a href='https://jira.codehaus.org/browse/JRUBY-6901'>JRUBY-6901</a>] -         Use Java 7 NIO.2 APIs to implement dir opening
+</li>
+<li>[<a href='https://jira.codehaus.org/browse/JRUBY-6905'>JRUBY-6905</a>] -         JRuby does not warn about assigned but unused variable
+</li>
+<li>[<a href='https://jira.codehaus.org/browse/JRUBY-6935'>JRUBY-6935</a>] -         Update 1.9 stdlib to p286
+</li>
+<li>[<a href='https://jira.codehaus.org/browse/JRUBY-6976'>JRUBY-6976</a>] -         byte[] should have a to_s method
+</li>
+<li>[<a href='https://jira.codehaus.org/browse/JRUBY-4670'>JRUBY-4670</a>] -         Plug ruby2java java2ruby marshalling
+</li>
+<li>[<a href='https://jira.codehaus.org/browse/JRUBY-6466'>JRUBY-6466</a>] -         externalize build_lib dependencies
+</li>
+<li>[<a href='https://jira.codehaus.org/browse/JRUBY-6793'>JRUBY-6793</a>] -         Update bouncycastle jars to the latest version. (1.47)
+</li>
+<li>[<a href='https://jira.codehaus.org/browse/JRUBY-6873'>JRUBY-6873</a>] -         jruby-1.7.0.preview2 much slower jruby-1.6.3 (192s vs.60s)
+</li>
+<li>[<a href='https://jira.codehaus.org/browse/JRUBY-6916'>JRUBY-6916</a>] -         Better support for 64-bit AIX (FFI)
+</li>
+<li>[<a href='https://jira.codehaus.org/browse/JRUBY-6982'>JRUBY-6982</a>] -         Various issues producing an updated JRuby package for Fedora
+</li>
+</ul>
+
+### Github Issues closed since 1.7.0:
+
+<ul>
+<li><a href='https://github.com/jruby/jruby/issues/404'>#404</a> Use canonical_name instead of full_name</li>
+<li><a href='https://github.com/jruby/jruby/issues/400'>#400</a> Update 'json' library.</li>
+<li><a href='https://github.com/jruby/jruby/issues/398'>#398</a> JRuby 1.7.0 unix sockets - 100% CPU - worked in preview2</li>
+<li><a href='https://github.com/jruby/jruby/issues/390'>#390</a> New FFI::IO.for_fd fails on Linux (and possibly other platforms)</li>
+<li><a href='https://github.com/jruby/jruby/issues/207'>#207</a> JRuby 1.7 Bundles Invalid Bouncy Castle Security Provider openssl</li>
+<li><a href='https://github.com/jruby/jruby/issues/198'>#198</a> Inheriting from BigDecimal returns incorrect class</li>
+<li><a href='https://github.com/jruby/jruby/issues/349'>#349</a> Improved support for Server Name Indication (SNI)</li>
+<li><a href='https://github.com/jruby/jruby/issues/178'>#178</a> JRUBY-2724: I've added some tests and I tried to fix unc pathing</li>
+<li><a href='https://github.com/jruby/jruby/issues/326'>#326</a> JSON format profile printer (additions)</li>
+<li><a href='https://github.com/jruby/jruby/issues/313'>#313</a> Math.atan 0.0/0.0 core</li>
+</ul>
