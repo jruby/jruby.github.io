@@ -3,7 +3,6 @@ require 'jira'
 
 def github_milestone_for(issues, user, repo, title)
   ['open', 'closed'].each do |state|
-p issues.milestones
     issues.milestones.list(user, repo, state: state) do |milestone|
       return milestone.number if milestone.title == title
     end
@@ -23,7 +22,9 @@ def github_closed_issues(user, repo, milestone)
   options = { milestone: mid, state: 'closed' }
 
   issues.list_repo(user, repo, options).inject([]) do |list, issue|
-    list << ["\##{issue.number}", issue.title, issue.url] if issue.state == 'closed'
+    if issue.state == 'closed'
+      list << ["\##{issue.number}", issue.title, issue.html_url] 
+    end
     list
   end
 end
