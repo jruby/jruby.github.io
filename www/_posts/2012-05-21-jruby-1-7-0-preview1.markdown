@@ -7,15 +7,15 @@ The JRuby community is pleased to announce the release of JRuby 1.7.0.preview1.
 - Homepage: [http://www.jruby.org/](http://www.jruby.org/)
 - Download: [http://www.jruby.org/download](http://www.jruby.org/download)
 
-This is the first preview release of JRuby 1.7. This release represents a tremendous amount of work by dozens of contributors, and there are improvements in every subsystem. Users on Java 7 should start to see gains from invokedynamic, the JVM’s new support for dynamic languages. Users of highly-concurrent applications will see improvements in throughput and raw parallelism. And we have upped our compatibility level to match Ruby 1.9.3.
+This is the first preview release of JRuby 1.7. This release represents a tremendous amount of work by dozens of contributors, and there are improvements in every subsystem. Users on Java 7 should start to see gains from invokedynamic, the JVM's new support for dynamic languages. Users of highly-concurrent applications will see improvements in throughput and raw parallelism. And we have upped our compatibility level to match Ruby 1.9.3.
 
-We have opted for a preview cycle this time due to the significance of changes in this release and our desire to give users more time to test JRuby before releasing 1.7 final. When in doubt, file a bug...we’ll sort it out. We want to know issues users have with JRuby 1.7 sooner rather than later.
+We have opted for a preview cycle this time due to the significance of changes in this release and our desire to give users more time to test JRuby before releasing 1.7 final. When in doubt, file a bug...we'll sort it out. We want to know issues users have with JRuby 1.7 sooner rather than later.
 
 ### Notable Changes:
 
 - 1\.9\.3 is now our default runtime mode (--1.8 is needed for 1.8.7 support)
 - Many 1.9.x compatibility fixes
-- Support for Java 7’s invokedynamic\*
+- Support for Java 7's invokedynamic\*
 - Performance and concurrency improvements
 - Java 5 support dropped (Java 6+ required)
 - Update to Rubygems 1.8.24
@@ -24,7 +24,7 @@ We have opted for a preview cycle this time due to the significance of changes i
 
 \*Note on invokedynamic performance:
 
-Invokedynamic is still a new feature for the JVM, so we recommend running as recent a build of Java 7 as possible. Builds of OpenJDK/Oracle JDK prior to “update 2” will show poor performance.
+Invokedynamic is still a new feature for the JVM, so we recommend running as recent a build of Java 7 as possible. Builds of OpenJDK/Oracle JDK prior to "update 2" will show poor performance.
 
 Invokedynamic support can be disabled with -Xcompile.invokedynamic=false (passed to JRuby) for investigating perf issues or bugs.
 
