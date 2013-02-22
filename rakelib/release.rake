@@ -21,7 +21,7 @@ def github_closed_issues(user, repo, milestone)
 
   options = { milestone: mid, state: 'closed' }
 
-  issues.list_repo(user, repo, options).inject([]) do |list, issue|
+  issues.__send__(:list_repo, user, repo, options).inject([]) do |list, issue|
     if issue.state == 'closed'
       list << ["\##{issue.number}", issue.title, issue.html_url] 
     end
