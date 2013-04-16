@@ -1,9 +1,9 @@
 ---
-title: Google Summer of Code 2012
+title: Google Summer of Code 2013
 layout: main
 ---
 
-JRuby will be part of [Google's Summer of Code 2012][melange]!
+JRuby will be part of [Google's Summer of Code 2013](http://www.google-melange.com/gsoc/homepage/google/gsoc2013)!
 
 We're looking for good mentors and students to come together and
 help make JRuby even more awesome. JRuby has great potential to
@@ -11,16 +11,14 @@ expand Ruby and to improve the state of Ruby development, and at
 the same time it represents a number of interesting and unique
 challenges.
 
-Mentors and students can apply at the [JRuby GSoC Page][melange].
+Mentors and students can apply at the [JRuby GSoC Page](https://google-melange.appspot.com/gsoc/org/google/gsoc2013/jruby).
 More information is provided below about GSoC ideas and what we
 expect of students and mentors.
-
-[melange]: http://www.google-melange.com/gsoc/org/google/gsoc2012/jruby
 
 Ideas
 -----
 
-[Ideas for JRuby's GSoC](https://github.com/jruby/jruby/wiki/GoogleSummerOfCode2012) fall into a few categories:
+[Ideas for JRuby's GSoC]((https://github.com/jruby/jruby/wiki/Google-Summer-of-Code-2013) fall into a few categories:
 
 * Working on JRuby itself
 
@@ -51,7 +49,7 @@ the languages and libraries it hosts.
 How to Get Involved
 -------------------
 
-Students and mentors should join the [JRuby development mailing list][lists]
+Students and mentors should join the [jruby-gsoc Google Group](https://groups.google.com/forum/#!forum/jruby-gsoc) to discuss ideas and get to know mentors.
 
 ### Students
 
@@ -60,12 +58,12 @@ project this summer, join the mailing list above
 and let us know what project you have in mind. When the call for
 GSoC proposals opens, submit your idea!
 
-GSoC will be open for student proposals on March 25th (US time)
-and closes on April 6. NOTE: Proposals can be edited after submission,
+GSoC will be open for student proposals on April 22nd (US time)
+and closes on May 3rd. NOTE: Proposals can be edited after submission,
 so don't be afraid to submit early. We'll discuss them with you and help
 you improve the proposal up until the deadline.
 
-To apply, visit the the [JRuby GSoC Page](http://www.google-melange.com/gsoc/org/google/gsoc2012/jruby).
+To apply, visit the the [JRuby GSoC Page](https://google-melange.appspot.com/gsoc/org/google/gsoc2013/jruby).
 If you don't have a GSoC profile, there's a big *Register* link to create one.
 Once you have a GSoC profile, you can apply.
 
@@ -88,7 +86,7 @@ students during the summer and help keep them to a solid schedule.
 
 Mentors will be accepted any time during the proposal process.
 
-To apply, visit the the [JRuby GSoC Page](http://www.google-melange.com/gsoc/org/google/gsoc2012/jruby).
+To apply, visit the the [JRuby GSoC Page](https://google-melange.appspot.com/gsoc/org/google/gsoc2013/jruby).
 If you don't have a GSoC profile, there's a big *Register* link to create one.
 Once you have a GSoC profile, you can apply.
 
