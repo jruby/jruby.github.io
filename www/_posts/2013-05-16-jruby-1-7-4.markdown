@@ -7,7 +7,7 @@ The JRuby community is pleased to announce the release of JRuby 1.7.4
 - Homepage: [http://www.jruby.org/](http://www.jruby.org/)
 - Download: [http://www.jruby.org/download](http://www.jruby.org/download)
 
-JRuby 1.7.4 is our fourth update release since JRuby 1.7.0.  The primary goal of 1.7 point releases is to fill out any missing compatibility issues with Ruby 1.9.4.  The community participation lately has been great.  Keep reporting issues and sending pull requests.
+JRuby 1.7.4 is our fourth update release since JRuby 1.7.0.  The primary goal of 1.7 point releases is to fill out any missing compatibility issues with Ruby 1.9.3.  The community participation lately has been great.  Keep reporting issues and sending pull requests.
 
 Changes of note:
 - Dozens of 1.9-mode compatibility fixes
