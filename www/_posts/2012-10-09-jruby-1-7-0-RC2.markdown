@@ -11,7 +11,7 @@ This is the second (and likely last) release candidate of JRuby 1.7. The JRuby 1
 
 We know that there are still pieces of 1.9 support we don't have yet, like Ripper, but we think we are at a stable point where people can use JRuby in 1.9 mode to host production applications.  Barring any significantly serious issues, RC2 will become 1.7.0.  Our plan after the release of 1.7.0 is a set of smaller point releases to address bugs and to add the few missing pieces of Ruby 1.9.
 
-JRuby 1.7 is the first JRuby to support the new “invokedynamic” feature of the JVM. You can enable invokedynamic use on Java 7, but it is disabled normally due to JVM issues. On Java 8 builds, it is enabled by default. http://wiki.jruby.org/PerformanceTuning
+JRuby 1.7 is the first JRuby to support the new "invokedynamic" feature of the JVM. You can enable invokedynamic use on Java 7, but it is disabled normally due to JVM issues. On Java 8 builds, it is enabled by default. http://wiki.jruby.org/PerformanceTuning
 
 Please, please, please test your applications against 1.7.0.RC2.  We want to make 1.7.0 a rock solid release and your contribution is extremely helpful.
 

@@ -35,6 +35,16 @@ end
 
 task :nginx => :cookbooks
 
+task :issues do
+  version = ENV['JRUBY_VERSION'] || fail("No JRUBY_VERSION env set")
+  username, password = grab_username_password_from_m2
+  options = {:username => username, :password => password, :context_path => '/',
+    :site => 'https://jira.codehaus.org/', :auth_type => :basic 
+  }
+
+  puts release_issues(version, options)
+end
+
 task :default do
   puts "JRuby.org documentation site. Available tasks:"
   Rake.application.options.show_tasks = true
