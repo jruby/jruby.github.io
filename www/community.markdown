@@ -14,11 +14,11 @@ JRuby has a large and active community. You can connect up with them in several 
 
 [**Mailing Lists**][lists] - There are also several mailing lists, for users, developers, and folks interested in tracking the process of JRuby.
 
-[**Bug Tracker**][jira] - Users are encouraged to report any bug, however insignificant it may seem. Please run a couple searches first to see if your bug has been reported, or ask us about it on IRC&nbsp;or the mailing lists.
+[**Bug Tracker**][github_issues] - Users are encouraged to report any bug, however insignificant it may seem. Please run a couple searches first to see if your bug has been reported, or ask us about it on IRC&nbsp;or the mailing lists.
 
 [**Wiki**][wiki] - The JRuby wiki--user editable.
 
 [irc]: http://wiki.jruby.org/IRC
 [lists]: http://wiki.jruby.org/MailingLists
-[jira]: http://jira.codehaus.org/browse/JRUBY
+[github_issues]: http://github.com/jruby/jruby/issues
 [wiki]: http://wiki.jruby.org/
