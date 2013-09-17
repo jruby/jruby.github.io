@@ -35,6 +35,7 @@ end
 
 task :nginx => :cookbooks
 
+desc "Down resolved issues based on ENV[JRUBY_VERSION]"
 task :issues do
   version = ENV['JRUBY_VERSION'] || fail("No JRUBY_VERSION env set")
   username, password = grab_username_password_from_m2
