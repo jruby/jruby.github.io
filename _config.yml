@@ -25,7 +25,7 @@ release:
 urls:
   s3: http://jruby.org.s3.amazonaws.com/downloads
   tryjruby: http://jruby.org.s3.amazonaws.com/tryjruby
-  bugs: http://bugs.jruby.org/
+  bugs: http://github.com/jruby/jruby/issues
   jira: http://jira.codehaus.org/browse/JRUBY
   wiki: http://wiki.jruby.org/
   lists: http://wiki.jruby.org/MailingLists

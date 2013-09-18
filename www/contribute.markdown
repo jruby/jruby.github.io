@@ -26,13 +26,12 @@ JRuby depends on community contributions to survive. Here's how you can get invo
 
 **Check out the Hacking Guide** - NaHi built an [awesome Prezi fly-through tour of the JRuby codebase][prezi]. Take a look through it for getting bearings with the codebase.
 
-**Report Bugs** - Our bug tracker uses Atlassian JIRA. Please report anything you think is a bug! Performance problems are considered bugs, so please report those too.
+**Report Bugs** - We have 2 bug trackers.
+One is a JIRA hosted by the good folks at [Codehaus](http://codehaus.org/).
+The other is on github.
 
-- **Bug Tracker**: [**Browse**]({{ site.urls.jira }})
-
-**Fix Bugs** - We'd love it if you help triage or fix open bugs. We've created a [**HelpWanted**][helpwanted] section of the bug tracker where we appreciate all the help we can get!
-
-- **HelpWanted**: [Browse][helpwanted]
+- **JIRA**: [**Browse**]({{ site.urls.jira }})
+- **Github issues**: [**Browse**]({{ site.urls.bugs }})
 
 **Submit Code Changes** - Code changes are great.  Send them back with a [GitHub pull request][pullrequest] for review.
 
@@ -44,7 +43,6 @@ JRuby depends on community contributions to survive. Here's how you can get invo
 
 - **Website**: [**Browse**](http://github.com/jruby/jruby.github.com) &nbsp;|&nbsp;[**Checkout**](git://github.com/jruby/jruby.github.com.git)
 
-[helpwanted]: http://bit.ly/jruby-help-wanted
 [prezi]: http://prezi.com/tsuouxb3z4ln/jruby-hacking-guide/
 [pullrequest]: https://help.github.com/articles/using-pull-requests
 
