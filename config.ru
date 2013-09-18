@@ -1,3 +1,4 @@
+# coding: utf-8
 # -*- ruby -*-
 #
 # This rackup file runs the equivalent of jekyll --server --auto, but
@@ -36,6 +37,7 @@ dw.glob = globs(source)
 dw.add_observer do |*args|
   t = Time.now.strftime("%Y-%m-%d %H:%M:%S")
   puts "[#{t}] regeneration: #{args.size} files changed"
+p args
   site.process
 end
 

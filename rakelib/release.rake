@@ -19,16 +19,13 @@ def github_closed_issues(user, repo, milestone)
 
   return nil if mid == -1
 
-  options = { milestone: mid, state: 'closed', per_page: 100 }
+  options = { user: user, repo: repo, milestone: mid.to_s, state: 'closed', per_page: 100 }
 
   full_list = []
   1.upto(1_000_000) do |i|
     options[:page] = i
-    page = issues.__send__(:list_repo, user, repo, options).inject([]) do |list, issue|
-      if issue.state == 'closed'
-        list << ["\##{issue.number}", issue.title, issue.html_url] 
-      end
-      list
+    page = issues.list(options).map do |issue|
+      ['#' + issue.number.to_s, issue.title, issue.html_url]
     end
     return full_list if page.size == 0
     full_list.concat page
