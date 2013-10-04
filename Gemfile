@@ -11,3 +11,4 @@ gem "jruby-openssl", :platform => :jruby
 gem 'github_api', "0.8.1"
 gem 'jira-ruby'
 gem 'directory_watcher', '~> 1.4.1'
+gem 'engineyard'
