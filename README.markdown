@@ -6,6 +6,10 @@ This repository contains the content for http://www.jruby.org/ as
 The site is generated with Jekyll, and while you can use the regular
 `jekyll` executable, the preferred steps are the following:
 
+0. IMPORTANT: Jekyll does not like you unless you set up to be UTF-8:
+
+        LC_CTYPE=en_US.UTF-8 LANG=en_us.UTF-8 rake generate
+
 1. (One time only) Install Bundler (`gem install bundler`) and run
    `bundle install` once.
 2. Run rake to see the available tasks:
