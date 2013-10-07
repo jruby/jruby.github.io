@@ -28,10 +28,10 @@ JRuby depends on community contributions to survive. Here's how you can get invo
 
 **Report Bugs** - We have 2 bug trackers.
 One is a JIRA hosted by the good folks at [Codehaus](http://codehaus.org/).
-The other is on github.
+The other is on github.  The JIRA bug tracker is in read-only mode and you should create all new issues on Github.  JIRA issues only exist for historical context.
 
-- **JIRA**: [**Browse**]({{ site.urls.jira }})
 - **Github issues**: [**Browse**]({{ site.urls.bugs }})
+- **JIRA**: [**Browse**]({{ site.urls.jira }})
 
 **Submit Code Changes** - Code changes are great.  Send them back with a [GitHub pull request][pullrequest] for review.
 
