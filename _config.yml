@@ -27,7 +27,7 @@ urls:
   tryjruby: http://jruby.org.s3.amazonaws.com/tryjruby
   bugs: http://github.com/jruby/jruby/issues
   jira: http://jira.codehaus.org/browse/JRUBY
-  wiki: http://wiki.jruby.org/p
+  wiki: http://wiki.jruby.org/
   lists: http://wiki.jruby.org/MailingLists
   github: https://github.com/jruby/jruby
 team_email: team@jruby.org
