@@ -77,13 +77,14 @@ end
 
 def release_issues(version, options)
   milestone_label = "JRuby #{version}"
-  jira_issues = jira_closed_issues('jruby', milestone_label, options)
+#  jira_issues = jira_closed_issues('jruby', milestone_label, options)
   github_issues = github_closed_issues('jruby', 'jruby', milestone_label)
 
-  number_resolved = jira_issues.length + github_issues.length
+#  number_resolved = jira_issues.length + github_issues.length
+  number_resolved = github_issues.length
 
   notes = "- #{number_resolved} issues fixed for #{version}\n"
-  notes = issue_notes_for('Jira', version, jira_issues, notes)
+#  notes = issue_notes_for('Jira', version, jira_issues, notes)
   notes = issue_notes_for('Github', version, github_issues, notes)
   notes
 end
