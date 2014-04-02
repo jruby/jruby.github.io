@@ -6,6 +6,7 @@ def sorted_files
     collection = jruby_org_bucket.files.dup
     collection.prefix = folder
     collection.each do |f|
+      puts "f.key = #{f.key}"
       entries << f.key.sub(/_\$folder\$$/, '/')
     end
   end
@@ -52,6 +53,17 @@ def jruby_org_bucket
   @bucket ||= s3_connection.directories.get('jruby.org')
 end
 
+##
+# Yield all files and not directories unless you want those too.
+# === Examples
+# jruby_org_s3_in('directories')
+def jruby_org_s3_in(subdir, folder=false)
+  subdir += '/' if !subdir.end_with? '/'
+  jruby_org_bucket.files.tap {|fs| fs.prefix = subdir }.each do |f|
+    yield f if folder || f.key !~ /_\$folder\$$/
+  end
+end
+
 def log_line_match(line)
   unless @line_def
     require 'request_log_analyzer'
@@ -71,7 +83,6 @@ def jruby_download_summary(date = nil, output = nil)
   date ||= Date.today - 1
   output = File.new(output, "w") if String === output
   output ||= $stdout
-  s3_connect
   log_objects = s3_connection.directories.get('jrubylogs', :prefix => "jruby-access-log/#{date.to_s}").files
   requests = {}
   user_agents = {}

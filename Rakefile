@@ -63,16 +63,26 @@ desc "Create browsable index.html files for S3"
 task :indexes do
   top = "www/files"
   mkdir_p top, :verbose => false
-  sorted_files.each do |dir,entries|
-    mkdir_p File.expand_path(File.join(top, dir)), :verbose => false
-    File.open(File.expand_path(File.join(top, dir, "index.html")), "wb") do |html|
+  all_files = sorted_files
+
+  all_files.each do |dir,entries|
+    www_dir = File.expand_path(File.join(top, dir))
+    mkdir_p www_dir, :verbose => false
+    File.open(File.join(www_dir, "index.html"), "wb") do |html|
       write_index_html(html, dir, entries)
     end
   end
 end
 
 task :update_hash_files do
-  jruby_org_bucket.files.tap {|fs| fs.prefix = 'downloads/' }.each do |file|
+  index_contents = ""
+
+  jruby_org_s3_in('downloads') do |file|
+    # Generate a new index file for RVM (GH #1607)
+    next if file.key =~ /index.txt$/
+    index_contents << "http://jruby.org.s3.amazonaws.com/#{file.key}\n"
+
+    # Tweak uploaded signature files to the proper MIME-type
     next unless file.key =~ /\.(md5|sha1)$/
     unless file.content_type == "text/plain"
       puts "Updating #{file.key} to Content-Type: text/plain"
@@ -81,6 +91,11 @@ task :update_hash_files do
       file.save
     end
   end
+
+  # Save the new index file.
+  f = jruby_org_bucket.files.get("downloads/index.txt")
+  f.body = contents
+  f.save
 end
 
 desc "Print a summary of yesterday's file downloads"
