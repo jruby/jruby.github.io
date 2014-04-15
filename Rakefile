@@ -94,7 +94,8 @@ task :update_hash_files do
 
   # Save the new index file.
   f = jruby_org_bucket.files.get("downloads/index.txt")
-  f.body = contents
+  f.body = index_contents
+  f.public = true
   f.save
 end
 
