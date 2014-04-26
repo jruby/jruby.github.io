@@ -18,11 +18,13 @@ JRuby depends on community contributions to survive. Here's how you can get invo
 
 *Need [Git help](http://git-scm.com/)? It's ok, we're not Git experts either.*
 
-**Build JRuby** - Once you've checked out the source, you just need to run &quot;ant&quot;&nbsp;or &quot;ant jar&quot;&nbsp;to build and &quot;ant test&quot;&nbsp;to run our test suite. We depend on <a href="http://ant.apache.org/">Apache Ant</a> 1.7.0 or higher.
+**Build JRuby** - Once you've checked out the source, you just need to run &quot;mvn&quot;&nbsp;or &quot;mvn package&quot;&nbsp;to build and &quot;mvn -Ptest&quot;&nbsp;to run our Java unit test suite. We depend on <a href="http://maven.apache.org/">Apache Maven</a> 3.x.
 
-      ant
-      ant jar
-      ant test
+      mvn
+      mvn package
+      mvn -Ptest
+
+For more detailed information building and other ways to test have a look at <a href="https://github.com/jruby/jruby/blob/master/BUILDING.md">jruby/BUILDING.md</a>.
 
 **Check out the Hacking Guide** - NaHi built an [awesome Prezi fly-through tour of the JRuby codebase][prezi]. Take a look through it for getting bearings with the codebase.
 
