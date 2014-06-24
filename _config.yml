@@ -13,15 +13,15 @@ maruku:
   png_url:    /images/latex
 # JRuby-specific info here; goes into the "site" jekyll variable
 release:
-  url: /2014/04/15/jruby-1-7-12
-  version: 1.7.12
-  tar: http://jruby.org.s3.amazonaws.com/downloads/1.7.12/jruby-bin-1.7.12.tar.gz
-  zip: http://jruby.org.s3.amazonaws.com/downloads/1.7.12/jruby-bin-1.7.12.zip
-  exe: http://jruby.org.s3.amazonaws.com/downloads/1.7.12/jruby_windows_1_7_12.exe
-  exe64: http://jruby.org.s3.amazonaws.com/downloads/1.7.12/jruby_windows_x64_1_7_12.exe
-  exejre: http://jruby.org.s3.amazonaws.com/downloads/1.7.12/jruby_windowsjre_1_7_12.exe
-  exejre64: http://jruby.org.s3.amazonaws.com/downloads/1.7.12/jruby_windows_x64_jre_1_7_12.exe
-  dmg: http://jruby.org.s3.amazonaws.com/downloads/1.7.12/JRuby-1.7.12.dmg
+  url: /2014/06/24/jruby-1-7-13
+  version: 1.7.13
+  tar: http://jruby.org.s3.amazonaws.com/downloads/1.7.13/jruby-bin-1.7.13.tar.gz
+  zip: http://jruby.org.s3.amazonaws.com/downloads/1.7.13/jruby-bin-1.7.13.zip
+  exe: http://jruby.org.s3.amazonaws.com/downloads/1.7.13/jruby_windows_1_7_13.exe
+  exe64: http://jruby.org.s3.amazonaws.com/downloads/1.7.13/jruby_windows_x64_1_7_13.exe
+  exejre: http://jruby.org.s3.amazonaws.com/downloads/1.7.13/jruby_windowsjre_1_7_13.exe
+  exejre64: http://jruby.org.s3.amazonaws.com/downloads/1.7.13/jruby_windows_x64_jre_1_7_13.exe
+  dmg: http://jruby.org.s3.amazonaws.com/downloads/1.7.13/JRuby-1.7.13.dmg
 urls:
   s3: http://jruby.org.s3.amazonaws.com/downloads
   tryjruby: http://jruby.org.s3.amazonaws.com/tryjruby
