@@ -24,7 +24,7 @@ to bundle the Java Virtual Machine or not.
 
 # Other ways to get JRuby
 
-If you use [RVM](http://rvm.beginrescueend.com/), then installing
+If you use [RVM](https://rvm.io/), then installing
 JRuby is also a piece of cake:
 
     rvm install jruby
