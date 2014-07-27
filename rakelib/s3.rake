@@ -1,3 +1,8 @@
+# Hack for now to get rid of: OpenSSL::SSL::SSLError: hostname "jruby.org.s3.amazonaws.com" does not match the server certificate
+require 'fog'
+
+Fog.credentials = { path_style: true }
+
 INDEXED_FOLDERS = %w(downloads prerelease presentations tryjruby)
 
 def sorted_files
