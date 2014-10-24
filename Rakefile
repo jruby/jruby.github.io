@@ -80,7 +80,7 @@ task :update_hash_files do
   jruby_org_s3_in('downloads') do |file|
     # Generate a new index file for RVM (GH #1607)
     next if file.key =~ /index.txt$/
-    index_contents << "http://jruby.org.s3.amazonaws.com/#{file.key}\n"
+    index_contents << "https://s3.amazonaws.com/jruby.org/#{file.key}\n"
 
     # Tweak uploaded signature files to the proper MIME-type
     next unless file.key =~ /\.(md5|sha1)$/

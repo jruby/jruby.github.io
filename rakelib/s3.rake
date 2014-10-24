@@ -39,7 +39,7 @@ HDR
     if entry =~ /\/$/
       html.puts "  <a href='/files/#{entry}index.html'>#{File.basename(entry)}</a><br/>"
     else
-      html.puts "  <a href='http://jruby.org.s3.amazonaws.com/#{entry}'>#{File.basename(entry)}</a><br/>"
+      html.puts "  <a href='https://s3.amazonaws.com/jruby.org/#{entry}'>#{File.basename(entry)}</a><br/>"
     end
   end
   html.puts "</p>"
