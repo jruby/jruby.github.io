@@ -76,9 +76,12 @@ end
 
 task :update_hash_files do
   index_contents = ''
+  version = ENV['JRUBY_VERSION'] || fail('No JRUBY_VERSION env set')
+  version_re = Regexp.new version
 
   jruby_org_s3_in('downloads') do |file|
     # Generate a new index file for RVM (GH #1607)
+    next if file.key !~ version_re
     next if file.key =~ /index.txt$/
     index_contents << "https://s3.amazonaws.com/jruby.org/#{file.key}\n"
 
