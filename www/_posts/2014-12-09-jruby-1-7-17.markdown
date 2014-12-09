@@ -13,7 +13,7 @@ Highlights:
 
 - 56 issues fixed for 1.7.17
 - native crypt()
-- wrong encoding of `` when string interpolation is involved
+- Fixed bad encoding of string interpolated within backticks (``)
 - popen2+ now works properly with env hash
 - improvements to align MRI and JRuby FFI
 - updated stdlib to 1.9.3p392 (+ rexml security fixes)
