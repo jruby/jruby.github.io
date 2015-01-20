@@ -1,5 +1,4 @@
 destination: ./_site
-source:      ./www
 auto:        false
 lsi:         false
 server_port: 4000
