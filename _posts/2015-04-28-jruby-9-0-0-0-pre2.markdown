@@ -1,0 +1,138 @@
+---
+layout: post
+title: JRuby 9.0.0.0-pre2 Released
+---
+The JRuby community is pleased to announce the release of JRuby 9.0.0.0-pre2
+
+- Homepage: [http://www.jruby.org/](http://www.jruby.org/)
+- Download: [http://www.jruby.org/download](http://www.jruby.org/download)
+
+JRuby 9000 is the new version of JRuby, representing years of effort and large-scale reboots of several JRuby subsystems.
+
+Major features of JRuby 9000:
+
+- Ruby 2.2 compatibility, minus features listed below
+- A new optimizing runtime based on a traditional compiler design
+- New POSIX-friendly IO and Process
+- Fully ported encoding/transcoding logic from MRI
+
+This is our second preview release, and we are getting much closer to reaching
+our first .0 release.  We are releasing this update to get user feedback on Ruby 2.2 functionality and overall stability.
+
+We hope all Ruby users will try out this release and report issues on our issue tracker at http://bugs.jruby.org. We also encourage users to join our IRC channel (#jruby on Freenode) and mailing lists. You may also follow @jruby on Twitter for updates.
+
+Ruby 2.2 features yet to be implemented:
+
+- Refinements (partially finished) [#1062](https://github.com/jruby/jruby/issues/1062)
+- Kernel#spawn close-on-exec support
+- ObjectSpace::WeakMap#each and Enumerable inclusion
+- Thread#handle_interrupt is not yet fully functional
+
+Notable changes since pre1:
+
+- Startup time has improved but is a tiny bit slower than 1.7.x.
+- Memory usage has improved but still a ways to go.
+- Straight-line performance has improved since pre1
+- Windows support improved, but still needs further work and testing
+- Many keyword arguments problems fixed
+- 88 issues fixed for 9.0.0.0.pre2
+
+The new runtime gathers more information about Ruby code and performs more analysis and optimization than our old runtime. There's great potential here to bring Ruby performance to native Java or C, but we are just starting the optimization phase of that work. We will do our best to get startup time, memory use, and performance on par with 1.7.x (or better) before the final release of JRuby 9000.
+
+## Truffle
+
+JRuby 9000 includes an in-development version of support for the Truffle language implementation framework and Graal VM from Oracle Labs. In future releases, Truffle will provide an extremely high performance and compatible backend for JRuby. The Truffle backend supports all Ruby language features, but so far only some of the core and standard libraries. It has no support for RubyGems or Rails, does not work on Windows, and is not ready to be tested with applications at this stage. More information on Truffle and Graal can be found in the [JRuby Wiki](https://github.com/jruby/jruby/wiki/Truffle).
+
+
+### Github Issues resolved for 9.0.0.0.pre2
+
+<ul>
+<li><a href="https://github.com/jruby/jruby/issues/2864">#2864</a> - Prepend breaks module "implementer" search</li>
+<li><a href="https://github.com/jruby/jruby/issues/2847">#2847</a> - JRuby not using UTF-8 for source files</li>
+<li><a href="https://github.com/jruby/jruby/issues/2846">#2846</a> - Psych dependency is installing non-JRuby version</li>
+<li><a href="https://github.com/jruby/jruby/issues/2842">#2842</a> - Hash#each_pair should be a true alias of Hash#each</li>
+<li><a href="https://github.com/jruby/jruby/issues/2840">#2840</a> - jrubyc blows with NPE</li>
+<li><a href="https://github.com/jruby/jruby/issues/2833">#2833</a> - Bad nonlocal return with re-wrapped define_method block</li>
+<li><a href="https://github.com/jruby/jruby/pull/2797">#2797</a> - Support respond_to_missing? in respondsTo() lookups</li>
+<li><a href="https://github.com/jruby/jruby/issues/2788">#2788</a> - Autoload broken by path canonicalization</li>
+<li><a href="https://github.com/jruby/jruby/issues/2787">#2787</a> - Returns nil instead of regex match group inside conditional</li>
+<li><a href="https://github.com/jruby/jruby/issues/2784">#2784</a> - rindex() fails on strings read from binary files</li>
+<li><a href="https://github.com/jruby/jruby/issues/2777">#2777</a> - Undefined group option during parse of mri/test_regexp.rb</li>
+<li><a href="https://github.com/jruby/jruby/issues/2776">#2776</a> - IR improperly masks errors in defined-guarded conditional</li>
+<li><a href="https://github.com/jruby/jruby/issues/2771">#2771</a> - unknown type of %string</li>
+<li><a href="https://github.com/jruby/jruby/issues/2767">#2767</a> - Open3.popen3 treats string command differently than MRI</li>
+<li><a href="https://github.com/jruby/jruby/issues/2766">#2766</a> - Open3.capture2e fails with "wrong exec option"</li>
+<li><a href="https://github.com/jruby/jruby/issues/2764">#2764</a> - Encoding::Converter#primitive_convert has trailing null byte</li>
+<li><a href="https://github.com/jruby/jruby/issues/2752">#2752</a> - JRuby doesn't define Process::Tms like MRI does</li>
+<li><a href="https://github.com/jruby/jruby/issues/2751">#2751</a> - Make RUBY_ENGINE_VERSION as companion to RUBY_ENGINE</li>
+<li><a href="https://github.com/jruby/jruby/issues/2736">#2736</a> - early return in each'd enumerator is jumping out of each and not method</li>
+<li><a href="https://github.com/jruby/jruby/issues/2726">#2726</a> - how do I install with Jars? Re: "deprecated. use instead jars/installer" message</li>
+<li><a href="https://github.com/jruby/jruby/issues/2716">#2716</a> - rb_cmpint difference from MRI</li>
+<li><a href="https://github.com/jruby/jruby/issues/2712">#2712</a> - Micro bench is nearly 2x slower with JIT than interp</li>
+<li><a href="https://github.com/jruby/jruby/pull/2692">#2692</a> - Fix for issue 2591 on master : double-quoted UTF8 hash key encoding</li>
+<li><a href="https://github.com/jruby/jruby/issues/2654">#2654</a> - Truffle - Compile Error until when break in case statement</li>
+<li><a href="https://github.com/jruby/jruby/issues/2652">#2652</a> - Truffle - Regex Parsing Error</li>
+<li><a href="https://github.com/jruby/jruby/pull/2637">#2637</a> - Produce a warning on private attribute accessors</li>
+<li><a href="https://github.com/jruby/jruby/pull/2636">#2636</a> - Fix Bignum's bitwise operations</li>
+<li><a href="https://github.com/jruby/jruby/issues/2635">#2635</a> - Object.const_get behaves differently from other implementations</li>
+<li><a href="https://github.com/jruby/jruby/issues/2629">#2629</a> - Mixed-mode execution exposes an unusual bug</li>
+<li><a href="https://github.com/jruby/jruby/issues/2627">#2627</a> - $stdin.tty? reports wrong value on JRuby-9.0.0.0-pre1</li>
+<li><a href="https://github.com/jruby/jruby/issues/2623">#2623</a> - error with bin/jruby -S gem install asd</li>
+<li><a href="https://github.com/jruby/jruby/issues/2615">#2615</a> - Open3 fails with ArrayStoreException after ~50 executions</li>
+<li><a href="https://github.com/jruby/jruby/issues/2598">#2598</a> - Unknown error in child-process gem when trying to open phantomjs browser in webdriver when running on jruby</li>
+<li><a href="https://github.com/jruby/jruby/pull/2593">#2593</a> - Fix IO#write frozen string issue in textmode</li>
+<li><a href="https://github.com/jruby/jruby/issues/2591">#2591</a> - double-quoted UTF8 hash key has the wrong encoding</li>
+<li><a href="https://github.com/jruby/jruby/pull/2589">#2589</a> - Fixed the errors with RubySpec </li>
+<li><a href="https://github.com/jruby/jruby/issues/2587">#2587</a> - simplecov triggers load error when running coverage on jruby-9.0.0.0.pre1</li>
+<li><a href="https://github.com/jruby/jruby/issues/2585">#2585</a> - JavaSupport refactoring API (byte-code) incompatibility with extensions</li>
+<li><a href="https://github.com/jruby/jruby/pull/2584">#2584</a> - Fixed arity issue with RubyMethod</li>
+<li><a href="https://github.com/jruby/jruby/pull/2583">#2583</a> - Make filepaths with null byte fail</li>
+<li><a href="https://github.com/jruby/jruby/issues/2581">#2581</a> - Error handling converting UTF-32 to UTF-8 is broken [9k] [lotus]</li>
+<li><a href="https://github.com/jruby/jruby/issues/2580">#2580</a> - Different Encoding behavior from all other Rubies</li>
+<li><a href="https://github.com/jruby/jruby/pull/2579">#2579</a> - Fix for issue 2182 on master : Struct#inspect with utf8 encode string member</li>
+<li><a href="https://github.com/jruby/jruby/issues/2578">#2578</a> - Binding#receiver is not implemented [9k] [lotus]</li>
+<li><a href="https://github.com/jruby/jruby/pull/2576">#2576</a> - Fix the bug with size with each_slice without block</li>
+<li><a href="https://github.com/jruby/jruby/issues/2574">#2574</a> - Parallel value assignment broken in IR builder (multi-value literals, calls, attr-assign, etc.)</li>
+<li><a href="https://github.com/jruby/jruby/issues/2570">#2570</a> - ClassCastException requiring minitest with JRuby 9000</li>
+<li><a href="https://github.com/jruby/jruby/pull/2569">#2569</a> - Fix required arguments for File.chown</li>
+<li><a href="https://github.com/jruby/jruby/pull/2568">#2568</a> - Exit iterator when `RubyHash#any?` short-circuits</li>
+<li><a href="https://github.com/jruby/jruby/pull/2562">#2562</a> - Skip block-to-proc conversion for explicit block syntax when possible</li>
+<li><a href="https://github.com/jruby/jruby/pull/2560">#2560</a> - Fix uninitialized usage of File::Stat</li>
+<li><a href="https://github.com/jruby/jruby/issues/2553">#2553</a> - Mismatch on Enumerator#size result between JRuby and MRI </li>
+<li><a href="https://github.com/jruby/jruby/issues/2547">#2547</a> - Dir.foreach does not allow encoding</li>
+<li><a href="https://github.com/jruby/jruby/issues/2541">#2541</a> - JRuby+Truffle: Keyword Arguments - "illegal recursive call"</li>
+<li><a href="https://github.com/jruby/jruby/pull/2540">#2540</a> - Fixed arity require in case of required keyword arguments</li>
+<li><a href="https://github.com/jruby/jruby/pull/2537">#2537</a> - Fix for issue 2524 on master: [BigDecimal] Loss of precision with different execution order </li>
+<li><a href="https://github.com/jruby/jruby/issues/2525">#2525</a> - undefined method `invoke_with_build_args' for nil:NilClass on Windows 7</li>
+<li><a href="https://github.com/jruby/jruby/issues/2524">#2524</a> - [bigdecimal] Loss of precision with different execution order</li>
+<li><a href="https://github.com/jruby/jruby/pull/2523">#2523</a> - Modified the make_wstr method so that it appends a null character.</li>
+<li><a href="https://github.com/jruby/jruby/pull/2522">#2522</a> - Implement pack &amp; unpacking ipv6 address in sockaddr</li>
+<li><a href="https://github.com/jruby/jruby/issues/2521">#2521</a> - Require order appears to impact JRuby extensions [9k]</li>
+<li><a href="https://github.com/jruby/jruby/issues/2518">#2518</a> - Keyword arguments incompatibility</li>
+<li><a href="https://github.com/jruby/jruby/issues/2514">#2514</a> - Getting "BUG: $! and exception are not matching up" in RSpec in 9K</li>
+<li><a href="https://github.com/jruby/jruby/issues/2512">#2512</a> - keyword arguments incompatibilities</li>
+<li><a href="https://github.com/jruby/jruby/issues/2511">#2511</a> - Keyword method parameters cannot take a frozen hash</li>
+<li><a href="https://github.com/jruby/jruby/issues/2505">#2505</a> - IO.popen cannot run 'date' on Windows 7</li>
+<li><a href="https://github.com/jruby/jruby/issues/2500">#2500</a> - gem install failure on Windows</li>
+<li><a href="https://github.com/jruby/jruby/issues/2494">#2494</a> - Open3 fails with varying signals on 9.0.0.0.pre1</li>
+<li><a href="https://github.com/jruby/jruby/issues/2493">#2493</a> - Performance issue with invokedynamic + Rack + URI</li>
+<li><a href="https://github.com/jruby/jruby/pull/2492">#2492</a> - Implemented support for keyword and keywordrest proc /lambda parameters</li>
+<li><a href="https://github.com/jruby/jruby/issues/2491">#2491</a> - Minitest rails not working on 9000</li>
+<li><a href="https://github.com/jruby/jruby/issues/2489">#2489</a> - Proc.parameters return an empty array</li>
+<li><a href="https://github.com/jruby/jruby/pull/2486">#2486</a> - Implemented Enumerator#feed method</li>
+<li><a href="https://github.com/jruby/jruby/issues/2474">#2474</a> - truffle artifacts are not on maven central and we have a release repo in jruby-parent.pom</li>
+<li><a href="https://github.com/jruby/jruby/issues/2466">#2466</a> - Package Truffle stdlib files into tarball</li>
+<li><a href="https://github.com/jruby/jruby/issues/2388">#2388</a> - IO#ready? returns incorrect results</li>
+<li><a href="https://github.com/jruby/jruby/issues/2357">#2357</a> - NULL handling inconsistent with Ruby</li>
+<li><a href="https://github.com/jruby/jruby/issues/2312">#2312</a> - Encoding.compatible? affected by call order</li>
+<li><a href="https://github.com/jruby/jruby/pull/2210">#2210</a> - Fix for issue 1069 and 1390 on master: improve handling of non ascii character after backslash</li>
+<li><a href="https://github.com/jruby/jruby/issues/2185">#2185</a> - Bundle fails with Java::JavaLang::StackOverflowError with git-hosted gems</li>
+<li><a href="https://github.com/jruby/jruby/issues/2165">#2165</a> - Truffle: Kill all other threads when the main thread exits</li>
+<li><a href="https://github.com/jruby/jruby/issues/2163">#2163</a> - StringLiteral consumers may not be CR-aware</li>
+<li><a href="https://github.com/jruby/jruby/issues/2137">#2137</a> - Socket.getifaddrs returns incorrect interface list</li>
+<li><a href="https://github.com/jruby/jruby/issues/2033">#2033</a> - Problem with super not passing params with IR</li>
+<li><a href="https://github.com/jruby/jruby/issues/2015">#2015</a> - Method keyword arguments are destructive</li>
+<li><a href="https://github.com/jruby/jruby/issues/1982">#1982</a> - AIOOBE in ThreadContext#postYield</li>
+<li><a href="https://github.com/jruby/jruby/issues/1395">#1395</a> - Pre-compiled methods do not have AST available for re-compilation</li>
+<li><a href="https://github.com/jruby/jruby/issues/779">#779</a> - Output unreliable from spawned processes</li>
+</ul>

@@ -12,15 +12,12 @@ maruku:
   png_url:    /images/latex
 # JRuby-specific info here; goes into the "site" jekyll variable
 release:
-  url: /2015/01/20/jruby-9-0-0-0-pre1.html
-  version: 9.0.0.0.pre1
-  tar: https://s3.amazonaws.com/jruby.org/downloads/9.0.0.0.pre1/jruby-bin-9.0.0.0.pre1.tar.gz
-  zip: https://s3.amazonaws.com/jruby.org/downloads/9.0.0.0.pre1/jruby-bin-9.0.0.0.pre1.zip
-  exe: https://s3.amazonaws.com/jruby.org/downloads/9.0.0.0.pre1/jruby_windows_9_0_0_0_pre1.exe
-  exe64: https://s3.amazonaws.com/jruby.org/downloads/9.0.0.0.pre1/jruby_windows_x64_9_0_0_0_pre1.exe
-  exejre: https://s3.amazonaws.com/jruby.org/downloads/9.0.0.0.pre1/jruby_windowsjre_9_0_0_0_pre1.exe
-  exejre64: https://s3.amazonaws.com/jruby.org/downloads/9.0.0.0.pre1/jruby_windows_x64_jre_9_0_0_0_pre1.exe
-  dmg: https://s3.amazonaws.com/jruby.org/downloads/9.0.0.0.pre1/JRuby-9.0.0.0.pre1.dmg
+  url: /2015/04/28/jruby-9-0-0-0-pre2.html
+  version: 9.0.0.0.pre2
+  tar: https://s3.amazonaws.com/jruby.org/downloads/9.0.0.0.pre2/jruby-bin-9.0.0.0.pre2.tar.gz
+  zip: https://s3.amazonaws.com/jruby.org/downloads/9.0.0.0.pre2/jruby-bin-9.0.0.0.pre2.zip
+  exe: https://s3.amazonaws.com/jruby.org/downloads/9.0.0.0.pre2/jruby_windows_9_0_0_0_pre2.exe
+  exe64: https://s3.amazonaws.com/jruby.org/downloads/9.0.0.0.pre2/jruby_windows_x64_9_0_0_0_pre2.exe
 urls:
   s3: https://s3.amazonaws.com/jruby.org/downloads
   tryjruby: https://s3.amazonaws.com/jruby.org/tryjruby
