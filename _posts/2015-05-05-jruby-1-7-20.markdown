@@ -1,0 +1,88 @@
+---
+layout: post
+title: JRuby 1.7.20 Released
+---
+The JRuby community is pleased to announce the release of JRuby 1.7.20
+
+- Homepage: [http://www.jruby.org/](http://www.jruby.org/)
+- Download: [http://www.jruby.org/download](http://www.jruby.org/download)
+
+JRuby 1.7.20 is our twenty-third update release since JRuby 1.7.0.  The primary goal of 1.7 point releases is to fill out any missing compatibility issues with Ruby 1.9.3.
+
+This release was pushed forward quicker than planned to address issues running Rails 4.2 (issue [#2438](https://github.com/jruby/jruby/issues/2438)).
+
+Highlights:
+
+- 62 issues fixed for 1.7.20
+- Rubygems updated to 2.4.6
+- jruby-openssl updated to 0.9.7
+- Java integration performance enhancements
+- ppc64le & ppc64 native support added
+- obligatory M17n fixes :)
+
+### Github Issues resolved for 1.7.20
+
+<ul>
+<li><a href="https://github.com/jruby/jruby/issues/2903">#2903</a> - Removing event hooks can AIOOB</li>
+<li><a href="https://github.com/jruby/jruby/issues/2902">#2902</a> - Enumerable#find_index gives wrong result in case with types cast</li>
+<li><a href="https://github.com/jruby/jruby/pull/2894">#2894</a> - Mimic MRI's openssl when jopenssl require fails.</li>
+<li><a href="https://github.com/jruby/jruby/pull/2890">#2890</a> - Enabling tty for powerpc64 (1_7)</li>
+<li><a href="https://github.com/jruby/jruby/issues/2881">#2881</a> - java_send will not invoke a method taking a CharSequence</li>
+<li><a href="https://github.com/jruby/jruby/issues/2857">#2857</a> - org.jruby.javasupport.JavaMethod invocation does not wrap returned JavaObject</li>
+<li><a href="https://github.com/jruby/jruby/issues/2816">#2816</a> - UnboundMethod#parameters for an assignment method wrongly returns blank array</li>
+<li><a href="https://github.com/jruby/jruby/pull/2812">#2812</a> - Add PowerPC64 little endian support in FFI on 1_7</li>
+<li><a href="https://github.com/jruby/jruby/issues/2810">#2810</a> - looks like org.jruby:jruby artifacts contains jruby-core</li>
+<li><a href="https://github.com/jruby/jruby/issues/2793">#2793</a> - FreeBSD TestPTY#test_commandline fails</li>
+<li><a href="https://github.com/jruby/jruby/issues/2790">#2790</a> - Jruby to use upcoming jnr-ffi release to have ppc64le TypeAliases</li>
+<li><a href="https://github.com/jruby/jruby/issues/2773">#2773</a> - ThreadKill not handled by ThreadFiber</li>
+<li><a href="https://github.com/jruby/jruby/issues/2759">#2759</a> - "warning: Unrecognized time zone: x" emitted to stderr</li>
+<li><a href="https://github.com/jruby/jruby/issues/2750">#2750</a> - UNIX Sockets raising Errno::ECONNRESET or EOFError ( 9.0.0.0 &amp;&amp; 1.7.19 )</li>
+<li><a href="https://github.com/jruby/jruby/issues/2749">#2749</a> - some array factories do not work</li>
+<li><a href="https://github.com/jruby/jruby/issues/2748">#2748</a> - RubyGems of JRuby1.7.19 is v2.4.5 (should be v2.1.9)</li>
+<li><a href="https://github.com/jruby/jruby/issues/2742">#2742</a> - Regression in loading Java classes with upper case package names</li>
+<li><a href="https://github.com/jruby/jruby/issues/2733">#2733</a> - Compiling app with embedded JRuby has RELEASE_6 warning</li>
+<li><a href="https://github.com/jruby/jruby/pull/2715">#2715</a> - implements strict base64 encoding</li>
+<li><a href="https://github.com/jruby/jruby/issues/2658">#2658</a> - Java integration should call toJava or to_int for array index and value</li>
+<li><a href="https://github.com/jruby/jruby/issues/2650">#2650</a> - BigDecimal losses precision in JRuby 1.7.19</li>
+<li><a href="https://github.com/jruby/jruby/issues/2647">#2647</a> - jruby core build fails on IBM ppc64</li>
+<li><a href="https://github.com/jruby/jruby/issues/2632">#2632</a> - Enumerator containing range does not pass a block variable</li>
+<li><a href="https://github.com/jruby/jruby/pull/2630">#2630</a> - embed internal fixes</li>
+<li><a href="https://github.com/jruby/jruby/pull/2624">#2624</a> - java support  cleanup and improvements</li>
+<li><a href="https://github.com/jruby/jruby/issues/2617">#2617</a> - `des-ede3` is unusable in JRuby</li>
+<li><a href="https://github.com/jruby/jruby/issues/2602">#2602</a> - RegexpError: invalid multibyte character for method gsub</li>
+<li><a href="https://github.com/jruby/jruby/issues/2600">#2600</a> - File.stat gives incorrect mode value on PPC platforms</li>
+<li><a href="https://github.com/jruby/jruby/issues/2596">#2596</a> - Exception java.lang.Error thrown while initializing thread_safe ConcurrentHashMapV8</li>
+<li><a href="https://github.com/jruby/jruby/issues/2595">#2595</a> - Issue with object form constructor by reflection.</li>
+<li><a href="https://github.com/jruby/jruby/issues/2582">#2582</a> - JMX MBean name collides when deploying multiple JRuby web apps to a single application server</li>
+<li><a href="https://github.com/jruby/jruby/pull/2572">#2572</a> - Fix uninitialized usage of File::Stat on jruby-1_7</li>
+<li><a href="https://github.com/jruby/jruby/pull/2554">#2554</a> - Fix for issue 2524 on jruby-1_7: [BigDecimal] Loss of precision with different execution order </li>
+<li><a href="https://github.com/jruby/jruby/issues/2551">#2551</a> - Base64.strict_decode64 isn't strict</li>
+<li><a href="https://github.com/jruby/jruby/pull/2549">#2549</a> - support for easy (Ruby) String to (Java) char conversion</li>
+<li><a href="https://github.com/jruby/jruby/issues/2510">#2510</a> - Explicit require of autoloaded class triggers double load</li>
+<li><a href="https://github.com/jruby/jruby/pull/2508">#2508</a> - upgrade to jruby-openssl 0.9.6</li>
+<li><a href="https://github.com/jruby/jruby/issues/2428">#2428</a> - Rack tests broken</li>
+<li><a href="https://github.com/jruby/jruby/issues/2424">#2424</a> - Error in File.stat</li>
+<li><a href="https://github.com/jruby/jruby/issues/2387">#2387</a> - absolute paths without drive letter don't work in windows</li>
+<li><a href="https://github.com/jruby/jruby/issues/2375">#2375</a> - JRuby subclass cannot call super with arguments if parent constructor is varargs</li>
+<li><a href="https://github.com/jruby/jruby/issues/2373">#2373</a> - Redirecting $stdout to an object fails with: Errno::EBADF: Bad file descriptor - Bad file descriptor</li>
+<li><a href="https://github.com/jruby/jruby/issues/2372">#2372</a> - system("...&amp;&amp;...") should work in windows</li>
+<li><a href="https://github.com/jruby/jruby/issues/2344">#2344</a> - rubygems 2.4.5</li>
+<li><a href="https://github.com/jruby/jruby/issues/2336">#2336</a> - RubyGems 2.4.5 Upgrade Triggers Bug in Java Extension Loading</li>
+<li><a href="https://github.com/jruby/jruby/pull/2321">#2321</a> - Fix for issue 2182 on jruby-1_7 : Struct#inspect with utf8 encode string member</li>
+<li><a href="https://github.com/jruby/jruby/issues/2314">#2314</a> - Infinite loop when using mutually-referential constants</li>
+<li><a href="https://github.com/jruby/jruby/issues/2301">#2301</a> - unable to get value of object's fields in RubyMine debugger</li>
+<li><a href="https://github.com/jruby/jruby/issues/2182">#2182</a> - Struct#inspect has ASCII encoding</li>
+<li><a href="https://github.com/jruby/jruby/issues/2014">#2014</a> - Enum#valueOf thread safety issue</li>
+<li><a href="https://github.com/jruby/jruby/pull/1897">#1897</a> - Add PowerPC64 little endian support in FFI</li>
+<li><a href="https://github.com/jruby/jruby/issues/1754">#1754</a> - JRuby 1.7.11 (bundled with LogStash v. 1.4.1) fails on FreeBSD 10.0 with NotImplementedError: stat.st_dev unsupported or native support failed to load</li>
+<li><a href="https://github.com/jruby/jruby/issues/1753">#1753</a> - Unsupported platform: unknown-linux (ppc64le)</li>
+<li><a href="https://github.com/jruby/jruby/issues/1719">#1719</a> - Cannot require 'openssl' in a signed jruby jar as of jruby 1.7.3</li>
+<li><a href="https://github.com/jruby/jruby/issues/1621">#1621</a> - Java class proxy creation deadlock</li>
+<li><a href="https://github.com/jruby/jruby/issues/1390">#1390</a> - Literal `\あ` results in invalid multibyte char error</li>
+<li><a href="https://github.com/jruby/jruby/issues/1389">#1389</a> - JRuby can Not load JFFI library under IBM Power 64 with PLinux platform </li>
+<li><a href="https://github.com/jruby/jruby/issues/1354">#1354</a> - Calling .to_java(Java::byte[]) on a RubyArray doesn't convert to a multi-dimensional byte array, but fails with a TypeError exception</li>
+<li><a href="https://github.com/jruby/jruby/issues/1270">#1270</a> - LocalJumpError raised on break from custom Enumerator enumeration</li>
+<li><a href="https://github.com/jruby/jruby/issues/769">#769</a> - java_send on private subclass fails</li>
+<li><a href="https://github.com/jruby/jruby/issues/719">#719</a> - jruby-openssl gem breaks PKCS5</li>
+<li><a href="https://github.com/jruby/jruby/issues/638">#638</a> - java_send should be smart enough to unwrap the Ruby version of a Java class</li>
+</ul>
