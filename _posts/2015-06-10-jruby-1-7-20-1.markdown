@@ -1,0 +1,16 @@
+
+---
+layout: post
+title: JRuby 1.7.20.1 Released
+---
+The JRuby community is pleased to announce the release of JRuby 1.7.20.1
+
+- Homepage: [http://www.jruby.org/](http://www.jruby.org/)
+- Download: [http://www.jruby.org/download](http://www.jruby.org/download)
+
+JRuby 1.7.20.1 is our twenty-fourth update release since JRuby 1.7.0.  The primary goal of 1.7 point releases is to fill out any missing compatibility issues with Ruby 1.9.3.
+
+This security release only updated Rubygems to version 2.4.8.  Rubygems 2.4.8
+addresses CVE-2015-1855 to resolve some problems with wildcard matching
+of hostnames.  See [ruby-lang.org's](https://www.ruby-lang.org/en/news/2015/04/13/ruby-openssl-hostname-matching-vulnerability/) description for more info.  All
+users are recommended to upgrade.

@@ -22,7 +22,7 @@ task :server  do
 end
 
 desc 'Deploy the files to jruby.org'
-task :deploy => [:generate, :indexes] do
+task :deploy => [:generate] do
   sh "tar -C _site/ -zcf - . | ssh deploy@jruby.org 'cd /data/jruby.org && tar zxf -'"
 end
 
