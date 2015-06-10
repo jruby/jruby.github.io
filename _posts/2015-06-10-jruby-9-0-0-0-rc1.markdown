@@ -1,0 +1,87 @@
+---
+layout: post
+title: JRuby 9.0.0.0.rc1 Released
+---
+The JRuby community is pleased to announce the release of JRuby 9.0.0.0.rc1
+
+- Homepage: [http://www.jruby.org/](http://www.jruby.org/)
+- Download: [http://www.jruby.org/download](http://www.jruby.org/download)
+
+JRuby 9000 is the new version of JRuby, representing years of effort and large-scale reboots of several JRuby subsystems.  It is expected to be compatible with Ruby 2.2.x and stay in sync with C Ruby.
+
+Major features of JRuby 9000:
+
+- Ruby 2.2 compatibility
+- A new optimizing runtime based on a traditional compiler design
+- New POSIX-friendly IO and Process
+- Fully ported encoding/transcoding logic from MRI
+
+This release is approaching a level of compatibility and stability where we have moved into a release candidate stage.  We will address concerns reported before going final, so now is the time to find any problems...
+
+If you do find issues then report them on using our issue tracker at [http://bugs.jruby.org](http://bugs.jruby.org). We also encourage users to join our IRC channel (#jruby on Freenode) and mailing lists. You may also follow @jruby on Twitter for updates.
+
+It is important to point out that when we do put out JRuby 9.0.0.0 that this is only the starting point.  Our new internals gives us lots of potential to keep pushing the bar higher on JRuby performance.
+
+## Notable updates since pre2
+
+- Updated to Rubygems 2.4.8 addressing CVE-2015-1855
+- Several parser issues (also fixed in ripper)
+- Optimized multiple assignment
+- Several added smaller missing methods for better 2.2 compatibility
+- A couple of bugs involving nested exceptions/ensures and $!
+- 46 issues fixed for 9.0.0.0.rc1
+
+## Truffle
+
+JRuby 9000 includes an preliminary version of support for the Truffle language implementation framework and Graal VM from Oracle Labs. In future releases, Truffle will provide an extremely high performance and compatible backend for JRuby. The Truffle backend supports almost all Ruby language features and the majority of the core library, and is able to run simple gems and web frameworks such as Sinatra. It has no support for RubyGems, Rails or any database drivers, does not work on Windows, and is not ready to be tested with applications at this stage. More information on Truffle and Graal can be found in the [JRuby Wiki](https://github.com/jruby/jruby/wiki/Truffle).
+
+### Github Issues resolved for 9.0.0.0.rc1
+
+<ul>
+<li><a href="https://github.com/jruby/jruby/pull/3022">#3022</a> - Don't call modify() on RubyStrings so eagerly when freezing them</li>
+<li><a href="https://github.com/jruby/jruby/issues/3019">#3019</a> - Small string values backed by HUGE non-shared ByteList leading to large memory usage under 9k</li>
+<li><a href="https://github.com/jruby/jruby/issues/3016">#3016</a> - OutOfMemoryError in 9k on code with very large methods</li>
+<li><a href="https://github.com/jruby/jruby/issues/3010">#3010</a> - 9k has different scoping behavior than MRI</li>
+<li><a href="https://github.com/jruby/jruby/issues/3009">#3009</a> - LocalJumpError: yield called out of block in JRuby 9.0.0.0.pre2</li>
+<li><a href="https://github.com/jruby/jruby/issues/3008">#3008</a> - Module#included is private when called with super</li>
+<li><a href="https://github.com/jruby/jruby/issues/3007">#3007</a> - splats with non-array like values</li>
+<li><a href="https://github.com/jruby/jruby/pull/3006">#3006</a> - add recursion guard in Comparable.</li>
+<li><a href="https://github.com/jruby/jruby/pull/3002">#3002</a> - Don't warn on private attribute accessors to match CRuby</li>
+<li><a href="https://github.com/jruby/jruby/issues/2993">#2993</a> - Many failures in Sequel tests on [RuntimeError] exception expected, not  Class: &lt;NoMethodError>  Message: &lt;"undefined method `[]' for nil:NilClass"></li>
+<li><a href="https://github.com/jruby/jruby/issues/2986">#2986</a> - certain require do not load extension Service class</li>
+<li><a href="https://github.com/jruby/jruby/issues/2984">#2984</a> - Socket.pair is not implemented</li>
+<li><a href="https://github.com/jruby/jruby/issues/2983">#2983</a> - Net::HTTP can't ignore http.proxyHost of JVM System Property</li>
+<li><a href="https://github.com/jruby/jruby/issues/2976">#2976</a> - Regression: Sequel's literals contain additional quotation marks under JRuby 9k head but not under pre2</li>
+<li><a href="https://github.com/jruby/jruby/issues/2975">#2975</a> - Requiring Sequel triggers false warnings `already initialized constant`</li>
+<li><a href="https://github.com/jruby/jruby/issues/2974">#2974</a> - NotImplementedError: waitpid unsupported or native support failed to load on OS X 10.9.5 / OpenJDK 8 / rbenv</li>
+<li><a href="https://github.com/jruby/jruby/issues/2959">#2959</a> - JRuby 9k-pre2 throws IOError when reading from $stdin</li>
+<li><a href="https://github.com/jruby/jruby/issues/2957">#2957</a> - JRuby 9.0.0.0.pre2 starts hanging while reading from a socket</li>
+<li><a href="https://github.com/jruby/jruby/pull/2939">#2939</a> - Issue #2924</li>
+<li><a href="https://github.com/jruby/jruby/issues/2924">#2924</a> - Issue in org.jruby.util.TypeConverter CheckType</li>
+<li><a href="https://github.com/jruby/jruby/issues/2920">#2920</a> - Proc from Method breaks encoded parameter list</li>
+<li><a href="https://github.com/jruby/jruby/pull/2919">#2919</a> - Add another layer of try/finally around rescue/ensure to reset $!.</li>
+<li><a href="https://github.com/jruby/jruby/issues/2918">#2918</a> - Method#parameters doesn't annotate required parameters correctly</li>
+<li><a href="https://github.com/jruby/jruby/issues/2916">#2916</a> - Multiple assignment has too much overhead</li>
+<li><a href="https://github.com/jruby/jruby/issues/2910">#2910</a> - $! does not get cleared under certain circumstances</li>
+<li><a href="https://github.com/jruby/jruby/issues/2905">#2905</a> - Different Regexp behavior from MRI</li>
+<li><a href="https://github.com/jruby/jruby/issues/2904">#2904</a> - require 'ripper' yields const already init warnings</li>
+<li><a href="https://github.com/jruby/jruby/pull/2899">#2899</a> - Fix for issue 2896 on master : Symbol#inspect with utf8 encode string</li>
+<li><a href="https://github.com/jruby/jruby/issues/2887">#2887</a> - jrubyc failing - TypeError: failed to coerce org.objectweb.asm.ClassWriter to org.jruby.org.objectweb.asm.ClassVisitor</li>
+<li><a href="https://github.com/jruby/jruby/pull/2877">#2877</a> - Implementation of initialize_copy for BigDecimal (fix #2868)</li>
+<li><a href="https://github.com/jruby/jruby/pull/2871">#2871</a> - Enabling tty for powerpc64</li>
+<li><a href="https://github.com/jruby/jruby/issues/2869">#2869</a> - NameError different behavior</li>
+<li><a href="https://github.com/jruby/jruby/issues/2868">#2868</a> - BigDecimal can not be copied</li>
+<li><a href="https://github.com/jruby/jruby/issues/2850">#2850</a> - Fannkuch-redux is less than half as fast in 9k as in 1.7</li>
+<li><a href="https://github.com/jruby/jruby/pull/2772">#2772</a> - Make Dir raise Errno::EACCES</li>
+<li><a href="https://github.com/jruby/jruby/pull/2756">#2756</a> - Allow File.open and File.new with 4 arguments</li>
+<li><a href="https://github.com/jruby/jruby/issues/2744">#2744</a> - Syntax error with file that has OK syntax with MRI 2.2</li>
+<li><a href="https://github.com/jruby/jruby/pull/2724">#2724</a> - Socket.getaddrinfo reverse_lookup</li>
+<li><a href="https://github.com/jruby/jruby/pull/2616">#2616</a> - Fix power of 0 and 1 issues in Rational</li>
+<li><a href="https://github.com/jruby/jruby/pull/2605">#2605</a> - Fix File.read with UTF-16LE</li>
+<li><a href="https://github.com/jruby/jruby/pull/2603">#2603</a> - Add support for named captures in StringScanner (fixes #1067)</li>
+<li><a href="https://github.com/jruby/jruby/issues/2563">#2563</a> - RubyArray#flatten! uses `respond_to?` unlike the original [lotus]</li>
+<li><a href="https://github.com/jruby/jruby/issues/2475">#2475</a> - Truffle: Understand and reduce impact of Truffle on the distribution size</li>
+<li><a href="https://github.com/jruby/jruby/pull/2036">#2036</a> - Demonstrate pedantic option</li>
+<li><a href="https://github.com/jruby/jruby/pull/1955">#1955</a> - -X... and -X? options to search for properties.</li>
+<li><a href="https://github.com/jruby/jruby/issues/1629">#1629</a> - Another unexpected kDO_BLOCK error in parser</li>
+</ul>
