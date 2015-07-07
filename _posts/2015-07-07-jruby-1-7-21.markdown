@@ -1,0 +1,55 @@
+---
+layout: post
+title: JRuby 1.7.21 Released
+---
+The JRuby community is pleased to announce the release of JRuby 1.7.21
+
+- Homepage: [http://www.jruby.org/](http://www.jruby.org/)
+- Download: [http://www.jruby.org/download](http://www.jruby.org/download)
+
+JRuby 1.7.21 is our twenty-fifth update release since JRuby 1.7.0.  The primary goal of 1.7 point releases is to fill out any missing compatibility issues with Ruby 1.9.3.
+
+Highlights:
+
+- 31 issues fixed for 1.7.21
+- Java integration performance enhancements
+- paths representing files within jars work better with core filesystem APIs
+- DateTime compat fixes
+- BigDecimal compat fixes
+
+
+### Github Issues resolved for 1.7.21
+
+<ul>
+<li><a href="https://github.com/jruby/jruby/issues/3095">#3095</a> - "gem install" with jruby-complete results in "missing class name (`org.jruby.util.Classpath')"</li>
+<li><a href="https://github.com/jruby/jruby/pull/3093">#3093</a> - isOpen()/close() is racy. Simply close and ignore EBADF.</li>
+<li><a href="https://github.com/jruby/jruby/issues/3071">#3071</a> - when CWD is uri:classloader:/ regular absolute path do not work</li>
+<li><a href="https://github.com/jruby/jruby/issues/3041">#3041</a> - Zlib::GzipReader.readbyte not implemented</li>
+<li><a href="https://github.com/jruby/jruby/pull/3030">#3030</a> - Update rubygems to 2.4.8 to mitigate CVE-2015-4020</li>
+<li><a href="https://github.com/jruby/jruby/issues/2995">#2995</a> - Hash behaves differently when used with FFI::Pointer</li>
+<li><a href="https://github.com/jruby/jruby/issues/2986">#2986</a> - certain require do not load extension Service class</li>
+<li><a href="https://github.com/jruby/jruby/issues/2972">#2972</a> - creating a directory via uri-like path 'uri:classloader://new_dir' acts wrongly </li>
+<li><a href="https://github.com/jruby/jruby/issues/2969">#2969</a> - packing a runnable jar including rake + rspec can not execute '-S rake spec'</li>
+<li><a href="https://github.com/jruby/jruby/issues/2968">#2968</a> - jruby-complete can run -S rake spec:jruby or any other rspec via rake</li>
+<li><a href="https://github.com/jruby/jruby/issues/2967">#2967</a> - File.expand_path inside a jar can fail</li>
+<li><a href="https://github.com/jruby/jruby/issues/2966">#2966</a> - some File methods do not treat uri like paths consistently</li>
+<li><a href="https://github.com/jruby/jruby/issues/2948">#2948</a> - various issues launching script from runnable jar</li>
+<li><a href="https://github.com/jruby/jruby/issues/2946">#2946</a> - respond_to_missing? does not convert method to symbol</li>
+<li><a href="https://github.com/jruby/jruby/pull/2941">#2941</a> - DateTime.iso8601 fails with an error if a second fraction is present</li>
+<li><a href="https://github.com/jruby/jruby/issues/2940">#2940</a> - activesupport 4.2.1 breaks timeout.rb on jruby 1.7.19 and 1.7.20</li>
+<li><a href="https://github.com/jruby/jruby/issues/2922">#2922</a> - Dir['{}'] crashes with  java.lang.ArrayIndexOutOfBoundsException: 0</li>
+<li><a href="https://github.com/jruby/jruby/issues/2907">#2907</a> - Hash#take_while wrong behavior in 1.7.19</li>
+<li><a href="https://github.com/jruby/jruby/issues/2883">#2883</a> - DateTime.iso8601 fails with an error (incompatibility)</li>
+<li><a href="https://github.com/jruby/jruby/issues/2873">#2873</a> - Class not found exception on ppc64le</li>
+<li><a href="https://github.com/jruby/jruby/issues/2856">#2856</a> - Some data can cause String#encode to hang</li>
+<li><a href="https://github.com/jruby/jruby/issues/2539">#2539</a> - Incorrect error message when BigDecimal fails to coerce during comparison</li>
+<li><a href="https://github.com/jruby/jruby/issues/2538">#2538</a> - BigDecimal does not coerce properly during division</li>
+<li><a href="https://github.com/jruby/jruby/issues/2373">#2373</a> - Redirecting $stdout to an object fails with: Errno::EBADF: Bad file descriptor - Bad file descriptor</li>
+<li><a href="https://github.com/jruby/jruby/issues/2293">#2293</a> - uintptr_t is wrong size on 64-bit JRuby</li>
+<li><a href="https://github.com/jruby/jruby/issues/2039">#2039</a> - jruby 1.7.10 raises unexpected arity error (1 for 0) when creating a java.math.BigDecimal</li>
+<li><a href="https://github.com/jruby/jruby/issues/1967">#1967</a> - Error when raising to a BigDecimal </li>
+<li><a href="https://github.com/jruby/jruby/issues/1718">#1718</a> - Pointer on Windows JRE 64bit: Fix Memory access offset=0 size=8 is out of bounds</li>
+<li><a href="https://github.com/jruby/jruby/issues/1396">#1396</a> - Backticks don't give exception for nonexistant command</li>
+<li><a href="https://github.com/jruby/jruby/issues/1218">#1218</a> - Forcing jruby-complete to execute a command.</li>
+<li><a href="https://github.com/jruby/jruby/issues/540">#540</a> - Inconsistency between MRI and JRuby when private methods are called and method_missing is present</li>
+</ul>
