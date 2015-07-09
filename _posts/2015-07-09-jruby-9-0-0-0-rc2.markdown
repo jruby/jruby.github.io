@@ -23,7 +23,7 @@ If you do find issues then report them on using our issue tracker at [http://bug
 
 It is important to point out that when we do put out JRuby 9.0.0.0 that this is only the starting point.  Our new internals gives us lots of potential to keep pushing the bar higher on JRuby performance.
 
-## Notable updates since pre2
+## Notable updates since rc1
 
 - Fixed cases where AOT classes were not loading
 - Various performance fixes
