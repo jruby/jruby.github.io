@@ -1,0 +1,81 @@
+---
+layout: post
+title: JRuby 9.0.0.0.rc2 Released
+---
+The JRuby community is pleased to announce the release of JRuby 9.0.0.0.rc2
+
+- Homepage: [http://www.jruby.org/](http://www.jruby.org/)
+- Download: [http://www.jruby.org/download](http://www.jruby.org/download)
+
+JRuby 9000 is the new version of JRuby, representing years of effort and large-scale reboots of several JRuby subsystems.  It is expected to be compatible with Ruby 2.2.x and stay in sync with C Ruby.
+
+Major features of JRuby 9000:
+
+- Ruby 2.2 compatibility
+- A new optimizing runtime based on a traditional compiler design
+- New POSIX-friendly IO and Process
+- Fully ported encoding/transcoding logic from MRI
+
+
+We are hoping this is our last release candidate before JRuby 9.0.0.0.  The severity of problems are getting small enough where we think the next release will be 9.0.0.0.
+
+If you do find issues then report them on using our issue tracker at [http://bugs.jruby.org](http://bugs.jruby.org). We also encourage users to join our IRC channel (#jruby on Freenode) and mailing lists. You may also follow @jruby on Twitter for updates.
+
+It is important to point out that when we do put out JRuby 9.0.0.0 that this is only the starting point.  Our new internals gives us lots of potential to keep pushing the bar higher on JRuby performance.
+
+## Notable updates since pre2
+
+- Fixed cases where AOT classes were not loading
+- Various performance fixes
+- Reduced memory size
+- More parser fixes
+- Fixed rc1 eval with binding regression (aka setValueDepthZero AIOOB)
+- 39 issues fixed for 9.0.0.0.rc2
+
+## Truffle
+
+JRuby 9000 includes an preliminary version of support for the Truffle language implementation framework and Graal VM from Oracle Labs. In future releases, Truffle will provide an extremely high performance and compatible backend for JRuby. The Truffle backend supports almost all Ruby language features and the majority of the core library, and is able to run simple gems and web frameworks such as Sinatra. It has no support for RubyGems, Rails or any database drivers, does not work on Windows, and is not ready to be tested with applications at this stage. More information on Truffle and Graal can be found in the [JRuby Wiki](https://github.com/jruby/jruby/wiki/Truffle).
+
+### Github Issues resolved for 9.0.0.0.rc2
+
+<ul>
+<li><a href="https://github.com/jruby/jruby/issues/3109">#3109</a> - Precompiled .class can't reflect new filename</li>
+<li><a href="https://github.com/jruby/jruby/issues/3104">#3104</a> - Strange error in implicit return of match variable</li>
+<li><a href="https://github.com/jruby/jruby/issues/3102">#3102</a> - Bundle install fails with jruby-head with a Java::JavaLang::ArrayIndexOutOfBoundsException on travis</li>
+<li><a href="https://github.com/jruby/jruby/pull/3098">#3098</a> - Fix for issue 3035 on master : change the hash code calculation method of SymbolTable entry.</li>
+<li><a href="https://github.com/jruby/jruby/issues/3092">#3092</a> - require_relative through symlinks behaves differently in jruby than in MRI ruby</li>
+<li><a href="https://github.com/jruby/jruby/issues/3090">#3090</a> - Create friendlier API for swapping current thread context classloader</li>
+<li><a href="https://github.com/jruby/jruby/issues/3089">#3089</a> - ManyVarsDynamicScope.java:145:in `setValueDepthZero': java.lang.ArrayIndexOutOfBoundsException: 0</li>
+<li><a href="https://github.com/jruby/jruby/issues/3086">#3086</a> - JavaLang::NullPointerException in RubySymbol.javaStringHashCode()</li>
+<li><a href="https://github.com/jruby/jruby/issues/3085">#3085</a> - proc {} in fcall hash with fcall receiving a do block does not parse</li>
+<li><a href="https://github.com/jruby/jruby/issues/3079">#3079</a> - [Truffle] Requiring paths with . for current directory doesn't work</li>
+<li><a href="https://github.com/jruby/jruby/issues/3078">#3078</a> - jruby 9.x jar-dependencies thwarts `gem install` prereq. to gemspec</li>
+<li><a href="https://github.com/jruby/jruby/issues/3075">#3075</a> - popen3 doesn't work on Windows</li>
+<li><a href="https://github.com/jruby/jruby/issues/3074">#3074</a> - rc1 fails on require 'psych' if .gemspec with require_relative in current directory</li>
+<li><a href="https://github.com/jruby/jruby/issues/3067">#3067</a> - JRuby 1.7.20.1 Socket.tcp, Addrinfo.tcp, etc. mistake port for protocol</li>
+<li><a href="https://github.com/jruby/jruby/pull/3061">#3061</a> - Add incrementor back PopenExecutor to prevent infinite loop.</li>
+<li><a href="https://github.com/jruby/jruby/issues/3060">#3060</a> - Empty intern array (%i[]) does not work</li>
+<li><a href="https://github.com/jruby/jruby/issues/3056">#3056</a> - java.lang.IncompatibleClassChangeError in 9.0.0.0 rc1</li>
+<li><a href="https://github.com/jruby/jruby/issues/3055">#3055</a> - Cannot delete file after requiring it on Windows in 9.0.0.0.rc1</li>
+<li><a href="https://github.com/jruby/jruby/issues/3054">#3054</a> - Process.spawn using huge amounts of memory for simple script</li>
+<li><a href="https://github.com/jruby/jruby/issues/3049">#3049</a> - Requiring a bare file from current directory works unexpectedly</li>
+<li><a href="https://github.com/jruby/jruby/issues/3046">#3046</a> - Shellescaped utf-8 string misbehaving in backticks</li>
+<li><a href="https://github.com/jruby/jruby/pull/3044">#3044</a> - Fix getRealMethod for WrapperMethod which wraps a WrapperMethod</li>
+<li><a href="https://github.com/jruby/jruby/issues/3042">#3042</a> - JRuby 9.0.0.0.pre2 raises "NameError: uninitialized class variable @@PREFIX_MAP in Object", doesn't occur in Ruby 2.2.x</li>
+<li><a href="https://github.com/jruby/jruby/issues/3040">#3040</a> - parameters on non-Ruby method with special arity will NPE</li>
+<li><a href="https://github.com/jruby/jruby/issues/3039">#3039</a> - SyntaxError: test.rb:3: syntax error, unexpected kDO_BLOCK</li>
+<li><a href="https://github.com/jruby/jruby/issues/3038">#3038</a> - Process.spawn with redirect causes ConcurrencyError</li>
+<li><a href="https://github.com/jruby/jruby/issues/3035">#3035</a> - 'あ'.to_sym == :'あ' is false</li>
+<li><a href="https://github.com/jruby/jruby/issues/3018">#3018</a> - LoadError with 'compiled' ruby files with JRuby9000</li>
+<li><a href="https://github.com/jruby/jruby/issues/3015">#3015</a> - Syntax Error on nested hash that parses with MRI 2.0 but not with JRuby 9000</li>
+<li><a href="https://github.com/jruby/jruby/pull/2973">#2973</a> - This is a fix for bug ID 2964.  The URL to see the write up is here:</li>
+<li><a href="https://github.com/jruby/jruby/issues/2970">#2970</a> - add enforcer plugin to ensure we have only released dependencies on release</li>
+<li><a href="https://github.com/jruby/jruby/issues/2943">#2943</a> - "each_with_object({}, &amp;lambda_logic)" raise ArgumentError</li>
+<li><a href="https://github.com/jruby/jruby/issues/2813">#2813</a> - jgem jruby-9000 not recognised as ~> 2.0.0</li>
+<li><a href="https://github.com/jruby/jruby/issues/2698">#2698</a> - Non-ascii method names getting kicked out</li>
+<li><a href="https://github.com/jruby/jruby/issues/2558">#2558</a> - Socket.gethostname ignores encoding settings</li>
+<li><a href="https://github.com/jruby/jruby/issues/2496">#2496</a> - NameError: uninitialized constant JSON::Ext::Parser using jruby-complete</li>
+<li><a href="https://github.com/jruby/jruby/issues/2487">#2487</a> - Dist has gotten too large due to new maven features</li>
+<li><a href="https://github.com/jruby/jruby/issues/2427">#2427</a> - Ripper is still 2.0 grammar and has not been updated for 2.2 changes</li>
+<li><a href="https://github.com/jruby/jruby/issues/1887">#1887</a> - parser bug</li>
+</ul>

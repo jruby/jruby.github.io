@@ -12,12 +12,12 @@ maruku:
   png_url:    /images/latex
 # JRuby-specific info here; goes into the "site" jekyll variable
 release:
-  url: /2015/06/10/jruby-9-0-0-0-rc1.html
-  version: 9.0.0.0.rc1
-  tar: https://s3.amazonaws.com/jruby.org/downloads/9.0.0.0.rc1/jruby-bin-9.0.0.0.rc1.tar.gz
-  zip: https://s3.amazonaws.com/jruby.org/downloads/9.0.0.0.rc1/jruby-bin-9.0.0.0.rc1.zip
-  exe: https://s3.amazonaws.com/jruby.org/downloads/9.0.0.0.rc1/jruby_windows_9_0_0_0_rc1.exe
-  exe64: https://s3.amazonaws.com/jruby.org/downloads/9.0.0.0.rc1/jruby_windows_x64_9_0_0_0_rc1.exe
+  url: /2015/07/09/jruby-9-0-0-0-rc2.html
+  version: 9.0.0.0.rc2
+  tar: https://s3.amazonaws.com/jruby.org/downloads/9.0.0.0.rc2/jruby-bin-9.0.0.0.rc2.tar.gz
+  zip: https://s3.amazonaws.com/jruby.org/downloads/9.0.0.0.rc2/jruby-bin-9.0.0.0.rc2.zip
+  exe: https://s3.amazonaws.com/jruby.org/downloads/9.0.0.0.rc2/jruby_windows_9_0_0_0_rc2.exe
+  exe64: https://s3.amazonaws.com/jruby.org/downloads/9.0.0.0.rc2/jruby_windows_x64_9_0_0_0_rc2.exe
 urls:
   s3: https://s3.amazonaws.com/jruby.org/downloads
   tryjruby: https://s3.amazonaws.com/jruby.org/tryjruby
