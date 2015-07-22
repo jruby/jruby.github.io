@@ -1,0 +1,82 @@
+---
+layout: post
+title: JRuby 9.0.0.0 Released
+---
+The JRuby community is pleased to announce the release of JRuby 9.0.0.0
+
+- Homepage: [http://www.jruby.org/](http://www.jruby.org/)
+- Download: [http://www.jruby.org/download](http://www.jruby.org/download)
+
+JRuby 9000 is the new version of JRuby, representing years of effort and large-scale reboots of several JRuby subsystems.  It is expected to be compatible with Ruby 2.2.x and stay in sync with C Ruby.
+
+Major features of JRuby 9000:
+
+- Ruby 2.2 compatibility
+- A new optimizing runtime based on a traditional compiler design
+- New POSIX-friendly IO and Process
+- Fully ported encoding/transcoding logic from MRI
+
+Read our [blog entry](http://blog.jruby.org/2015/07/jruby_9000/) on JRuby 9000 for more information.
+
+
+We finally made it to 9.0.0.0.  As the flood gates open and we get some people trying this new major version for the first time we expect to get a stream of issue reports.  JRuby 9k should be stable and production ready but real world users hitting it for the first time generally uncovers new issues.  Because of this, we expect to fairly quickly have followup point releases.
+
+If you do find issues then report them on using our issue tracker at [http://bugs.jruby.org](http://bugs.jruby.org). We also encourage users to join our IRC channel (#jruby on Freenode) and mailing lists. You may also follow [@jruby](https://twitter.com/jruby) on Twitter for updates.
+
+It is important to point out that when we do put out JRuby 9.0.0.0 that this is only the starting point.  Our new internals gives us lots of potential to keep pushing the bar higher on JRuby performance.
+
+## Notable updates since rc2
+
+- Two reverts on classloading to restore behavior to be like JRuby 1.7.x
+- Non-lambda return passing through a lambda could return improperly
+- Fixed two visibility issues on methods (#3123, #3135)
+- 39 issues fixed for 9.0.0.0 (note: some issues in list predate rc2 release)
+
+## Truffle
+
+JRuby 9000 includes an preliminary version of support for the Truffle language implementation framework and Graal VM from Oracle Labs. In future releases, Truffle will provide an extremely high performance and compatible backend for JRuby. The Truffle backend supports almost all Ruby language features and the majority of the core library, and is able to run simple gems and web frameworks such as Sinatra. It has no support for RubyGems, Rails or any database drivers, does not work on Windows, and is not ready to be tested with applications at this stage. More information on Truffle and Graal can be found in the [JRuby Wiki](https://github.com/jruby/jruby/wiki/Truffle).
+
+
+### Github Issues resolved for 9.0.0.0
+
+<ul>
+<li><a href="https://github.com/jruby/jruby/issues/3158">#3158</a> - timeout method not calling Timeout::timeout</li>
+<li><a href="https://github.com/jruby/jruby/issues/3152">#3152</a> - Since JRuby-9.0.0.0 changes to classloaders are failing ruby-processing</li>
+<li><a href="https://github.com/jruby/jruby/issues/3151">#3151</a> - http.rb gem specs fail on JRuby 9.0.0.0.pre2 and greater</li>
+<li><a href="https://github.com/jruby/jruby/issues/3149">#3149</a> - Issue requiring 'yaml' on SwingWorker on jruby 9.0.0.0.rc2</li>
+<li><a href="https://github.com/jruby/jruby/issues/3143">#3143</a> - #each's return takes precendence over inner block's return with a lambda</li>
+<li><a href="https://github.com/jruby/jruby/issues/3139">#3139</a> - Gson gem fails to parse JSON on jruby9.0.0.0.rc1</li>
+<li><a href="https://github.com/jruby/jruby/issues/3134">#3134</a> - jruby-9.0.0.0.rc2/lib/ruby/maven-home/bin/mvn not executable</li>
+<li><a href="https://github.com/jruby/jruby/issues/3129">#3129</a> - Included Timeout crashes when module method version of timeout used</li>
+<li><a href="https://github.com/jruby/jruby/issues/3126">#3126</a> - load current directory file</li>
+<li><a href="https://github.com/jruby/jruby/issues/3125">#3125</a> - 9.0.0.0.rc2 popen3 doesn't work on Windows </li>
+<li><a href="https://github.com/jruby/jruby/issues/3123">#3123</a> - private method error in jruby-9.0.0.0.rc1</li>
+<li><a href="https://github.com/jruby/jruby/issues/3110">#3110</a> - Unable to load Sybase driver in rc1, works in pre2</li>
+<li><a href="https://github.com/jruby/jruby/issues/3062">#3062</a> - Unable to java_import a class on jruby-9.0.0.0.rc1</li>
+<li><a href="https://github.com/jruby/jruby/issues/3059">#3059</a> - Windows bin/*.bat files missing in 9.0.0.0.rc1</li>
+<li><a href="https://github.com/jruby/jruby/issues/3034">#3034</a> - jruby: warning: unknown property jruby.export</li>
+<li><a href="https://github.com/jruby/jruby/issues/2964">#2964</a> - In windows ScriptingContainerTest fails</li>
+<li><a href="https://github.com/jruby/jruby/issues/2950">#2950</a> - not implemented error Raspberry pi 2</li>
+<li><a href="https://github.com/jruby/jruby/issues/2762">#2762</a> - IO.copy_stream doesn't rewind the destination</li>
+<li><a href="https://github.com/jruby/jruby/issues/2718">#2718</a> - JVM6 JIT caches duplicate values multiple times per compile unit</li>
+<li><a href="https://github.com/jruby/jruby/issues/2713">#2713</a> - Hash#inspect differs from MRI Ruby 2.2.1; This problem occurs if Hash has double-quoted UTF8 symbol key.</li>
+<li><a href="https://github.com/jruby/jruby/issues/2684">#2684</a> - JRuby automatically reaps child pids</li>
+<li><a href="https://github.com/jruby/jruby/issues/2559">#2559</a> - 9.0.0.0-pre1: NoSuchMethodError in pg_jruby gem</li>
+<li><a href="https://github.com/jruby/jruby/issues/2499">#2499</a> - jrubyc command doesn't work on 9.0.0.0-pre1</li>
+<li><a href="https://github.com/jruby/jruby/issues/2497">#2497</a> - So Rails Rake Tasks Don't work? Preview 1 - 9.0.0.0</li>
+<li><a href="https://github.com/jruby/jruby/issues/2483">#2483</a> - Long generated filenames in Truffle code prevent compilation on some systems</li>
+<li><a href="https://github.com/jruby/jruby/issues/2480">#2480</a> - Keyword arguments arity issue</li>
+<li><a href="https://github.com/jruby/jruby/pull/2476">#2476</a> - truffle modular</li>
+<li><a href="https://github.com/jruby/jruby/pull/2462">#2462</a> - Removed unused var</li>
+<li><a href="https://github.com/jruby/jruby/issues/2416">#2416</a> - Remove JumpException, Next, Redo, etc. exceptions from old runtime</li>
+<li><a href="https://github.com/jruby/jruby/pull/2341">#2341</a> - allow for negative arity when calling curried proc</li>
+<li><a href="https://github.com/jruby/jruby/pull/2328">#2328</a> - [Truffle] New implementation of non-small hashes</li>
+<li><a href="https://github.com/jruby/jruby/pull/2322">#2322</a> - change name of files which pass rspec regression test on master</li>
+<li><a href="https://github.com/jruby/jruby/pull/2288">#2288</a> - security model compilation fix</li>
+<li><a href="https://github.com/jruby/jruby/pull/2287">#2287</a> - Fix #2137 Socket.getifaddrs returns incorrect interface list...</li>
+<li><a href="https://github.com/jruby/jruby/pull/2253">#2253</a> - Fix GH-1960 rspec file</li>
+<li><a href="https://github.com/jruby/jruby/pull/2252">#2252</a> - Fix GH-1726 on master</li>
+<li><a href="https://github.com/jruby/jruby/issues/2235">#2235</a> - Make AOT work on 9k</li>
+<li><a href="https://github.com/jruby/jruby/issues/2129">#2129</a> - Block variable shadowing and local_variables not matching up right</li>
+<li><a href="https://github.com/jruby/jruby/issues/1111">#1111</a> - [2.1] Comparable#== needs a recursion guard for missing &lt;=></li>
+</ul>
