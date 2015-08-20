@@ -1,0 +1,55 @@
+---
+layout: post
+title: JRuby 1.7.22 Released
+---
+The JRuby community is pleased to announce the release of JRuby 1.7.22
+
+- Homepage: [http://www.jruby.org/](http://www.jruby.org/)
+- Download: [http://www.jruby.org/download](http://www.jruby.org/download)
+
+JRuby 1.7.22 is our twenty-sixth update release since JRuby 1.7.0.  The primary goal of 1.7 point releases is to fill out any missing compatibility issues with Ruby 1.9.3.
+
+Highlights:
+
+- 31 issues fixed for 1.7.22
+- Updated jruby-openssl to version 0.9.10
+- require_relative fix for softlinks and for embedded classloading scenarios
+- jruby-complete works better with sub-processes
+- Added bubblebabble digest format
+- Java 8 default methods can now be called from Ruby
+
+### Github Issues resolved for 1.7.22
+
+<ul>
+<li><a href="https://github.com/jruby/jruby/issues/3263">#3263</a> - Ambiguous method warning when submitting a Runnable to an Executor</li>
+<li><a href="https://github.com/jruby/jruby/issues/3254">#3254</a> - File.flock does not work on Solaris</li>
+<li><a href="https://github.com/jruby/jruby/issues/3246">#3246</a> - require 'digest/bubblebabble' fails</li>
+<li><a href="https://github.com/jruby/jruby/issues/3232">#3232</a> - Usage of deprecated and unimplemented Thread.stop(Throwable)</li>
+<li><a href="https://github.com/jruby/jruby/issues/3177">#3177</a> - strange stacktrace</li>
+<li><a href="https://github.com/jruby/jruby/issues/3176">#3176</a> - CWD is uri:classloader: then require_relative might not work</li>
+<li><a href="https://github.com/jruby/jruby/issues/3169">#3169</a> - require_relative wrong in Jruby1.7 with symbolic links</li>
+<li><a href="https://github.com/jruby/jruby/issues/3161">#3161</a> - IsolatedScriptingContainer does not honour setting Environment or Argv</li>
+<li><a href="https://github.com/jruby/jruby/pull/3160">#3160</a> - Define packages for classes in nested JARs</li>
+<li><a href="https://github.com/jruby/jruby/issues/3156">#3156</a> - Socket.pack_sockaddr_in fails for nil port (MRI doesn't)</li>
+<li><a href="https://github.com/jruby/jruby/issues/3155">#3155</a> - NullPointerException on deleting items from an Array while mapping over it</li>
+<li><a href="https://github.com/jruby/jruby/issues/3150">#3150</a> - File.expand_path( 'asd', Pathname.new('uri:classloader:/') produces corrupted result</li>
+<li><a href="https://github.com/jruby/jruby/issues/3147">#3147</a> - JRuby trying to load jit'd code from Jars</li>
+<li><a href="https://github.com/jruby/jruby/issues/3142">#3142</a> - shift and rehash methods in Array and Hash</li>
+<li><a href="https://github.com/jruby/jruby/issues/3141">#3141</a> - Sub-process invocations of JRuby with jruby-complete fail in 1.7.21</li>
+<li><a href="https://github.com/jruby/jruby/issues/3136">#3136</a> - improve dispatch for proc-to-iface based on arg count</li>
+<li><a href="https://github.com/jruby/jruby/issues/3133">#3133</a> - JRuby-Complete-1.7.21 not running Rake on WIndows 7</li>
+<li><a href="https://github.com/jruby/jruby/issues/3117">#3117</a> - Unexpected behaviour of Process.waitpid...?</li>
+<li><a href="https://github.com/jruby/jruby/pull/3091">#3091</a> - [#2867] modified Date#>> to take calendar reforms under consideration</li>
+<li><a href="https://github.com/jruby/jruby/issues/3053">#3053</a> - upgrade jruby-openssl (due regression)</li>
+<li><a href="https://github.com/jruby/jruby/issues/3025">#3025</a> - jruby 1.7.20 - Java::JavaLang::IllegalArgumentException (the salt parameter must not be empty)</li>
+<li><a href="https://github.com/jruby/jruby/issues/2923">#2923</a> - ArrayIndexOutOfBoundsException when calling super of Java class</li>
+<li><a href="https://github.com/jruby/jruby/issues/2913">#2913</a> - Some File::Stat operations don't work for Oracle JDK</li>
+<li><a href="https://github.com/jruby/jruby/issues/2867">#2867</a> - Date#next_year difference behvior with MRI</li>
+<li><a href="https://github.com/jruby/jruby/issues/2468">#2468</a> - Some Java modules do not respond_to name</li>
+<li><a href="https://github.com/jruby/jruby/issues/2232">#2232</a> - exceptions thrown by Ruby not propagated to calling Ruby when some Java involved in between</li>
+<li><a href="https://github.com/jruby/jruby/issues/2164">#2164</a> - A case where calling a lambda is different between MRI and JRuby</li>
+<li><a href="https://github.com/jruby/jruby/issues/1595">#1595</a> - "gem install bundler" fails using 2.0 or 2.1 mode</li>
+<li><a href="https://github.com/jruby/jruby/issues/1553">#1553</a> - JRuby > 1.7.0 doesn't work with Oanda FXClient</li>
+<li><a href="https://github.com/jruby/jruby/issues/1365">#1365</a> - System.setProperty("org.jruby.embed.compat.version", "RUBY1_8") does not work</li>
+<li><a href="https://github.com/jruby/jruby/issues/340">#340</a> - NullPointerException  in getCompatVersionParameter(JRubyApplet.java:140)</li>
+</ul>
