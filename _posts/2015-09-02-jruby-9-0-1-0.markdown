@@ -1,0 +1,82 @@
+---
+layout: post
+title: JRuby 9.0.1.0 Released
+---
+The JRuby community is pleased to announce the release of JRuby 9.0.1.0
+
+- Homepage: [http://www.jruby.org/](http://www.jruby.org/)
+- Download: [http://www.jruby.org/download](http://www.jruby.org/download)
+
+JRuby 9000 is the newest major version of JRuby, representing years of effort and large-scale reboots of several JRuby subsystems.  It is expected to be compatible with Ruby 2.2.x and stay in sync with C Ruby.  JRuby 9.0.1.0 is our first of many point releases...
+
+Major features of JRuby 9000:
+
+- Ruby 2.2 compatibility
+- A new optimizing runtime based on a traditional compiler design
+- New POSIX-friendly IO and Process
+- Fully ported encoding/transcoding logic from MRI
+
+If you do find issues then report them on using our issue tracker at [http://bugs.jruby.org](http://bugs.jruby.org). We also encourage users to join our IRC channel (#jruby on Freenode) and mailing lists. You may also follow [@jruby](https://twitter.com/jruby) on Twitter for updates.
+
+## Notable updates since 9.0.0.0
+
+- Reduced memory usage since 9.0.0.0 by 13%
+- Improved support for refinements; 70% of CRuby tests passing
+- jruby-openssl updated to version 0.9.11
+- psych updated to version 2.0.15
+- 44 issues fixed for 9.0.1.0
+
+## Truffle
+
+JRuby 9000 includes an preliminary version of support for the Truffle language implementation framework and Graal VM from Oracle Labs. In future releases, Truffle will provide an extremely high performance and compatible backend for JRuby. The Truffle backend supports almost all Ruby language features and the majority of the core library, and is able to run simple gems and web frameworks such as Sinatra. It has no support for RubyGems, Rails or any database drivers, does not work on Windows, and is not ready to be tested with applications at this stage. More information on Truffle and Graal can be found in the [JRuby Wiki](https://github.com/jruby/jruby/wiki/Truffle).
+
+
+
+### Github Issues resolved for 9.0.1.0
+
+<ul>
+<li><a href="https://github.com/jruby/jruby/issues/3288">#3288</a> - 9K seems to be handling all jruby.xxx properties</li>
+<li><a href="https://github.com/jruby/jruby/pull/3284">#3284</a> - Spec improvements</li>
+<li><a href="https://github.com/jruby/jruby/issues/3283">#3283</a> - Not getting SIGCHLD when a child process dies</li>
+<li><a href="https://github.com/jruby/jruby/pull/3277">#3277</a> - Spec improvements</li>
+<li><a href="https://github.com/jruby/jruby/issues/3276">#3276</a> - Class with prepended module is its own superclass</li>
+<li><a href="https://github.com/jruby/jruby/pull/3271">#3271</a> - bigdecimal &amp; bigmath</li>
+<li><a href="https://github.com/jruby/jruby/pull/3265">#3265</a> - Updates for RSpec 3</li>
+<li><a href="https://github.com/jruby/jruby/issues/3251">#3251</a> - jruby: warning: unknown property jruby.{memory,stack}.max</li>
+<li><a href="https://github.com/jruby/jruby/issues/3249">#3249</a> - Socket.send freezes string unexpectedly (RuntimeError: can't modify frozen string)</li>
+<li><a href="https://github.com/jruby/jruby/issues/3248">#3248</a> - File.fnmatch doesn't match german vowels</li>
+<li><a href="https://github.com/jruby/jruby/issues/3245">#3245</a> - Parser fails on `assert_equal(true, (not ()))` expresion</li>
+<li><a href="https://github.com/jruby/jruby/pull/3238">#3238</a> - Fix Digest bubblebabble incorrect output on empty string</li>
+<li><a href="https://github.com/jruby/jruby/issues/3237">#3237</a> - $! gets unset by rescue, even when the rescue doesn't catch the error</li>
+<li><a href="https://github.com/jruby/jruby/issues/3233">#3233</a> - Rails.root set to "uri:classloader:/" for new Rails app with JRuby 9.0.0.0</li>
+<li><a href="https://github.com/jruby/jruby/pull/3228">#3228</a> - Fix an embedded runtime memory leak in Java7ClassValue</li>
+<li><a href="https://github.com/jruby/jruby/issues/3227">#3227</a> - Array#uniq behavior differs from MRI with BasicObject members</li>
+<li><a href="https://github.com/jruby/jruby/pull/3224">#3224</a> - removed unused FileIO class from persistence.util</li>
+<li><a href="https://github.com/jruby/jruby/pull/3221">#3221</a> - big decimal parser</li>
+<li><a href="https://github.com/jruby/jruby/issues/3220">#3220</a> - RubyInstanceConfig#setupEnvironment throws AccessControlException on Windows</li>
+<li><a href="https://github.com/jruby/jruby/pull/3218">#3218</a> - add to_h to the class used for ENV</li>
+<li><a href="https://github.com/jruby/jruby/pull/3211">#3211</a> - bignum speedup</li>
+<li><a href="https://github.com/jruby/jruby/pull/3200">#3200</a> - Fixing RangeError with code from 1.7 branch</li>
+<li><a href="https://github.com/jruby/jruby/issues/3198">#3198</a> - licensing information out of date?</li>
+<li><a href="https://github.com/jruby/jruby/issues/3189">#3189</a> - 9k fail ftp on Windows</li>
+<li><a href="https://github.com/jruby/jruby/issues/3188">#3188</a> - jruby-1_7 merge failures on master</li>
+<li><a href="https://github.com/jruby/jruby/pull/3187">#3187</a> - Add MRI test for proc visibility</li>
+<li><a href="https://github.com/jruby/jruby/issues/3175">#3175</a> - 9k fail to compile ruby code of using multibyte char on Windows</li>
+<li><a href="https://github.com/jruby/jruby/issues/3174">#3174</a> - ensure clause is executed before begin clause ends ?</li>
+<li><a href="https://github.com/jruby/jruby/issues/3173">#3173</a> - Can't reference the proc itself in a proc</li>
+<li><a href="https://github.com/jruby/jruby/pull/3165">#3165</a> - Fix RubyRange#initialize_copy mistakenly erroring on #dup'ing a range</li>
+<li><a href="https://github.com/jruby/jruby/issues/3163">#3163</a> - dup on Range regression</li>
+<li><a href="https://github.com/jruby/jruby/issues/3162">#3162</a> - Different results for `to_h` and `to_hash` on `ENV`</li>
+<li><a href="https://github.com/jruby/jruby/issues/3118">#3118</a> - Jruby 9000 RC1 throws Java::JavaLang::ClassCastException: org.jruby.RubyBignum cannot be cast to org.jruby.RubyFixnum</li>
+<li><a href="https://github.com/jruby/jruby/issues/2956">#2956</a> - bubblebabble is wrong for empty strings</li>
+<li><a href="https://github.com/jruby/jruby/issues/2901">#2901</a> - Psych fails with MBC strings in ASCII-8BIT</li>
+<li><a href="https://github.com/jruby/jruby/issues/2148">#2148</a> - BigMath.log fails MRI 2.2 tests</li>
+<li><a href="https://github.com/jruby/jruby/issues/2131">#2131</a> - Divergent behavior in MRI vs JRuby wrt Class::undef</li>
+<li><a href="https://github.com/jruby/jruby/issues/1968">#1968</a> - JRuby Yaml implementation (psych) fails dumping "-." </li>
+<li><a href="https://github.com/jruby/jruby/issues/1907">#1907</a> - Frozen</li>
+<li><a href="https://github.com/jruby/jruby/issues/1900">#1900</a> - "invalid byte sequence in UTF-8" after String#encode!; behavior differs from MRI (JRuby-1.7.13)</li>
+<li><a href="https://github.com/jruby/jruby/issues/1877">#1877</a> - Array#delete_if - no size update</li>
+<li><a href="https://github.com/jruby/jruby/issues/1770">#1770</a> - Wrong julian day for DateTime with a negative rational offset</li>
+<li><a href="https://github.com/jruby/jruby/issues/1328">#1328</a> - Encoding of symbol literals does not respect the encoding of the source file</li>
+<li><a href="https://github.com/jruby/jruby/issues/378">#378</a> - Need ability to set Socket.setReuseAddress() in RubyTCPSocket.java</li>
+</ul>
