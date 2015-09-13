@@ -43,7 +43,7 @@ The other is on github.  The JIRA bug tracker is in read-only mode and you shoul
 
 **Fix the website** - Our website source code is publicly available, and we graciously accept pull requests!
 
-- **Website**: [**Browse**](http://github.com/jruby/jruby.github.com) &nbsp;|&nbsp;[**Checkout**](git://github.com/jruby/jruby.github.com.git)
+- **Website**: [**Browse**](http://github.com/jruby/jruby.github.io) &nbsp;|&nbsp;[**Checkout**](git://github.com/jruby/jruby.github.io.git)
 
 [prezi]: http://prezi.com/tsuouxb3z4ln/jruby-hacking-guide/
 [pullrequest]: https://help.github.com/articles/using-pull-requests
