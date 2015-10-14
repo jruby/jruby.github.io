@@ -16,13 +16,13 @@ Note that this version may lag behind official releases, but it gives you a gene
 
 JRuby's interactive console, like many Java apps, can be started as a WebStart application.
 
-You can download the console as a (WebStart JNLP file)[http://jruby.org/tryjruby/irb.jnlp] or launch it directly on some browser by clicking below:
+You can download the console as a (WebStart JNLP file)[http://jruby.org/_tryjruby/irb.jnlp] or launch it directly on some browser by clicking below:
 
 <script src="http://www.java.com/js/deployJava.js"></script>
 <script>
     // using JavaScript to get location of JNLP file relative to HTML page
     var dir = location.href.substring(0, location.href.lastIndexOf('/')+1);
-    var url = dir + "tryjruby/irb.jnlp";
+    var url = dir + "_tryjruby/irb.jnlp";
     deployJava.createWebStartLaunchButton(url, '1.6.0');
 </script>
 
@@ -32,7 +32,7 @@ Some browsers also support embedding Java applets via the Java browser plugin. I
 
 <script language="JavaScript"><!--
 function startApplet() {
-    appletsource='<applet code="org.jruby.JRubyApplet.class" archive="{{ site.urls.tryjruby }}/jruby-complete-signed.jar" width="700" height="500">\n';
+    appletsource='<applet code="org.jruby.JRubyApplet.class" archive="https://s3.amazonaws.com/jruby.org/downloads/9.0.1.0/jruby-complete-9.0.1.0.jar" width="700" height="500">\n';
     appletsource+='<param name="jruby.console" value="true" />\n';
     appletsource+='<param name="jruby.banner" value="Welcome to JRuby on the Web!" />\n';
     appletsource+='<param name="jruby.eval" value="ARGV << \'-f\' << \'--readline\' << \'--prompt\' << \'simple\'; require \'irb\' ; require \'irb/completion\' ; Thread.new { IRB.start }" />\n';
