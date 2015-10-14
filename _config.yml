@@ -3,13 +3,8 @@ auto:        false
 lsi:         false
 server_port: 4000
 pygments:    true
-markdown:    maruku
+markdown:    kramdown
 permalink:   date
-maruku:
-  use_tex:    false
-  use_divs:   false
-  png_dir:    images/latex
-  png_url:    /images/latex
 # JRuby-specific info here; goes into the "site" jekyll variable
 release:
   url: /2015/09/02/jruby-9-0-1-0.html

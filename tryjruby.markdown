@@ -8,7 +8,7 @@ JRuby is very versatile when it comes to deploying, so there's a number of ways 
 
 ## TryRuby.org
 
-The interactive tutorial at (Try Ruby)[tryruby.org] runs atop a sandboxed, server-side instance of JRuby.
+The interactive tutorial at [Try Ruby](http://tryruby.org) runs atop a sandboxed, server-side instance of JRuby.
 
 Note that this version may lag behind official releases, but it gives you a general feel for what interactive JRuby is like.
 
@@ -16,13 +16,13 @@ Note that this version may lag behind official releases, but it gives you a gene
 
 JRuby's interactive console, like many Java apps, can be started as a WebStart application.
 
-You can download the console as a (WebStart JNLP file)[http://jruby.org/_tryjruby/irb.jnlp] or launch it directly on some browser by clicking below:
+You can download the console as a [WebStart JNLP file](http://jruby.org/files/irb.jnlp) or launch it directly on some browser by clicking below:
 
 <script src="http://www.java.com/js/deployJava.js"></script>
 <script>
     // using JavaScript to get location of JNLP file relative to HTML page
     var dir = location.href.substring(0, location.href.lastIndexOf('/')+1);
-    var url = dir + "_tryjruby/irb.jnlp";
+    var url = dir + "files/irb.jnlp";
     deployJava.createWebStartLaunchButton(url, '1.6.0');
 </script>
 
@@ -41,3 +41,8 @@ function startApplet() {
 }
 //--></script> 
 
+<div id="appletplace" align="center"> 
+<form name="myform"> 
+<input type="button" value="Start the applet!" onClick="startApplet()"> 
+</form>
+</div>
