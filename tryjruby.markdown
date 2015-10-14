@@ -2,11 +2,22 @@
 layout: main
 title: Try JRuby!
 ---
-<h1>Try JRuby!</h1>
-<p>This applet lets you try JRuby in your browser. It's a 6 or 13MB file so it may take a few seconds to download.
-You can also download the IRB console as a WebStart app by downloading the
-<a href="http://jruby.org/tryjruby/irb.jnlp"/>WebStart JNLP file</a> and running "javaws irb.jnlp" or launch it in
-directly (on some browsers) by clicking here:
+# Try JRuby!
+
+JRuby is very versatile when it comes to deploying, so there's a number of ways you can try it right now!
+
+## TryRuby.org
+
+The interactive tutorial at (Try Ruby)[tryruby.org] runs atop a sandboxed, server-side instance of JRuby.
+
+Note that this version may lag behind official releases, but it gives you a general feel for what interactive JRuby is like.
+
+## WebStart
+
+JRuby's interactive console, like many Java apps, can be started as a WebStart application.
+
+You can download the console as a (WebStart JNLP file)[http://jruby.org/tryjruby/irb.jnlp] or launch it directly on some browser by clicking below:
+
 <script src="http://www.java.com/js/deployJava.js"></script>
 <script>
     // using JavaScript to get location of JNLP file relative to HTML page
@@ -14,7 +25,11 @@ directly (on some browsers) by clicking here:
     var url = dir + "tryjruby/irb.jnlp";
     deployJava.createWebStartLaunchButton(url, '1.6.0');
 </script>
-</p>
+
+## Java Applet
+
+Some browsers also support embedding Java applets via the Java browser plugin. If you can launch the applet below, you'll have a fully-interactive JRuby instance to play with.
+
 <script language="JavaScript"><!--
 function startApplet() {
     appletsource='<applet code="org.jruby.JRubyApplet.class" archive="{{ site.urls.tryjruby }}/jruby-complete-signed.jar" width="700" height="500">\n';
@@ -25,16 +40,4 @@ function startApplet() {
     document.getElementById('appletplace').innerHTML=appletsource;
 }
 //--></script> 
- 
 
-<div id="appletplace" align="center"> 
-<table border=2> 
-<tr><td valign=center align=center height=500 width=700>
-<form name="myform"> 
-<input type="button" value="Start the applet!" onClick="startApplet()"> 
-</form>
-</td></tr> 
-</table> 
-</div>
-</body>
-</html>
