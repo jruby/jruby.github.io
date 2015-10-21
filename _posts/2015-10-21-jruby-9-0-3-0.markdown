@@ -1,0 +1,70 @@
+---
+layout: post
+title: JRuby 9.0.3.0 Released
+---
+The JRuby community is pleased to announce the release of JRuby 9.0.3.0
+
+- Homepage: [http://www.jruby.org/](http://www.jruby.org/)
+- Download: [http://www.jruby.org/download](http://www.jruby.org/download)
+
+JRuby 9000 is the newest major version of JRuby, representing years of effort and large-scale reboots of several JRuby subsystems.  It is expected to be compatible with Ruby 2.2.x and stay in sync with C Ruby.  JRuby 9.0.3.0 is our second of many point releases...
+
+[NOTE: 9.0.2.0 was prematurely released to Maven with a serious issue so we had to skip putting out a 9.0.2.0 release (Maven does not allow replacing pushed artifacts). So 9.0.3.0 is our second official point release. We apologize for any confusion this may cause.]
+
+Major features of JRuby 9000:
+
+- Ruby 2.2 compatibility
+- A new optimizing runtime based on a traditional compiler design
+- New POSIX-friendly IO and Process
+- Fully ported encoding/transcoding logic from MRI
+
+If you do find issues then report them on using our issue tracker at [http://bugs.jruby.org](http://bugs.jruby.org). We also encourage users to join our IRC channel (#jruby on Freenode) and mailing lists. You may also follow [@jruby](https://twitter.com/jruby) on Twitter for updates.
+
+## Notable updates since 9.0.1.0
+
+- Pattern 'foo rescue nil' now can, at times, run 48x faster
+- Blocks can independently JIT now improving perf in some scenarios
+- stat() on windows now supports long paths and UNC paths
+- Handful of issues fixed makes Rails master run (sans AR-JDBC work outstanding)
+- 31 issues fixed for 9.0.3.0
+
+## Truffle
+
+JRuby 9000 includes an preliminary version of support for the Truffle language implementation framework and Graal VM from Oracle Labs. In future releases, Truffle will provide an extremely high performance and compatible backend for JRuby. The Truffle backend supports almost all Ruby language features and the majority of the core library, and is able to run simple gems and web frameworks such as Sinatra. It has no support for RubyGems, Rails or any database drivers, does not work on Windows, and is not ready to be tested with applications at this stage. More information on Truffle and Graal can be found in the [JRuby Wiki](https://github.com/jruby/jruby/wiki/Truffle).
+
+
+### Github Issues resolved for 9.0.3.0
+
+<ul>
+<li><a href="https://github.com/jruby/jruby/issues/3397">#3397</a> - ArrayIndexOutOfBoundsException when utf8 string matched against regexp with with word boundary \b</li>
+<li><a href="https://github.com/jruby/jruby/issues/3399">#3399</a> - Can't seek when file accessed using classpath: OR uri:classloader: schemes</li>
+<li><a href="https://github.com/jruby/jruby/issues/3394">#3394</a> - JRuby thread stuck on IntHashMap.rehash</li>
+<li><a href="https://github.com/jruby/jruby/issues/3380">#3380</a> - Bad value for $$</li>
+<li><a href="https://github.com/jruby/jruby/issues/3378">#3378</a> - #to_ary behavior does not conform to MRI Ruby (1.7.22)</li>
+<li><a href="https://github.com/jruby/jruby/issues/3372">#3372</a> - FileUtils#remove_tailing_slash is a poor method name</li>
+<li><a href="https://github.com/jruby/jruby/issues/3371">#3371</a> - splash params lose a nesting level *only* in #_to_proc</li>
+<li><a href="https://github.com/jruby/jruby/issues/3368">#3368</a> - Jitted blocks do not scope evals properly</li>
+<li><a href="https://github.com/jruby/jruby/issues/3365">#3365</a> - test/mri/psych//test_yaml.rb fails with enable system assertions</li>
+<li><a href="https://github.com/jruby/jruby/issues/3364">#3364</a> - Running Rails test with Jruby  9000</li>
+<li><a href="https://github.com/jruby/jruby/issues/3362">#3362</a> - bar rescue nil should not fail if StandardError is removed</li>
+<li><a href="https://github.com/jruby/jruby/issues/3356">#3356</a> - Inconsistence when modifying return object in ensure</li>
+<li><a href="https://github.com/jruby/jruby/issues/3348">#3348</a> - CSV parsing performance is poor</li>
+<li><a href="https://github.com/jruby/jruby/issues/3340">#3340</a> - JRuby NoMethodError: undefined method `open?' for #<File:/dev/tty></li>
+<li><a href="https://github.com/jruby/jruby/issues/3338">#3338</a> - JRuby 9.0.1.0 #to_ary should return Array</li>
+<li><a href="https://github.com/jruby/jruby/pull/3337">#3337</a> - support (seekable) ByteArrayInputStream#to_io.rewind</li>
+<li><a href="https://github.com/jruby/jruby/issues/3333">#3333</a> - handle non-public inner class retrieval</li>
+<li><a href="https://github.com/jruby/jruby/pull/3330">#3330</a> - Fix java_implements for multiple interfaces</li>
+<li><a href="https://github.com/jruby/jruby/pull/3327">#3327</a> - Issue #3324</li>
+<li><a href="https://github.com/jruby/jruby/issues/3324">#3324</a> - _id2ref should raise RangeError rather than return nil for no object found</li>
+<li><a href="https://github.com/jruby/jruby/pull/3319">#3319</a> - find-bugs 2</li>
+<li><a href="https://github.com/jruby/jruby/pull/3317">#3317</a> - find-bugs 1</li>
+<li><a href="https://github.com/jruby/jruby/issues/3300">#3300</a> - extension class does not get loaded</li>
+<li><a href="https://github.com/jruby/jruby/issues/3292">#3292</a> - UTF-8 encoding on MS-Windows</li>
+<li><a href="https://github.com/jruby/jruby/issues/3282">#3282</a> - UDPSocket Error inconsistent with MRI</li>
+<li><a href="https://github.com/jruby/jruby/issues/3279">#3279</a> - non-intuitive overloaded varargs matching</li>
+<li><a href="https://github.com/jruby/jruby/issues/3270">#3270</a> - Kernel#require cannot find compiled ruby classes in jruby 9.0.0.0</li>
+<li><a href="https://github.com/jruby/jruby/issues/3267">#3267</a> - Encoding issue in jruby 9.0.0.0</li>
+<li><a href="https://github.com/jruby/jruby/issues/3257">#3257</a> - Initial $LOAD_PATH depends on JRUBY_HOME in jruby-complete-9.0.0.0</li>
+<li><a href="https://github.com/jruby/jruby/issues/3215">#3215</a> - bin/jruby is not updated when bin/jruby.bash is</li>
+<li><a href="https://github.com/jruby/jruby/issues/3137">#3137</a> - Hash#select! inconsistency with MRI when yielding only one argument</li>
+</ul>
