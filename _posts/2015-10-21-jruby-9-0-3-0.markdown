@@ -24,6 +24,7 @@ If you do find issues then report them on using our issue tracker at [http://bug
 
 - Pattern 'foo rescue nil' now can, at times, run 48x faster
 - Blocks can independently JIT now improving perf in some scenarios
+- define_method with non-capturing body is now 2+x faster (~same speed as def)
 - stat() on windows now supports long paths and UNC paths
 - Handful of issues fixed makes Rails master run (sans AR-JDBC work outstanding)
 - 31 issues fixed for 9.0.3.0
