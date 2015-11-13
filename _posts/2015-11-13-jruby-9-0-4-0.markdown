@@ -1,0 +1,49 @@
+---
+layout: post
+title: JRuby 9.0.4.0 Released
+---
+The JRuby community is pleased to announce the release of JRuby 9.0.4.0
+
+- Homepage: [http://www.jruby.org/](http://www.jruby.org/)
+- Download: [http://www.jruby.org/download](http://www.jruby.org/download)
+
+JRuby 9000 is the newest major version of JRuby, representing years of effort and large-scale reboots of several JRuby subsystems.  It is expected to be compatible with Ruby 2.2.x and stay in sync with C Ruby.  JRuby 9.0.4.0 is our third of many point releases...
+
+9.0.4.0 is a quick turnaround release to address some problems with the new stat() implementation on windows and couple of issues.  We have a lot more confidence in the new stat code now.  In addition, we addressed a fairly long-standing memory leak with stat() on windows.  A followup release for 1.7.23 will also be out soon to address the same leak (next week).
+
+Major features of JRuby 9000:
+
+- Ruby 2.2 compatibility
+- A new optimizing runtime based on a traditional compiler design
+- New POSIX-friendly IO and Process
+- Fully ported encoding/transcoding logic from MRI
+
+If you do find issues then report them on using our issue tracker at [http://bugs.jruby.org](http://bugs.jruby.org). We also encourage users to join our IRC channel (#jruby on Freenode) and mailing lists. You may also follow [@jruby](https://twitter.com/jruby) on Twitter for updates.
+
+## Notable updates since 9.0.3.0
+
+- Resolved various issues with stat() on Windows
+- Fixed couple of encoding/transcoding issues
+- Source with \__FILE__ in it will now JIT
+- Native call subsystem will load on mixed 32/64 bit Linux distributions
+- 11 issues fixed for 9.0.4.0
+
+## Truffle
+
+JRuby 9000 includes an preliminary version of support for the Truffle language implementation framework and Graal VM from Oracle Labs. In future releases, Truffle will provide an extremely high performance and compatible backend for JRuby. The Truffle backend supports almost all Ruby language features and the majority of the core library, and is able to run simple gems and web frameworks such as Sinatra. It has no support for RubyGems, Rails or any database drivers, does not work on Windows, and is not ready to be tested with applications at this stage. More information on Truffle and Graal can be found in the [JRuby Wiki](https://github.com/jruby/jruby/wiki/Truffle).
+
+### Github Issues resolved for 9.0.4.0
+
+<ul>
+<li><a href="https://github.com/jruby/jruby/issues/3457">#3457</a> - stat.st_gid is unsupported on windows</li>
+<li><a href="https://github.com/jruby/jruby/issues/3449">#3449</a> - jirb fails to start on Windows</li>
+<li><a href="https://github.com/jruby/jruby/issues/3448">#3448</a> - File.stat("someunavailable").mtime returns odd result</li>
+<li><a href="https://github.com/jruby/jruby/pull/3444">#3444</a> - Fix TCPServer#accept NPE log</li>
+<li><a href="https://github.com/jruby/jruby/pull/3442">#3442</a> - String#crypt crashes when a receiver is shared String</li>
+<li><a href="https://github.com/jruby/jruby/issues/3425">#3425</a> - String#tr different behavior as compared to MRI Ruby</li>
+<li><a href="https://github.com/jruby/jruby/issues/3410">#3410</a> - Cannot install jRuby 9.0.3.0</li>
+<li><a href="https://github.com/jruby/jruby/issues/3409">#3409</a> - NotImplementedError: flock unsupported or native support failed to load</li>
+<li><a href="https://github.com/jruby/jruby/issues/3408">#3408</a> - IRB fails to start with JRuby9.0.3.0 on Windows 10.</li>
+<li><a href="https://github.com/jruby/jruby/issues/3197">#3197</a> - require_relative fails for relative paths within jars on Windows</li>
+<li><a href="https://github.com/jruby/jruby/issues/2381">#2381</a> - IO#rewind ... doesn't. (when backed by a ByteArrayInputStream).</li>
+</ul>
