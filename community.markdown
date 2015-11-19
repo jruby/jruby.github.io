@@ -10,7 +10,7 @@ JRuby has a large and active community. You can connect up with them in several 
 
 [**Twitter**](/twitter) - There are twitter accounts for The JRuby Team and all the team members.
 
-[**IRC**][irc] - Many members of the JRuby community can be found on IRC, on the FreeNode network in the #jruby channel. Most of the core JRuby developers also communicate on IRC. If you want quick, interactive help or just want to hang out, feel free to stop by!
+[**Chat**](/chat) - Many members of the JRuby community can be found on IRC, on the FreeNode network in the #jruby channel. Most of the core JRuby developers also communicate on IRC. If you want quick, interactive help or just want to hang out, feel free to stop by!
 
 [**Mailing Lists**][lists] - There are also several mailing lists, for users, developers, and folks interested in tracking the process of JRuby.
 
@@ -18,7 +18,6 @@ JRuby has a large and active community. You can connect up with them in several 
 
 [**Wiki**][wiki] - The JRuby wiki--user editable.
 
-[irc]: http://wiki.jruby.org/IRC
 [lists]: http://wiki.jruby.org/MailingLists
 [github_issues]: http://github.com/jruby/jruby/issues
 [wiki]: http://wiki.jruby.org/
