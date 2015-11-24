@@ -1,0 +1,55 @@
+---
+layout: post
+title: JRuby 1.7.23 Released
+---
+The JRuby community is pleased to announce the release of JRuby 1.7.23
+
+- Homepage: [http://www.jruby.org/](http://www.jruby.org/)
+- Download: [http://www.jruby.org/download](http://www.jruby.org/download)
+
+JRuby 1.7.23 is our twenty-seventh update release since JRuby 1.7.0.  The primary goal of 1.7 point releases is to fill out any missing compatibility issues with Ruby 1.9.3.
+
+Highlights:
+
+- Windows stat now supports long and UNC pathnames
+- Windows stat no longer leaks memory (broken since 1.7.20)
+- Various Windows path fixes
+- Various jar and/or classpath fixes with filesystem-related methods
+- Fixed issue with native support not loading on some Ubuntu systems
+- 30 issues fixed for 1.7.23
+
+
+### Github Issues resolved for 1.7.23
+
+<ul>
+<li><a href="https://github.com/jruby/jruby/issues/3470">#3470</a> - Method aliases are not consistently mapped for a class with isFoo and getFoo</li>
+<li><a href="https://github.com/jruby/jruby/issues/3463">#3463</a> - Module method defined on metaclass in Java ext has wrong owner</li>
+<li><a href="https://github.com/jruby/jruby/issues/3443">#3443</a> - jruby-complete.jar ignores nested gems of required jar</li>
+<li><a href="https://github.com/jruby/jruby/pull/3422">#3422</a> - Fix Fixnum#pred overflow</li>
+<li><a href="https://github.com/jruby/jruby/pull/3421">#3421</a> - Fix GzipWriter output</li>
+<li><a href="https://github.com/jruby/jruby/issues/3418">#3418</a> - "FloatDomainError: Computation results to 'NaN'(Not a Number)"</li>
+<li><a href="https://github.com/jruby/jruby/issues/3401">#3401</a> - File.realpath on uri-like paths fails</li>
+<li><a href="https://github.com/jruby/jruby/issues/3392">#3392</a> - Pathname#relative_path_from failing when there is a '!' character in the path</li>
+<li><a href="https://github.com/jruby/jruby/issues/3381">#3381</a> - helper to clean up stale /tmp/jruby-12345/XZY.jar files </li>
+<li><a href="https://github.com/jruby/jruby/issues/3377">#3377</a> - #to_ary behavior does not conform to MRI behavior</li>
+<li><a href="https://github.com/jruby/jruby/issues/3352">#3352</a> - /tmp/jrubyXXX.jar files are left in place by classloader if process is SIGKILLed</li>
+<li><a href="https://github.com/jruby/jruby/issues/3346">#3346</a> - Error messages for failed casts using Integer() subtly different to MRI</li>
+<li><a href="https://github.com/jruby/jruby/issues/3342">#3342</a> - File.file?( "uri:classloader:/path/") can be true which is wrong </li>
+<li><a href="https://github.com/jruby/jruby/pull/3329">#3329</a> - Fix java_implements for multiple interfaces</li>
+<li><a href="https://github.com/jruby/jruby/issues/3307">#3307</a> - jruby-complete-1.7.x comes with yaml ruby files from yecht.jar which conflicts with stdlib</li>
+<li><a href="https://github.com/jruby/jruby/issues/3306">#3306</a> - psych can not load yaml file from classloader</li>
+<li><a href="https://github.com/jruby/jruby/issues/3294">#3294</a> - processArguments is run twice</li>
+<li><a href="https://github.com/jruby/jruby/issues/3287">#3287</a> - Cannot resolve or detect symlinks on Windows</li>
+<li><a href="https://github.com/jruby/jruby/issues/3285">#3285</a> - "NotImplementedError: waitpid unsupported or native support failed to load" with 9.0.0.0 on Ubuntu if build tools not installed</li>
+<li><a href="https://github.com/jruby/jruby/issues/3280">#3280</a> -  Encoding of symbol literals does not respect the encoding of the source file (1.9 edition) </li>
+<li><a href="https://github.com/jruby/jruby/pull/3278">#3278</a> - backport #3271, #3211, #3221</li>
+<li><a href="https://github.com/jruby/jruby/issues/3186">#3186</a> - Unable to use bundler with jruby-complete for versions 1.7.21 and 9.0.0.0. 1.7.19 works as expected.</li>
+<li><a href="https://github.com/jruby/jruby/issues/3132">#3132</a> - expandPathInternal Windows compatibility</li>
+<li><a href="https://github.com/jruby/jruby/issues/2865">#2865</a> - Ambiguous method warning when there does not appear to be any ambiguity</li>
+<li><a href="https://github.com/jruby/jruby/pull/2187">#2187</a> - Fix JsonProfilePrinter</li>
+<li><a href="https://github.com/jruby/jruby/pull/1827">#1827</a> - normalize JRubyHome for windows.</li>
+<li><a href="https://github.com/jruby/jruby/issues/846">#846</a> - Difference in exception handling behavior JRuby <-> Ruby 1.9.3</li>
+<li><a href="https://github.com/jruby/jruby/issues/625">#625</a> - Socket.const_defined? returns false for constants defined in the scope in 1.8 mode</li>
+<li><a href="https://github.com/jruby/jruby/issues/364">#364</a> - symlinks interact badly with Dir; cause infinite loop/recursion</li>
+<li><a href="https://github.com/jruby/jruby/issues/338">#338</a> - NKF constants</li>
+</ul>
