@@ -16,7 +16,7 @@ Highlights:
 - Various Windows path fixes
 - Various jar and/or classpath fixes with filesystem-related methods
 - Fixed issue with native support not loading on some Ubuntu systems
-- 30 issues fixed for 1.7.23
+- 31 issues fixed for 1.7.23
 
 
 ### Github Issues resolved for 1.7.23
@@ -24,6 +24,7 @@ Highlights:
 <ul>
 <li><a href="https://github.com/jruby/jruby/issues/3470">#3470</a> - Method aliases are not consistently mapped for a class with isFoo and getFoo</li>
 <li><a href="https://github.com/jruby/jruby/issues/3463">#3463</a> - Module method defined on metaclass in Java ext has wrong owner</li>
+<li><a href="https://github.com/jruby/jruby/issues/3446">#3446</a> - Memory leak off heap on Windows when using File::Stat</li>
 <li><a href="https://github.com/jruby/jruby/issues/3443">#3443</a> - jruby-complete.jar ignores nested gems of required jar</li>
 <li><a href="https://github.com/jruby/jruby/pull/3422">#3422</a> - Fix Fixnum#pred overflow</li>
 <li><a href="https://github.com/jruby/jruby/pull/3421">#3421</a> - Fix GzipWriter output</li>
