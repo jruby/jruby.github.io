@@ -1,0 +1,39 @@
+---
+layout: post
+title: JRuby 1.7.24 Released
+---
+The JRuby community is pleased to announce the release of JRuby 1.7.24
+
+- Homepage: [http://www.jruby.org/](http://www.jruby.org/)
+- Download: [http://www.jruby.org/download](http://www.jruby.org/download)
+
+JRuby 1.7.24 is our twenty-eigth update release since JRuby 1.7.0.  The primary goal of 1.7 point releases is to fill out any missing compatibility issues with Ruby 1.9.3.
+
+Highlights:
+
+- Windows stat crashing on 32 bit JVMs
+- Annoying io/console warning on Windows now only happens in verbose mode
+- stat.directory? now workds again on Windows
+- Update out of date unicode data (will fix some character class regexps)
+- 16 issues fixed for 1.7.24
+
+### Github Issues resolved for 1.7.24
+
+<ul>
+<li><a href="https://github.com/jruby/jruby/issues/3555">#3555</a> - jruby-jars jruby-core should not include java/util/concurrent/ConcurrentHashMap.class</li>
+<li><a href="https://github.com/jruby/jruby/issues/3554">#3554</a> - Use of Unsafe in High Scale break on Android</li>
+<li><a href="https://github.com/jruby/jruby/issues/3550">#3550</a> - Warning "io/console not supported; tty will not be manipulated" occurs again on 1.7.23</li>
+<li><a href="https://github.com/jruby/jruby/issues/3525">#3525</a> - File::Stat.new() issue in 1.7.23 on Windows 7</li>
+<li><a href="https://github.com/jruby/jruby/issues/3505">#3505</a> - stat.writable? incorrectly reporting false for some directories on Windows 7</li>
+<li><a href="https://github.com/jruby/jruby/issues/3496">#3496</a> - asciidoctorj-pdf does not work with JRuby 1.7.23</li>
+<li><a href="https://github.com/jruby/jruby/pull/3403">#3403</a> - log exception backtrace in one log record</li>
+<li><a href="https://github.com/jruby/jruby/issues/3213">#3213</a> - Add snapshot of "jruby-jars-*.gem" to the CI build</li>
+<li><a href="https://github.com/jruby/jruby/issues/3180">#3180</a> - Kernel.load(file, true) produces RuntimeException: Should not get here!</li>
+<li><a href="https://github.com/jruby/jruby/issues/3154">#3154</a> - Add complete jar and other release artifacts to ci.jruby.org builds</li>
+<li><a href="https://github.com/jruby/jruby/issues/3032">#3032</a> - Self requiring file breaks inheritance hooks</li>
+<li><a href="https://github.com/jruby/jruby/issues/2960">#2960</a> - Block Parameter Scoping (vs Ruby)</li>
+<li><a href="https://github.com/jruby/jruby/issues/2954">#2954</a> - Posible compilation issue</li>
+<li><a href="https://github.com/jruby/jruby/issues/2945">#2945</a> - Module#const_get may return incomplete class</li>
+<li><a href="https://github.com/jruby/jruby/issues/2104">#2104</a> - Ambiguous method warnings in core_ext/object.rb in 9k</li>
+<li><a href="https://github.com/jruby/jruby/issues/821">#821</a> - IO.select does not properly coerce timeout argument</li>
+</ul>
