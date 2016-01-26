@@ -7,12 +7,12 @@ markdown:    kramdown
 permalink:   date
 # JRuby-specific info here; goes into the "site" jekyll variable
 release:
-  url: /2015/11/13/jruby-9-0-4-0.html
-  version: 9.0.4.0
-  tar: https://s3.amazonaws.com/jruby.org/downloads/9.0.4.0/jruby-bin-9.0.4.0.tar.gz
-  zip: https://s3.amazonaws.com/jruby.org/downloads/9.0.4.0/jruby-bin-9.0.4.0.zip
-  exe: https://s3.amazonaws.com/jruby.org/downloads/9.0.4.0/jruby_windows_9_0_4_0.exe
-  exe64: https://s3.amazonaws.com/jruby.org/downloads/9.0.4.0/jruby_windows_x64_9_0_4_0.exe
+  url: /2016/01/26/jruby-9-0-5-0.html
+  version: 9.0.5.0
+  tar: https://s3.amazonaws.com/jruby.org/downloads/9.0.5.0/jruby-bin-9.0.5.0.tar.gz
+  zip: https://s3.amazonaws.com/jruby.org/downloads/9.0.5.0/jruby-bin-9.0.5.0.zip
+  exe: https://s3.amazonaws.com/jruby.org/downloads/9.0.5.0/jruby_windows_9_0_5_0.exe
+  exe64: https://s3.amazonaws.com/jruby.org/downloads/9.0.5.0/jruby_windows_x64_9_0_5_0.exe
 urls:
   s3: https://s3.amazonaws.com/jruby.org/downloads
   tryjruby: https://s3.amazonaws.com/jruby.org/tryjruby

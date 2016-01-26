@@ -1,0 +1,93 @@
+---
+layout: post
+title: JRuby 9.0.4.0 Released
+---
+The JRuby community is pleased to announce the release of JRuby 9.0.4.0
+
+- Homepage: [http://www.jruby.org/](http://www.jruby.org/)
+- Download: [http://www.jruby.org/download](http://www.jruby.org/download)
+
+JRuby 9000 is the newest major version of JRuby, representing years of effort and large-scale reboots of several JRuby subsystems.  It is expected to be compatible with Ruby 2.2.x and stay in sync with C Ruby.  JRuby 9.0.5.0 is our latest release...
+
+Major features of JRuby 9000:
+
+- Ruby 2.2 compatibility
+- A new optimizing runtime based on a traditional compiler design
+- New POSIX-friendly IO and Process
+- Fully ported encoding/transcoding logic from MRI
+
+If you do find issues then report them on using our issue tracker at [http://bugs.jruby.org](http://bugs.jruby.org). We also encourage users to join our IRC channel (#jruby on Freenode) and mailing lists. You may also follow [@jruby](https://twitter.com/jruby) on Twitter for updates.
+
+## Notable updates since 9.0.4.0
+
+- Fixed leaks in IO.select and IO.copy_stream.
+- Implemented DATA support lost in 9k.
+- Fixed regression breaking empty-body define_method methods.
+- Windows stat crashing on 32 bit JVMs
+- 53 issues fixed for 9.0.5.0
+
+## Truffle
+
+JRuby 9000 includes an preliminary version of support for the Truffle language implementation framework and Graal JIT compiler from Oracle Labs. In future releases, Truffle will provide an extremely high performance and compatible backend for JRuby. The Truffle backend supports almost all Ruby language features and the majority of the core library, and is able to run simple gems and web frameworks such as Sinatra. It has no support for RubyGems, Rails or any database drivers, and does not work on Windows. However we are now interested in people submitting issues for small gems with minimal dependencies who see issues running on JRuby+Truffle
+
+Graal has been integrated into Java 9 early access builds, and can be used today as part of the [GraalVM](https://github.com/jruby/jruby/wiki/Downloading-GraalVM), which is currently the recommended way to run JRuby+Truffle.
+
+More information on Truffle and Graal can be found in the [JRuby Wiki](https://github.com/jruby/jruby/wiki/Truffle).
+
+### Github Issues resolved for 9.0.5.0
+
+<ul>
+<li><a href="https://github.com/jruby/jruby/issues/3609">#3609</a> - Incompatible method lookup under Kernel.load(file,true), aka wrap,  on 9.x</li>
+<li><a href="https://github.com/jruby/jruby/pull/3602">#3602</a> - Fix cache-constructed-proxies</li>
+<li><a href="https://github.com/jruby/jruby/issues/3599">#3599</a> - jrubyc won't compile a file with method in outer scope (NoMethodError: undefined method `new_method' for nil:NilClass)</li>
+<li><a href="https://github.com/jruby/jruby/pull/3597">#3597</a> - Fix SizedQueue#num_waiting regression</li>
+<li><a href="https://github.com/jruby/jruby/issues/3591">#3591</a> - Unhandled Java exception: java.lang.ArrayIndexOutOfBoundsException: -3</li>
+<li><a href="https://github.com/jruby/jruby/issues/3590">#3590</a> - IO.copy_stream leaves opened files in ObjectSpace</li>
+<li><a href="https://github.com/jruby/jruby/issues/3588">#3588</a> - Leak in select for a UNIXSocket (at least)</li>
+<li><a href="https://github.com/jruby/jruby/issues/3586">#3586</a> - org.jruby.runtime.load.ClassExtensionLibrary.tryFind fails on certain classnames</li>
+<li><a href="https://github.com/jruby/jruby/pull/3581">#3581</a> - Cache proxies of newly constructed Java objects</li>
+<li><a href="https://github.com/jruby/jruby/issues/3579">#3579</a> - JRuby doesn't support DATA and __END__</li>
+<li><a href="https://github.com/jruby/jruby/issues/3577">#3577</a> - Block call IR optimization failures by 0d35995e1704bb716a9b54064208cf82ace2f150</li>
+<li><a href="https://github.com/jruby/jruby/issues/3576">#3576</a> - ConstructorInvoker isn't storing the proxy in the ObjectProxyCache</li>
+<li><a href="https://github.com/jruby/jruby/issues/3574">#3574</a> - autoload + const_defined? inconsistent with Ruby 2.0+</li>
+<li><a href="https://github.com/jruby/jruby/issues/3573">#3573</a> - MRI 2.2.2 / JRuby 9.0.4.0 difference given explicit `self` receiver for private method call.</li>
+<li><a href="https://github.com/jruby/jruby/issues/3564">#3564</a> - Rational suffix doesn't work with 0</li>
+<li><a href="https://github.com/jruby/jruby/issues/3563">#3563</a> - jdk9 produces warning on launcher</li>
+<li><a href="https://github.com/jruby/jruby/issues/3558">#3558</a> - case doesn't match empty array</li>
+<li><a href="https://github.com/jruby/jruby/issues/3542">#3542</a> - StopIteration does not propagate a result</li>
+<li><a href="https://github.com/jruby/jruby/pull/3540">#3540</a> - Fix Enumerable#{min_by, max_by} with nil</li>
+<li><a href="https://github.com/jruby/jruby/pull/3539">#3539</a> - Prevent to make subclass of Class</li>
+<li><a href="https://github.com/jruby/jruby/issues/3538">#3538</a> - Regexp match raises java.lang.ArrayIndexOutOfBoundsException in numbered backreference</li>
+<li><a href="https://github.com/jruby/jruby/pull/3537">#3537</a> - Fix Array#collect! that returns a sized enumerator as Array#map!</li>
+<li><a href="https://github.com/jruby/jruby/issues/3530">#3530</a> - Calling IO.console twice raises NoMethodError for `#open?`</li>
+<li><a href="https://github.com/jruby/jruby/issues/3527">#3527</a> - BigDecimal.new("5-6").to_i returns 0 on 9k where 1.7 and MRI returns 5</li>
+<li><a href="https://github.com/jruby/jruby/issues/3520">#3520</a> - Having Problems With Celluloid::IO / Nonblocking IO</li>
+<li><a href="https://github.com/jruby/jruby/pull/3494">#3494</a> - Proper support for UNIXSocket.for_fd</li>
+<li><a href="https://github.com/jruby/jruby/issues/3493">#3493</a> - Wrong name mangling. V8Utils => v8utils instead of v8.utils</li>
+<li><a href="https://github.com/jruby/jruby/pull/3492">#3492</a> - UNIXSocket#recv_io, UNIXSocket#send_io implementation using JNR</li>
+<li><a href="https://github.com/jruby/jruby/pull/3488">#3488</a> - forcing a nil (no) backtrace with Java APIs</li>
+<li><a href="https://github.com/jruby/jruby/issues/3483">#3483</a> - define_method with empty body throws RuntimeError in interpreter</li>
+<li><a href="https://github.com/jruby/jruby/issues/3478">#3478</a> - Print warning when JRuby.objectspace is enabled</li>
+<li><a href="https://github.com/jruby/jruby/issues/3472">#3472</a> - Hash keys should only be deduplicated for direct literal forms</li>
+<li><a href="https://github.com/jruby/jruby/issues/3453">#3453</a> - AOT compile of method with conditional return results in "is not compiled Ruby; use java_import to load normal classes"</li>
+<li><a href="https://github.com/jruby/jruby/issues/3452">#3452</a> - AOT compile of empty module results in NullPointerException</li>
+<li><a href="https://github.com/jruby/jruby/pull/3437">#3437</a> - Fix for issue 3402: String#encode with :replace option does not return correct value</li>
+<li><a href="https://github.com/jruby/jruby/issues/3433">#3433</a> - Getting back different values between Time#to_r and Time#to_i</li>
+<li><a href="https://github.com/jruby/jruby/pull/3412">#3412</a> - [Truffle] make j+tr part of the distribution</li>
+<li><a href="https://github.com/jruby/jruby/issues/3411">#3411</a> - Convert chinese encoding GB18030 to UTF-8 doesn't work</li>
+<li><a href="https://github.com/jruby/jruby/issues/3405">#3405</a> - Hash has bug to set encoding into key string wrongly when the key string is used once with different encoding</li>
+<li><a href="https://github.com/jruby/jruby/issues/3402">#3402</a> - String.encode :replace option does not work when encoding to UTF8</li>
+<li><a href="https://github.com/jruby/jruby/pull/3331">#3331</a> - Fix 3303 refactor zoneHelper into getRubyTimeZoneName</li>
+<li><a href="https://github.com/jruby/jruby/pull/3328">#3328</a> - remove support for aliasing Java indexed getters as Ruby readers</li>
+<li><a href="https://github.com/jruby/jruby/issues/3262">#3262</a> - jruby 9.0.0.0 Java::JavaLang::Character.name</li>
+<li><a href="https://github.com/jruby/jruby/pull/3209">#3209</a> - Correct a format string in Signal#trap.</li>
+<li><a href="https://github.com/jruby/jruby/issues/3208">#3208</a> - Trapping reserved signals doesn't print a meaningful message</li>
+<li><a href="https://github.com/jruby/jruby/issues/3193">#3193</a> - Java::JavaLang::StackOverflowError running spec which works on 2.2.1</li>
+<li><a href="https://github.com/jruby/jruby/issues/3121">#3121</a> - jruby 9.0.0.0.rc1 performance regressions</li>
+<li><a href="https://github.com/jruby/jruby/pull/3120">#3120</a> - Add some more tests for bignum pow</li>
+<li><a href="https://github.com/jruby/jruby/pull/3119">#3119</a> - Fix date.rewrite_frags</li>
+<li><a href="https://github.com/jruby/jruby/issues/2149">#2149</a> - Failing DateTime.strptime for weird dates near epoch</li>
+<li><a href="https://github.com/jruby/jruby/issues/2142">#2142</a> - Struct#inspect does not produce the same output as MRI 2.2</li>
+<li><a href="https://github.com/jruby/jruby/issues/940">#940</a> - Implement UNIXServer and UNIXSocket.for_fd</li>
+<li><a href="https://github.com/jruby/jruby/issues/455">#455</a> - RubyUDPSocket swallows exceptions</li>
+</ul>
