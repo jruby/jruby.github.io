@@ -1,8 +1,8 @@
 ---
 layout: post
-title: JRuby 9.0.4.0 Released
+title: JRuby 9.0.5.0 Released
 ---
-The JRuby community is pleased to announce the release of JRuby 9.0.4.0
+The JRuby community is pleased to announce the release of JRuby 9.0.5.0
 
 - Homepage: [http://www.jruby.org/](http://www.jruby.org/)
 - Download: [http://www.jruby.org/download](http://www.jruby.org/download)
@@ -18,7 +18,7 @@ Major features of JRuby 9000:
 
 If you do find issues then report them on using our issue tracker at [http://bugs.jruby.org](http://bugs.jruby.org). We also encourage users to join our IRC channel (#jruby on Freenode) and mailing lists. You may also follow [@jruby](https://twitter.com/jruby) on Twitter for updates.
 
-## Notable updates since 9.0.4.0
+## Notable updates since 9.0.5.0
 
 - Fixed leaks in IO.select and IO.copy_stream.
 - Implemented DATA support lost in 9k.
