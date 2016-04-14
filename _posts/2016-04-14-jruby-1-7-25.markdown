@@ -1,0 +1,39 @@
+---
+layout: post
+title: JRuby 1.7.25 Released
+---
+The JRuby community is pleased to announce the release of JRuby 1.7.25
+
+- Homepage: [http://www.jruby.org/](http://www.jruby.org/)
+- Download: [http://www.jruby.org/download](http://www.jruby.org/download)
+
+JRuby 1.7.25 is our twenty-ninth update release since JRuby 1.7.0.  The primary goal of 1.7 point releases is to fill out any missing compatibility issues with Ruby 1.9.3.
+
+PSA: Over the years we have had Windows CI support and then lost Windows CI supprt.  We would still irregularly run tests on windows, but this is never as good as getting more immediate feedback.  Via the ability to use an awesome service like ci.appveyor.com, we are again regularly running against a Windows CI.  If you peruse the list of resolved issues you will see how important it is to be regularly running CI on all the OSes you support.
+
+Highlights:
+
+- Appveyor CI runs for windows
+- Several windows fixes based on regaining Windows CI support
+- concurrent regexp thread crasher regression fixed
+- 15 issues fixed for 1.7.25
+
+### Github Issues resolved for 1.7.25
+
+<ul>
+<li><a href="https://github.com/jruby/jruby/issues/3786">#3786</a> - File.dirname is munching too much off on an UNC pathname</li>
+<li><a href="https://github.com/jruby/jruby/pull/3767">#3767</a> - Workaround for JRuby bug with UTF-8 encoding on non-English Windows</li>
+<li><a href="https://github.com/jruby/jruby/issues/3766">#3766</a> - IO.copy_streams are not closing filename argument IO instances.</li>
+<li><a href="https://github.com/jruby/jruby/issues/3748">#3748</a> - Wrong number of reported lines in Coverage API</li>
+<li><a href="https://github.com/jruby/jruby/issues/3745">#3745</a> - IO#write_nonblock causes CCE on Windows</li>
+<li><a href="https://github.com/jruby/jruby/issues/3738">#3738</a> - File.open w/ File::RDWR should write \r\n but gets should read as \n after rewind on windows</li>
+<li><a href="https://github.com/jruby/jruby/issues/3736">#3736</a> - File.open ignores :universal_newline options on Windows</li>
+<li><a href="https://github.com/jruby/jruby/issues/3727">#3727</a> - Tempfile#open on windows unconditionally opens in "b" mode messing CRLF logic (--1.9)</li>
+<li><a href="https://github.com/jruby/jruby/issues/3720">#3720</a> - ScriptingContainer.getHomeDirectory() and getCurrentDirectory() return / paths and no \\ paths on Windows</li>
+<li><a href="https://github.com/jruby/jruby/issues/3709">#3709</a> - JRuby 1.7.x Tempfile.path ends up being \\ delimited.</li>
+<li><a href="https://github.com/jruby/jruby/issues/3670">#3670</a> - Error when matching regex in multiple threads</li>
+<li><a href="https://github.com/jruby/jruby/issues/3642">#3642</a> - process_manager: Incompatible subprocess cmd parsing behaviour on 1.7 (ENV variables)</li>
+<li><a href="https://github.com/jruby/jruby/issues/2697">#2697</a> - OpenSSL::PKey::RSA.new behaves differently than MRI</li>
+<li><a href="https://github.com/jruby/jruby/issues/1727">#1727</a> - Errno::ENOENT: No such file or directory - \\server creating a directory in a UNC path</li>
+<li><a href="https://github.com/jruby/jruby/issues/584">#584</a> - wrong current line</li>
+</ul>
