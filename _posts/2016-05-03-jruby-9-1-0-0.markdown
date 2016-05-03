@@ -1,0 +1,160 @@
+---
+layout: post
+title: JRuby 9.0.5.0 Released
+---
+The JRuby community is pleased to announce the release of JRuby 9.0.5.0
+
+- Homepage: [http://www.jruby.org/](http://www.jruby.org/)
+- Download: [http://www.jruby.org/download](http://www.jruby.org/download)
+
+JRuby 9000 is the newest major version of JRuby, representing years of effort and large-scale reboots of several JRuby subsystems.  It is expected to be compatible with Ruby 2.2.x and stay in sync with C Ruby.  JRuby 9.0.5.0 is our latest release...
+
+Major features of JRuby 9000:
+
+- Ruby 2.3 compatibility
+- A new optimizing runtime based on a traditional compiler design
+- New POSIX-friendly IO and Process
+- Fully ported encoding/transcoding logic from MRI
+
+If you do find issues then report them on using our issue tracker at [http://bugs.jruby.org](http://bugs.jruby.org). We also encourage users to join our IRC channel (#jruby on Freenode) and mailing lists. You may also follow [@jruby](https://twitter.com/jruby) on Twitter for updates.
+
+## Notable updates since 9.0.5.0
+
+- Ruby 2.3 Compatible (language and standard library) (i)
+- Fixed performance and behavior regressions from 9.0.5.0
+- Added several JIT optimizations missed in initial 9k release
+- Fixed most of the outstanding parser bugs
+- RubyGems updated to 2.6.4
+- Many improvements to our [Java Integration](https://github.com/jruby/jruby/wiki/JRuby-9.1.0.0-Release-Notes#java-integration)
+- 114 issues fixed for 9.1.0.0
+
+
+(i) We have a large majority of Ruby 2.3 features but we are not completely done.  You can follow our remaining work by tracking this [issue](https://github.com/jruby/jruby/issues/3816).
+
+
+## Truffle
+
+JRuby 9000 includes an preliminary version of support for the Truffle language implementation framework and Graal JIT compiler from Oracle Labs. In future releases, Truffle will provide an extremely high performance and compatible backend for JRuby. The Truffle backend supports almost all Ruby language features and the majority of the core library, and is able to run simple gems and web frameworks such as Sinatra. It has no support for RubyGems, Rails or any database drivers, and does not work on Windows. However we are now interested in people submitting issues for small gems with minimal dependencies who see issues running on JRuby+Truffle
+
+Graal has been integrated into Java 9 early access builds, and can be used today as part of the [GraalVM](https://github.com/jruby/jruby/wiki/Downloading-GraalVM), which is currently the recommended way to run JRuby+Truffle.
+
+More information on Truffle and Graal can be found in the [JRuby Wiki](https://github.com/jruby/jruby/wiki/Truffle).
+
+### Github Issues resolved for 9.1.0.0
+
+<ul>
+<li><a href="https://github.com/jruby/jruby/issues/3838">#3838</a> - Compilation fails with openjdk8 u92</li>
+<li><a href="https://github.com/jruby/jruby/pull/3833">#3833</a> - Fixnum#bit_length - uses bit inversion when the value is negative</li>
+<li><a href="https://github.com/jruby/jruby/pull/3832">#3832</a> - Fix a bug where NameError#receiver raises an ArgumentError after #to_s is called</li>
+<li><a href="https://github.com/jruby/jruby/pull/3831">#3831</a> - Fixes Fixnum#bitLength when the value is negative.</li>
+<li><a href="https://github.com/jruby/jruby/pull/3830">#3830</a> - Adds method #bitLength to Bignum</li>
+<li><a href="https://github.com/jruby/jruby/issues/3829">#3829</a> - Fixnum#bit_length always returns 64 for negative number</li>
+<li><a href="https://github.com/jruby/jruby/issues/3827">#3827</a> - Bignum#bit_length is missing</li>
+<li><a href="https://github.com/jruby/jruby/issues/3820">#3820</a> - Error when rspec loads files using Refinements</li>
+<li><a href="https://github.com/jruby/jruby/issues/3818">#3818</a> - `n ** m` is slow</li>
+<li><a href="https://github.com/jruby/jruby/issues/3811">#3811</a> - Time.parse should coerce argument into a String</li>
+<li><a href="https://github.com/jruby/jruby/pull/3809">#3809</a> - bind (abstract) methods when implementing interface</li>
+<li><a href="https://github.com/jruby/jruby/pull/3802">#3802</a> - moving Ruby Java extensions into native</li>
+<li><a href="https://github.com/jruby/jruby/issues/3796">#3796</a> - Refinements causes "ArgumentError: tried to create Proc object without a block"</li>
+<li><a href="https://github.com/jruby/jruby/pull/3791">#3791</a> - Add option to enable ir writing on-the-fly</li>
+<li><a href="https://github.com/jruby/jruby/issues/3790">#3790</a> - [ji] java.util.Collection should not be to_ary convertible</li>
+<li><a href="https://github.com/jruby/jruby/issues/3789">#3789</a> - [ji] java.lang.Throwable should not provide to_str</li>
+<li><a href="https://github.com/jruby/jruby/issues/3787">#3787</a> - Recent CI snapshots give warning on load of openssl</li>
+<li><a href="https://github.com/jruby/jruby/pull/3779">#3779</a> - improved method arities on become_java!</li>
+<li><a href="https://github.com/jruby/jruby/issues/3777">#3777</a> - trycatch blocks are being defined inefficiently in the JIT</li>
+<li><a href="https://github.com/jruby/jruby/pull/3773">#3773</a> - cleanup NativeException</li>
+<li><a href="https://github.com/jruby/jruby/issues/3763">#3763</a> - Syntax error with &.< in combination with other operators</li>
+<li><a href="https://github.com/jruby/jruby/issues/3762">#3762</a> - File.open ignores :universal_newline options on Windows</li>
+<li><a href="https://github.com/jruby/jruby/pull/3758">#3758</a> - Fix strftime %Z to act like CRuby</li>
+<li><a href="https://github.com/jruby/jruby/issues/3757">#3757</a> - Some cases of assignment in conditional do not warn as in MRI</li>
+<li><a href="https://github.com/jruby/jruby/pull/3754">#3754</a> - [ji] package (internal) refactoring</li>
+<li><a href="https://github.com/jruby/jruby/pull/3752">#3752</a> - Removing 'new' class method from interfaces #3275</li>
+<li><a href="https://github.com/jruby/jruby/issues/3750">#3750</a> - load path from the command line -I should use the same splitting as for GEM_PATH</li>
+<li><a href="https://github.com/jruby/jruby/issues/3744">#3744</a> - Performance issue when connected to network</li>
+<li><a href="https://github.com/jruby/jruby/issues/3741">#3741</a> - Consider dropping -Xss from launcher</li>
+<li><a href="https://github.com/jruby/jruby/issues/3734">#3734</a> - compiled .rb does not handle rest kwargs right</li>
+<li><a href="https://github.com/jruby/jruby/issues/3733">#3733</a> - ActiveSupport EventedFileUpdateChecker wrong number of arguments in JRuby</li>
+<li><a href="https://github.com/jruby/jruby/pull/3723">#3723</a> -  lazy secure random</li>
+<li><a href="https://github.com/jruby/jruby/pull/3722">#3722</a> - thread-context refactor backtrace retrieval</li>
+<li><a href="https://github.com/jruby/jruby/issues/3718">#3718</a> - RubyGems after 2.4.8 is broken on JRuby</li>
+<li><a href="https://github.com/jruby/jruby/issues/3711">#3711</a> - Passing in command line arguments containing "%20n" causes jruby to abort with error "%n in writable segment detected"</li>
+<li><a href="https://github.com/jruby/jruby/issues/3703">#3703</a> - JRuby 9.0.5.0: uninitialized variables assigned to self as default method argument cause org.jruby.ir.operands.UndefinedValue</li>
+<li><a href="https://github.com/jruby/jruby/issues/3699">#3699</a> - Improving error message when flock is not available</li>
+<li><a href="https://github.com/jruby/jruby/issues/3686">#3686</a> - Regression in overcommit's tests in JRuby 9000</li>
+<li><a href="https://github.com/jruby/jruby/issues/3682">#3682</a> - set ClassloaderDelegate(false) as default for OSGiIsolatedScriptingContainer + IsolatedScriptingContainer</li>
+<li><a href="https://github.com/jruby/jruby/issues/3679">#3679</a> - Parser seems to choke on Japanese-encoded text</li>
+<li><a href="https://github.com/jruby/jruby/issues/3676">#3676</a> - can not install ruby-maven on jruby from jruby-dist archives</li>
+<li><a href="https://github.com/jruby/jruby/issues/3669">#3669</a> - Autoload of module broken for Ruby subclass of Java class</li>
+<li><a href="https://github.com/jruby/jruby/issues/3668">#3668</a> - Object#try(:squeeze!) raises an array index out of bounds exception</li>
+<li><a href="https://github.com/jruby/jruby/issues/3666">#3666</a> - NKF still uses Charset transcoding rather than jcodings</li>
+<li><a href="https://github.com/jruby/jruby/issues/3664">#3664</a> - File#pos fails for files greater than java.lang.Integer::MAX_VALUE on 64-bit systems</li>
+<li><a href="https://github.com/jruby/jruby/issues/3659">#3659</a> - Resolv fails under load with SocketError: bind: name or service not known</li>
+<li><a href="https://github.com/jruby/jruby/issues/3658">#3658</a> - Implement Process::setproctitle</li>
+<li><a href="https://github.com/jruby/jruby/issues/3654">#3654</a> - `Exception#cause` is difference behavior with CRuby 2.3.0</li>
+<li><a href="https://github.com/jruby/jruby/issues/3653">#3653</a> - `system` method is different behavior from JRuby 1.7.x and CRuby 2.3.x</li>
+<li><a href="https://github.com/jruby/jruby/issues/3652">#3652</a> - Lock is not released at Kernel.require when Gem.try_activate throws RuntimeException</li>
+<li><a href="https://github.com/jruby/jruby/issues/3651">#3651</a> - Compile of method call with block return results is "is not compiled Ruby; use java_import to load normal classes"</li>
+<li><a href="https://github.com/jruby/jruby/issues/3650">#3650</a> - Hash#compare_by_identity does not work correctly when key is destructively changed</li>
+<li><a href="https://github.com/jruby/jruby/issues/3649">#3649</a> - prime? very slow</li>
+<li><a href="https://github.com/jruby/jruby/issues/3647">#3647</a> - Encoding::ConverterNotFoundError when using Encoding.default_internal</li>
+<li><a href="https://github.com/jruby/jruby/issues/3646">#3646</a> - Dir::Tmpname.make_tmpname inconsistent with Ruby 2.2+</li>
+<li><a href="https://github.com/jruby/jruby/issues/3645">#3645</a> - AWS SDK Uninitialized Constant Error</li>
+<li><a href="https://github.com/jruby/jruby/issues/3643">#3643</a> - Somehow super stopped working in jruby 9.0.5.0</li>
+<li><a href="https://github.com/jruby/jruby/issues/3639">#3639</a> - superclass production in parser became less restrictive in 2.3</li>
+<li><a href="https://github.com/jruby/jruby/issues/3638">#3638</a> - Class cast in parser</li>
+<li><a href="https://github.com/jruby/jruby/issues/3636">#3636</a> - DEAD: marking instr dead!!</li>
+<li><a href="https://github.com/jruby/jruby/issues/3633">#3633</a> - Failures in JRuby 9.0.5.0 on Sinatra build</li>
+<li><a href="https://github.com/jruby/jruby/issues/3632">#3632</a> - JRuby 1.7.24 - REXML bad encoding issue</li>
+<li><a href="https://github.com/jruby/jruby/issues/3631">#3631</a> - Override of Gem.path_separator cause gem update --system to fail</li>
+<li><a href="https://github.com/jruby/jruby/issues/3628">#3628</a> - Command line flag '-p' doesn't reflect changes made to $_</li>
+<li><a href="https://github.com/jruby/jruby/issues/3627">#3627</a> - Process#spawn error when redirecting error to stdout (jruby 9.0.4.0)</li>
+<li><a href="https://github.com/jruby/jruby/issues/3626">#3626</a> - 9.0.5.0 numerical computation regression</li>
+<li><a href="https://github.com/jruby/jruby/issues/3620">#3620</a> - JRUBY_OPTS gives misleading warning</li>
+<li><a href="https://github.com/jruby/jruby/issues/3618">#3618</a> - blacklist ppc64 Linux from windows installer packaging</li>
+<li><a href="https://github.com/jruby/jruby/issues/3616">#3616</a> - Time.at loses precision when using BigDecimal as argument</li>
+<li><a href="https://github.com/jruby/jruby/issues/3613">#3613</a> - LoadError with 'compiled' ruby files with JRuby9000 (using rescue)</li>
+<li><a href="https://github.com/jruby/jruby/issues/3567">#3567</a> - [2.3] Parser does not recognize lonely operator after do...end</li>
+<li><a href="https://github.com/jruby/jruby/issues/3565">#3565</a> - [2.3] Missing <<~ heredoc form</li>
+<li><a href="https://github.com/jruby/jruby/issues/3548">#3548</a> - Refinements in method bodies aren't activated</li>
+<li><a href="https://github.com/jruby/jruby/issues/3541">#3541</a> - Warning: setEvalType unimplemented in org.jruby.RubySymbol$1</li>
+<li><a href="https://github.com/jruby/jruby/pull/3536">#3536</a> - [ruby 2.3 Feature #10718] IO#close should not raise IOError on closed IO objects.</li>
+<li><a href="https://github.com/jruby/jruby/pull/3535">#3535</a> - [ruby-2.3 Feature #11785] add `encoding:` optional argument to String.new</li>
+<li><a href="https://github.com/jruby/jruby/pull/3533">#3533</a> - [ruby-2.3] Feature #10984 - Hash comparison operators</li>
+<li><a href="https://github.com/jruby/jruby/pull/3532">#3532</a> - [ruby-2.3] Feature #10730: Implement Array#bsearch_index</li>
+<li><a href="https://github.com/jruby/jruby/pull/3517">#3517</a> - [ruby-2.3 feature #10769] add Enumerable#chunk_while, spec for it</li>
+<li><a href="https://github.com/jruby/jruby/issues/3516">#3516</a> - ArrayStoreException using Google's google-api-client and autoparse gems</li>
+<li><a href="https://github.com/jruby/jruby/issues/3513">#3513</a> - case/when eqq calls do not cache</li>
+<li><a href="https://github.com/jruby/jruby/pull/3510">#3510</a> - [Ruby-2.3] - Pathname#descend and Pathname#ascend supported blockless…</li>
+<li><a href="https://github.com/jruby/jruby/issues/3507">#3507</a> - JRuby 2.2 mode inconsistent with MRI 2.1+</li>
+<li><a href="https://github.com/jruby/jruby/pull/3498">#3498</a> - [Ruby-2.3] - Implements Enumerable#grep_v</li>
+<li><a href="https://github.com/jruby/jruby/issues/3491">#3491</a> - Frozen string optimizations from MRI</li>
+<li><a href="https://github.com/jruby/jruby/pull/3490">#3490</a> - remove "initial_state" argument of Enumerable#{slice_before,chunk}</li>
+<li><a href="https://github.com/jruby/jruby/pull/3486">#3486</a> - [Ruby-2.3] - Implements Hash#fetch_values</li>
+<li><a href="https://github.com/jruby/jruby/pull/3481">#3481</a> - implement Coverage.peek_result</li>
+<li><a href="https://github.com/jruby/jruby/issues/3479">#3479</a> - Ruby 2.3 support</li>
+<li><a href="https://github.com/jruby/jruby/issues/3475">#3475</a> - proc-to-interface dispatch method collision using Java 8 streams</li>
+<li><a href="https://github.com/jruby/jruby/issues/3473">#3473</a> - IO.popen with file mode w does not close stream and hangs on Win7</li>
+<li><a href="https://github.com/jruby/jruby/pull/3469">#3469</a> - beyond JRuby's StandardErrorLogger</li>
+<li><a href="https://github.com/jruby/jruby/pull/3458">#3458</a> - Ruby 2.3's #dig</li>
+<li><a href="https://github.com/jruby/jruby/issues/3454">#3454</a> - Passing a ruby class as a java.lang.Class into Java land</li>
+<li><a href="https://github.com/jruby/jruby/issues/3435">#3435</a> - File.seek fails on large file</li>
+<li><a href="https://github.com/jruby/jruby/issues/3386">#3386</a> - Ripper on 9.0.x.x reports wrong line number</li>
+<li><a href="https://github.com/jruby/jruby/pull/3370">#3370</a> - treat deadlocks as circular require - as MRI does it</li>
+<li><a href="https://github.com/jruby/jruby/issues/3341">#3341</a> - autoload & require deadlock</li>
+<li><a href="https://github.com/jruby/jruby/issues/3318">#3318</a> - Autoloading appears to lead to race conditions</li>
+<li><a href="https://github.com/jruby/jruby/issues/3275">#3275</a> - should not be able to instantiate an interface (using new)</li>
+<li><a href="https://github.com/jruby/jruby/issues/3261">#3261</a> - isutf8 exception Jruby 9.0.00</li>
+<li><a href="https://github.com/jruby/jruby/issues/3206">#3206</a> - Invocation of become_java! instances fails with "cannot make variable arity"</li>
+<li><a href="https://github.com/jruby/jruby/issues/3094">#3094</a> - NoMethodError being reported as "UndefinedValue.java:52:in `undefinedOperation': java.lang.RuntimeException: IR compiler/interpreter bug: org.jruby.ir.operands” in jruby-9.0.0.0.pre2</li>
+<li><a href="https://github.com/jruby/jruby/issues/2977">#2977</a> - Weird error when refinement is used in rspec</li>
+<li><a href="https://github.com/jruby/jruby/issues/2403">#2403</a> - Unicode characters are lost when embedding JRuby even if the calling code performs no conversion to byte[]</li>
+<li><a href="https://github.com/jruby/jruby/issues/2147">#2147</a> - TestParse#test_named_capture_conflict</li>
+<li><a href="https://github.com/jruby/jruby/issues/2127">#2127</a> - Method name encoding seems off</li>
+<li><a href="https://github.com/jruby/jruby/issues/2124">#2124</a> - Optional args that self-reference must resolve</li>
+<li><a href="https://github.com/jruby/jruby/issues/1981">#1981</a> - Wrong number of reported lines in Coverage API</li>
+<li><a href="https://github.com/jruby/jruby/issues/1925">#1925</a> - jruby can't use it's own java classes</li>
+<li><a href="https://github.com/jruby/jruby/issues/1285">#1285</a> - Broken JRuby and UTF-8 method names</li>
+<li><a href="https://github.com/jruby/jruby/issues/1249">#1249</a> - JDK8 provides its own List#sort, Map#replace, and Map#merge</li>
+<li><a href="https://github.com/jruby/jruby/issues/1196">#1196</a> - Coverage reports wrong number of lines</li>
+<li><a href="https://github.com/jruby/jruby/issues/621">#621</a> - UDPSocket#send copies data multiple times</li>
+</ul>
