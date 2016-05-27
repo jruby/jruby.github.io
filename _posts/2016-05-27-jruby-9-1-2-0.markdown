@@ -1,0 +1,42 @@
+---
+layout: post
+title: JRuby 9.1.2.0 Released
+---
+The JRuby community is pleased to announce the release of JRuby 9.1.2.0
+
+- Homepage: [http://www.jruby.org/](http://www.jruby.org/)
+- Download: [http://www.jruby.org/download](http://www.jruby.org/download)
+
+JRuby 9000 is the newest major version of JRuby, representing years of effort and large-scale reboots of several JRuby subsystems.  It is expected to be compatible with Ruby 2.x and stay in sync with C Ruby.  JRuby 9.1.2.0 is our latest release...
+
+Major features of JRuby 9000:
+
+- Ruby 2.x compatibility
+- A new optimizing runtime based on a traditional compiler design
+- New POSIX-friendly IO and Process
+- Fully ported encoding/transcoding logic from MRI
+
+If you do find issues then report them on using our issue tracker at [http://bugs.jruby.org](http://bugs.jruby.org). We also encourage users to join our IRC channel (#jruby on Freenode) and mailing lists. You may also follow [@jruby](https://twitter.com/jruby) on Twitter for updates.
+
+## Notable updates since 9.1.1.0
+
+- 5 issues fixed for 9.1.2.0
+
+## Truffle
+
+JRuby 9000 includes an preliminary version of support for the Truffle language implementation framework and Graal JIT compiler from Oracle Labs. In future releases, Truffle will provide an extremely high performance and compatible backend for JRuby. The Truffle backend supports almost all Ruby language features and the majority of the core library, and is able to run simple gems and web frameworks such as Sinatra. It has no support for RubyGems, Rails or any database drivers, and does not work on Windows. However we are now interested in people submitting issues for small gems with minimal dependencies who see issues running on JRuby+Truffle
+
+Graal has been integrated into Java 9 early access builds, and can be used today as part of the [GraalVM](https://github.com/jruby/jruby/wiki/Downloading-GraalVM), which is currently the recommended way to run JRuby+Truffle.
+
+More information on Truffle and Graal can be found in the [JRuby Wiki](https://github.com/jruby/jruby/wiki/Truffle).
+
+
+### Github Issues resolved for 9.1.2.0
+
+<ul>
+<li><a href="https://github.com/jruby/jruby/pull/3926">#3926</a> - Windows symlink</li>
+<li><a href="https://github.com/jruby/jruby/pull/3923">#3923</a> - Use "filesystem" encoding for PATH as in MRI. Fixes #3907.</li>
+<li><a href="https://github.com/jruby/jruby/issues/3916">#3916</a> - RubyUDPSocket ArrayIndexOutOfBounds with v9.1.[01].0.</li>
+<li><a href="https://github.com/jruby/jruby/issues/3907">#3907</a> - ArgumentError: string contains null byte</li>
+<li><a href="https://github.com/jruby/jruby/issues/3905">#3905</a> - NotImplementedError: symlink unsupported or native support failed to load</li>
+</ul>
