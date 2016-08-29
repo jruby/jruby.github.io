@@ -1,0 +1,29 @@
+---
+layout: post
+title: JRuby 1.7.26 Released
+---
+The JRuby community is pleased to announce the release of JRuby 1.7.26
+
+- Homepage: [http://www.jruby.org/](http://www.jruby.org/)
+- Download: [http://www.jruby.org/download](http://www.jruby.org/download)
+
+JRuby 1.7.26 is our thirtieth update release since JRuby 1.7.0.  The primary goal of 1.7 point releases is to fill out any missing compatibility issues with Ruby 1.9.3.
+
+PSA: Over the years we have had Windows CI support and then lost Windows CI supprt.  We would still irregularly run tests on windows, but this is never as good as getting more immediate feedback.  Via the ability to use an awesome service like ci.appveyor.com, we are again regularly running against a Windows CI.  If you peruse the list of resolved issues you will see how important it is to be regularly running CI on all the OSes you support.
+
+Highlights:
+
+- 8 issues fixed for 1.7.26
+
+### Github Issues resolved for 1.7.26
+
+<ul>
+<li><a href="https://github.com/jruby/jruby/pull/4115">#4115</a> - Backport "Change script file restriction" from 9000</li>
+<li><a href="https://github.com/jruby/jruby/issues/4064">#4064</a> - CompoundJarURLStreamHandler leaves many URL stream handles open before GC</li>
+<li><a href="https://github.com/jruby/jruby/pull/4063">#4063</a> - Explicitly close input stream in CompoundJarURLStreamHandler</li>
+<li><a href="https://github.com/jruby/jruby/pull/4062">#4062</a> - Write a log message when findClass IOException is caught</li>
+<li><a href="https://github.com/jruby/jruby/issues/4021">#4021</a> - String range object incorrectly tries to convert to int</li>
+<li><a href="https://github.com/jruby/jruby/issues/3980">#3980</a> - rbThrowInternal throws error if IRubyObject ID is greater than Integer.MAX_VALUE</li>
+<li><a href="https://github.com/jruby/jruby/pull/3927">#3927</a> - backport BigDecimal .to_r for #3728</li>
+<li><a href="https://github.com/jruby/jruby/pull/3825">#3825</a> - Fix Net::HTTP nil body bug</li>
+</ul>
