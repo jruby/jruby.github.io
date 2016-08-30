@@ -1,0 +1,150 @@
+---
+layout: post
+title: JRuby 9.1.3.0 Released
+---
+The JRuby community is pleased to announce the release of JRuby 9.1.3.0
+
+- Homepage: [http://www.jruby.org/](http://www.jruby.org/)
+- Download: [http://www.jruby.org/download](http://www.jruby.org/download)
+
+JRuby 9000 is the newest major version of JRuby, representing years of effort and large-scale reboots of several JRuby subsystems.  It is expected to be compatible with Ruby 2.x and stay in sync with C Ruby.  JRuby 9.1.3.0 is our latest release...
+
+Major features of JRuby 9000:
+
+- Ruby 2.x compatibility
+- A new optimizing runtime based on a traditional compiler design
+- New POSIX-friendly IO and Process
+- Fully ported encoding/transcoding logic from MRI
+
+If you do find issues then report them on using our issue tracker at [http://bugs.jruby.org](http://bugs.jruby.org). We also encourage users to join our IRC channel (#jruby on Freenode) and mailing lists. You may also follow [@jruby](https://twitter.com/jruby) on Twitter for updates.
+
+## Notable updates since 9.1.2.0
+
+
+- Stdlib updated to 2.3.1; RubyGems updated to 2.6.6
+- Improved type coercion performance (to_s, ...)
+- Optimized all-Fixnum case/when
+- Initial support for Java 9
+- Better keyword argument support
+- Tweaks to SecureRandom to reduce entropy starvation 
+- Repaired thread-safety regressions in autoload and require
+- 105 issues fixed for 9.1.3.0
+
+## Truffle
+
+JRuby 9000 includes an preliminary version of support for the Truffle language implementation framework and Graal JIT compiler from Oracle Labs. In future releases, Truffle will provide an extremely high performance and compatible backend for JRuby. The Truffle backend supports almost all Ruby language features and the majority of the core library, and is able to run simple gems and web frameworks such as Sinatra. It has no support for RubyGems, Rails or any database drivers, and does not work on Windows. However we are now interested in people submitting issues for small gems with minimal dependencies who see issues running on JRuby+Truffle
+
+Graal has been integrated into Java 9 early access builds, and can be used today as part of the [GraalVM](https://github.com/jruby/jruby/wiki/Downloading-GraalVM), which is currently the recommended way to run JRuby+Truffle.
+
+More information on Truffle and Graal can be found in the [JRuby Wiki](https://github.com/jruby/jruby/wiki/Truffle).
+
+
+### Github Issues resolved for 9.1.3.0
+
+<ul>
+<li><a href="https://github.com/jruby/jruby/issues/4114">#4114</a> - jruby-gradle plugin fails with a 9.1.3.0-SNAPSHOT</li>
+<li><a href="https://github.com/jruby/jruby/pull/4107">#4107</a> - workaround compilation problems with unsafe-mock.jar</li>
+<li><a href="https://github.com/jruby/jruby/issues/4105">#4105</a> - File.size? should work on uri:classloader: resources</li>
+<li><a href="https://github.com/jruby/jruby/issues/4103">#4103</a> - JRuby fails in building from source when using openjdk-7-jdk trusty package</li>
+<li><a href="https://github.com/jruby/jruby/pull/4102">#4102</a> - No more wrapper</li>
+<li><a href="https://github.com/jruby/jruby/issues/4101">#4101</a> - JDK 8u102 changed JceSecurity#isRestricted to final</li>
+<li><a href="https://github.com/jruby/jruby/pull/4100">#4100</a> - Change script file restriction</li>
+<li><a href="https://github.com/jruby/jruby/issues/4091">#4091</a> - concurrent loading does not resolve loaded constant</li>
+<li><a href="https://github.com/jruby/jruby/issues/4089">#4089</a> - Math.log10 should use Java's log10 method</li>
+<li><a href="https://github.com/jruby/jruby/issues/4087">#4087</a> - stdlib update for 9.1 (from Ruby 2.3.1)</li>
+<li><a href="https://github.com/jruby/jruby/pull/4078">#4078</a> - Bump racc. Fixes #4071</li>
+<li><a href="https://github.com/jruby/jruby/issues/4077">#4077</a> - Recursive regex compile fails: (RegexpError) invalid group name <0></li>
+<li><a href="https://github.com/jruby/jruby/issues/4073">#4073</a> - IO#fsync doesn't trigger an fsync(2) syscall?</li>
+<li><a href="https://github.com/jruby/jruby/issues/4071">#4071</a> - racc needs upgrade</li>
+<li><a href="https://github.com/jruby/jruby/issues/4069">#4069</a> - Unusual regression in Range#to_a</li>
+<li><a href="https://github.com/jruby/jruby/pull/4065">#4065</a> - Update platform config files from FFI gem. See jruby/jruby#3981</li>
+<li><a href="https://github.com/jruby/jruby/pull/4061">#4061</a> - Fix Socket.tcp connect_timeout option</li>
+<li><a href="https://github.com/jruby/jruby/pull/4059">#4059</a> - Remove dead rake tasks</li>
+<li><a href="https://github.com/jruby/jruby/issues/4057">#4057</a> - The JVM SIGSEGVs when using RubyEtc.getgrgid</li>
+<li><a href="https://github.com/jruby/jruby/issues/4056">#4056</a> - Return line no in SyntaxError when parsing Regexp</li>
+<li><a href="https://github.com/jruby/jruby/issues/4055">#4055</a> - Double-splat should not work with non-symbol keys</li>
+<li><a href="https://github.com/jruby/jruby/pull/4054">#4054</a> - RubyEnumerator implements java.util.Iterator</li>
+<li><a href="https://github.com/jruby/jruby/issues/4053">#4053</a> - require_realative calls self.require instead of Kernel.require</li>
+<li><a href="https://github.com/jruby/jruby/pull/4052">#4052</a> - Partially fix set_trace_func line numbers</li>
+<li><a href="https://github.com/jruby/jruby/issues/4051">#4051</a> - Wrong line numbers in Kernel#caller inside set_trace_func (with code to reproduce)</li>
+<li><a href="https://github.com/jruby/jruby/issues/4049">#4049</a> - net/http lib throws java.nio.channels.NotYetConnectedException</li>
+<li><a href="https://github.com/jruby/jruby/issues/4046">#4046</a> - inconsistent each and each_with_index return</li>
+<li><a href="https://github.com/jruby/jruby/issues/4045">#4045</a> - Java array #each does not handle block-less case</li>
+<li><a href="https://github.com/jruby/jruby/issues/4039">#4039</a> - Java array (Enumerable) does not handle last()</li>
+<li><a href="https://github.com/jruby/jruby/pull/4038">#4038</a> - Fix some parts of Socket::Option</li>
+<li><a href="https://github.com/jruby/jruby/issues/4037">#4037</a> - NullPointerExeption in org.jruby.RubyBasicObject.yieldUnder</li>
+<li><a href="https://github.com/jruby/jruby/issues/4034">#4034</a> - incorrect Java::void type</li>
+<li><a href="https://github.com/jruby/jruby/issues/4032">#4032</a> - Incorrect error class is rescued when the super class is Java::JavaLang::RuntimeException</li>
+<li><a href="https://github.com/jruby/jruby/pull/4031">#4031</a> - Make JRuby compatible with capybara-webkit (and possibly other gems)</li>
+<li><a href="https://github.com/jruby/jruby/issues/4029">#4029</a> - UnsupportedOperationException: BUG: invoking UndefinedMethod.call; (doing warble)</li>
+<li><a href="https://github.com/jruby/jruby/issues/4020">#4020</a> - Rails app on 9.1.2.0  raises stackoverflow exceptions after 6-8 hours of activity following an upgrade from 1.7.</li>
+<li><a href="https://github.com/jruby/jruby/issues/4014">#4014</a> - ClassCastException thrown when a method is defined inside a test</li>
+<li><a href="https://github.com/jruby/jruby/issues/4013">#4013</a> - Passing a default parameter to a block causes an exception.</li>
+<li><a href="https://github.com/jruby/jruby/pull/4010">#4010</a> - Reopen stdio streams when run from Drip, to pick up its FIFOs.</li>
+<li><a href="https://github.com/jruby/jruby/issues/4008">#4008</a> - Unmarshaling regexp loses UTF-8 encoding</li>
+<li><a href="https://github.com/jruby/jruby/issues/4003">#4003</a> - singleton method handle stack overflow</li>
+<li><a href="https://github.com/jruby/jruby/issues/4001">#4001</a> - Java::JavaLang::StackOverflowError with gsub(RegExp, Hash)</li>
+<li><a href="https://github.com/jruby/jruby/issues/4000">#4000</a> - JRubyFX application not working when running from jar (works in 1.7, doesn't work in 9k)</li>
+<li><a href="https://github.com/jruby/jruby/issues/3999">#3999</a> - Intermittent NullPointerException under 9.1.1.0/9.1.2.0</li>
+<li><a href="https://github.com/jruby/jruby/issues/3998">#3998</a> - JRuby 9.1.2.0 not working on windows server 2003/2003 R2</li>
+<li><a href="https://github.com/jruby/jruby/issues/3993">#3993</a> - Performance issue when extending objects with a module including constants </li>
+<li><a href="https://github.com/jruby/jruby/pull/3988">#3988</a> - Packed arrays</li>
+<li><a href="https://github.com/jruby/jruby/issues/3983">#3983</a> - Kernel#system fails to execute if SecurityManager denies access to a $PATH entry even if it permits a later one</li>
+<li><a href="https://github.com/jruby/jruby/issues/3981">#3981</a> - Unable to resolve type uint32_t with FFI</li>
+<li><a href="https://github.com/jruby/jruby/issues/3976">#3976</a> - Superclass mixin implementation called instead of subclass implementation</li>
+<li><a href="https://github.com/jruby/jruby/issues/3975">#3975</a> - Running with flag --enable-frozen-string-literal crashes stdlib/jar_dependencies.rb</li>
+<li><a href="https://github.com/jruby/jruby/pull/3972">#3972</a> - Use platform defaults from defaults file rather than eager load.</li>
+<li><a href="https://github.com/jruby/jruby/issues/3970">#3970</a> - recv_nonblock returns :wait_readable instead of raising</li>
+<li><a href="https://github.com/jruby/jruby/issues/3969">#3969</a> - Call plus ensure does not properly initialize all temps</li>
+<li><a href="https://github.com/jruby/jruby/issues/3966">#3966</a> - Incorrect case evaluation when evaluating variable with value of []</li>
+<li><a href="https://github.com/jruby/jruby/issues/3963">#3963</a> - SelectorPool returns Selectors with old keys in them</li>
+<li><a href="https://github.com/jruby/jruby/pull/3961">#3961</a> - Use Java's Arrays.sort</li>
+<li><a href="https://github.com/jruby/jruby/pull/3960">#3960</a> - Fix Range#eql? checks that start and end of range are same using MethodNames.EQL</li>
+<li><a href="https://github.com/jruby/jruby/issues/3957">#3957</a> - (SystemCallError) Unknown error 123 - FindFirstFile with AsciidoctorJ on Win10</li>
+<li><a href="https://github.com/jruby/jruby/issues/3956">#3956</a> - Range#eql? returns incorrect result for float vs int</li>
+<li><a href="https://github.com/jruby/jruby/pull/3952">#3952</a> - Ensure that Selectors from SelectorPool don't have old keys in them</li>
+<li><a href="https://github.com/jruby/jruby/issues/3950">#3950</a> - Bundler fails under +indy (claims gems listed more than once)</li>
+<li><a href="https://github.com/jruby/jruby/issues/3948">#3948</a> - Open3.popen3 with block fails on Windows</li>
+<li><a href="https://github.com/jruby/jruby/issues/3946">#3946</a> - warning: Ambiguous first argument</li>
+<li><a href="https://github.com/jruby/jruby/issues/3945">#3945</a> - Sequel + Celluloid + jtds error in 9.1.x</li>
+<li><a href="https://github.com/jruby/jruby/issues/3944">#3944</a> - Array#min doesn't respect monkey patching</li>
+<li><a href="https://github.com/jruby/jruby/issues/3943">#3943</a> - no such file to load -- ffi in 9.1.2.0 jruby.jar</li>
+<li><a href="https://github.com/jruby/jruby/pull/3938">#3938</a> - Flag registry</li>
+<li><a href="https://github.com/jruby/jruby/pull/3935">#3935</a> - Fixed shift with negative distance on Bignum</li>
+<li><a href="https://github.com/jruby/jruby/issues/3934">#3934</a> - Apparent regression with NameError in 9.1.0.0</li>
+<li><a href="https://github.com/jruby/jruby/pull/3930">#3930</a> - Misc optz</li>
+<li><a href="https://github.com/jruby/jruby/pull/3929">#3929</a> - waitReadable should block</li>
+<li><a href="https://github.com/jruby/jruby/issues/3919">#3919</a> - Arrays.sort</li>
+<li><a href="https://github.com/jruby/jruby/pull/3912">#3912</a> - fix four additional MRI string tests</li>
+<li><a href="https://github.com/jruby/jruby/pull/3911">#3911</a> - Unify super and call splatting logic in interpreter and JIT.</li>
+<li><a href="https://github.com/jruby/jruby/pull/3909">#3909</a> - ZSuper does not require caller's binding/scope.</li>
+<li><a href="https://github.com/jruby/jruby/pull/3906">#3906</a> - Kwargs should not need dynamic scope, since we have static handy.</li>
+<li><a href="https://github.com/jruby/jruby/pull/3902">#3902</a> - Soften this restriction to just readable resources.</li>
+<li><a href="https://github.com/jruby/jruby/pull/3898">#3898</a> - Disable the AddLocalVarLoadStore pass to fix #3891.</li>
+<li><a href="https://github.com/jruby/jruby/pull/3896">#3896</a> - Test new recursion</li>
+<li><a href="https://github.com/jruby/jruby/pull/3892">#3892</a> - Enabled did_you_mean, install during build, and clear gem paths</li>
+<li><a href="https://github.com/jruby/jruby/issues/3891">#3891</a> - Changes to local variables not visible to other threads even when protected by a lock</li>
+<li><a href="https://github.com/jruby/jruby/issues/3887">#3887</a> - Recursion detection should use identity map, but it blows up</li>
+<li><a href="https://github.com/jruby/jruby/issues/3869">#3869</a> - Unable to use UnboundMethod referencing super with define_singleton_method</li>
+<li><a href="https://github.com/jruby/jruby/issues/3868">#3868</a> - 9.1.0.0 hangs on syswrite</li>
+<li><a href="https://github.com/jruby/jruby/issues/3861">#3861</a> - Double packaging of `org/joda/time/format/messages.properties` in jruby-jars</li>
+<li><a href="https://github.com/jruby/jruby/issues/3835">#3835</a> - Thread-level events explode due to empty stack</li>
+<li><a href="https://github.com/jruby/jruby/issues/3828">#3828</a> - jruby-rack adjust_gem_path has no effect</li>
+<li><a href="https://github.com/jruby/jruby/issues/3823">#3823</a> - Rails 5 dependencies fail to load 'listen' lib for evented file checking</li>
+<li><a href="https://github.com/jruby/jruby/pull/3814">#3814</a> - Expose two Enumerator-related bugs</li>
+<li><a href="https://github.com/jruby/jruby/issues/3808">#3808</a> - defined? poor performance</li>
+<li><a href="https://github.com/jruby/jruby/issues/3778">#3778</a> - Unicode chars in method names aren't accepted</li>
+<li><a href="https://github.com/jruby/jruby/issues/3760">#3760</a> - TypeError raised by JRuby during keyword argument checking while the call is perfectly legit</li>
+<li><a href="https://github.com/jruby/jruby/issues/3713">#3713</a> - IRReturnJump unhandled</li>
+<li><a href="https://github.com/jruby/jruby/issues/3708">#3708</a> - Unresolved super with module_function</li>
+<li><a href="https://github.com/jruby/jruby/issues/3680">#3680</a> - JRuby and devise Null pointer exception</li>
+<li><a href="https://github.com/jruby/jruby/issues/3625">#3625</a> - remote execution</li>
+<li><a href="https://github.com/jruby/jruby/issues/3480">#3480</a> - Bundle did_you_mean gem</li>
+<li><a href="https://github.com/jruby/jruby/issues/3138">#3138</a> - Mixing Hash and keyword arguments raises an error</li>
+<li><a href="https://github.com/jruby/jruby/issues/2997">#2997</a> - Error while using socket class</li>
+<li><a href="https://github.com/jruby/jruby/issues/2690">#2690</a> - no STDOUT with drip on jruby-9.0.0.0.pre1</li>
+<li><a href="https://github.com/jruby/jruby/issues/2340">#2340</a> - curried proc with varargs doesn't call properly</li>
+<li><a href="https://github.com/jruby/jruby/issues/1405">#1405</a> - SecureRandom performance could be better</li>
+<li><a href="https://github.com/jruby/jruby/issues/1376">#1376</a> - Kernel#caller from arglist is missing a stack frame</li>
+<li><a href="https://github.com/jruby/jruby/issues/1279">#1279</a> - Lazy load Digest::SHA256 is not thread safe</li>
+</ul>
