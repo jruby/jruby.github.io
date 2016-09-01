@@ -1,13 +1,13 @@
 ---
 layout: post
-title: JRuby 9.1.3.0 Released
+title: JRuby 9.1.4.0 Released
 ---
-The JRuby community is pleased to announce the release of JRuby 9.1.3.0
+The JRuby community is pleased to announce the release of JRuby 9.1.4.0
 
 - Homepage: [http://www.jruby.org/](http://www.jruby.org/)
 - Download: [http://www.jruby.org/download](http://www.jruby.org/download)
 
-JRuby 9000 is the newest major version of JRuby, representing years of effort and large-scale reboots of several JRuby subsystems.  It is expected to be compatible with Ruby 2.x and stay in sync with C Ruby.  JRuby 9.1.3.0 is our latest release...
+JRuby 9000 is the newest major version of JRuby, representing years of effort and large-scale reboots of several JRuby subsystems.  It is expected to be compatible with Ruby 2.x and stay in sync with C Ruby.  JRuby 9.1.4.0 is our latest release...
 
 Major features of JRuby 9000:
 
