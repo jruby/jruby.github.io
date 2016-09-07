@@ -7,7 +7,7 @@ markdown:    kramdown
 permalink:   date
 # JRuby-specific info here; goes into the "site" jekyll variable
 release:
-  url: /2016/09/01/jruby-9-1-4-0.html
+  url: /2016/09/06/jruby-9-1-5-0.html
   version: 9.1.5.0
   tar: https://s3.amazonaws.com/jruby.org/downloads/9.1.5.0/jruby-bin-9.1.5.0.tar.gz
   zip: https://s3.amazonaws.com/jruby.org/downloads/9.1.5.0/jruby-bin-9.1.5.0.zip
