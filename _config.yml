@@ -8,11 +8,11 @@ permalink:   date
 # JRuby-specific info here; goes into the "site" jekyll variable
 release:
   url: /2016/09/01/jruby-9-1-4-0.html
-  version: 9.1.4.0
-  tar: https://s3.amazonaws.com/jruby.org/downloads/9.1.4.0/jruby-bin-9.1.4.0.tar.gz
-  zip: https://s3.amazonaws.com/jruby.org/downloads/9.1.4.0/jruby-bin-9.1.4.0.zip
-  exe: https://s3.amazonaws.com/jruby.org/downloads/9.1.4.0/jruby_windows_9_1_4_0.exe
-  exe64: https://s3.amazonaws.com/jruby.org/downloads/9.1.4.0/jruby_windows_x64_9_1_4_0.exe
+  version: 9.1.5.0
+  tar: https://s3.amazonaws.com/jruby.org/downloads/9.1.5.0/jruby-bin-9.1.5.0.tar.gz
+  zip: https://s3.amazonaws.com/jruby.org/downloads/9.1.5.0/jruby-bin-9.1.5.0.zip
+  exe: https://s3.amazonaws.com/jruby.org/downloads/9.1.5.0/jruby_windows_9_1_5_0.exe
+  exe64: https://s3.amazonaws.com/jruby.org/downloads/9.1.5.0/jruby_windows_x64_9_1_5_0.exe
 urls:
   s3: https://s3.amazonaws.com/jruby.org/downloads
   tryjruby: https://s3.amazonaws.com/jruby.org/tryjruby

@@ -1,0 +1,35 @@
+---
+layout: post
+title: JRuby 9.1.5.0 Released
+---
+The JRuby community is pleased to announce the release of JRuby 9.1.5.0
+
+- Homepage: [http://www.jruby.org/](http://www.jruby.org/)
+- Download: [http://www.jruby.org/download](http://www.jruby.org/download)
+
+JRuby 9000 is the newest major version of JRuby, representing years of effort and large-scale reboots of several JRuby subsystems.  It is expected to be compatible with Ruby 2.x and stay in sync with C Ruby.  JRuby 9.1.5.0 is our latest release...
+
+Major features of JRuby 9000:
+
+- Ruby 2.x compatibility
+- A new optimizing runtime based on a traditional compiler design
+- New POSIX-friendly IO and Process
+- Fully ported encoding/transcoding logic from MRI
+
+If you do find issues then report them on using our issue tracker at [http://bugs.jruby.org](http://bugs.jruby.org). We also encourage users to join our IRC channel (#jruby on Freenode) and mailing lists. You may also follow [@jruby](https://twitter.com/jruby) on Twitter for updates.
+
+This release addresses a few more regressions.  All users are recommended to upgrade.
+
+- 7 issues fixed for 9.1.5.0
+
+### Github Issues resolved for 9.1.5.0
+
+<ul>
+<li><a href="https://github.com/jruby/jruby/pull/4139">#4139</a> - Deprecate framed invoke</li>
+<li><a href="https://github.com/jruby/jruby/pull/4138">#4138</a> - Use a CallSite for invocation of attr writers. Fixes #4134.</li>
+<li><a href="https://github.com/jruby/jruby/pull/4137">#4137</a> - Unconditionally enable maven enforcer in release profile.</li>
+<li><a href="https://github.com/jruby/jruby/issues/4136">#4136</a> - avoid JCE CNFE warning on non Oracle/OpenJDK</li>
+<li><a href="https://github.com/jruby/jruby/issues/4135">#4135</a> - 9.1.3.0 and 9.1.4.0 have a -SNAPSHOT dependency</li>
+<li><a href="https://github.com/jruby/jruby/issues/4134">#4134</a> - Rails new fails with 9.1.3.0 and "--dev" option</li>
+<li><a href="https://github.com/jruby/jruby/issues/4132">#4132</a> - java.lang.NullPointerException: unwrapJavaObject at org/jruby/javasupport/JavaUtil.java:287</li>
+</ul>
