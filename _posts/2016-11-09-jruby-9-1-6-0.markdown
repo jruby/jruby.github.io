@@ -1,0 +1,107 @@
+---
+layout: post
+title: JRuby 9.1.6.0 Released
+---
+The JRuby community is pleased to announce the release of JRuby 9.1.6.0
+
+- Homepage: [http://www.jruby.org/](http://www.jruby.org/)
+- Download: [http://www.jruby.org/download](http://www.jruby.org/download)
+
+JRuby 9000 is the newest major version of JRuby, representing years of effort and large-scale reboots of several JRuby subsystems.  It is expected to be compatible with Ruby 2.x and stay in sync with C Ruby.  JRuby 9.1.6.0 is our latest release...
+
+Major features of JRuby 9000:
+
+- Ruby 2.x compatibility
+- A new optimizing runtime based on a traditional compiler design
+- New POSIX-friendly IO and Process
+- Fully ported encoding/transcoding logic from MRI
+
+If you do find issues then report them on using our issue tracker at [http://bugs.jruby.org](http://bugs.jruby.org). We also encourage users to join our IRC channel (#jruby on Freenode) and mailing lists. You may also follow [@jruby](https://twitter.com/jruby) on Twitter for updates.
+
+- Rubygems updated to 2.6.8
+- Socket library improvements and fixes
+- Fixed several Keyword Argument corner cases
+- Optimized accessing local variables
+- 77 issues fixed for 9.1.6.0
+
+### Github Issues resolved for 9.1.6.0
+
+<ul>
+<li><a href="https://github.com/jruby/jruby/issues/4272">#4272</a> - Stack overflow in unresolvedSuper logic from jitted code</li>
+<li><a href="https://github.com/jruby/jruby/pull/4264">#4264</a> - Fix unnamed socket inspect</li>
+<li><a href="https://github.com/jruby/jruby/issues/4262">#4262</a> - Method#owner returns wrong implementation module</li>
+<li><a href="https://github.com/jruby/jruby/issues/4261">#4261</a> - Mutexes should use .lock instead of .lockInterruptibly</li>
+<li><a href="https://github.com/jruby/jruby/issues/4259">#4259</a> - Identical Regexp are not equal to each other</li>
+<li><a href="https://github.com/jruby/jruby/pull/4256">#4256</a> - Revert "Format initial string to specific precision, so rounding works."</li>
+<li><a href="https://github.com/jruby/jruby/issues/4255">#4255</a> - jit failure: rack</li>
+<li><a href="https://github.com/jruby/jruby/pull/4252">#4252</a> - Also perform uninitialized check on temp locals.</li>
+<li><a href="https://github.com/jruby/jruby/issues/4251">#4251</a> - nil initialization missing from optionally-set argument</li>
+<li><a href="https://github.com/jruby/jruby/pull/4250">#4250</a> - Prepend must set method's "defined class" to the new bottom.</li>
+<li><a href="https://github.com/jruby/jruby/pull/4248">#4248</a> - UNIXSocket#peeraddr was fixed some time ago</li>
+<li><a href="https://github.com/jruby/jruby/issues/4247">#4247</a> - Garbage data in UNIXSocket path</li>
+<li><a href="https://github.com/jruby/jruby/issues/4240">#4240</a> - Rescue optimization over-optimizes rescue body with $!</li>
+<li><a href="https://github.com/jruby/jruby/pull/4233">#4233</a> - Fix clone hierarchy</li>
+<li><a href="https://github.com/jruby/jruby/issues/4231">#4231</a> - Cannot iterate over a Range of Times</li>
+<li><a href="https://github.com/jruby/jruby/issues/4229">#4229</a> - cloned singleton method exists but can't be overwritten</li>
+<li><a href="https://github.com/jruby/jruby/issues/4228">#4228</a> - remove_method fails to remove singleton method on cloned object</li>
+<li><a href="https://github.com/jruby/jruby/issues/4227">#4227</a> - Missing unit :second for Process.clock_gettime</li>
+<li><a href="https://github.com/jruby/jruby/pull/4225">#4225</a> - Don't dup every element in Enumerator#drop (9K)</li>
+<li><a href="https://github.com/jruby/jruby/pull/4224">#4224</a> - Fix the incorrect opscode mapping in f2i()</li>
+<li><a href="https://github.com/jruby/jruby/issues/4223">#4223</a> - Broken PHASE='-Pjruby_complete_jar_extended -Dinvoker.skip=true'</li>
+<li><a href="https://github.com/jruby/jruby/pull/4222">#4222</a> - BasicSocket improvements</li>
+<li><a href="https://github.com/jruby/jruby/pull/4221">#4221</a> - UNIX sockets improvements</li>
+<li><a href="https://github.com/jruby/jruby/pull/4220">#4220</a> - Handle EADDRINUSE message in IOException.</li>
+<li><a href="https://github.com/jruby/jruby/issues/4218">#4218</a> - Enumerable#drop calls #dup on every element</li>
+<li><a href="https://github.com/jruby/jruby/issues/4217">#4217</a> - JRuby 9.1.*.* on multiple platforms incorrectly handles block in `[]` method calls</li>
+<li><a href="https://github.com/jruby/jruby/pull/4216">#4216</a> - UDP socket improvements</li>
+<li><a href="https://github.com/jruby/jruby/pull/4215">#4215</a> - do not eagerly set eval-type in a thread-local</li>
+<li><a href="https://github.com/jruby/jruby/pull/4214">#4214</a> - [Truffle] Use the new getgroups POSIX call.</li>
+<li><a href="https://github.com/jruby/jruby/issues/4210">#4210</a> - **operator behavior is different from MRI</li>
+<li><a href="https://github.com/jruby/jruby/pull/4207">#4207</a> - Flush destination IO in IO.copy_stream</li>
+<li><a href="https://github.com/jruby/jruby/issues/4206">#4206</a> - Kernel#sleep swallows InterruptedException</li>
+<li><a href="https://github.com/jruby/jruby/pull/4204">#4204</a> - Implement Socket.socketpair to return Socket instances</li>
+<li><a href="https://github.com/jruby/jruby/pull/4203">#4203</a> - Get rid of code dup in ServerSocket#bind</li>
+<li><a href="https://github.com/jruby/jruby/issues/4202">#4202</a> - IO.copy_stream with Zlib::GZipWriter broken in 9.1.3.0 and up</li>
+<li><a href="https://github.com/jruby/jruby/pull/4199">#4199</a> - Replace BigDecimal#!= by BigDecimal#nonzero?.</li>
+<li><a href="https://github.com/jruby/jruby/pull/4198">#4198</a> - Apply patch from rubygems/rubygems#1685</li>
+<li><a href="https://github.com/jruby/jruby/issues/4193">#4193</a> - prime? openssl error in 9.1.5.0</li>
+<li><a href="https://github.com/jruby/jruby/pull/4190">#4190</a> - TCPServer#accept_nonblock improvement</li>
+<li><a href="https://github.com/jruby/jruby/pull/4189">#4189</a> - Implement TCPServer#sysaccept</li>
+<li><a href="https://github.com/jruby/jruby/issues/4188">#4188</a> - `require_relative` does not work inside a jar on Windows</li>
+<li><a href="https://github.com/jruby/jruby/pull/4187">#4187</a> - Fix Java::JavaLangReflect::GenericSignatureFormatError when reflecting reified annotation values</li>
+<li><a href="https://github.com/jruby/jruby/issues/4186">#4186</a> - JRuby accepts wrong method arguments when mixing positional with defaults and keywords</li>
+<li><a href="https://github.com/jruby/jruby/issues/4184">#4184</a> - Dir.tmpdir returns working directory</li>
+<li><a href="https://github.com/jruby/jruby/issues/4178">#4178</a> - Changing type of global variables gives TypeError</li>
+<li><a href="https://github.com/jruby/jruby/pull/4177">#4177</a> - Fix issues with File.dirname</li>
+<li><a href="https://github.com/jruby/jruby/issues/4176">#4176</a> - NoMethodError: undefined method `dedent_string' when lexing squigly heredocs in Ripper</li>
+<li><a href="https://github.com/jruby/jruby/pull/4174">#4174</a> - Remove premade field-based DynamicScope and generate instead.</li>
+<li><a href="https://github.com/jruby/jruby/issues/4171">#4171</a> - JRuby HEAD gets NPE when running `bundle install`</li>
+<li><a href="https://github.com/jruby/jruby/pull/4170">#4170</a> - Bring BigMath::log behaviour closer to MRI</li>
+<li><a href="https://github.com/jruby/jruby/issues/4169">#4169</a> - squiggly heredoc with single quotes fails to run</li>
+<li><a href="https://github.com/jruby/jruby/pull/4168">#4168</a> - Add paths to *DynamicScope that don't check nulls, offsets.</li>
+<li><a href="https://github.com/jruby/jruby/issues/4167">#4167</a> - Create a different hierarchy of DynamicScope for use in startup interp + remove null checks in the existing hierarchy since they are redundant</li>
+<li><a href="https://github.com/jruby/jruby/issues/4162">#4162</a> - Logger: Errno::EINVAL: Invalid argument with JRuby 9.x in Solaris</li>
+<li><a href="https://github.com/jruby/jruby/pull/4159">#4159</a> - Format initial string to specific precision, so rounding works.</li>
+<li><a href="https://github.com/jruby/jruby/issues/4158">#4158</a> - BigMath.log(Rational,...) produces garbage digits within the requested precision</li>
+<li><a href="https://github.com/jruby/jruby/pull/4153">#4153</a> - Fix for #4147</li>
+<li><a href="https://github.com/jruby/jruby/pull/4152">#4152</a> - Fix for #3229</li>
+<li><a href="https://github.com/jruby/jruby/issues/4148">#4148</a> - Java::JavaLangInvoke::WrongMethodTypeException when using invokedynamic</li>
+<li><a href="https://github.com/jruby/jruby/issues/4147">#4147</a> - Logger: log rotation inter-process lock failed. on Windows with JRuby 9.x</li>
+<li><a href="https://github.com/jruby/jruby/issues/4141">#4141</a> - IRB: arrow keys to move along cmd line and up/down in history not working on Windows</li>
+<li><a href="https://github.com/jruby/jruby/pull/4128">#4128</a> - Inspect directly into a RubyString and avoid StringBuilder/char[].</li>
+<li><a href="https://github.com/jruby/jruby/pull/4126">#4126</a> - Implement SignalException class</li>
+<li><a href="https://github.com/jruby/jruby/pull/4119">#4119</a> - Full Socket::Option support</li>
+<li><a href="https://github.com/jruby/jruby/pull/4117">#4117</a> - Show that ArgumentError from encoding error is recursive</li>
+<li><a href="https://github.com/jruby/jruby/issues/4040">#4040</a> - Setting SO_LINGER completely inconsistent</li>
+<li><a href="https://github.com/jruby/jruby/issues/4019">#4019</a> - gem list don't show some gems as default</li>
+<li><a href="https://github.com/jruby/jruby/issues/3954">#3954</a> - SignalException#signo (and signm) not defined.</li>
+<li><a href="https://github.com/jruby/jruby/pull/3886">#3886</a> - Collect all DNS sections by calling to each_resource instead of each_answer</li>
+<li><a href="https://github.com/jruby/jruby/issues/3817">#3817</a> - IO#seek and tell do not properly handle offsets larger than int32</li>
+<li><a href="https://github.com/jruby/jruby/issues/3438">#3438</a> - BasicSocket#getsockopt does not work with all possible Symbol combinations</li>
+<li><a href="https://github.com/jruby/jruby/issues/3343">#3343</a> - File.flock does not work on Solaris for 9k</li>
+<li><a href="https://github.com/jruby/jruby/issues/3326">#3326</a> - JRuby 9.0.1.0 vs. MRI 2.2.2 define_method inconsistency</li>
+<li><a href="https://github.com/jruby/jruby/pull/3302">#3302</a> - Updated doc for dumpThreads method in Runtime</li>
+<li><a href="https://github.com/jruby/jruby/pull/2768">#2768</a> - System.gc() is async, do not attempt to invoke it and retry sysopen</li>
+<li><a href="https://github.com/jruby/jruby/issues/2465">#2465</a> - Build a new pass that ensures that ruby locals / IR tmps are initialized </li>
+<li><a href="https://github.com/jruby/jruby/pull/1987">#1987</a> - sequester tmp directories</li>
+</ul>
