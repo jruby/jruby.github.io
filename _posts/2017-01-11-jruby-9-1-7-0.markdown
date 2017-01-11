@@ -1,0 +1,104 @@
+---
+layout: post
+title: JRuby 9.1.7.0 Released
+---
+The JRuby community is pleased to announce the release of JRuby 9.1.7.0
+
+- Homepage: [http://www.jruby.org/](http://www.jruby.org/)
+- Download: [http://www.jruby.org/download](http://www.jruby.org/download)
+
+JRuby 9000 is the newest major version of JRuby, representing years of effort and large-scale reboots of several JRuby subsystems.  It is expected to be compatible with Ruby 2.x and stay in sync with C Ruby.  JRuby 9.1.7.0 is our latest release...
+
+Major features of JRuby 9000:
+
+- Ruby 2.x compatibility
+- A new optimizing runtime based on a traditional compiler design
+- New POSIX-friendly IO and Process
+- Fully ported encoding/transcoding logic from MRI
+
+If you do find issues then report them on using our issue tracker at [http://bugs.jruby.org](http://bugs.jruby.org). We also encourage users to join our IRC channel (#jruby on Freenode) and mailing lists. You may also follow [@jruby](https://twitter.com/jruby) on Twitter for updates.
+
+- Fixed spurious LinkageError when using multiple threads
+- Fixed several keyword argument issues
+- Fixed several parser issues
+- Reduced memory use of the JIT
+- Update Psych to 2.2.2
+- Update jruby-openssl to 0.9.18
+- 72 issues fixed for 9.1.7.0
+
+### Github Issues resolved for 9.1.7.0
+
+<ul>
+<li><a href="https://github.com/jruby/jruby/issues/4433">#4433</a> - NullPointerException when creating tempfiles in rspec</li>
+<li><a href="https://github.com/jruby/jruby/pull/4431">#4431</a> - Set toplevel module</li>
+<li><a href="https://github.com/jruby/jruby/issues/4429">#4429</a> - corrupted JIT byte-code for method</li>
+<li><a href="https://github.com/jruby/jruby/pull/4427">#4427</a> - Don't allow null method names</li>
+<li><a href="https://github.com/jruby/jruby/issues/4426">#4426</a> - Calling super() outside of a method causes NPE</li>
+<li><a href="https://github.com/jruby/jruby/issues/4425">#4425</a> - Code behavior changes after being JITted at runtime</li>
+<li><a href="https://github.com/jruby/jruby/pull/4421">#4421</a> - Make StringIO thread-safe by synchronizing against ptr.</li>
+<li><a href="https://github.com/jruby/jruby/pull/4420">#4420</a> - [#4414] Fixes #4414. getVpValueWithPrec19 should raise FloatDomainErr…</li>
+<li><a href="https://github.com/jruby/jruby/issues/4418">#4418</a> - File.expand_path with uri:classloader still relative on Windows</li>
+<li><a href="https://github.com/jruby/jruby/issues/4417">#4417</a> - StringIO is not thread-safe (throws a Java exception)</li>
+<li><a href="https://github.com/jruby/jruby/issues/4416">#4416</a> - The i18n gem does not work in AOT mode</li>
+<li><a href="https://github.com/jruby/jruby/issues/4414">#4414</a> - NumberFormatException when divide BigDecimal by Float::NAN</li>
+<li><a href="https://github.com/jruby/jruby/issues/4410">#4410</a> - chunk_while not returning results equivalent to MRI ruby 2.3+ (jruby 9.1.6.0)</li>
+<li><a href="https://github.com/jruby/jruby/issues/4407">#4407</a> - Concurrent::ScheduledTask is broken on master JRuby</li>
+<li><a href="https://github.com/jruby/jruby/issues/4404">#4404</a> - Decreased coverage with 9.1.7.0 snapshot</li>
+<li><a href="https://github.com/jruby/jruby/pull/4390">#4390</a> - Specific arity jit cleanup</li>
+<li><a href="https://github.com/jruby/jruby/pull/4389">#4389</a> - Check permission to AccessibleObject#setAccessible(boolean) a better way</li>
+<li><a href="https://github.com/jruby/jruby/pull/4388">#4388</a> - Add call protocol to script body and separate non-protocol metas.</li>
+<li><a href="https://github.com/jruby/jruby/issues/4383">#4383</a> - warn with array should behave like puts with array</li>
+<li><a href="https://github.com/jruby/jruby/pull/4382">#4382</a> - Improve stack depth</li>
+<li><a href="https://github.com/jruby/jruby/pull/4381">#4381</a> - Remove unsafe-mock from our build altogether.</li>
+<li><a href="https://github.com/jruby/jruby/pull/4379">#4379</a> - Fix bigdecimal infinity round</li>
+<li><a href="https://github.com/jruby/jruby/pull/4378">#4378</a> - Update jnr.</li>
+<li><a href="https://github.com/jruby/jruby/issues/4369">#4369</a> - break within a block throws LocalJumpError in JRuby but succeeds in MRI Ruby</li>
+<li><a href="https://github.com/jruby/jruby/pull/4366">#4366</a> - Optimize getDefinedMessage by deduping during initialization</li>
+<li><a href="https://github.com/jruby/jruby/pull/4364">#4364</a> - Add regression test for shell exit</li>
+<li><a href="https://github.com/jruby/jruby/issues/4363">#4363</a> - Yard does not work in JRuby =>9.1.3.0</li>
+<li><a href="https://github.com/jruby/jruby/pull/4362">#4362</a> - change status array of ints to an int</li>
+<li><a href="https://github.com/jruby/jruby/issues/4361">#4361</a> - Unexpected value for `$?.exitstatus` when process exited successfully</li>
+<li><a href="https://github.com/jruby/jruby/pull/4356">#4356</a> - trivial: restkwargs => kwargs in FIXME comment</li>
+<li><a href="https://github.com/jruby/jruby/pull/4352">#4352</a> - Fix deadlock when tearing down runtime during debugging</li>
+<li><a href="https://github.com/jruby/jruby/issues/4350">#4350</a> - File.directory? of a uri:classloader resources ending in "/" incorrectly returns false</li>
+<li><a href="https://github.com/jruby/jruby/issues/4349">#4349</a> - -Xnative.enabled=false fails to load windows in kernel</li>
+<li><a href="https://github.com/jruby/jruby/issues/4348">#4348</a> - File.open with open mode a+ do not work</li>
+<li><a href="https://github.com/jruby/jruby/issues/4344">#4344</a> - Can't call a `Proc` which has a required keyword argument and a positional argument</li>
+<li><a href="https://github.com/jruby/jruby/issues/4342">#4342</a> - zsuper does not cope with n repeated _ well</li>
+<li><a href="https://github.com/jruby/jruby/issues/4341">#4341</a> - 9.1.6.0: block arguments *_ and &_ at the same time fails with DynamicScope1 only supports scopes with 1 variables</li>
+<li><a href="https://github.com/jruby/jruby/issues/4340">#4340</a> - Extended class clones and duplicates become unmarshable </li>
+<li><a href="https://github.com/jruby/jruby/issues/4339">#4339</a> - Class clones and duplicates raise StackOverflowError when listing their singleton class ancestors</li>
+<li><a href="https://github.com/jruby/jruby/pull/4336">#4336</a> - Fix unexpected java.lang.ArithmeticException when converting Rational to BigDecimal</li>
+<li><a href="https://github.com/jruby/jruby/issues/4332">#4332</a> - JRuby 9.1.6.0 tries to access O_TMPFILE under Windows</li>
+<li><a href="https://github.com/jruby/jruby/pull/4331">#4331</a> - Skip less specs</li>
+<li><a href="https://github.com/jruby/jruby/pull/4329">#4329</a> - Add missing PortUnreachable catch. Fixes #4104</li>
+<li><a href="https://github.com/jruby/jruby/issues/4324">#4324</a> - Crashing on attempt to convert Rational into BigDecimal </li>
+<li><a href="https://github.com/jruby/jruby/issues/4323">#4323</a> - Usage of `#[]=` assignment in method argument broken</li>
+<li><a href="https://github.com/jruby/jruby/pull/4321">#4321</a> - Fix marshaling Hash with default_proc set to nil</li>
+<li><a href="https://github.com/jruby/jruby/issues/4319">#4319</a> - JRuby can not interpret keyword argument when placed after positional argument in block</li>
+<li><a href="https://github.com/jruby/jruby/issues/4317">#4317</a> - range endpoints with () will generate an NPE</li>
+<li><a href="https://github.com/jruby/jruby/issues/4316">#4316</a> - --disable: should accept gem as alias for gems.</li>
+<li><a href="https://github.com/jruby/jruby/issues/4315">#4315</a> - 2.3 Syntax Failure: %s does not work in alias or undef</li>
+<li><a href="https://github.com/jruby/jruby/issues/4314">#4314</a> - 2.3 syntax failure: 'a b: 1' does not parse as method with kwarg</li>
+<li><a href="https://github.com/jruby/jruby/pull/4310">#4310</a> - Disable notifying travis-rubies of passing [skip ci]</li>
+<li><a href="https://github.com/jruby/jruby/issues/4308">#4308</a> - New syntax errors in 2.3.1/2.3.2 tests.</li>
+<li><a href="https://github.com/jruby/jruby/issues/4302">#4302</a> - Dumping Hash with default_proc that was reset</li>
+<li><a href="https://github.com/jruby/jruby/pull/4299">#4299</a> - Fixed Math.lgamma with input -0.0</li>
+<li><a href="https://github.com/jruby/jruby/issues/4286">#4286</a> - Interrupt ignores exception message</li>
+<li><a href="https://github.com/jruby/jruby/pull/4285">#4285</a> - Catch LinkageError during DynamicScope generation.</li>
+<li><a href="https://github.com/jruby/jruby/issues/4284">#4284</a> - MRI tests that do not appear to exist for MRI</li>
+<li><a href="https://github.com/jruby/jruby/pull/4280">#4280</a> - README: Ruby version manager docs link</li>
+<li><a href="https://github.com/jruby/jruby/pull/4276">#4276</a> - make ttymode and ttymode_yield helpers private</li>
+<li><a href="https://github.com/jruby/jruby/issues/4275">#4275</a> - ttymode, ttymode_yield should be private</li>
+<li><a href="https://github.com/jruby/jruby/pull/4268">#4268</a> - upgrade jruby-openssl to 0.9.18</li>
+<li><a href="https://github.com/jruby/jruby/issues/4266">#4266</a> - JRuby unable to find methods unless jar is in boot classpath</li>
+<li><a href="https://github.com/jruby/jruby/issues/4253">#4253</a> - Respond_to? returns private methods</li>
+<li><a href="https://github.com/jruby/jruby/issues/4196">#4196</a> - Update Psych to eliminate deprecated usage</li>
+<li><a href="https://github.com/jruby/jruby/pull/4123">#4123</a> - Fix IO#syswrite. Fixes #3799</li>
+<li><a href="https://github.com/jruby/jruby/issues/4104">#4104</a> - Resolv::DNS..getresource produces different errors then MRI</li>
+<li><a href="https://github.com/jruby/jruby/issues/4103">#4103</a> - JRuby fails in building from source when using openjdk-7-jdk trusty package</li>
+<li><a href="https://github.com/jruby/jruby/issues/3799">#3799</a> - Unix sockets raise exception on long writes</li>
+<li><a href="https://github.com/jruby/jruby/issues/3729">#3729</a> - Occasional ArrayIndexOutOfBoundsException from a line of Ruby that isn't doing array lookups</li>
+<li><a href="https://github.com/jruby/jruby/issues/2761">#2761</a> - JRuby 9k: simple script ~80% as fast as jruby 1.7.19</li>
+<li><a href="https://github.com/jruby/jruby/issues/2485">#2485</a> - proc with extra args incorrectly binds wrong post args</li>
+</ul>
