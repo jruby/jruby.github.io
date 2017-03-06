@@ -1,0 +1,110 @@
+---
+layout: post
+title: JRuby 9.1.8.0 Released
+---
+The JRuby community is pleased to announce the release of JRuby 9.1.8.0
+
+- Homepage: [http://www.jruby.org/](http://www.jruby.org/)
+- Download: [http://www.jruby.org/download](http://www.jruby.org/download)
+
+JRuby 9000 is the newest major version of JRuby, representing years of effort and large-scale reboots of several JRuby subsystems.  It is expected to be compatible with Ruby 2.x and stay in sync with C Ruby.  JRuby 9.1.8.0 is our latest release...
+
+Major features of JRuby 9000:
+
+- Ruby 2.x compatibility
+- A new optimizing runtime based on a traditional compiler design
+- New POSIX-friendly IO and Process
+- Fully ported encoding/transcoding logic from MRI
+
+If you do find issues then report them on using our issue tracker at [http://bugs.jruby.org](http://bugs.jruby.org). We also encourage users to join our IRC channel (#jruby on Freenode) and mailing lists. You may also follow [@jruby](https://twitter.com/jruby) on Twitter for updates.
+
+- Fixed intermittent DynamicScope size errors
+- Concurrency fixes to jitting of blocks (mostly seen as previous bullet).
+- Several issues fixed when running with -Xcompile.invokedynamic
+- 81 issues fixed for 9.1.8.0
+
+### Github Issues resolved for 9.1.8.0
+
+<ul>
+<li><a href="https://github.com/jruby/jruby/pull/4521">#4521</a> - Use actual impl module to test bindability. Fixes #4477.</li>
+<li><a href="https://github.com/jruby/jruby/issues/4516">#4516</a> - DynamicScope sizeError </li>
+<li><a href="https://github.com/jruby/jruby/issues/4513">#4513</a> - cgi/escape does not define CGI.escapeHTML and other methods</li>
+<li><a href="https://github.com/jruby/jruby/issues/4512">#4512</a> - release and upgrade BC (jruby-openssl)</li>
+<li><a href="https://github.com/jruby/jruby/pull/4511">#4511</a> - Fix some issues with Fiddle</li>
+<li><a href="https://github.com/jruby/jruby/pull/4509">#4509</a> - Fix #4463 Marshal load bigdecimal NaN fails</li>
+<li><a href="https://github.com/jruby/jruby/issues/4508">#4508</a> - $. never seems to change once JIT'd</li>
+<li><a href="https://github.com/jruby/jruby/pull/4507">#4507</a> - Actually cache the idTest on the module.</li>
+<li><a href="https://github.com/jruby/jruby/pull/4504">#4504</a> - Improve some of the debug logging in ConstantLookupSite.</li>
+<li><a href="https://github.com/jruby/jruby/pull/4503">#4503</a> - Allow reads after calling BasicSocket#close_write.</li>
+<li><a href="https://github.com/jruby/jruby/issues/4501">#4501</a> - JRuby native no longer loads on windows</li>
+<li><a href="https://github.com/jruby/jruby/issues/4500">#4500</a> - IO#close_write seems to close the read side too for unix sockets</li>
+<li><a href="https://github.com/jruby/jruby/issues/4499">#4499</a> - Make failed indy call sites still use specific-arity dispatch</li>
+<li><a href="https://github.com/jruby/jruby/pull/4498">#4498</a> - Separate varargs and specific-arity names in JIT. Fixes #4482</li>
+<li><a href="https://github.com/jruby/jruby/issues/4497">#4497</a> - The return value of `ARGF.file#lineno` differs from that of MRI</li>
+<li><a href="https://github.com/jruby/jruby/pull/4496">#4496</a> - Use ipaddr to compare the sender's address</li>
+<li><a href="https://github.com/jruby/jruby/pull/4494">#4494</a> - Use arity hashCode instead of proc#hash in CallableSelector</li>
+<li><a href="https://github.com/jruby/jruby/issues/4492">#4492</a> - YAML: Can't load files with characters in the supplementary plane</li>
+<li><a href="https://github.com/jruby/jruby/pull/4486">#4486</a> - Set up EWOULDBLOCKWaitReadable/Writable if not present. Fix #4473</li>
+<li><a href="https://github.com/jruby/jruby/pull/4485">#4485</a> - Allow refinements in one eval to be seen in the next.</li>
+<li><a href="https://github.com/jruby/jruby/issues/4484">#4484</a> - Rational() and IO.try_convert do not work for BasicObjects</li>
+<li><a href="https://github.com/jruby/jruby/issues/4483">#4483</a> - Complex() Kernel method does not consult an object's to_c method</li>
+<li><a href="https://github.com/jruby/jruby/issues/4482">#4482</a> - Doing require_relative too often leads to TypeError</li>
+<li><a href="https://github.com/jruby/jruby/issues/4481">#4481</a> - String#unpack: Unpacked string should not have an encoding</li>
+<li><a href="https://github.com/jruby/jruby/issues/4478">#4478</a> - Block doesn't retain it's binding through instance_eval</li>
+<li><a href="https://github.com/jruby/jruby/issues/4477">#4477</a> - prepending to the singleton class of a module breaks instance_method</li>
+<li><a href="https://github.com/jruby/jruby/issues/4475">#4475</a> - Activating refinements in binding.eval doesn't stick outside of the evaluated string.</li>
+<li><a href="https://github.com/jruby/jruby/issues/4473">#4473</a> - IO::EWOULDBLOCKWaitReadable Exception class not defined </li>
+<li><a href="https://github.com/jruby/jruby/issues/4472">#4472</a> - jrubyc broken for simple (self-executing) scripts in 9.1.7.0</li>
+<li><a href="https://github.com/jruby/jruby/pull/4471">#4471</a> - Make sure to iterate over all keys when cancelling keys in a SelectorPool</li>
+<li><a href="https://github.com/jruby/jruby/issues/4467">#4467</a> - Exception backtrace is nil when it should be present</li>
+<li><a href="https://github.com/jruby/jruby/pull/4466">#4466</a> - Fix #3799 again.</li>
+<li><a href="https://github.com/jruby/jruby/issues/4465">#4465</a> - Java Null Pointer exception while bundling </li>
+<li><a href="https://github.com/jruby/jruby/issues/4463">#4463</a> - Marshal load bigdecimal NaN fails.</li>
+<li><a href="https://github.com/jruby/jruby/issues/4461">#4461</a> - `ObjectSpace.each_object.to_a` raises `ArrayIndexOutOfBoundsException`</li>
+<li><a href="https://github.com/jruby/jruby/issues/4457">#4457</a> - system and spawn raise 'wrong exec redirect action' when redirecting given `out: tempfile` or `err: tempfile`</li>
+<li><a href="https://github.com/jruby/jruby/issues/4455">#4455</a> - Sequel fails with -Xcompile.invokedynamic=true</li>
+<li><a href="https://github.com/jruby/jruby/issues/4454">#4454</a> - Licensing is confusing</li>
+<li><a href="https://github.com/jruby/jruby/pull/4448">#4448</a> - [ji] support 'native' method arguments (e.g. org.jruby.RubyObject)</li>
+<li><a href="https://github.com/jruby/jruby/pull/4447">#4447</a> - Fix GzipReader "position" update for #each and #each_line.</li>
+<li><a href="https://github.com/jruby/jruby/issues/4445">#4445</a> - string encoding is incorrect when compiling to .class files via jrubyc</li>
+<li><a href="https://github.com/jruby/jruby/issues/4443">#4443</a> - LocalJumpError when creating enumerator inside GzipReader.open block</li>
+<li><a href="https://github.com/jruby/jruby/issues/4442">#4442</a> - Unable to re-deploy rails app (java.lang.RuntimeException: BUG: could not initialize constructor handle)</li>
+<li><a href="https://github.com/jruby/jruby/issues/4439">#4439</a> - Memory leaks due to overwritten local variables being wrongly kept alive on the stack</li>
+<li><a href="https://github.com/jruby/jruby/pull/4438">#4438</a> - fix Base64#decode64 behavior</li>
+<li><a href="https://github.com/jruby/jruby/issues/4437">#4437</a> - String#scrub ignores the block if the string encoding is not ASCII-compatible</li>
+<li><a href="https://github.com/jruby/jruby/pull/4435">#4435</a> - [ji] deterministic Java bean-style method aliases</li>
+<li><a href="https://github.com/jruby/jruby/pull/4428">#4428</a> - [#4353] Ignore consecutive DOUBLE_STAR  in glob_helper.</li>
+<li><a href="https://github.com/jruby/jruby/pull/4423">#4423</a> - Kill the LocalJumpError logic for break in lambda. Fixes #4369.</li>
+<li><a href="https://github.com/jruby/jruby/issues/4413">#4413</a> - JRuby's impl of FFI differs in behavior from MRI; segfaults/crashes</li>
+<li><a href="https://github.com/jruby/jruby/pull/4399">#4399</a> - RubyHash's compare_by_identify Java method naming is confusing</li>
+<li><a href="https://github.com/jruby/jruby/issues/4393">#4393</a> - microsecond accuracy is not supported in class Time</li>
+<li><a href="https://github.com/jruby/jruby/pull/4392">#4392</a> - compile back to hard scope when closure compile/build requested</li>
+<li><a href="https://github.com/jruby/jruby/issues/4391">#4391</a> - Metaspace fills with java.lang.invoke.LambdaForms$ over time</li>
+<li><a href="https://github.com/jruby/jruby/issues/4353">#4353</a> - Dir.glob returns doubles, if used with recursive directory matchers "**"</li>
+<li><a href="https://github.com/jruby/jruby/pull/4312">#4312</a> - Fix JRuby embed crash after application reloading</li>
+<li><a href="https://github.com/jruby/jruby/issues/4304">#4304</a> - Singleton on non-persistent Java type Java::JavaLang::NullPointerException</li>
+<li><a href="https://github.com/jruby/jruby/issues/4219">#4219</a> - Calling super with two "_" params ignores the value of the second</li>
+<li><a href="https://github.com/jruby/jruby/issues/4028">#4028</a> - Base64.decode64 incorrect result when missing paddings</li>
+<li><a href="https://github.com/jruby/jruby/issues/3663">#3663</a> - Never-ending getaddress() call when using compressed IPv6 nameservers in /etc/resolv.conf</li>
+<li><a href="https://github.com/jruby/jruby/issues/3545">#3545</a> - java.lang.NullPointerException when using for loops</li>
+<li><a href="https://github.com/jruby/jruby/issues/3528">#3528</a> - ActiveRecord::StatementInvalid: ArgumentError: wrong number of arguments (1 for 2) for invokedynamic</li>
+<li><a href="https://github.com/jruby/jruby/issues/3350">#3350</a> - JRuby 9.0.1.0 has slower $global_var usage</li>
+<li><a href="https://github.com/jruby/jruby/issues/3185">#3185</a> - PTY.spawn doesn't pass arguments</li>
+<li><a href="https://github.com/jruby/jruby/issues/3020">#3020</a> - Attempt to get output from PTY.spawn periodically hangs</li>
+<li><a href="https://github.com/jruby/jruby/issues/2355">#2355</a> - State file use in UUID gem causes severe performance degradation</li>
+<li><a href="https://github.com/jruby/jruby/issues/2161">#2161</a> - Hash inspection not working as in MRI for sprintf %p</li>
+<li><a href="https://github.com/jruby/jruby/issues/1842">#1842</a> - Dir#glob and escaped commas</li>
+<li><a href="https://github.com/jruby/jruby/issues/1784">#1784</a> - OpenSSL::PKey.read throws a null pointer exception </li>
+<li><a href="https://github.com/jruby/jruby/issues/1653">#1653</a> - '/' works as a valid path but children don't (under windows)</li>
+<li><a href="https://github.com/jruby/jruby/issues/1643">#1643</a> - Cannot call a Java method whose parameter is RubyArray when it is overloaded</li>
+<li><a href="https://github.com/jruby/jruby/issues/1437">#1437</a> - test/mri/ruby/test_regexp.rb has regexp that fail to parse</li>
+<li><a href="https://github.com/jruby/jruby/issues/1381">#1381</a> - io/console and/or FFI do not load right with alternative -0 separator</li>
+<li><a href="https://github.com/jruby/jruby/issues/1368">#1368</a> - Need to error for unsupported keywords</li>
+<li><a href="https://github.com/jruby/jruby/issues/1321">#1321</a> - TracePoint thread_begin and thread_end events are broken</li>
+<li><a href="https://github.com/jruby/jruby/issues/1269">#1269</a> - RegexpError with look-behind</li>
+<li><a href="https://github.com/jruby/jruby/issues/1258">#1258</a> - Improve Bignum string parsing</li>
+<li><a href="https://github.com/jruby/jruby/issues/1149">#1149</a> - chmod inside of File block fails to create file</li>
+<li><a href="https://github.com/jruby/jruby/issues/1067">#1067</a> - [2.1] StringScanner named captures</li>
+<li><a href="https://github.com/jruby/jruby/issues/1037">#1037</a> - TypeError raised when trying to propagate java Throwables using Thread.raise </li>
+<li><a href="https://github.com/jruby/jruby/issues/413">#413</a> - $LOADED_FEATURES.clear does not appear to clear internal set</li>
+</ul>
