@@ -7,3 +7,4 @@ gem "fog"
 gem 'github_api', '= 0.11.3'
 gem 'jira-ruby'
 gem 'directory_watcher', '~> 1.4.1'
+gem 'therubyracer'
