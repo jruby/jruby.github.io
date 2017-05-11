@@ -1,0 +1,39 @@
+---
+layout: post
+title: JRuby 1.7.27 Released
+---
+The JRuby community is pleased to announce the release of JRuby 1.7.27
+
+- Homepage: [http://www.jruby.org/](http://www.jruby.org/)
+- Download: [http://www.jruby.org/download](http://www.jruby.org/download)
+
+JRuby 1.7.27 is our latest update release of JRuby 1.7.x.  The primary goal of 1.7 point releases is to fill out any missing compatibility issues with Ruby 1.9.3.  This is very likely our last 1.7.x release barring any release mistake or strong pushback.  We are hoping all JRuby users can migrate to JRuby 9k and get on the Ruby 2.x train...
+
+Highlights:
+
+- 20 issues fixed for 1.7.27
+
+### Github Issues resolved for 1.7.27
+
+<ul>
+<li><a href="https://github.com/jruby/jruby/pull/4590">#4590</a> - Clean up structure of io/console and avoid stty on Windows.</li>
+<li><a href="https://github.com/jruby/jruby/pull/4588">#4588</a> - Backport 4389</li>
+<li><a href="https://github.com/jruby/jruby/pull/4563">#4563</a> - (peazy) enumerator backports for 1.7</li>
+<li><a href="https://github.com/jruby/jruby/pull/4545">#4545</a> - Update jnr-constants to 0.9.9 for 1.7.</li>
+<li><a href="https://github.com/jruby/jruby/issues/4519">#4519</a> - 64-bit immediate return to prompt on console interrupt before termination</li>
+<li><a href="https://github.com/jruby/jruby/pull/4491">#4491</a> - Immediately unregister out and err for JSR223 evals. Fixes #4446.</li>
+<li><a href="https://github.com/jruby/jruby/issues/4446">#4446</a> - ChannelDescriptor is not removed from the map after ScriptContainer is terminated</li>
+<li><a href="https://github.com/jruby/jruby/issues/4306">#4306</a> - JRuby 1.7: update to latest jruby-openssl version</li>
+<li><a href="https://github.com/jruby/jruby/pull/4226">#4226</a> - Don't dup every element in Enumerator#drop (1.7)</li>
+<li><a href="https://github.com/jruby/jruby/issues/4155">#4155</a> - 1.7.26 regression: NoMethodError: private method `require' called for Kernel:Module in Sequel</li>
+<li><a href="https://github.com/jruby/jruby/pull/4149">#4149</a> - Backport securerandom</li>
+<li><a href="https://github.com/jruby/jruby/issues/4116">#4116</a> - File.dirname interprets backslashes as path separators on Mac OS X</li>
+<li><a href="https://github.com/jruby/jruby/issues/4057">#4057</a> - The JVM SIGSEGVs when using RubyEtc.getgrgid</li>
+<li><a href="https://github.com/jruby/jruby/issues/4006">#4006</a> - JRuby 1.7 branch uses java.lang.management.ManagementFactory</li>
+<li><a href="https://github.com/jruby/jruby/issues/3989">#3989</a> - JRuby + Cygwin + Jenkins causes message related to stty</li>
+<li><a href="https://github.com/jruby/jruby/issues/3781">#3781</a> - JRuby throws java.lang.ArrayIndexOutOfBoundsException </li>
+<li><a href="https://github.com/jruby/jruby/pull/3383">#3383</a> - public org.jruby.Runtime.Profile.Builtin::MethodData</li>
+<li><a href="https://github.com/jruby/jruby/issues/1571">#1571</a> - Enumerator#feed</li>
+<li><a href="https://github.com/jruby/jruby/issues/1398">#1398</a> - Private method error changes when `method_missing` is defined but should not</li>
+<li><a href="https://github.com/jruby/jruby/issues/1260">#1260</a> - alias_method intermittent issue in 1.7.6 &amp; 1.7.8 (example to recreate included)</li>
+</ul>
