@@ -1,0 +1,57 @@
+---
+layout: post
+title: JRuby 9.1.11.0 Released
+---
+The JRuby community is pleased to announce the release of JRuby 9.1.11.0
+
+- Homepage: [http://www.jruby.org/](http://www.jruby.org/)
+- Download: [http://www.jruby.org/download](http://www.jruby.org/download)
+
+JRuby 9000 is the newest major version of JRuby, representing years of effort and large-scale reboots of several JRuby subsystems.  It is expected to be compatible with Ruby 2.x and stay in sync with C Ruby.  JRuby 9.1.11.0 is our latest release...
+
+Major features of JRuby 9000:
+
+- Ruby 2.x compatibility
+- A new optimizing runtime based on a traditional compiler design
+- New POSIX-friendly IO and Process
+- Fully ported encoding/transcoding logic from MRI
+
+If you do find issues then report them on using our issue tracker at [http://bugs.jruby.org](http://bugs.jruby.org). We also encourage users to join our IRC channel (#jruby on Freenode) and mailing lists. You may also follow [@jruby](https://twitter.com/jruby) on Twitter for updates.
+
+Highlights:
+
+- FFI memory leak regression fixed
+- File.symlink regression on windows fixed
+- 27 issues fixed for 9.1.11.0
+
+### Github Issues resolved for 9.1.11.0
+
+<ul>
+<li><a href="https://github.com/jruby/jruby/issues/4669">#4669</a> - File.symlink broken on windows</li>
+<li><a href="https://github.com/jruby/jruby/issues/4664">#4664</a> - Line numbers in backtrace with multiline method invocation are sometimes different from CRuby</li>
+<li><a href="https://github.com/jruby/jruby/issues/4663">#4663</a> - JRuby raises 'syntax error, unexpected kDO_BLOCK' where MRI does not</li>
+<li><a href="https://github.com/jruby/jruby/issues/4662">#4662</a> - LoadError with compiled multi-byte constant</li>
+<li><a href="https://github.com/jruby/jruby/pull/4661">#4661</a> - missing throw statements on ffi callback</li>
+<li><a href="https://github.com/jruby/jruby/pull/4658">#4658</a> - __dir__ won't work with embed paths such as uri:classloader: (#4611)</li>
+<li><a href="https://github.com/jruby/jruby/pull/4657">#4657</a> - Make Time#utc and #localtime raise RuntimeError when the object is frozen</li>
+<li><a href="https://github.com/jruby/jruby/pull/4656">#4656</a> - SecureRandom update to match Ruby 2.3</li>
+<li><a href="https://github.com/jruby/jruby/issues/4655">#4655</a> - Time#utc and #localtime can mutate a frozen object</li>
+<li><a href="https://github.com/jruby/jruby/pull/4647">#4647</a> - help classpath: canonicalization on Windows to fully resolve #4145</li>
+<li><a href="https://github.com/jruby/jruby/pull/4646">#4646</a> - try harder to avoid long overflow in Time#+ (fixes #1779)</li>
+<li><a href="https://github.com/jruby/jruby/pull/4642">#4642</a> - Fix missing callMethod override</li>
+<li><a href="https://github.com/jruby/jruby/issues/4641">#4641</a> - NPE when printing a variable in a view</li>
+<li><a href="https://github.com/jruby/jruby/pull/4639">#4639</a> - Fix Module inclusion order</li>
+<li><a href="https://github.com/jruby/jruby/pull/4638">#4638</a> - Also fix EMSGSIZE on Alpine Linux. Relates to #4606</li>
+<li><a href="https://github.com/jruby/jruby/pull/4636">#4636</a> - Implement Zlib::GzipReader #ungetbyte and #ungetc</li>
+<li><a href="https://github.com/jruby/jruby/issues/4631">#4631</a> - Zlib::GzipReader does not support #ungetc or #ungetbyte</li>
+<li><a href="https://github.com/jruby/jruby/issues/4630">#4630</a> - Jarified app breaks with `uri:classloader:BY\` on Windows with 9.1.10.0</li>
+<li><a href="https://github.com/jruby/jruby/issues/4625">#4625</a> - FFI memory leak regression</li>
+<li><a href="https://github.com/jruby/jruby/pull/4618">#4618</a> - Fix Float::INFINITY BigDecimal comparison</li>
+<li><a href="https://github.com/jruby/jruby/issues/4612">#4612</a> - REGRESSION - File.realpath fails on classpath paths</li>
+<li><a href="https://github.com/jruby/jruby/issues/4611">#4611</a> - [Q] __dir__ variable in jar file.</li>
+<li><a href="https://github.com/jruby/jruby/pull/4608">#4608</a> - Fix UDPSocket#(send|write) to raise EMSGSIZE</li>
+<li><a href="https://github.com/jruby/jruby/issues/4607">#4607</a> - SecureRandom.random_number doesn't accept a range</li>
+<li><a href="https://github.com/jruby/jruby/issues/4572">#4572</a> - Can't compare BigDecimal with Float::INFINITY got FloatDomainError: NaN</li>
+<li><a href="https://github.com/jruby/jruby/issues/1938">#1938</a> - Reincluded modules do not splice changes into hierarchy in the correct order</li>
+<li><a href="https://github.com/jruby/jruby/issues/1779">#1779</a> - Time.now + bignum incorrect</li>
+</ul>
