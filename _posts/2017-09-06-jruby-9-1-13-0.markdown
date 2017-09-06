@@ -1,0 +1,52 @@
+---
+layout: post
+title: JRuby 9.1.13.0 Released
+---
+The JRuby community is pleased to announce the release of JRuby 9.1.13.0
+
+- Homepage: [http://www.jruby.org/](http://www.jruby.org/)
+- Download: [http://www.jruby.org/download](http://www.jruby.org/download)
+
+JRuby 9.1.x is our current major version of JRuby.  It is expected to be compatible with Ruby 2.3.x and stay in sync with C Ruby.  JRuby 9.1.13.0 is our latest release...
+
+Major features of JRuby 9000:
+
+- Ruby 2.x compatibility
+- A new optimizing runtime based on a traditional compiler design
+- New POSIX-friendly IO and Process
+- Fully ported encoding/transcoding logic from MRI
+
+If you do find issues then report them on using our issue tracker at [http://bugs.jruby.org](http://bugs.jruby.org). We also encourage users to join our IRC channel (#jruby on Freenode) and mailing lists. You may also follow [@jruby](https://twitter.com/jruby) on Twitter for updates.
+
+Highlights:
+
+- 24 issues fixed for 9.1.13.0
+
+### Github Issues resolved for 9.1.13.0
+
+<ul>
+<li><a href="https://github.com/jruby/jruby/pull/4772">#4772</a> - File.symlink? fix typo</li>
+<li><a href="https://github.com/jruby/jruby/issues/4770">#4770</a> - YAML::Store does not retrieve UTF8 values correctly in read-only mode</li>
+<li><a href="https://github.com/jruby/jruby/issues/4765">#4765</a> - When creating a symbolic link JRuby give bad error message when not an admin on windows</li>
+<li><a href="https://github.com/jruby/jruby/issues/4764">#4764</a> - Update to latest rubygems</li>
+<li><a href="https://github.com/jruby/jruby/issues/4745">#4745</a> - (SystemCallError) Unknown error 123 - FindFirstFile with AsciidoctorJ-PDF on Win10</li>
+<li><a href="https://github.com/jruby/jruby/issues/4741">#4741</a> - core_ext/class.rb:subclasses conflicts with ActiveRecord</li>
+<li><a href="https://github.com/jruby/jruby/issues/4739">#4739</a> - "org.jruby.runtime.scopes.DynamicScope1 only supports scopes with 1 variables" with Deeply Nested Blocks</li>
+<li><a href="https://github.com/jruby/jruby/issues/4737">#4737</a> - Line numbers in backtrace with multiline method invocation are sometimes different from CRuby (again)</li>
+<li><a href="https://github.com/jruby/jruby/issues/4734">#4734</a> - haml-lint hangs with JRuby 9.1.12.0</li>
+<li><a href="https://github.com/jruby/jruby/issues/4733">#4733</a> - Array.instance_methods different for jRuby inside Rails</li>
+<li><a href="https://github.com/jruby/jruby/issues/4732">#4732</a> - Error executing `elm-install` from `elm_install` gem</li>
+<li><a href="https://github.com/jruby/jruby/issues/4728">#4728</a> - Parser does not seem to terminate when parsing this string</li>
+<li><a href="https://github.com/jruby/jruby/pull/4726">#4726</a> - upgrade jruby-openssl to 0.9.21</li>
+<li><a href="https://github.com/jruby/jruby/issues/4725">#4725</a> - JRuby wrongly mutates hash passed in as keyword arg with indy enabled</li>
+<li><a href="https://github.com/jruby/jruby/issues/4724">#4724</a> - Enumerable#each_with_index is broken again</li>
+<li><a href="https://github.com/jruby/jruby/issues/4723">#4723</a> - Problem with Class.instance_methods after Module.prepend</li>
+<li><a href="https://github.com/jruby/jruby/issues/4717">#4717</a> - NPE in windows parsing command line string -e ...</li>
+<li><a href="https://github.com/jruby/jruby/issues/4716">#4716</a> - Rails no longer runs on Tomcat</li>
+<li><a href="https://github.com/jruby/jruby/issues/4706">#4706</a> - TypeError: debugging with --debug</li>
+<li><a href="https://github.com/jruby/jruby/issues/4699">#4699</a> - Re-raising the cause of a Java exception can result in leaked memory and IllegalStateExceptions</li>
+<li><a href="https://github.com/jruby/jruby/issues/4692">#4692</a> - File path canonicalization still broken inside jars on Windows</li>
+<li><a href="https://github.com/jruby/jruby/issues/4691">#4691</a> - `syslog/logger` from the Ruby standard library is missing in JRuby 9</li>
+<li><a href="https://github.com/jruby/jruby/issues/4629">#4629</a> - Possible incompatibility with Sorcerer in 9.1.9.0 + 9.1.10.0</li>
+<li><a href="https://github.com/jruby/jruby/issues/4621">#4621</a> - jrubyc compiled representation breaks but source rb works fine</li>
+</ul>
