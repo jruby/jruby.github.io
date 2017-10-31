@@ -8,6 +8,8 @@ JRuby has a large and active community. You can connect up with them in several 
 
 [**Contribute**](/contribute) - JRuby is open source, and like all open source projects it needs your help! File bugs, check out the source, and help us make JRuby better today.
 
+[**Nightly Builds**](/nightly) - We publish nightly builds of or stable and development branches for testing new features and bug fixes.
+
 [**Blogs**](/blogs) - The JRuby Team, individual team members, and a number of folks from the community blog about JRuby and related topics.
 
 [**Twitter**](/twitter) - There are twitter accounts for The JRuby Team and all the team members.
