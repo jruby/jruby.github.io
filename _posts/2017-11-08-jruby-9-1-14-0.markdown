@@ -1,0 +1,52 @@
+---
+layout: post
+title: JRuby 9.1.14.0 Released
+---
+The JRuby community is pleased to announce the release of JRuby 9.1.14.0
+
+- Homepage: [http://www.jruby.org/](http://www.jruby.org/)
+- Download: [http://www.jruby.org/download](http://www.jruby.org/download)
+
+JRuby 9.1.x is our current major version of JRuby.  It is expected to be compatible with Ruby 2.3.x and stay in sync with C Ruby.  JRuby 9.1.14.0 is our latest release...
+
+Major features of JRuby 9000:
+
+- Ruby 2.x compatibility
+- A new optimizing runtime based on a traditional compiler design
+- New POSIX-friendly IO and Process
+- Fully ported encoding/transcoding logic from MRI
+
+If you do find issues then report them on using our issue tracker at [http://bugs.jruby.org](http://bugs.jruby.org). We also encourage users to join our IRC channel (#jruby on Freenode) and mailing lists. You may also follow [@jruby](https://twitter.com/jruby) on Twitter for updates.
+
+Highlights:
+
+- Java 9 support
+- 23 issues fixed for 9.1.14.0
+
+### Github Issues resolved for 9.1.14.0
+
+<ul>
+<li><a href="https://github.com/jruby/jruby/issues/4841">#4841</a> - do/end and break precedence issue with omitted parens</li>
+<li><a href="https://github.com/jruby/jruby/issues/4831">#4831</a> - jitescript jar clashes with bundled jitescript classes in jruby-complete jar</li>
+<li><a href="https://github.com/jruby/jruby/pull/4830">#4830</a> - Make BigDecimal::limit work for subtraction and division. Fix issue #1615</li>
+<li><a href="https://github.com/jruby/jruby/issues/4827">#4827</a> - IO#read_nonblock throwing EOFError with "exception: false"</li>
+<li><a href="https://github.com/jruby/jruby/issues/4824">#4824</a> - FFI not working on Java 9 MacOS </li>
+<li><a href="https://github.com/jruby/jruby/issues/4822">#4822</a> - Time#to_datetime incorrect for times before the date of calendar reform</li>
+<li><a href="https://github.com/jruby/jruby/pull/4821">#4821</a> - switch ShellLauncher to use getAbsolutePath</li>
+<li><a href="https://github.com/jruby/jruby/issues/4819">#4819</a> - Coverage levels discrepancies between JRuby 1.7.x and JRuby 9.1.x</li>
+<li><a href="https://github.com/jruby/jruby/pull/4817">#4817</a> - Fix an infinite loop when attempting to read from a directory</li>
+<li><a href="https://github.com/jruby/jruby/pull/4816">#4816</a> - Raise Errno::ENOTDIR if the parent of an opened file is not a directory</li>
+<li><a href="https://github.com/jruby/jruby/pull/4812">#4812</a> - Backport LocalJumpError and EQQ fixes from 9.2</li>
+<li><a href="https://github.com/jruby/jruby/issues/4810">#4810</a> - Time/Datetime conversion inconsistency with MRI</li>
+<li><a href="https://github.com/jruby/jruby/issues/4807">#4807</a> - Wrong control flow order with Constant ||=</li>
+<li><a href="https://github.com/jruby/jruby/issues/4805">#4805</a> - can not require openssl with JDK9</li>
+<li><a href="https://github.com/jruby/jruby/issues/4804">#4804</a> - Case with complex when uses == instead of ===</li>
+<li><a href="https://github.com/jruby/jruby/issues/4797">#4797</a> - Global variables read stale values</li>
+<li><a href="https://github.com/jruby/jruby/issues/4792">#4792</a> - Unhandled Java exception in Ripper on inline comments</li>
+<li><a href="https://github.com/jruby/jruby/issues/4787">#4787</a> - Ripper fails to lexical analyse around escaped newline on JRuby</li>
+<li><a href="https://github.com/jruby/jruby/pull/4747">#4747</a> - Fix memory/disk usage leak when creating many ScriptingContaiers</li>
+<li><a href="https://github.com/jruby/jruby/issues/4705">#4705</a> - Thread.current.status is wrong for killed thread</li>
+<li><a href="https://github.com/jruby/jruby/issues/4111">#4111</a> - Java 9 support</li>
+<li><a href="https://github.com/jruby/jruby/issues/3928">#3928</a> - File descriptors from stdlib jars are leaked when ScriptingContainers are terminated</li>
+<li><a href="https://github.com/jruby/jruby/issues/1615">#1615</a> - BigDecimal::limit has not effect</li>
+</ul>

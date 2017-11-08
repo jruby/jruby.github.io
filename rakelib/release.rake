@@ -1,5 +1,4 @@
 require 'github_api'
-require 'jira'
 
 def github_milestone_for(issues, user, repo, title)
   ['open', 'closed'].each do |state|
@@ -33,24 +32,6 @@ def github_closed_issues(user, repo, milestone)
   full_list
 end
 
-##
-# return a list of closed issues in a tuple-format: [github_id, title, url]
-#
-# options should contain all info needed by jira-ruby gem to connect to Jira.
-# Depending on connection mechanism the hash will have different fields.
-# 
-def jira_closed_issues(project, version, options)
-  client = JIRA::Client.new(options)
-  query = %Q{project = #{project} AND fixVersion = "#{version}" AND status = Resolved ORDER BY priority DESC}
-  url = "#{options[:site]}browse/"
-
-  client.Issue.jql(query).inject([]) do |list, issue|
-    attrs = issue.attrs
-    list << [attrs['key'], attrs['fields']['summary'], url + attrs['key']]
-    list
-  end
-end
-
 def grab_username_password_from_m2
   username, password = nil, nil
   File.readlines(File.join(ENV['HOME'], '.m2', 'settings.xml')).each do |line|
@@ -77,14 +58,11 @@ end
 
 def release_issues(version, options)
   milestone_label = "JRuby #{version}"
-#  jira_issues = jira_closed_issues('jruby', milestone_label, options)
   github_issues = github_closed_issues('jruby', 'jruby', milestone_label)
 
-#  number_resolved = jira_issues.length + github_issues.length
   number_resolved = github_issues.length
 
   notes = "- #{number_resolved} issues fixed for #{version}\n"
-#  notes = issue_notes_for('Jira', version, jira_issues, notes)
   notes = issue_notes_for('Github', version, github_issues, notes)
   notes
 end
