@@ -1,0 +1,61 @@
+---
+layout: post
+title: JRuby 9.1.15.0 Released
+---
+The JRuby community is pleased to announce the release of JRuby 9.1.15.0
+
+- Homepage: [http://www.jruby.org/](http://www.jruby.org/)
+- Download: [http://www.jruby.org/download](http://www.jruby.org/download)
+
+JRuby 9.1.x is our current major version of JRuby.  It is expected to be compatible with Ruby 2.3.x and stay in sync with C Ruby.  JRuby 9.1.15.0 is our latest release...
+
+Major features of JRuby 9000:
+
+- Ruby 2.x compatibility
+- A new optimizing runtime based on a traditional compiler design
+- New POSIX-friendly IO and Process
+- Fully ported encoding/transcoding logic from MRI
+
+If you do find issues then report them on using our issue tracker at [http://bugs.jruby.org](http://bugs.jruby.org). We also encourage users to join our IRC channel (#jruby on Freenode) and mailing lists. You may also follow [@jruby](https://twitter.com/jruby) on Twitter for updates.
+
+Highlights:
+
+- Rubygems updated to version 2.6.14
+- \K suported in regexps
+- Socket close_on_exec support
+- 30 issues fixed for 9.1.15.0
+
+### Github Issues resolved for 9.1.15.0
+
+<ul>
+<li><a href="https://github.com/jruby/jruby/issues/4882">#4882</a> - Ripper doesn't handle private def with nested block</li>
+<li><a href="https://github.com/jruby/jruby/pull/4881">#4881</a> - Don't unconditionally emit debug level info from RACC</li>
+<li><a href="https://github.com/jruby/jruby/issues/4880">#4880</a> - Dead Exception in RealClassGenerator</li>
+<li><a href="https://github.com/jruby/jruby/pull/4874">#4874</a> - Update rake's url</li>
+<li><a href="https://github.com/jruby/jruby/issues/4871">#4871</a> - A regexp with \K doesn't work in JRuby</li>
+<li><a href="https://github.com/jruby/jruby/issues/4869">#4869</a> - UDPSocket.new(Socket::AF_INET6) throws exception (JRuby 9.1.14.0)</li>
+<li><a href="https://github.com/jruby/jruby/issues/4866">#4866</a> - Rails parsing time ends with usec 1 instead of 0</li>
+<li><a href="https://github.com/jruby/jruby/issues/4865">#4865</a> - OOM due to unbounded rescuePCs growth</li>
+<li><a href="https://github.com/jruby/jruby/issues/4862">#4862</a> - Mutex sleeps indefinitely with timeout <= 0.0001 seconds</li>
+<li><a href="https://github.com/jruby/jruby/issues/4861">#4861</a> - cannot link Java class com.util (java.lang.NoClassDefFoundError: com/util (wrong name: com/Util))</li>
+<li><a href="https://github.com/jruby/jruby/pull/4860">#4860</a> - Fix issues discovered using Error Prone</li>
+<li><a href="https://github.com/jruby/jruby/issues/4858">#4858</a> - undefined "close_on_exec=" for TCPSocket</li>
+<li><a href="https://github.com/jruby/jruby/issues/4857">#4857</a> - OpenSSL::Cipher#random_iv Regression in 9.1.14.0</li>
+<li><a href="https://github.com/jruby/jruby/issues/4854">#4854</a> - Simultaneous client reads / writes to the same socket from different threads can deadlock</li>
+<li><a href="https://github.com/jruby/jruby/pull/4852">#4852</a> - [#3953] Use java.nio for FileTest#symlink?</li>
+<li><a href="https://github.com/jruby/jruby/issues/4849">#4849</a> - Gem::LoadError: You have already activated rack-cors 1.0.1, but your Gemfile requires rack-cors 1.0.2</li>
+<li><a href="https://github.com/jruby/jruby/issues/4844">#4844</a> - Potential bug in internal/runtime/ThreadService?</li>
+<li><a href="https://github.com/jruby/jruby/issues/4843">#4843</a> - popen doesn't work on Windows</li>
+<li><a href="https://github.com/jruby/jruby/issues/4842">#4842</a> - copy_stream to SSL seems to read the file into memory</li>
+<li><a href="https://github.com/jruby/jruby/issues/4838">#4838</a> - Fiber#alive? returns true even when already finished</li>
+<li><a href="https://github.com/jruby/jruby/issues/4837">#4837</a> - String#concat(java.lang.String) does not work</li>
+<li><a href="https://github.com/jruby/jruby/issues/4740">#4740</a> - activation of jar-dependencies in bundler clashes with shipped gem</li>
+<li><a href="https://github.com/jruby/jruby/issues/4701">#4701</a> - IO.copy_stream doesn't seem to limit the chunk size</li>
+<li><a href="https://github.com/jruby/jruby/issues/4696">#4696</a> - OpenSSL::Random.random_bytes specs seem to get stuck on Travis</li>
+<li><a href="https://github.com/jruby/jruby/issues/4685">#4685</a> - Rails csfr_meta_tag requires minutes to render due to jruby use of /dev/random on a virtual machine</li>
+<li><a href="https://github.com/jruby/jruby/issues/4677">#4677</a> - __FILE__ is not available in BEGIN section</li>
+<li><a href="https://github.com/jruby/jruby/issues/4460">#4460</a> - RangeError: bignum too big to convert into `long'</li>
+<li><a href="https://github.com/jruby/jruby/issues/4384">#4384</a> - JRuby counterpart for RubyVM.stat</li>
+<li><a href="https://github.com/jruby/jruby/issues/3953">#3953</a> - File.symlink? fails on Windows, in 9.1.2.0</li>
+<li><a href="https://github.com/jruby/jruby/issues/3903">#3903</a> - defined? with a colon2 fully resolves the left constant</li>
+</ul>
