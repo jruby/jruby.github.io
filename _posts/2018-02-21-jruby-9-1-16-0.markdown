@@ -1,0 +1,83 @@
+---
+layout: post
+title: JRuby 9.1.16.0 Released
+---
+The JRuby community is pleased to announce the release of JRuby 9.1.16.0
+
+- Homepage: [http://www.jruby.org/](http://www.jruby.org/)
+- Download: [http://www.jruby.org/download](http://www.jruby.org/download)
+
+JRuby 9.1.x is our current major version of JRuby.  It is expected to be compatible with Ruby 2.3.x and stay in sync with C Ruby.  JRuby 9.1.16.0 is our latest release...
+
+Major features of JRuby 9000:
+
+- Ruby 2.x compatibility
+- A new optimizing runtime based on a traditional compiler design
+- New POSIX-friendly IO and Process
+- Fully ported encoding/transcoding logic from MRI
+
+If you do find issues then report them on using our issue tracker at [http://bugs.jruby.org](http://bugs.jruby.org). We also encourage users to join our IRC channel (#jruby on Freenode) and mailing lists. You may also follow [@jruby](https://twitter.com/jruby) on Twitter for updates.
+
+Highlights:
+
+- Rubygems updated to version 2.6.14.1
+- Fixed some ensure blocks being executed twice (9.1.15.0 regression)
+- Support grapheme detection via \X
+- Fixed error while loading readline on Windows
+- 51 issues fixed for 9.1.16.0
+
+### Github Issues resolved for 9.1.16.0
+
+<ul>
+<li><a href="https://github.com/jruby/jruby/issues/5052">#5052</a> - String literal difference from MRI</li>
+<li><a href="https://github.com/jruby/jruby/issues/5048">#5048</a> - IO.copy_stream replaces read chunk even if it's duplicated</li>
+<li><a href="https://github.com/jruby/jruby/pull/5041">#5041</a> - Add modification check on String#chomp! method with default separator</li>
+<li><a href="https://github.com/jruby/jruby/pull/5037">#5037</a> - align C ported memsearch code - need to handle array[length] properly</li>
+<li><a href="https://github.com/jruby/jruby/issues/5036">#5036</a> - Scan ArrayIndexOutOfBoundsException Error</li>
+<li><a href="https://github.com/jruby/jruby/pull/5019">#5019</a> - Do not leak DNS Request IDs</li>
+<li><a href="https://github.com/jruby/jruby/issues/5018">#5018</a> - open3.rb broken in JRuby</li>
+<li><a href="https://github.com/jruby/jruby/pull/5017">#5017</a> - Add `#test_power_of_0` and `#test_power_of_1_and_minus_1` to test targets</li>
+<li><a href="https://github.com/jruby/jruby/pull/5016">#5016</a> - Exclude `#test_windows_1255` from our tests</li>
+<li><a href="https://github.com/jruby/jruby/pull/5015">#5015</a> - Remove unused import statements</li>
+<li><a href="https://github.com/jruby/jruby/pull/5014">#5014</a> - Remove TestArray#test_uniq_bang_with_freeze exclusion test case</li>
+<li><a href="https://github.com/jruby/jruby/pull/5013">#5013</a> - fix issue where expr fails on freebsd.</li>
+<li><a href="https://github.com/jruby/jruby/pull/5010">#5010</a> - Fix `convertCommon`</li>
+<li><a href="https://github.com/jruby/jruby/pull/5006">#5006</a> - Fix test coerce2</li>
+<li><a href="https://github.com/jruby/jruby/issues/5004">#5004</a> - PTY.open unusable because of fcntl error</li>
+<li><a href="https://github.com/jruby/jruby/issues/5003">#5003</a> - Low-level Java error printed on Errno::EPIPE exception</li>
+<li><a href="https://github.com/jruby/jruby/pull/5001">#5001</a> - Implement `Rational#coerce` with `Complex` object</li>
+<li><a href="https://github.com/jruby/jruby/pull/5000">#5000</a> - Accept `nil` as an argument of `Rational#<=>`</li>
+<li><a href="https://github.com/jruby/jruby/pull/4998">#4998</a> - Remove unused import statements</li>
+<li><a href="https://github.com/jruby/jruby/pull/4996">#4996</a> - Add `#test_symbol_op` to test targets</li>
+<li><a href="https://github.com/jruby/jruby/issues/4995">#4995</a> - Wrong #inspect is used in Method#inspect</li>
+<li><a href="https://github.com/jruby/jruby/pull/4994">#4994</a> - Fix `Symbol#inspect` of UTF_16/UTF_32</li>
+<li><a href="https://github.com/jruby/jruby/pull/4992">#4992</a> - Check an encoding of string</li>
+<li><a href="https://github.com/jruby/jruby/pull/4982">#4982</a> - Set encoding for character literal</li>
+<li><a href="https://github.com/jruby/jruby/issues/4976">#4976</a> - EADDRINUSE when binding TCP socket with globally disabled IPv6</li>
+<li><a href="https://github.com/jruby/jruby/issues/4970">#4970</a> - String from literal sometimes not reused with frozen_string_literal enabled</li>
+<li><a href="https://github.com/jruby/jruby/pull/4959">#4959</a> - Raise `TypeError` if `#extend_object` is called for no module objects</li>
+<li><a href="https://github.com/jruby/jruby/pull/4955">#4955</a> - Revert to using weakref.rb, since it's based on a proper weak map.</li>
+<li><a href="https://github.com/jruby/jruby/pull/4944">#4944</a> - Set original Module to definedClass of methods</li>
+<li><a href="https://github.com/jruby/jruby/issues/4942">#4942</a> - No stdout with drip on jruby-9.1.15.0</li>
+<li><a href="https://github.com/jruby/jruby/issues/4920">#4920</a> - Fiber#transfer gets confused about thread owners</li>
+<li><a href="https://github.com/jruby/jruby/issues/4916">#4916</a> - RubyHash doesn't implement the contract of java.util.Map correctly</li>
+<li><a href="https://github.com/jruby/jruby/issues/4910">#4910</a> - Regression with TCPSocket#close_on_exec on windows</li>
+<li><a href="https://github.com/jruby/jruby/issues/4909">#4909</a> - JRuby 9000 performance with --debug is 4-5x slower than JRuby 1.7.2 or Ruby 2.3.3</li>
+<li><a href="https://github.com/jruby/jruby/issues/4903">#4903</a> - Weird error using IO.copy_stream, IO duck types and enumerators</li>
+<li><a href="https://github.com/jruby/jruby/pull/4900">#4900</a> - Improve compatibility with MRI's Ripper for JRuby 9.1</li>
+<li><a href="https://github.com/jruby/jruby/issues/4899">#4899</a> - Compiled module descriptor in complete JAR distro</li>
+<li><a href="https://github.com/jruby/jruby/issues/4896">#4896</a> - Jruby + Rspec scoping issues on Classes with Prepended Modules</li>
+<li><a href="https://github.com/jruby/jruby/issues/4895">#4895</a> - Regression in 9.1.15.0 with some ensure blocks being executed twice</li>
+<li><a href="https://github.com/jruby/jruby/issues/4891">#4891</a> - JRuby returns nil backtrace for living newborn threads, whereas MRI returns []</li>
+<li><a href="https://github.com/jruby/jruby/issues/4889">#4889</a> - jruby 9.1.15 fails with NameError: cannot load Java class jline.console.ConsoleReader</li>
+<li><a href="https://github.com/jruby/jruby/pull/4887">#4887</a> - ThreadedNexter shutdown can in some situations interrupt a thread executing a different task</li>
+<li><a href="https://github.com/jruby/jruby/pull/4886">#4886</a> - Improvements to subclass management and method cache invalidation</li>
+<li><a href="https://github.com/jruby/jruby/issues/4885">#4885</a> - powerpc64le-linux "Syslog not supported on this platform"</li>
+<li><a href="https://github.com/jruby/jruby/issues/4879">#4879</a> - Performance issue with ruby meta programming</li>
+<li><a href="https://github.com/jruby/jruby/pull/4818">#4818</a> - Raise Errno::EISDIR when opening a directory for reading on Windows</li>
+<li><a href="https://github.com/jruby/jruby/pull/4795">#4795</a> - [#4710] nanosecond precision in utime using libc futimens</li>
+<li><a href="https://github.com/jruby/jruby/issues/4721">#4721</a> - NPE while dup-ing guava's ImmutableList</li>
+<li><a href="https://github.com/jruby/jruby/issues/4710">#4710</a> - utime behaviour different from MRI</li>
+<li><a href="https://github.com/jruby/jruby/issues/4568">#4568</a> - Support grapheme detection via \X</li>
+<li><a href="https://github.com/jruby/jruby/issues/4060">#4060</a> - Wrong line numbers inside set_trace_func for end events</li>
+</ul>
