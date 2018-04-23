@@ -1,0 +1,61 @@
+---
+layout: post
+title: JRuby 9.1.17.0 Released
+---
+The JRuby community is pleased to announce the release of JRuby 9.1.17.0
+
+- Homepage: [http://www.jruby.org/](http://www.jruby.org/)
+- Download: [http://www.jruby.org/download](http://www.jruby.org/download)
+
+JRuby 9.1.x is our current major version of JRuby.  It is expected to be compatible with Ruby 2.3.x and stay in sync with C Ruby.  JRuby 9.1.17.0 is our latest release...
+
+Major features of JRuby 9000:
+
+- Ruby 2.x compatibility
+- A new optimizing runtime based on a traditional compiler design
+- New POSIX-friendly IO and Process
+- Fully ported encoding/transcoding logic from MRI
+
+If you do find issues then report them on using our issue tracker at [http://bugs.jruby.org](http://bugs.jruby.org). We also encourage users to join our IRC channel (#jruby on Freenode) and mailing lists. You may also follow [@jruby](https://twitter.com/jruby) on Twitter for updates.
+
+Highlights:
+
+- Windows installer works with Java 9
+- Improved compatiblity on Java 9/10
+- 31 issues fixed for 9.1.17.0
+
+### Github Issues resolved for 9.1.17.0
+
+<ul>
+<li><a href="https://github.com/jruby/jruby/issues/5141">#5141</a> - Multiple Array#concat calls for single-element array throws ConcurrencyError</li>
+<li><a href="https://github.com/jruby/jruby/issues/5138">#5138</a> - jruby > 9.1.13.0 crashing on bundler when certain jvm flags are enabled</li>
+<li><a href="https://github.com/jruby/jruby/pull/5137">#5137</a> - Use ConcurrentWeakHashMap for RubyClass.subclasses</li>
+<li><a href="https://github.com/jruby/jruby/issues/5132">#5132</a> - Can't set `java.security.egd` system property</li>
+<li><a href="https://github.com/jruby/jruby/issues/5131">#5131</a> - TypeError: bind argument must be an instance of ...</li>
+<li><a href="https://github.com/jruby/jruby/issues/5128">#5128</a> - eval in Rack::Builder prints "warning: `frozen_string_literal' is ignored after any tokens"</li>
+<li><a href="https://github.com/jruby/jruby/issues/5125">#5125</a> - Cannot subclass standard class Time</li>
+<li><a href="https://github.com/jruby/jruby/issues/5120">#5120</a> - Dist target now fails</li>
+<li><a href="https://github.com/jruby/jruby/issues/5115">#5115</a> - ConcurrentModification error during Tomcat startup</li>
+<li><a href="https://github.com/jruby/jruby/issues/5112">#5112</a> - UDPSocket fails to bind to an IPv6 address unless AF_INET6 is explicitly set</li>
+<li><a href="https://github.com/jruby/jruby/issues/5111">#5111</a> - NPE from within CoverageModule.convertCoverageToRuby</li>
+<li><a href="https://github.com/jruby/jruby/issues/5104">#5104</a> - IRB doesn't start on jRuby 9.1.16.0</li>
+<li><a href="https://github.com/jruby/jruby/issues/5100">#5100</a> - File.open() on Windows without binary flag reading 0x0A (newline) instead of 0x0D (return)</li>
+<li><a href="https://github.com/jruby/jruby/issues/5099">#5099</a> - Exception.new.backtrace_locations should return nil</li>
+<li><a href="https://github.com/jruby/jruby/issues/5091">#5091</a> - "Invalid extended option" error for legit `-X` options</li>
+<li><a href="https://github.com/jruby/jruby/issues/5086">#5086</a> - RegexpError "invalid pattern in look-behind" for certain Regexps since 9.1.16.0</li>
+<li><a href="https://github.com/jruby/jruby/issues/5084">#5084</a> - Error when installing 9.1.16.0 on Windows 10 (64 Bit)</li>
+<li><a href="https://github.com/jruby/jruby/issues/5081">#5081</a> - TCPSocket/UDPSocket close deadlock while other thread read</li>
+<li><a href="https://github.com/jruby/jruby/issues/5080">#5080</a> - Method#owner for alias methods doesn't include prepended modules, breaking equality</li>
+<li><a href="https://github.com/jruby/jruby/issues/5078">#5078</a> - Numeric#step yields Floats instead of Integers</li>
+<li><a href="https://github.com/jruby/jruby/issues/5075">#5075</a> - File.utime failing with JRuby 9.1.16.0</li>
+<li><a href="https://github.com/jruby/jruby/issues/5073">#5073</a> - File#mtime does not behave like it does in MRI in respect to renamed and deleted files on POSIX</li>
+<li><a href="https://github.com/jruby/jruby/pull/5072">#5072</a> - update jffi and release version for JRuby 1.7</li>
+<li><a href="https://github.com/jruby/jruby/issues/5066">#5066</a> - The & operator doesn't work with quoted symbols</li>
+<li><a href="https://github.com/jruby/jruby/issues/5057">#5057</a> - java.net.preferIPv4Stack=true warning not possible to disable on OpenBSD</li>
+<li><a href="https://github.com/jruby/jruby/issues/5018">#5018</a> - open3.rb broken in JRuby</li>
+<li><a href="https://github.com/jruby/jruby/issues/4989">#4989</a> - Inconsistent end_of_day result</li>
+<li><a href="https://github.com/jruby/jruby/issues/4894">#4894</a> - Is there a way to fail-fast on ambiguous arguments?</li>
+<li><a href="https://github.com/jruby/jruby/issues/4796">#4796</a> - Possible ChannelFD leak in FilenoUtil?</li>
+<li><a href="https://github.com/jruby/jruby/issues/2455">#2455</a> - red black tree 50% slower in 9k compared to 1.7</li>
+<li><a href="https://github.com/jruby/jruby/issues/2354">#2354</a> - Java exceptions do not propagate out of Thread#join</li>
+</ul>
