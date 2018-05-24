@@ -1,0 +1,249 @@
+---
+layout: post
+title: JRuby 9.2.0.0 Released
+---
+The JRuby community is pleased to announce the release of JRuby 9.2.0.0
+
+- Homepage: [http://www.jruby.org/](http://www.jruby.org/)
+- Download: [http://www.jruby.org/download](http://www.jruby.org/download)
+
+JRuby 9.2.x is our new major version of JRuby.  It is expected to be compatible with Ruby 2.5.x and stay in sync with C Ruby.  JRuby 9.2.0.0 is our first release for 2.5 support.
+
+If you do find issues then report them on using our issue tracker at [http://bugs.jruby.org](http://bugs.jruby.org). We also encourage users to join our IRC channel (#jruby on Freenode) and mailing lists. You may also follow [@jruby](https://twitter.com/jruby) on Twitter for updates.
+
+Highlights:
+
+- Ruby 2.5 language and stdlib support
+- Improved support for non-ASCII identifiers and symbols
+- Improved Ruby method call performance
+- 225 issues fixed for 9.2.0.0
+
+### Github Issues resolved for 9.2.0.0
+
+<ul>
+<li><a href="https://github.com/jruby/jruby/issues/5184">#5184</a> - `true.dup` and `false.dup` blow up (Inconsistent with MRI)</li>
+<li><a href="https://github.com/jruby/jruby/pull/5183">#5183</a> - [ji] support Java time APIs with Time/Date/DateTime</li>
+<li><a href="https://github.com/jruby/jruby/pull/5181">#5181</a> - deprecate jruby/core_ext Class#subclasses</li>
+<li><a href="https://github.com/jruby/jruby/pull/5180">#5180</a> - [ji] RubyString implements CharSequence</li>
+<li><a href="https://github.com/jruby/jruby/pull/5176">#5176</a> - upgrade jruby-openssl to 0.10.0</li>
+<li><a href="https://github.com/jruby/jruby/pull/5173">#5173</a> - Update json + tests to 2.1 and update excludes.</li>
+<li><a href="https://github.com/jruby/jruby/pull/5170">#5170</a> - Clone frame and block before proceeding into class_exec logic.</li>
+<li><a href="https://github.com/jruby/jruby/pull/5168">#5168</a> - Remove hack for FileUtils.mv due to incorrect error raised from File.rename</li>
+<li><a href="https://github.com/jruby/jruby/issues/5167">#5167</a> - IO.copy_stream doesn't accept objects that respond to #readpartial</li>
+<li><a href="https://github.com/jruby/jruby/pull/5161">#5161</a> - [ji] lazy loading of Java (proxy) class extensions</li>
+<li><a href="https://github.com/jruby/jruby/issues/5160">#5160</a> - Inconsistencies with MRI: `FrozenError (can't modify frozen array)`</li>
+<li><a href="https://github.com/jruby/jruby/pull/5158">#5158</a> - fix resolv on windows</li>
+<li><a href="https://github.com/jruby/jruby/pull/5151">#5151</a> - Bytelist love merge</li>
+<li><a href="https://github.com/jruby/jruby/pull/5149">#5149</a> - Fix TestLoad#test_symlinked_jar</li>
+<li><a href="https://github.com/jruby/jruby/pull/5146">#5146</a> - Handle exception cause with null message</li>
+<li><a href="https://github.com/jruby/jruby/pull/5136">#5136</a> - Support overriding `Exception#message`</li>
+<li><a href="https://github.com/jruby/jruby/issues/5134">#5134</a> - Raising SIGTERM SignalException returns wrong process exit code</li>
+<li><a href="https://github.com/jruby/jruby/pull/5129">#5129</a> - Fix Enumerable#uniq for entry pair</li>
+<li><a href="https://github.com/jruby/jruby/pull/5124">#5124</a> - :newline option to File.open implies text mode now. (Part of #5118)</li>
+<li><a href="https://github.com/jruby/jruby/pull/5121">#5121</a> - Require real path</li>
+<li><a href="https://github.com/jruby/jruby/pull/5117">#5117</a> - Revert "Require real path"</li>
+<li><a href="https://github.com/jruby/jruby/pull/5116">#5116</a> - Range should raise TypeError if necessary method is not defined</li>
+<li><a href="https://github.com/jruby/jruby/pull/5113">#5113</a> - Numeric#clone and #dup no longer raises TypeError</li>
+<li><a href="https://github.com/jruby/jruby/issues/5110">#5110</a> - DateTime.jd doesn't set sec_fraction with 9.2.0.0-SNAPSHOT</li>
+<li><a href="https://github.com/jruby/jruby/pull/5109">#5109</a> - Require real path</li>
+<li><a href="https://github.com/jruby/jruby/pull/5108">#5108</a> - Thread.report_on_exception default value is now true</li>
+<li><a href="https://github.com/jruby/jruby/pull/5107">#5107</a> - Fix failed Ruby 2.5 ruby/spec tests for String</li>
+<li><a href="https://github.com/jruby/jruby/pull/5106">#5106</a> - Fix RubyString instances to raise FrozenError exceptions when mutations are attempted in debug mode…</li>
+<li><a href="https://github.com/jruby/jruby/pull/5105">#5105</a> - Add Pathname#glob</li>
+<li><a href="https://github.com/jruby/jruby/pull/5102">#5102</a> - Freeze Complex and Rational</li>
+<li><a href="https://github.com/jruby/jruby/pull/5101">#5101</a> - Fix Complex#finite? and Complex#infinite? failing tests</li>
+<li><a href="https://github.com/jruby/jruby/pull/5096">#5096</a> - Enumerable#any?, all?, none? and one? now accept a pattern argument</li>
+<li><a href="https://github.com/jruby/jruby/pull/5093">#5093</a> - upgrade joda-time library to latest 2.9.9</li>
+<li><a href="https://github.com/jruby/jruby/issues/5092">#5092</a> - DateTime.jd returns incorrect times with 9.2.0.0-SNAPSHOT</li>
+<li><a href="https://github.com/jruby/jruby/pull/5090">#5090</a> - SecureRandom.alphanumeric implemented.</li>
+<li><a href="https://github.com/jruby/jruby/pull/5089">#5089</a> - Implement fetch for Thread.current</li>
+<li><a href="https://github.com/jruby/jruby/pull/5088">#5088</a> - Use com.jcraft.jzlib.JZlib instead of hacking the internals of java.util.zip.CRC32</li>
+<li><a href="https://github.com/jruby/jruby/pull/5087">#5087</a> - Add Integer#allbits?, Integer#anybits? and Integer#nobits?</li>
+<li><a href="https://github.com/jruby/jruby/pull/5083">#5083</a> - Fix time interval test</li>
+<li><a href="https://github.com/jruby/jruby/pull/5079">#5079</a> - Add Method#=== that invokes #call</li>
+<li><a href="https://github.com/jruby/jruby/pull/5076">#5076</a> - redo date.rb (most) parts in native</li>
+<li><a href="https://github.com/jruby/jruby/pull/5074">#5074</a> - Fix file descriptor leak in resolv.rb</li>
+<li><a href="https://github.com/jruby/jruby/pull/5071">#5071</a> - Better use of ThreadContext constants</li>
+<li><a href="https://github.com/jruby/jruby/pull/5065">#5065</a> - Parallel exception hierarchy for Java</li>
+<li><a href="https://github.com/jruby/jruby/pull/5064">#5064</a> - Update ruby/spec</li>
+<li><a href="https://github.com/jruby/jruby/pull/5063">#5063</a> - Generify IRubyObject.toJava to make it more pleasant to use.</li>
+<li><a href="https://github.com/jruby/jruby/issues/5062">#5062</a> - Regression or bad merge in string interpolation</li>
+<li><a href="https://github.com/jruby/jruby/pull/5061">#5061</a> - Add keyword_init option to Struct.new</li>
+<li><a href="https://github.com/jruby/jruby/pull/5056">#5056</a> - Time#at receives 3rd argument which specifies the unit of 2nd argument</li>
+<li><a href="https://github.com/jruby/jruby/pull/5055">#5055</a> - [ruby-2.5] Implement String#delete_suffix</li>
+<li><a href="https://github.com/jruby/jruby/pull/5051">#5051</a> - Remove mathn.rb from stdlib</li>
+<li><a href="https://github.com/jruby/jruby/pull/5050">#5050</a> - refactor annotation-binder generated populators</li>
+<li><a href="https://github.com/jruby/jruby/pull/5047">#5047</a> - Module#define_method, alias_method, undef_method, remove_method are now public</li>
+<li><a href="https://github.com/jruby/jruby/pull/5046">#5046</a> - Add Process::last_status method</li>
+<li><a href="https://github.com/jruby/jruby/pull/5043">#5043</a> - Module#attr, attr_accessor, attr_reader, attr_writer are now public</li>
+<li><a href="https://github.com/jruby/jruby/pull/5042">#5042</a> - Deprecate Data class</li>
+<li><a href="https://github.com/jruby/jruby/pull/5039">#5039</a> - Add FrozenError class</li>
+<li><a href="https://github.com/jruby/jruby/issues/5035">#5035</a> - JRuby's native `SortedSet` lies about adding an object</li>
+<li><a href="https://github.com/jruby/jruby/pull/5027">#5027</a> - Andre Kullmann make the profiling service configurable via java prope…</li>
+<li><a href="https://github.com/jruby/jruby/pull/5026">#5026</a> - Fix String#rpartition for RegEx on Strings with multibyte chars</li>
+<li><a href="https://github.com/jruby/jruby/pull/5025">#5025</a> - No longer hide exceptions from coerce method</li>
+<li><a href="https://github.com/jruby/jruby/pull/5024">#5024</a> - Add `#test_windows_1255` to test targets</li>
+<li><a href="https://github.com/jruby/jruby/pull/5022">#5022</a> - Fix test coerce2 for master branch</li>
+<li><a href="https://github.com/jruby/jruby/pull/5021">#5021</a> - Do modifyCheck for each pair in Array#sort!</li>
+<li><a href="https://github.com/jruby/jruby/issues/5012">#5012</a> - Consider switching JSR223 engine to use "persistent" local variables</li>
+<li><a href="https://github.com/jruby/jruby/pull/5011">#5011</a> - Remove TestArray#test_zip exclusion test case</li>
+<li><a href="https://github.com/jruby/jruby/pull/4999">#4999</a> - IO#write accepts multiple arguments</li>
+<li><a href="https://github.com/jruby/jruby/pull/4993">#4993</a> - Ruby 2.5: Add String#delete_prefix and String#delete_prefix!</li>
+<li><a href="https://github.com/jruby/jruby/pull/4991">#4991</a> - Update File#path to raise IOError for files opened with File::Constants::TMPFILE option</li>
+<li><a href="https://github.com/jruby/jruby/pull/4988">#4988</a> - Ruby 2.5: Support regex for String#start_with?</li>
+<li><a href="https://github.com/jruby/jruby/pull/4983">#4983</a> - String#-@ deduplicates unfrozen strings</li>
+<li><a href="https://github.com/jruby/jruby/pull/4979">#4979</a> - Fix documents</li>
+<li><a href="https://github.com/jruby/jruby/issues/4978">#4978</a> - SortedSet#dup and SortedSet#to_a do not work as expected</li>
+<li><a href="https://github.com/jruby/jruby/pull/4975">#4975</a> - Feature/string casecmp</li>
+<li><a href="https://github.com/jruby/jruby/pull/4974">#4974</a> - Make Integer#{round,floor,ceil,truncate} always return integer</li>
+<li><a href="https://github.com/jruby/jruby/pull/4973">#4973</a> - Remove not used methods</li>
+<li><a href="https://github.com/jruby/jruby/pull/4969">#4969</a> - Add File.lutime</li>
+<li><a href="https://github.com/jruby/jruby/pull/4966">#4966</a> - Implement Hash#transform_keys and Hash#transform_keys!</li>
+<li><a href="https://github.com/jruby/jruby/issues/4962">#4962</a> - BUG: binding visibility for class_exec not thread safe?</li>
+<li><a href="https://github.com/jruby/jruby/pull/4961">#4961</a> - Fix Hash#rehash method for duplicate keys</li>
+<li><a href="https://github.com/jruby/jruby/issues/4958">#4958</a> - Hash#rehash does not properly rehash</li>
+<li><a href="https://github.com/jruby/jruby/pull/4957">#4957</a> - Add Set#reset</li>
+<li><a href="https://github.com/jruby/jruby/pull/4954">#4954</a> - Alias Set#=== to #include?</li>
+<li><a href="https://github.com/jruby/jruby/pull/4953">#4953</a> - Implement Dir.each_child</li>
+<li><a href="https://github.com/jruby/jruby/pull/4952">#4952</a> - Check third argument type for Dir.glob</li>
+<li><a href="https://github.com/jruby/jruby/pull/4951">#4951</a> - Fix `Hash#reject`</li>
+<li><a href="https://github.com/jruby/jruby/pull/4950">#4950</a> - Alias Set#to_s to inspect</li>
+<li><a href="https://github.com/jruby/jruby/pull/4949">#4949</a> - Implement Hash#slice method</li>
+<li><a href="https://github.com/jruby/jruby/pull/4948">#4948</a> - Add `#test_slice_before` to test targets</li>
+<li><a href="https://github.com/jruby/jruby/pull/4947">#4947</a> - Fix RubyHash to pass `#test_create`</li>
+<li><a href="https://github.com/jruby/jruby/pull/4946">#4946</a> - Fix NullPointerException when option is not :base</li>
+<li><a href="https://github.com/jruby/jruby/pull/4941">#4941</a> - Implement Dir.children</li>
+<li><a href="https://github.com/jruby/jruby/pull/4940">#4940</a> - Implement KeyError#receiver and KeyError#key</li>
+<li><a href="https://github.com/jruby/jruby/pull/4938">#4938</a> - Add `#test_singleton_method` to test targets</li>
+<li><a href="https://github.com/jruby/jruby/pull/4936">#4936</a> - Implement Dir.glob base option</li>
+<li><a href="https://github.com/jruby/jruby/pull/4935">#4935</a> - Implement Array#prepend and Array#append aliases</li>
+<li><a href="https://github.com/jruby/jruby/pull/4934">#4934</a> - Implement Array#prepend and Array#append aliases</li>
+<li><a href="https://github.com/jruby/jruby/pull/4933">#4933</a> - Add `#test_define_method_with_symbol` to test targets</li>
+<li><a href="https://github.com/jruby/jruby/pull/4932">#4932</a> - Fix a typo to match documents</li>
+<li><a href="https://github.com/jruby/jruby/pull/4927">#4927</a> - Raise `TypeError` if `module_function` is not called for modules</li>
+<li><a href="https://github.com/jruby/jruby/pull/4924">#4924</a> - Fix test undef</li>
+<li><a href="https://github.com/jruby/jruby/pull/4919">#4919</a> - Set MetaClass of cloned object</li>
+<li><a href="https://github.com/jruby/jruby/pull/4918">#4918</a> - Check meta-class of method objects in `equals`</li>
+<li><a href="https://github.com/jruby/jruby/pull/4914">#4914</a> - Make Kernel#pp available by default</li>
+<li><a href="https://github.com/jruby/jruby/pull/4911">#4911</a> - Miscellaneous parsing fixes</li>
+<li><a href="https://github.com/jruby/jruby/pull/4906">#4906</a> - Implement Kernel.yield_self</li>
+<li><a href="https://github.com/jruby/jruby/pull/4905">#4905</a> - Split frame fields to reduce pre/post logic</li>
+<li><a href="https://github.com/jruby/jruby/pull/4904">#4904</a> - Implement Integer.sqrt</li>
+<li><a href="https://github.com/jruby/jruby/pull/4902">#4902</a> - Add support for validating Regexp in Ripper</li>
+<li><a href="https://github.com/jruby/jruby/pull/4898">#4898</a> - Improve compatibility with MRI's Ripper</li>
+<li><a href="https://github.com/jruby/jruby/issues/4876">#4876</a> - Ruby 2.5 Support</li>
+<li><a href="https://github.com/jruby/jruby/issues/4828">#4828</a> - JRuby creates symbols with US-ASCII encoding but non-ASCII bytes</li>
+<li><a href="https://github.com/jruby/jruby/pull/4815">#4815</a> - Fix spec of Thread#status for an externally killed thread that sleeps</li>
+<li><a href="https://github.com/jruby/jruby/pull/4811">#4811</a> - Remove ant DSL/wrapper from stdlib and replace with gem.</li>
+<li><a href="https://github.com/jruby/jruby/issues/4809">#4809</a> - JRuby 9.2.0.0-SNAPSHOT does not return result of `rake` via `system`</li>
+<li><a href="https://github.com/jruby/jruby/issues/4800">#4800</a> - TracePoint: Support .trace</li>
+<li><a href="https://github.com/jruby/jruby/issues/4799">#4799</a> - SSL issues when building JRuby on Java 9</li>
+<li><a href="https://github.com/jruby/jruby/pull/4786">#4786</a> - Faster MixedModeIRMethod#call</li>
+<li><a href="https://github.com/jruby/jruby/issues/4784">#4784</a> - Psych needs update once 3.0.0 is released</li>
+<li><a href="https://github.com/jruby/jruby/pull/4780">#4780</a> - PERFORMANCE: Smaller bytecode for interface impl returns</li>
+<li><a href="https://github.com/jruby/jruby/issues/4779">#4779</a> - yaml/store has a hack until we get an updated psych.</li>
+<li><a href="https://github.com/jruby/jruby/pull/4777">#4777</a> -  Generate smaller bytecode when using Ruby type on implemented Java Interface + Benchmark</li>
+<li><a href="https://github.com/jruby/jruby/pull/4775">#4775</a> - MINOR: Dry up RubyRange#fixnumEach</li>
+<li><a href="https://github.com/jruby/jruby/pull/4771">#4771</a> - an example test case for #4770 that shows how unicode readings fails …</li>
+<li><a href="https://github.com/jruby/jruby/pull/4769">#4769</a> - Fix Broken Compilation</li>
+<li><a href="https://github.com/jruby/jruby/pull/4762">#4762</a> - MINOR: Cache required arg count in CompiledMethodIR</li>
+<li><a href="https://github.com/jruby/jruby/issues/4761">#4761</a> - Toplevel return behavior (2.4)</li>
+<li><a href="https://github.com/jruby/jruby/issues/4760">#4760</a> - deprecate Class#subclasses from jruby/core_ext.rb</li>
+<li><a href="https://github.com/jruby/jruby/pull/4758">#4758</a> - [ji] make RubyIOs Java Closeable/Flushable + to_java to return stream</li>
+<li><a href="https://github.com/jruby/jruby/pull/4756">#4756</a> - [ji] support converting Ruby File -> Java File</li>
+<li><a href="https://github.com/jruby/jruby/issues/4755">#4755</a> - Implement get_dns_server_list</li>
+<li><a href="https://github.com/jruby/jruby/pull/4754">#4754</a> - PERFORMANCE: Intern Multiple String Constants</li>
+<li><a href="https://github.com/jruby/jruby/pull/4753">#4753</a> - MINOR: Make CachingCallSite more JIT friendly</li>
+<li><a href="https://github.com/jruby/jruby/pull/4751">#4751</a> - MINOR: Dry up RubyArray and improve performance in a few spots</li>
+<li><a href="https://github.com/jruby/jruby/pull/4750">#4750</a> - MINOR: cleanup setting callcounts for JIT</li>
+<li><a href="https://github.com/jruby/jruby/issues/4749">#4749</a> - to_inputstream method</li>
+<li><a href="https://github.com/jruby/jruby/pull/4742">#4742</a> - MINOR: Add missing `final`s and cleanup dead imports in `org.jruby.irinstructions.CallBase`</li>
+<li><a href="https://github.com/jruby/jruby/pull/4735">#4735</a> - BUILDING.md: Markdown formatting, copy-edits</li>
+<li><a href="https://github.com/jruby/jruby/pull/4730">#4730</a> - Fix error message in Hash#fetch</li>
+<li><a href="https://github.com/jruby/jruby/issues/4729">#4729</a> - KeyError message renders String keys as Symbols</li>
+<li><a href="https://github.com/jruby/jruby/pull/4718">#4718</a> - [ji] (auto) convert java numbers</li>
+<li><a href="https://github.com/jruby/jruby/pull/4713">#4713</a> - IO#set_encoding should return self (fixes #4712)</li>
+<li><a href="https://github.com/jruby/jruby/issues/4712">#4712</a> - IO#set_encoding returns nil instead of itself</li>
+<li><a href="https://github.com/jruby/jruby/issues/4711">#4711</a> - High precision BigDecimal to Rational conversion wildly inaccurate</li>
+<li><a href="https://github.com/jruby/jruby/pull/4703">#4703</a> - Move to Trusty</li>
+<li><a href="https://github.com/jruby/jruby/issues/4697">#4697</a> - Cannot rescue LocalJumpError originated in other thread</li>
+<li><a href="https://github.com/jruby/jruby/pull/4694">#4694</a> - Fix break not turning into LocalJumpError soon enough</li>
+<li><a href="https://github.com/jruby/jruby/issues/4693">#4693</a> - Dir.glob returns UTF-8 string with Windows-31J encoding</li>
+<li><a href="https://github.com/jruby/jruby/pull/4690">#4690</a> - native implementation of set.rb</li>
+<li><a href="https://github.com/jruby/jruby/issues/4686">#4686</a> - Cannot rescue from LocalJumpError after wrongly using break in proc</li>
+<li><a href="https://github.com/jruby/jruby/issues/4679">#4679</a> - SSL connection fails due to no available cipher on IBM JRE</li>
+<li><a href="https://github.com/jruby/jruby/pull/4674">#4674</a> - Fix StrptimeLexer.flex to add a comment about how to generate the lexer </li>
+<li><a href="https://github.com/jruby/jruby/pull/4673">#4673</a> - Handle nil buffer in Zlib::GzipReader#readpartial</li>
+<li><a href="https://github.com/jruby/jruby/issues/4660">#4660</a> - RuntimeError with compiled multi-byte variable</li>
+<li><a href="https://github.com/jruby/jruby/issues/4659">#4659</a> - LoadError with compiled multi-byte symbol</li>
+<li><a href="https://github.com/jruby/jruby/pull/4648">#4648</a> - New reify classes</li>
+<li><a href="https://github.com/jruby/jruby/pull/4640">#4640</a> - Also allow access control to trigger quiet bail out of jar index.</li>
+<li><a href="https://github.com/jruby/jruby/pull/4635">#4635</a> - Implement RubyDateParser in Java</li>
+<li><a href="https://github.com/jruby/jruby/issues/4633">#4633</a> - AccessControlException with wrong path when calling File.realpath under SecurityManager and classpath containing spaces</li>
+<li><a href="https://github.com/jruby/jruby/pull/4622">#4622</a> - README: latest stable JRuby in install instruction</li>
+<li><a href="https://github.com/jruby/jruby/pull/4620">#4620</a> - Fix wrong FFI types on Windows x64</li>
+<li><a href="https://github.com/jruby/jruby/pull/4616">#4616</a> - [ruby 2.4] Implemented Integer#ceil, #floor, #truncate</li>
+<li><a href="https://github.com/jruby/jruby/pull/4609">#4609</a> - Remove some MRI tests from excludes</li>
+<li><a href="https://github.com/jruby/jruby/issues/4606">#4606</a> - JRuby raises SystemCallError instead of Errno::EMSGSIZE</li>
+<li><a href="https://github.com/jruby/jruby/issues/4591">#4591</a> - Introduce Date._strptime in Java to improve the performance</li>
+<li><a href="https://github.com/jruby/jruby/issues/4584">#4584</a> - Update test-unit version to latest release</li>
+<li><a href="https://github.com/jruby/jruby/issues/4583">#4583</a> - JRuby starts executing Enumerator code too soon</li>
+<li><a href="https://github.com/jruby/jruby/issues/4579">#4579</a> - Javadoc jar published to Maven Central contains no content</li>
+<li><a href="https://github.com/jruby/jruby/pull/4578">#4578</a> - Use shutdown hook to delete temp files instead of File.deleteOnExit</li>
+<li><a href="https://github.com/jruby/jruby/issues/4577">#4577</a> - LocalJumpError: unexpected break in spec/ruby/language/break_spec.rb</li>
+<li><a href="https://github.com/jruby/jruby/pull/4570">#4570</a> - [jrubyc] respect Ruby visibility rules (do not generate private methods)</li>
+<li><a href="https://github.com/jruby/jruby/pull/4502">#4502</a> - Implemented optional buffer argument for Array#pack</li>
+<li><a href="https://github.com/jruby/jruby/pull/4490">#4490</a> - [ruby 2.4] Fixes for Integer#digits in PR #4375</li>
+<li><a href="https://github.com/jruby/jruby/pull/4470">#4470</a> - Implement `String#casecmp?` and `Symbol#casecmp?`</li>
+<li><a href="https://github.com/jruby/jruby/issues/4469">#4469</a> - `private` and `private :foo` have different semantics when compiling to Java</li>
+<li><a href="https://github.com/jruby/jruby/pull/4374">#4374</a> - [ruby 2.4] Implemented Hash#transform_values(!)</li>
+<li><a href="https://github.com/jruby/jruby/pull/4368">#4368</a> - Implemented Hash#compact and Hash#compact!</li>
+<li><a href="https://github.com/jruby/jruby/pull/4343">#4343</a> - Add optional precision for Float#floor</li>
+<li><a href="https://github.com/jruby/jruby/pull/4337">#4337</a> - Add optional digits for Float#floor</li>
+<li><a href="https://github.com/jruby/jruby/pull/4322">#4322</a> - Add `Pathname#empty?`</li>
+<li><a href="https://github.com/jruby/jruby/pull/4309">#4309</a> - fix Array#sum and Enumerable#sum</li>
+<li><a href="https://github.com/jruby/jruby/pull/4301">#4301</a> - Add `Dir.empty?`</li>
+<li><a href="https://github.com/jruby/jruby/pull/4297">#4297</a> - Feature#12217 Enumerable/Array sum</li>
+<li><a href="https://github.com/jruby/jruby/pull/4296">#4296</a> - Add File.empty?</li>
+<li><a href="https://github.com/jruby/jruby/issues/4293">#4293</a> - Ruby 2.4 support</li>
+<li><a href="https://github.com/jruby/jruby/issues/4292">#4292</a> - [ruby 2.4] Queue and other thread-sync classes moved under Thread</li>
+<li><a href="https://github.com/jruby/jruby/issues/4290">#4290</a> - [ruby 2.4] forwardable.rb is broken on non-MRI</li>
+<li><a href="https://github.com/jruby/jruby/issues/4288">#4288</a> - [ruby 2.4] Module#refine can now be given a Module</li>
+<li><a href="https://github.com/jruby/jruby/issues/4287">#4287</a> - [ruby 2.4] Add support for @ and $ in regexp named groups</li>
+<li><a href="https://github.com/jruby/jruby/issues/4283">#4283</a> - JSON::Parser does not reject inputs that it should</li>
+<li><a href="https://github.com/jruby/jruby/issues/4209">#4209</a> - Update Psych</li>
+<li><a href="https://github.com/jruby/jruby/issues/4205">#4205</a> - Update RubyGems</li>
+<li><a href="https://github.com/jruby/jruby/issues/4200">#4200</a> - BigDecimal multiplication with Rational produces garbage digits within the requested precision.</li>
+<li><a href="https://github.com/jruby/jruby/pull/4099">#4099</a> - specs for Unicode symbols</li>
+<li><a href="https://github.com/jruby/jruby/pull/4096">#4096</a> - Extra tests for symbol encoding Re: #4070 + #3719 and possibly #3880</li>
+<li><a href="https://github.com/jruby/jruby/issues/4068">#4068</a> - Enable invokedynamic for JIT tests</li>
+<li><a href="https://github.com/jruby/jruby/issues/4019">#4019</a> - gem list don't show some gems as default</li>
+<li><a href="https://github.com/jruby/jruby/issues/3880">#3880</a> - define_method using symbols string syntax works incorrectly</li>
+<li><a href="https://github.com/jruby/jruby/issues/3846">#3846</a> - Loss of precision on BigDecimal operations starting from 1.7.20</li>
+<li><a href="https://github.com/jruby/jruby/issues/3841">#3841</a> - fast-ruby benchmark comparing #cover to #range is faster on MRI</li>
+<li><a href="https://github.com/jruby/jruby/pull/3807">#3807</a> - [ji] allow for initialize() to be a valid Java method</li>
+<li><a href="https://github.com/jruby/jruby/issues/3794">#3794</a> - improved Date/Time conversions on Java 8</li>
+<li><a href="https://github.com/jruby/jruby/issues/3792">#3792</a> - Missing String bounds checks</li>
+<li><a href="https://github.com/jruby/jruby/issues/3719">#3719</a> - encoding of utf8 symbols (eg. :λ) </li>
+<li><a href="https://github.com/jruby/jruby/issues/3715">#3715</a> - using explicit return with external reference from define_method is 66x slower on 9k</li>
+<li><a href="https://github.com/jruby/jruby/issues/3697">#3697</a> - Identifier-keyed tables must always use raw or always use encoded identifiers</li>
+<li><a href="https://github.com/jruby/jruby/issues/3640">#3640</a> - Date and DateTime parsing slower than 1.7 and much slower than MRI</li>
+<li><a href="https://github.com/jruby/jruby/issues/3617">#3617</a> - jruby -i Edit files in place behaves inconsistent with MRI</li>
+<li><a href="https://github.com/jruby/jruby/issues/3572">#3572</a> - **kwd, call(**kwd) does not behave like MRI.</li>
+<li><a href="https://github.com/jruby/jruby/issues/3522">#3522</a> - END not working as in MRI</li>
+<li><a href="https://github.com/jruby/jruby/issues/3504">#3504</a> - .to_d acts differently in jRuby 9.0.x than Ruby 2.2.x</li>
+<li><a href="https://github.com/jruby/jruby/issues/3476">#3476</a> - SortedSet is much slower than Hash</li>
+<li><a href="https://github.com/jruby/jruby/issues/3462">#3462</a> - Uninitialized constant in Fiddle::Pointer.malloc</li>
+<li><a href="https://github.com/jruby/jruby/issues/3396">#3396</a> - Pathname#relative_path_from failing when there are certain unicode characters in the path</li>
+<li><a href="https://github.com/jruby/jruby/issues/3014">#3014</a> - Regexp's source's encoding is wrong</li>
+<li><a href="https://github.com/jruby/jruby/issues/2965">#2965</a> - Rakefile/rakelib depends on Ant, will not boot if not present</li>
+<li><a href="https://github.com/jruby/jruby/issues/2396">#2396</a> - String does not use <=> to compare two string instances</li>
+<li><a href="https://github.com/jruby/jruby/issues/2391">#2391</a> - File.dirname normalization differs from MRI</li>
+<li><a href="https://github.com/jruby/jruby/issues/2362">#2362</a> - Deeply-nested super or constant lookup is slower in 9k than in 1.7.</li>
+<li><a href="https://github.com/jruby/jruby/issues/2289">#2289</a> - Incorrect exception type for bad reference.</li>
+<li><a href="https://github.com/jruby/jruby/issues/1408">#1408</a> - Jruby class implementing java interface with "initialize" method as a part of the interface fails to compile with jrubyc</li>
+<li><a href="https://github.com/jruby/jruby/issues/1307">#1307</a> - Incorrect size for :size_t on JRuby / WIndows x64</li>
+<li><a href="https://github.com/jruby/jruby/issues/942">#942</a> - Array#pack does not support java numbers</li>
+<li><a href="https://github.com/jruby/jruby/issues/914">#914</a> - __method__ does not return valid symbol when Non-ASCII method</li>
+<li><a href="https://github.com/jruby/jruby/issues/841">#841</a> - Threads which have blocked Fibers are not killable</li>
+</ul>
