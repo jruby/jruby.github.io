@@ -1,0 +1,192 @@
+---
+layout: post
+title: JRuby 9.2.1.0 Released
+---
+The JRuby community is pleased to announce the release of JRuby 9.2.1.0
+
+- Homepage: [http://www.jruby.org/](http://www.jruby.org/)
+- Download: [http://www.jruby.org/download](http://www.jruby.org/download)
+
+JRuby 9.2.x is our new major version of JRuby.  It is expected to be compatible with Ruby 2.5.x and stay in sync with C Ruby.  JRuby 9.2.0.0 is our first release for 2.5 support.
+
+If you do find issues then report them on using our issue tracker at [http://bugs.jruby.org](http://bugs.jruby.org). We also encourage users to join our IRC channel (#jruby on Freenode) and mailing lists. You may also follow [@jruby](https://twitter.com/jruby) on Twitter for updates.
+
+Highlights:
+
+- Performance improvements and bug fixes for Java integration
+- More efficient layout of Ruby instance variables
+- Basic support for Java 11
+- Support for Java 11's Application Class Data Sharing to improve startup
+- Expanded invokedynamic method call support
+- 166 issues fixed for 9.2.1.0
+
+### Github Issues resolved for 9.2.1.0
+
+<ul>
+<li><a href="https://github.com/jruby/jruby/pull/5416">#5416</a> - More robust way to detect atomic move failure. Fixes #5415.</li>
+<li><a href="https://github.com/jruby/jruby/issues/5415">#5415</a> - Regression 9.2.1.0 File#mv</li>
+<li><a href="https://github.com/jruby/jruby/pull/5414">#5414</a> - Add opens for java.io and java.nio.channels to improve compat.</li>
+<li><a href="https://github.com/jruby/jruby/pull/5413">#5413</a> - Bucket size of zero is not valid. For bucketless, use small.</li>
+<li><a href="https://github.com/jruby/jruby/pull/5412">#5412</a> - Temporarily revert open-addressing Hash for concurrency reasons.</li>
+<li><a href="https://github.com/jruby/jruby/pull/5411">#5411</a> - taint flag</li>
+<li><a href="https://github.com/jruby/jruby/pull/5408">#5408</a> - missing return</li>
+<li><a href="https://github.com/jruby/jruby/pull/5402">#5402</a> - Only use the UTC formatter if time was not specified as relative.</li>
+<li><a href="https://github.com/jruby/jruby/issues/5400">#5400</a> - Time.new with explicit timezone string will display as UTF with +00:00.</li>
+<li><a href="https://github.com/jruby/jruby/pull/5399">#5399</a> - Do a fast dup of args when all symbols, due to kwarg processing.</li>
+<li><a href="https://github.com/jruby/jruby/issues/5398">#5398</a> - Hash#any? not always returning proper keys/values</li>
+<li><a href="https://github.com/jruby/jruby/pull/5397">#5397</a> - Revert "[ji] make inspect on Java proxies work"</li>
+<li><a href="https://github.com/jruby/jruby/issues/5396">#5396</a> - Regression from Date.parse optimizations</li>
+<li><a href="https://github.com/jruby/jruby/pull/5394">#5394</a> - [fix] singleton meta class</li>
+<li><a href="https://github.com/jruby/jruby/pull/5393">#5393</a> - Fix Hash#shift when at capacity</li>
+<li><a href="https://github.com/jruby/jruby/issues/5392">#5392</a> - Hash#shift fails at capacity boundaries</li>
+<li><a href="https://github.com/jruby/jruby/pull/5391">#5391</a> - Fixing coercion case for subtraction from BigDecimal. Fixes #5386.</li>
+<li><a href="https://github.com/jruby/jruby/pull/5390">#5390</a> - Clear references to threads and thread contexts on teardown.</li>
+<li><a href="https://github.com/jruby/jruby/pull/5389">#5389</a> - Update jffi to 1.2.18 for refreshed 32-bit ARM support.</li>
+<li><a href="https://github.com/jruby/jruby/pull/5388">#5388</a> - Revert updated jruby-readline</li>
+<li><a href="https://github.com/jruby/jruby/issues/5386">#5386</a> - Bigdecimal and coerce failing on subtraction operation</li>
+<li><a href="https://github.com/jruby/jruby/pull/5384">#5384</a> - Prophile</li>
+<li><a href="https://github.com/jruby/jruby/pull/5380">#5380</a> - [fix] do not parse zone for local + better dst calculation</li>
+<li><a href="https://github.com/jruby/jruby/pull/5378">#5378</a> - Always use full logic for processing glob segments.</li>
+<li><a href="https://github.com/jruby/jruby/issues/5377">#5377</a> - Thread#status can return unexpected value "dead"</li>
+<li><a href="https://github.com/jruby/jruby/pull/5375">#5375</a> - Struct#values should return an array which is independent of the struct</li>
+<li><a href="https://github.com/jruby/jruby/pull/5373">#5373</a> - [#5287] Use epoll selector for file IO on macosx</li>
+<li><a href="https://github.com/jruby/jruby/issues/5372">#5372</a> - Struct#to_a returns an array that is linked to the struct</li>
+<li><a href="https://github.com/jruby/jruby/pull/5371">#5371</a> - Raise error on negative usec param to Time.new.</li>
+<li><a href="https://github.com/jruby/jruby/issues/5370">#5370</a> - Time can be initialized with negative nanoseconds</li>
+<li><a href="https://github.com/jruby/jruby/pull/5369">#5369</a> - Make subtract and addition operators work with DateTime objects</li>
+<li><a href="https://github.com/jruby/jruby/issues/5368">#5368</a> - ArrayIndexOutOfBoundsException in Joni</li>
+<li><a href="https://github.com/jruby/jruby/pull/5367">#5367</a> - enable Integer#sqrt</li>
+<li><a href="https://github.com/jruby/jruby/pull/5366">#5366</a> - improve rational performance</li>
+<li><a href="https://github.com/jruby/jruby/issues/5365">#5365</a> - Kernel#sleep hangs on CI</li>
+<li><a href="https://github.com/jruby/jruby/pull/5364">#5364</a> - improve gcd performance</li>
+<li><a href="https://github.com/jruby/jruby/pull/5363">#5363</a> - Improvements for modules on Java 9+</li>
+<li><a href="https://github.com/jruby/jruby/issues/5362">#5362</a> - Unable to use jirb on ARMv7 processor</li>
+<li><a href="https://github.com/jruby/jruby/pull/5361">#5361</a> - upgrade mavengem extension</li>
+<li><a href="https://github.com/jruby/jruby/pull/5360">#5360</a> - Fix #5357</li>
+<li><a href="https://github.com/jruby/jruby/pull/5358">#5358</a> - Fix toplevel method visibility in jit/fullint script scopes.</li>
+<li><a href="https://github.com/jruby/jruby/pull/5357">#5357</a> - respect frozen_string_literal</li>
+<li><a href="https://github.com/jruby/jruby/pull/5356">#5356</a> - Use JDK atomic move to more closely emulate POSIX rename.</li>
+<li><a href="https://github.com/jruby/jruby/pull/5354">#5354</a> - Realign timeout with MRI.</li>
+<li><a href="https://github.com/jruby/jruby/pull/5352">#5352</a> - wsl workaround</li>
+<li><a href="https://github.com/jruby/jruby/pull/5351">#5351</a> - Update to Psych 3.0.3.pre2. See ruby/psych#352.</li>
+<li><a href="https://github.com/jruby/jruby/pull/5350">#5350</a> - [Zlib][CRC32] Trim 'start' value to 32-bit for negative long integers</li>
+<li><a href="https://github.com/jruby/jruby/pull/5348">#5348</a> - revert volatile mod from values[] RubyArray store?</li>
+<li><a href="https://github.com/jruby/jruby/pull/5347">#5347</a> - optimize nextPowOfTwo</li>
+<li><a href="https://github.com/jruby/jruby/pull/5346">#5346</a> - Use right -sourcepath when jruby is invoked via jdb</li>
+<li><a href="https://github.com/jruby/jruby/pull/5345">#5345</a> - bump asm version + remove asm-analysis</li>
+<li><a href="https://github.com/jruby/jruby/pull/5344">#5344</a> - upgrade jar_dependencies to 0.4.0</li>
+<li><a href="https://github.com/jruby/jruby/pull/5342">#5342</a> - return early if one of the arrays is empty</li>
+<li><a href="https://github.com/jruby/jruby/issues/5341">#5341</a> - LoadError when loading a class with inline hash using instance vars as values.</li>
+<li><a href="https://github.com/jruby/jruby/pull/5338">#5338</a> - fix shuffle_random</li>
+<li><a href="https://github.com/jruby/jruby/pull/5337">#5337</a> - index error instead of argument error</li>
+<li><a href="https://github.com/jruby/jruby/pull/5336">#5336</a> - fix enumerable first</li>
+<li><a href="https://github.com/jruby/jruby/pull/5335">#5335</a> - Fix mvnw jar file path for Cygwin</li>
+<li><a href="https://github.com/jruby/jruby/issues/5333">#5333</a> - no result with glob pattern "\\"</li>
+<li><a href="https://github.com/jruby/jruby/issues/5332">#5332</a> - ByteList java.lang.IllegalAccessError</li>
+<li><a href="https://github.com/jruby/jruby/issues/5331">#5331</a> - [WSL] Errno::ENOMEM</li>
+<li><a href="https://github.com/jruby/jruby/pull/5328">#5328</a> - Fix ci deploy</li>
+<li><a href="https://github.com/jruby/jruby/pull/5325">#5325</a> - Update JNR projects.</li>
+<li><a href="https://github.com/jruby/jruby/pull/5323">#5323</a> - Fix tagged as failed spec for Enumerable#slice_when</li>
+<li><a href="https://github.com/jruby/jruby/pull/5321">#5321</a> - ProcessBuilder#environment</li>
+<li><a href="https://github.com/jruby/jruby/issues/5318">#5318</a> - JRuby raises IOError instead of specific error if File.rename(a,b) fails due to hidden filesystem</li>
+<li><a href="https://github.com/jruby/jruby/pull/5317">#5317</a> - Allocate method on NilClass should raise TypeError</li>
+<li><a href="https://github.com/jruby/jruby/pull/5316">#5316</a> - Update jnr-constants for fixes after the updated generation logic</li>
+<li><a href="https://github.com/jruby/jruby/pull/5315">#5315</a> - Remove thread stop</li>
+<li><a href="https://github.com/jruby/jruby/issues/5314">#5314</a> - test_handle_interrupted? may expose improper handle_interrupt logic</li>
+<li><a href="https://github.com/jruby/jruby/pull/5307">#5307</a> - Short-circuit chained lazy calls once a nil is encountered.</li>
+<li><a href="https://github.com/jruby/jruby/pull/5306">#5306</a> - Fix Hash#initialize spec tagged as failed</li>
+<li><a href="https://github.com/jruby/jruby/pull/5305">#5305</a> - Fix Hash#rehash for open addressing</li>
+<li><a href="https://github.com/jruby/jruby/issues/5304">#5304</a> - rehashing regression with compare_by_identity</li>
+<li><a href="https://github.com/jruby/jruby/pull/5303">#5303</a> - Fix some failed Enumerable#find_index specs</li>
+<li><a href="https://github.com/jruby/jruby/pull/5302">#5302</a> - Fix failed Enumerable#uniq spec when yielded with multiple arguments</li>
+<li><a href="https://github.com/jruby/jruby/pull/5299">#5299</a> - Improve RubyHash#resize performance</li>
+<li><a href="https://github.com/jruby/jruby/pull/5298">#5298</a> - Fix remaining failing tests with Enumerable#all? when given a pattern argument</li>
+<li><a href="https://github.com/jruby/jruby/issues/5297">#5297</a> - Struct does initialize attributes wrong</li>
+<li><a href="https://github.com/jruby/jruby/pull/5296">#5296</a> - Fix some failed tests for Enumerable#all?, #any?, #none? and #one?</li>
+<li><a href="https://github.com/jruby/jruby/issues/5290">#5290</a> - Zlib crc32 resulting into Java::JavaLang::ArrayIndexOutOfBoundsException (32)</li>
+<li><a href="https://github.com/jruby/jruby/pull/5289">#5289</a> - Implement hash cache to fix #5280</li>
+<li><a href="https://github.com/jruby/jruby/issues/5287">#5287</a> - sysread hangs on EOF on mac</li>
+<li><a href="https://github.com/jruby/jruby/issues/5286">#5286</a> - Proc source location gives wrong result</li>
+<li><a href="https://github.com/jruby/jruby/pull/5281">#5281</a> - BUILDING.md: Mention Java 8 JDK is required</li>
+<li><a href="https://github.com/jruby/jruby/issues/5280">#5280</a> - bundle install fails since #5215</li>
+<li><a href="https://github.com/jruby/jruby/issues/5279">#5279</a> - Incorrect values resulting from to_date on a Time object</li>
+<li><a href="https://github.com/jruby/jruby/pull/5278">#5278</a> - Refactor and fix allocFirst with buckets for RubyHash</li>
+<li><a href="https://github.com/jruby/jruby/pull/5277">#5277</a> - fix duplicated file encoding</li>
+<li><a href="https://github.com/jruby/jruby/pull/5276">#5276</a> - Fixes underlying logic of slice_when / chunk_while to handle 1 element collections</li>
+<li><a href="https://github.com/jruby/jruby/issues/5275">#5275</a> - `slice_when` and `chunk_when` don't work with an 1-element enumerable</li>
+<li><a href="https://github.com/jruby/jruby/issues/5273">#5273</a> - IllegalCharsetNameException: -Dfile.encoding=UTF-8UTF-8</li>
+<li><a href="https://github.com/jruby/jruby/issues/5272">#5272</a> - Stackoverflow calling "super" from included module method</li>
+<li><a href="https://github.com/jruby/jruby/issues/5267">#5267</a> - 76c2df8 causes unit test failure of Oracle enhanced adapter</li>
+<li><a href="https://github.com/jruby/jruby/pull/5265">#5265</a> - Add Complimentary Regression Test for GH-5203</li>
+<li><a href="https://github.com/jruby/jruby/pull/5259">#5259</a> - [refactor] improve Date parsing performance</li>
+<li><a href="https://github.com/jruby/jruby/issues/5255">#5255</a> - Date parsing (still) noticeably slower than MRI</li>
+<li><a href="https://github.com/jruby/jruby/issues/5252">#5252</a> - can't use Date.iso8601 with a string subclass</li>
+<li><a href="https://github.com/jruby/jruby/pull/5250">#5250</a> - fix invalid date error message</li>
+<li><a href="https://github.com/jruby/jruby/issues/5247">#5247</a> - 9.2.0.0 requires java 8 but states java 7 as requirement</li>
+<li><a href="https://github.com/jruby/jruby/issues/5245">#5245</a> - Duped modules' class-level methods produce NPE when inspected</li>
+<li><a href="https://github.com/jruby/jruby/issues/5244">#5244</a> - 9.2.0.0 rake missing rake gem and fails</li>
+<li><a href="https://github.com/jruby/jruby/pull/5239">#5239</a> - review String -> RubyString UTF (8) encoding</li>
+<li><a href="https://github.com/jruby/jruby/issues/5233">#5233</a> - jruby (ext) loading left-overs to consider</li>
+<li><a href="https://github.com/jruby/jruby/pull/5231">#5231</a> - dont mutate module names</li>
+<li><a href="https://github.com/jruby/jruby/issues/5229">#5229</a> - Mutating result of Module#to_s changes Module#to_s on JRuby 9.2</li>
+<li><a href="https://github.com/jruby/jruby/pull/5226">#5226</a> - upgrade to jruby-openssl 0.10.1</li>
+<li><a href="https://github.com/jruby/jruby/issues/5222">#5222</a> - NullPointerException when deserializing a Set with YAML.load</li>
+<li><a href="https://github.com/jruby/jruby/pull/5219">#5219</a> - [ji] make inspect on Java proxies work</li>
+<li><a href="https://github.com/jruby/jruby/issues/5218">#5218</a> - The coderange is not properly recomputed after upcase/downcase/swapcase</li>
+<li><a href="https://github.com/jruby/jruby/issues/5216">#5216</a> - Method Missing: org.jruby.RubyInteger.int2fix</li>
+<li><a href="https://github.com/jruby/jruby/pull/5215">#5215</a> - Open addressing algorithm for RubyHash</li>
+<li><a href="https://github.com/jruby/jruby/pull/5214">#5214</a> - Clone proc blocks as well so they have their own frame etc.</li>
+<li><a href="https://github.com/jruby/jruby/pull/5211">#5211</a> - [ji] coercing Ruby File/Dir to Java File/Path</li>
+<li><a href="https://github.com/jruby/jruby/issues/5210">#5210</a> - Haml on JRuby 9.2.0.0 throws error evaluating interpolated element attribute with `#`</li>
+<li><a href="https://github.com/jruby/jruby/issues/5209">#5209</a> - NoMethodError: undefined method `on_kwrest_param'</li>
+<li><a href="https://github.com/jruby/jruby/issues/5208">#5208</a> - Encoding of String.name is ASCII-8BIT</li>
+<li><a href="https://github.com/jruby/jruby/pull/5205">#5205</a> - review (cleanup) boot -> standard JRuby extension loading</li>
+<li><a href="https://github.com/jruby/jruby/issues/5204">#5204</a> - AsciidoctorJ fails on JRuby 9.2.0.0</li>
+<li><a href="https://github.com/jruby/jruby/pull/5198">#5198</a> - Consider encoding when deduplicating strings.</li>
+<li><a href="https://github.com/jruby/jruby/issues/5197">#5197</a> - GZipFile#close does not return IO object as MRI does</li>
+<li><a href="https://github.com/jruby/jruby/issues/5196">#5196</a> - [9.2.0.0] Missing gems in dist</li>
+<li><a href="https://github.com/jruby/jruby/issues/5195">#5195</a> - 9.2.0.0 regression in Date#to_time for BC dates resulting in Time off by 1 year</li>
+<li><a href="https://github.com/jruby/jruby/issues/5193">#5193</a> - JRUBY 9.2.0.0: Assertion Failure when Reporting RSpec Failure</li>
+<li><a href="https://github.com/jruby/jruby/issues/5192">#5192</a> - jgem fails to load gem from rubygems on Raspbian</li>
+<li><a href="https://github.com/jruby/jruby/issues/5191">#5191</a> - 9.2.0.0 Regression in DateTime.parse for BC dates</li>
+<li><a href="https://github.com/jruby/jruby/issues/5190">#5190</a> - JRuby 9.2.0.0 string deduplication via String#-@ does not work the same as CRuby</li>
+<li><a href="https://github.com/jruby/jruby/issues/5189">#5189</a> - JRuby 9.2.0.0 warns about BigDecimal.new even in non-verbose mode</li>
+<li><a href="https://github.com/jruby/jruby/issues/5188">#5188</a> - Invalid Date exception when marshaling a Date - 9.2.0.0</li>
+<li><a href="https://github.com/jruby/jruby/pull/5187">#5187</a> - Non-volatile instance variables</li>
+<li><a href="https://github.com/jruby/jruby/issues/5186">#5186</a> - Finish reification</li>
+<li><a href="https://github.com/jruby/jruby/issues/5182">#5182</a> - Java types should simply toString on inspect?</li>
+<li><a href="https://github.com/jruby/jruby/pull/5175">#5175</a> - Always search full hierarchy for highest definition of a cvar.</li>
+<li><a href="https://github.com/jruby/jruby/issues/5171">#5171</a> - Generate right-shaped object subclasses</li>
+<li><a href="https://github.com/jruby/jruby/issues/5164">#5164</a> - Thread::Backtrace::Location#label inside eval does not return enclosing method name</li>
+<li><a href="https://github.com/jruby/jruby/issues/5163">#5163</a> - When Thread::Backtrace::Location#base_label and #label are #== on MRI they are also #equal?</li>
+<li><a href="https://github.com/jruby/jruby/issues/5162">#5162</a> - Thread::Backtrace::Location#base_label for blocks differs from MRI</li>
+<li><a href="https://github.com/jruby/jruby/issues/5098">#5098</a> - YAML.load significant performance degradation when JSON string is included</li>
+<li><a href="https://github.com/jruby/jruby/issues/5069">#5069</a> - Implement AppCDS support for startup time improvement</li>
+<li><a href="https://github.com/jruby/jruby/pull/4981">#4981</a> - Do not leak DNS Request IDs</li>
+<li><a href="https://github.com/jruby/jruby/issues/4851">#4851</a> - Unable to use protected java method in jruby with jdk9</li>
+<li><a href="https://github.com/jruby/jruby/issues/4781">#4781</a> - Improve two-way integration of Java and Ruby exceptions</li>
+<li><a href="https://github.com/jruby/jruby/issues/4708">#4708</a> - [2.4] Hash key randomization, universal hashing, new Hash impl</li>
+<li><a href="https://github.com/jruby/jruby/issues/4689">#4689</a> - __dir__ does not return canonicalized absolute path</li>
+<li><a href="https://github.com/jruby/jruby/pull/4684">#4684</a> - Rename readmsg to recvmsg</li>
+<li><a href="https://github.com/jruby/jruby/issues/4528">#4528</a> - Not every class has a superclass?</li>
+<li><a href="https://github.com/jruby/jruby/issues/4403">#4403</a> - MRI and JRuby disagree about File.exist?("/non_directory_file.name/")</li>
+<li><a href="https://github.com/jruby/jruby/issues/4281">#4281</a> - JSON::Parser issues with encodings</li>
+<li><a href="https://github.com/jruby/jruby/pull/4197">#4197</a> - Generify accept methods in AST</li>
+<li><a href="https://github.com/jruby/jruby/pull/3937">#3937</a> - Implement Thread#report_on_exception</li>
+<li><a href="https://github.com/jruby/jruby/issues/3922">#3922</a> - Performance regression with `Time.parse` from 1.7 to 9k</li>
+<li><a href="https://github.com/jruby/jruby/issues/3843">#3843</a> - Java calls do not bind directly with invokedynamic</li>
+<li><a href="https://github.com/jruby/jruby/issues/3834">#3834</a> - Anonymous class-type being raised by Timeout/Queue in both 9x and 1x.</li>
+<li><a href="https://github.com/jruby/jruby/issues/3739">#3739</a> - Drop 500MB cap for 9.1 on (and all launchers)</li>
+<li><a href="https://github.com/jruby/jruby/issues/3688">#3688</a> - Multibyte identifiers not marshaled correctly</li>
+<li><a href="https://github.com/jruby/jruby/issues/3495">#3495</a> - io/console.rb on AIX not working in v9.x</li>
+<li><a href="https://github.com/jruby/jruby/issues/3313">#3313</a> - Running threads stay running after teardown</li>
+<li><a href="https://github.com/jruby/jruby/issues/2212">#2212</a> - Kernel#__method__ within a proc returns incorrect value after method definition</li>
+<li><a href="https://github.com/jruby/jruby/issues/2056">#2056</a> - Use ExactMath for overflow</li>
+<li><a href="https://github.com/jruby/jruby/issues/1795">#1795</a> - Time#zone using Time#local</li>
+<li><a href="https://github.com/jruby/jruby/issues/1554">#1554</a> - Class variable in subclass is not overtaken by class variable in superclass</li>
+<li><a href="https://github.com/jruby/jruby/issues/1509">#1509</a> - Socket::Constants incorrect on Windows</li>
+<li><a href="https://github.com/jruby/jruby/issues/1183">#1183</a> - Use of deprecated Thread.stop() causes ThreadDeath exceptions propagating to caller</li>
+<li><a href="https://github.com/jruby/jruby/issues/1026">#1026</a> - Errno::ENOTDIR on Dir.chdir into jar</li>
+<li><a href="https://github.com/jruby/jruby/issues/315">#315</a> - Improve handling of $! in exception logic</li>
+<li><a href="https://github.com/jruby/jruby/issues/287">#287</a> - Class does not inherit singleton_class's class methods</li>
+</ul>
