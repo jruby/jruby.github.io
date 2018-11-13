@@ -1,0 +1,25 @@
+---
+layout: post
+title: JRuby 9.2.4.0 Released
+---
+The JRuby community is pleased to announce the release of JRuby 9.2.4.0
+
+- Homepage: [http://www.jruby.org/](http://www.jruby.org/)
+- Download: [http://www.jruby.org/download](http://www.jruby.org/download)
+
+JRuby 9.2.x is our new major version of JRuby.  It is expected to be compatible with Ruby 2.5.x and stay in sync with C Ruby.  JRuby 9.2.0.0 is our first release for 2.5 support.
+
+If you do find issues then report them on using our issue tracker at [http://bugs.jruby.org](http://bugs.jruby.org). We also encourage users to join our IRC channel (#jruby on Freenode) and mailing lists. You may also follow [@jruby](https://twitter.com/jruby) on Twitter for updates.
+
+Highlights:
+
+- 4 issues fixed for 9.2.4.0
+
+### Github Issues resolved for 9.2.4.0
+
+<ul>
+<li><a href="https://github.com/jruby/jruby/pull/5442">#5442</a> - fix potential int overflow</li>
+<li><a href="https://github.com/jruby/jruby/issues/5439">#5439</a> - Local variable not updated in closure state</li>
+<li><a href="https://github.com/jruby/jruby/issues/5438">#5438</a> - Negative nsec on Time initialisation</li>
+<li><a href="https://github.com/jruby/jruby/pull/5407">#5407</a> - normalized Float::MIN</li>
+</ul>
