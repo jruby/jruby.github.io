@@ -7,13 +7,13 @@ markdown:    kramdown
 permalink:   date
 # JRuby-specific info here; goes into the "site" jekyll variable
 release:
-  url: /2018/11/13/jruby-9-2-4-0.html
-  version: 9.2.4.0
-  tar: https://repo1.maven.org/maven2/org/jruby/jruby-dist/9.2.4.0/jruby-dist-9.2.4.0-bin.tar.gz
-  zip: https://repo1.maven.org/maven2/org/jruby/jruby-dist/9.2.4.0/jruby-dist-9.2.4.0-bin.zip
-  exe: https://s3.amazonaws.com/jruby.org/downloads/9.2.4.0/jruby_windows_9_2_4_0.exe
-  exe64: https://s3.amazonaws.com/jruby.org/downloads/9.2.4.0/jruby_windows_x64_9_2_4_0.exe
-  gem: https://rubygems.org/gems/jruby-jars/versions/9.2.4.0
+  url: /2018/11/28/jruby-9-2-4-1.html
+  version: 9.2.4.1
+  tar: https://repo1.maven.org/maven2/org/jruby/jruby-dist/9.2.4.1/jruby-dist-9.2.4.1-bin.tar.gz
+  zip: https://repo1.maven.org/maven2/org/jruby/jruby-dist/9.2.4.1/jruby-dist-9.2.4.1-bin.zip
+  exe: https://s3.amazonaws.com/jruby.org/downloads/9.2.4.1/jruby_windows_9_2_4_1.exe
+  exe64: https://s3.amazonaws.com/jruby.org/downloads/9.2.4.1/jruby_windows_x64_9_2_4_1.exe
+  gem: https://rubygems.org/gems/jruby-jars/versions/9.2.4.1
 urls:
   maven: https://repo1.maven.org/maven2/org/jruby
   s3: https://s3.amazonaws.com/jruby.org/downloads

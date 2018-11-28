@@ -1,0 +1,21 @@
+---
+layout: post
+title: JRuby 9.2.4.1 Released
+---
+The JRuby community is pleased to announce the release of JRuby 9.2.4.1
+
+- Homepage: [http://www.jruby.org/](http://www.jruby.org/)
+- Download: [http://www.jruby.org/download](http://www.jruby.org/download)
+
+JRuby 9.2.x is our new major version of JRuby.  It is expected to be compatible with Ruby 2.5.x and stay in sync with C Ruby.  JRuby 9.2.0.0 is our first release for 2.5 support.
+
+If you do find issues then report them on using our issue tracker at [http://bugs.jruby.org](http://bugs.jruby.org). We also encourage users to join our IRC channel (#jruby on Freenode) and mailing lists. You may also follow [@jruby](https://twitter.com/jruby) on Twitter for updates.
+
+This is a security release that updates the native Windows executables shipped in the bin directory. A user reported that several virus scanners appear to flag one of these executables, jrubyw.exe, as containing a virus. We scanned the systems used for building those executables, and were unable to find any evidence of infection, but as a precaution we have rebuilt them on a known clean system for this release.
+
+### Github Issues resolved for 9.2.4.1
+
+<ul>
+<li><a href="https://github.com/jruby/jruby/issues/5478">#5478</a> - Trojaner ALERT for JRuby 9.2.4.0 from repo1.maven.org</li>
+<li><a href="https://github.com/jruby/jruby/pull/5468">#5468</a> - Fix generated javadoc</li>
+</ul>
