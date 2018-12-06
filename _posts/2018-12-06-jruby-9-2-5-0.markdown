@@ -1,0 +1,50 @@
+---
+layout: post
+title: JRuby 9.2.5.0 Released
+---
+The JRuby community is pleased to announce the release of JRuby 9.2.5.0
+
+- Homepage: [http://www.jruby.org/](http://www.jruby.org/)
+- Download: [http://www.jruby.org/download](http://www.jruby.org/download)
+
+JRuby 9.2.x is our new major version of JRuby.  It is expected to be compatible with Ruby 2.5.x and stay in sync with C Ruby.  JRuby 9.2.0.0 is our first release for 2.5 support.
+
+If you do find issues then report them on using our issue tracker at [http://bugs.jruby.org](http://bugs.jruby.org). We also encourage users to join our IRC channel (#jruby on Freenode) and mailing lists. You may also follow [@jruby](https://twitter.com/jruby) on Twitter for updates.
+
+Highlights:
+
+- 29 issues fixed for 9.2.5.0
+
+### Github Issues resolved for 9.2.5.0
+
+<ul>
+<li><a href="https://github.com/jruby/jruby/pull/5495">#5495</a> - Remove failed tag for Array#to_h MRI tests</li>
+<li><a href="https://github.com/jruby/jruby/pull/5491">#5491</a> - improved error message for "wrong number of arguments"</li>
+<li><a href="https://github.com/jruby/jruby/pull/5488">#5488</a> - [fix] RubyException#toJava(Object) shouldn't return null</li>
+<li><a href="https://github.com/jruby/jruby/pull/5487">#5487</a> - [#5288] Overwrite parent class with module wrapper</li>
+<li><a href="https://github.com/jruby/jruby/issues/5483">#5483</a> - Java::JavaLang::ArrayStoreException when running cucumber tests </li>
+<li><a href="https://github.com/jruby/jruby/pull/5481">#5481</a> - Never return the internal module name as a mutable string.</li>
+<li><a href="https://github.com/jruby/jruby/issues/5480">#5480</a> - Class names are mutable</li>
+<li><a href="https://github.com/jruby/jruby/issues/5477">#5477</a> - mongoid driver does not work in JRuby on Windows or JRuby loads incorrect socket constants on Windows.</li>
+<li><a href="https://github.com/jruby/jruby/pull/5474">#5474</a> - less sync-ing with thread registration</li>
+<li><a href="https://github.com/jruby/jruby/pull/5461">#5461</a> - fix duplicate declaration</li>
+<li><a href="https://github.com/jruby/jruby/pull/5460">#5460</a> - Revisit symbol hash and marshal fixes from #4576</li>
+<li><a href="https://github.com/jruby/jruby/pull/5458">#5458</a> - Tempfile.open should have arity 3, to allow IO options through.</li>
+<li><a href="https://github.com/jruby/jruby/issues/5456">#5456</a> - Tempfile.open does not recognize the 3rd argument (options to pass to File.open)</li>
+<li><a href="https://github.com/jruby/jruby/pull/5455">#5455</a> - Fix multi-arity method binding.</li>
+<li><a href="https://github.com/jruby/jruby/pull/5453">#5453</a> - Splatted kwarg struct init</li>
+<li><a href="https://github.com/jruby/jruby/pull/5452">#5452</a> - Use default sg ITALY with getChronology here.</li>
+<li><a href="https://github.com/jruby/jruby/issues/5448">#5448</a> - RubyStruct.java gives ArgumentError: unknown keywords: keyword</li>
+<li><a href="https://github.com/jruby/jruby/issues/5447">#5447</a> - sigsev on installing gems on aarch64</li>
+<li><a href="https://github.com/jruby/jruby/pull/5445">#5445</a> - fix max range for usec</li>
+<li><a href="https://github.com/jruby/jruby/pull/5444">#5444</a> - fix an edge case in gcd calculation</li>
+<li><a href="https://github.com/jruby/jruby/pull/5443">#5443</a> - fix overflow in #i_gcd</li>
+<li><a href="https://github.com/jruby/jruby/pull/5435">#5435</a> - Allows CompiledIRMethod to inline methods when it is the host scope.</li>
+<li><a href="https://github.com/jruby/jruby/pull/5433">#5433</a> - update jruby-readline de-ja-vu (for JRuby::Util.load_ext)</li>
+<li><a href="https://github.com/jruby/jruby/pull/5417">#5417</a> - Improve errno detect</li>
+<li><a href="https://github.com/jruby/jruby/pull/5410">#5410</a> - remove getClass from RubyRegexp</li>
+<li><a href="https://github.com/jruby/jruby/pull/5409">#5409</a> - synchronize RubyHash#iteratorExitSync</li>
+<li><a href="https://github.com/jruby/jruby/issues/5387">#5387</a> - Updated jruby-readline alters terminal settings, breaking interactive prompts</li>
+<li><a href="https://github.com/jruby/jruby/issues/5288">#5288</a> - Regression: Refinements Broken from 9.1 to 9.2</li>
+<li><a href="https://github.com/jruby/jruby/issues/5242">#5242</a> - OpenSSL::Cipher#update doesn't accept a buffer argument</li>
+</ul>
