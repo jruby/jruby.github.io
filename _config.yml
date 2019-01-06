@@ -20,8 +20,8 @@ urls:
   tryjruby: https://s3.amazonaws.com/jruby.org/tryjruby
   bugs: http://github.com/jruby/jruby/issues
   jira: http://jira.codehaus.org/browse/JRUBY
-  wiki: http://wiki.jruby.org/
-  lists: http://wiki.jruby.org/MailingLists
+  wiki: https://github.com/jruby/jruby/wiki
+  lists: https://github.com/jruby/jruby/wiki/MailingLists
   github: https://github.com/jruby/jruby
 team_email: team@jruby.org
 domain: www.jruby.org
