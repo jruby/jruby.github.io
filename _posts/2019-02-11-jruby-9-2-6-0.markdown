@@ -1,0 +1,73 @@
+---
+layout: post
+title: JRuby 9.2.6.0 Released
+---
+The JRuby community is pleased to announce the release of JRuby 9.2.6.0
+
+- Homepage: [http://www.jruby.org/](http://www.jruby.org/)
+- Download: [http://www.jruby.org/download](http://www.jruby.org/download)
+
+JRuby 9.2.x is our new major version of JRuby.  It is expected to be compatible with Ruby 2.5.x and stay in sync with C Ruby.  JRuby 9.2.0.0 is our first release for 2.5 support.
+
+If you do find issues then report them on using our issue tracker at [http://bugs.jruby.org](http://bugs.jruby.org). We also encourage users to join our IRC channel (#jruby on Freenode) and mailing lists. You may also follow [@jruby](https://twitter.com/jruby) on Twitter for updates.
+
+Highlights:
+
+- 52 issues fixed for 9.2.6.0
+
+### Github Issues resolved for 9.2.6.0
+
+<ul>
+<li><a href="https://github.com/jruby/jruby/issues/5597">#5597</a> - "Useless" warnings have file as "null"</li>
+<li><a href="https://github.com/jruby/jruby/issues/5596">#5596</a> - proc with no arguments does not pick up current block</li>
+<li><a href="https://github.com/jruby/jruby/issues/5595">#5595</a> - IRB with tracer flag is not working</li>
+<li><a href="https://github.com/jruby/jruby/pull/5591">#5591</a> - Eliminate all magic builtin libraries</li>
+<li><a href="https://github.com/jruby/jruby/pull/5589">#5589</a> - Time, DateTime: fix isTzRelative book keeping</li>
+<li><a href="https://github.com/jruby/jruby/pull/5587">#5587</a> - Time: minimal fix for Rails Time.change() problem</li>
+<li><a href="https://github.com/jruby/jruby/pull/5586">#5586</a> - Time: fix TZ offset</li>
+<li><a href="https://github.com/jruby/jruby/pull/5583">#5583</a> - Time: fix localtime(), getlocal(), parse() for TZ offset</li>
+<li><a href="https://github.com/jruby/jruby/pull/5581">#5581</a> - [fix] interpret today TZ-relative but use GJ chrono</li>
+<li><a href="https://github.com/jruby/jruby/pull/5580">#5580</a> - fix float formating regression (half-even rounding)</li>
+<li><a href="https://github.com/jruby/jruby/pull/5572">#5572</a> - adding RbConfig TOPDIR (and related)</li>
+<li><a href="https://github.com/jruby/jruby/pull/5564">#5564</a> - Fix time precision with fractional seconds as Rational</li>
+<li><a href="https://github.com/jruby/jruby/issues/5562">#5562</a> - uninitialized constant RbConfig::TOPDIR</li>
+<li><a href="https://github.com/jruby/jruby/issues/5558">#5558</a> - Time precision problem</li>
+<li><a href="https://github.com/jruby/jruby/issues/5556">#5556</a> - float format-ing regression in 9.2</li>
+<li><a href="https://github.com/jruby/jruby/pull/5554">#5554</a> - [fix] Thread#status should reflect exited exception</li>
+<li><a href="https://github.com/jruby/jruby/pull/5548">#5548</a> - Define a proper annotation parameter for DynamicMethod.Version</li>
+<li><a href="https://github.com/jruby/jruby/issues/5538">#5538</a> - Multi-rescue should not eagerly evaluate its elements</li>
+<li><a href="https://github.com/jruby/jruby/issues/5533">#5533</a> - File modification time not properly set</li>
+<li><a href="https://github.com/jruby/jruby/pull/5531">#5531</a> - Validate ivar and const symbols from Java before adding to table.</li>
+<li><a href="https://github.com/jruby/jruby/pull/5529">#5529</a> - Update to psych 3.1.</li>
+<li><a href="https://github.com/jruby/jruby/pull/5528">#5528</a> - Handle symbol dumping properly</li>
+<li><a href="https://github.com/jruby/jruby/pull/5527">#5527</a> - Fixes #5517 (returns in unexpected place)</li>
+<li><a href="https://github.com/jruby/jruby/pull/5526">#5526</a> - Use atomics to reduce contention within failover invaldator.</li>
+<li><a href="https://github.com/jruby/jruby/issues/5525">#5525</a> - High lock contention invalidating "failover global" invalidator</li>
+<li><a href="https://github.com/jruby/jruby/pull/5524">#5524</a> - backport fd leak in resolv</li>
+<li><a href="https://github.com/jruby/jruby/issues/5523">#5523</a> - Regression with Marshal.load(a Hash)</li>
+<li><a href="https://github.com/jruby/jruby/pull/5522">#5522</a> - test, review & avoid (regressed) mutex behavior</li>
+<li><a href="https://github.com/jruby/jruby/issues/5520">#5520</a> - Mutex gets 'broken' sporadically (since 9.2.1)</li>
+<li><a href="https://github.com/jruby/jruby/issues/5517">#5517</a> - NPE due to unhandled non-local return</li>
+<li><a href="https://github.com/jruby/jruby/pull/5516">#5516</a> - Fix sub-millisecond datetime difference handling</li>
+<li><a href="https://github.com/jruby/jruby/pull/5515">#5515</a> - Add log.singletons and .verbose to track singleton class creation.</li>
+<li><a href="https://github.com/jruby/jruby/issues/5514">#5514</a> - Executors are not shut down during tearDown</li>
+<li><a href="https://github.com/jruby/jruby/issues/5513">#5513</a> - String#scan raises java.lang.ArrayIndexOutOfBoundsException with multi-byte characters</li>
+<li><a href="https://github.com/jruby/jruby/pull/5512">#5512</a> - Eliminate transient objects for looking up symbol by bytelist</li>
+<li><a href="https://github.com/jruby/jruby/pull/5506">#5506</a> - review thread sync and clear references</li>
+<li><a href="https://github.com/jruby/jruby/pull/5505">#5505</a> - Update stdlib to Ruby 2.5.3.</li>
+<li><a href="https://github.com/jruby/jruby/pull/5504">#5504</a> - Also fix up return values when frame is present, for backref.</li>
+<li><a href="https://github.com/jruby/jruby/issues/5503">#5503</a> - Problem when method returns Regexp capture group using special variable $1</li>
+<li><a href="https://github.com/jruby/jruby/pull/5500">#5500</a> - Use Java 9 stack walking to reduce the cost of #caller and friends</li>
+<li><a href="https://github.com/jruby/jruby/pull/5499">#5499</a> - Fix known binary compat issues with new Java 9 overloads.</li>
+<li><a href="https://github.com/jruby/jruby/issues/5493">#5493</a> - Difference of DateTimes with fractional milliseconds calculated incorrectly</li>
+<li><a href="https://github.com/jruby/jruby/issues/5479">#5479</a> - Update ERB stdlib from MRI 2.5.0 to at least 2.5.1</li>
+<li><a href="https://github.com/jruby/jruby/pull/5462">#5462</a> - add java 10, 11 opcodes</li>
+<li><a href="https://github.com/jruby/jruby/pull/5451">#5451</a> - improve cross compile compatibility</li>
+<li><a href="https://github.com/jruby/jruby/issues/5450">#5450</a> - java.lang.NoSuchMethodError: java.nio.ByteBuffer.clear()</li>
+<li><a href="https://github.com/jruby/jruby/issues/5418">#5418</a> - Date.today does not appear to take the local TZ into account</li>
+<li><a href="https://github.com/jruby/jruby/pull/5383">#5383</a> - Create new pgroup when spawning process in chdir</li>
+<li><a href="https://github.com/jruby/jruby/issues/5312">#5312</a> - test_status_and_stop_p exposes a race in Thread status</li>
+<li><a href="https://github.com/jruby/jruby/issues/5169">#5169</a> - Reflective methods should not create symbols for nonexistent elements</li>
+<li><a href="https://github.com/jruby/jruby/issues/4784">#4784</a> - DateTime to_time does not preserve UTC-ness</li>
+<li><a href="https://github.com/jruby/jruby/issues/4157">#4157</a> - Kernel.sprintf("%f",...) rounds to even on MRI but JRuby rounds away from zero</li>
+</ul>
