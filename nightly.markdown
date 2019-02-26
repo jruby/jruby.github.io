@@ -4,19 +4,10 @@ title: JRuby Nightly Builds
 ---
 # JRuby Nightly Builds
 
-Each night, we publish builds of our stable and development branches. At times, these may be the same version.
+We publish snapshots of our development branches after every successful CI run.
 
-**JRuby dist**: The installable distribution of JRuby is in the `jruby-bin` files. Unpack it, run `bin/jruby` and you're all set.
+[**JRuby dist**](https://oss.sonatype.org/content/repositories/snapshots/org/jruby/jruby-dist): The installable distribution of JRuby is in the `jruby-bin` files. Unpack it, run `bin/jruby` and you're all set.
 
-**Complete jar**: The "complete" jar, containing all standad libraries and preinstalled gems, is in the `jruby-complete...jar` file.
+[**Complete jar**](https://oss.sonatype.org/content/repositories/snapshots/org/jruby/jruby-complete/): The "complete" jar, containing all standad libraries and preinstalled gems, is in the `jruby-complete...jar` file.
 
-**jruby-jars gem**: For gem dependencies on JRuby, install the `jruby-jars` gem.
-
-**Sources**: JRuby sources for this build are in `jruby-src` files.
-
-## Build Links
-
-[**Stable**](https://projectodd.ci.cloudbees.com/view/JRuby/job/jruby-stable-dist/lastSuccessfulBuild/artifact/release/)
-
-[**Development**](https://projectodd.ci.cloudbees.com/view/JRuby/job/jruby-development-dist/lastSuccessfulBuild/artifact/release/)
-
+[**Other artifacts**](https://oss.sonatype.org/content/repositories/snapshots/org/jruby/): The full complement of Maven artifacts are available as snapshots.
