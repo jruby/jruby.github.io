@@ -1,0 +1,72 @@
+---
+layout: post
+title: JRuby 9.2.7.0 Released
+---
+The JRuby community is pleased to announce the release of JRuby 9.2.7.0
+
+- Homepage: [http://www.jruby.org/](http://www.jruby.org/)
+- Download: [http://www.jruby.org/download](http://www.jruby.org/download)
+
+JRuby 9.2.x is compatible with Ruby 2.5.x and stays in sync with C Ruby.  This version offers significant improvements to refinements.  It also has a big performance gain for Rational#/.  As always there is a mix of miscellaneous fixes so be sure to read the issue list below.  All users are encouraged to upgrade.
+
+If you do find issues then report them on using our issue tracker at [http://bugs.jruby.org](http://bugs.jruby.org). We also encourage users to join our IRC channel (#jruby on Freenode) and mailing lists. You may also follow [@jruby](https://twitter.com/jruby) on Twitter for updates.
+
+- 53 issues fixed for 9.2.7.0
+
+### Github Issues resolved for 9.2.7.0
+
+<ul>
+<li><a href="https://github.com/jruby/jruby/pull/5679">#5679</a> - Provide better thread name for enumerator/fiber workers.</li>
+<li><a href="https://github.com/jruby/jruby/pull/5678">#5678</a> - multicast receive broken everywhere</li>
+<li><a href="https://github.com/jruby/jruby/pull/5677">#5677</a> - Use close_on_exec method instead of using fcntl calls for pty. Fixes #5663</li>
+<li><a href="https://github.com/jruby/jruby/pull/5675">#5675</a> - speedup BigDecimal division</li>
+<li><a href="https://github.com/jruby/jruby/issues/5670">#5670</a> - Update fiber/enumerator threads with info about creation</li>
+<li><a href="https://github.com/jruby/jruby/issues/5664">#5664</a> - Incorrect parameters for core methods messes up RSpec proxies</li>
+<li><a href="https://github.com/jruby/jruby/issues/5663">#5663</a> - File::write uses nonblocking IO when MRI uses blocking</li>
+<li><a href="https://github.com/jruby/jruby/issues/5657">#5657</a> - Multicast Receive Broken On all Unixy machines.</li>
+<li><a href="https://github.com/jruby/jruby/issues/5654">#5654</a> - NullPointerException with PTY.open returning null (not nil)</li>
+<li><a href="https://github.com/jruby/jruby/pull/5653">#5653</a> - Updage to json 2.2.0</li>
+<li><a href="https://github.com/jruby/jruby/pull/5652">#5652</a> - Remove the "Fatal" constant since it's hidden in MRI.</li>
+<li><a href="https://github.com/jruby/jruby/pull/5651">#5651</a> - Additional pack/unpack optimizations</li>
+<li><a href="https://github.com/jruby/jruby/issues/5650">#5650</a> - decimal performance</li>
+<li><a href="https://github.com/jruby/jruby/issues/5648">#5648</a> - Fatal is not a module</li>
+<li><a href="https://github.com/jruby/jruby/pull/5647">#5647</a> - Outline case bodies from unpack logic.</li>
+<li><a href="https://github.com/jruby/jruby/pull/5645">#5645</a> - Only run deploy against actual pushes to our repo</li>
+<li><a href="https://github.com/jruby/jruby/issues/5642">#5642</a> - Open3::capture2 and friends hang on stdin_data on Java GTE 9</li>
+<li><a href="https://github.com/jruby/jruby/pull/5639">#5639</a> - update to jruby-openssl 0.10.2</li>
+<li><a href="https://github.com/jruby/jruby/pull/5636">#5636</a> - Isolate debug specs and run fast suite without --debug</li>
+<li><a href="https://github.com/jruby/jruby/issues/5635">#5635</a> - Ubuntu: JRuby startup warning </li>
+<li><a href="https://github.com/jruby/jruby/issues/5634">#5634</a> - singleton method + zsuper issue when contained in another class?</li>
+<li><a href="https://github.com/jruby/jruby/pull/5629">#5629</a> - Deploy snapshots after successful builds</li>
+<li><a href="https://github.com/jruby/jruby/pull/5628">#5628</a> - Set up CI with Azure Pipelines</li>
+<li><a href="https://github.com/jruby/jruby/pull/5627">#5627</a> - Rework method invocation to properly super</li>
+<li><a href="https://github.com/jruby/jruby/pull/5626">#5626</a> - [fix] make Date/DateTime equality consistent</li>
+<li><a href="https://github.com/jruby/jruby/pull/5625">#5625</a> - [fix] DateTime (civil) Float sec rounding</li>
+<li><a href="https://github.com/jruby/jruby/pull/5611">#5611</a> - Revert "Push signal traps and at_exit blocks to a common thread for exec."</li>
+<li><a href="https://github.com/jruby/jruby/pull/5610">#5610</a> - Revert "Make autoload dynamically dispatch to require. Fixes #5403."</li>
+<li><a href="https://github.com/jruby/jruby/pull/5609">#5609</a> - Revert "Autoload fixes"</li>
+<li><a href="https://github.com/jruby/jruby/issues/5608">#5608</a> - Kernel#warn doesn't handle exceptions as expected</li>
+<li><a href="https://github.com/jruby/jruby/pull/5607">#5607</a> - Multiple adjustments to the Exception and raise logic.</li>
+<li><a href="https://github.com/jruby/jruby/issues/5605">#5605</a> - set_backtrace should disable backtrace generation on raise</li>
+<li><a href="https://github.com/jruby/jruby/pull/5604">#5604</a> - Improve refinements implementation</li>
+<li><a href="https://github.com/jruby/jruby/pull/5584">#5584</a> - improve sprintf compatibility</li>
+<li><a href="https://github.com/jruby/jruby/pull/5557">#5557</a> - Ensure symlink path names passed to File.lstat are dereferenced when necessary</li>
+<li><a href="https://github.com/jruby/jruby/issues/5550">#5550</a> - Regression: multiple refinements of the same class</li>
+<li><a href="https://github.com/jruby/jruby/issues/5547">#5547</a> - FileUtils.chmod failes when called on symlink under linux</li>
+<li><a href="https://github.com/jruby/jruby/issues/5545">#5545</a> - Refinements: method can't use other methods from refinement</li>
+<li><a href="https://github.com/jruby/jruby/issues/5542">#5542</a> - new grapheme cluster scheme in c code</li>
+<li><a href="https://github.com/jruby/jruby/issues/5541">#5541</a> - Refinements not following inheritance</li>
+<li><a href="https://github.com/jruby/jruby/issues/5539">#5539</a> - File::Stat#directory? returns false for symlink to directory with trailing slash</li>
+<li><a href="https://github.com/jruby/jruby/pull/5489">#5489</a> - Autoload fixes</li>
+<li><a href="https://github.com/jruby/jruby/pull/5441">#5441</a> - Push signal traps and at_exit blocks to a common thread for exec.</li>
+<li><a href="https://github.com/jruby/jruby/pull/5404">#5404</a> - Make autoload dynamically dispatch to require. Fixes #5403.</li>
+<li><a href="https://github.com/jruby/jruby/issues/5221">#5221</a> - Refinement with `super` vs. inheritance</li>
+<li><a href="https://github.com/jruby/jruby/issues/5153">#5153</a> - Fix refinements</li>
+<li><a href="https://github.com/jruby/jruby/issues/5054">#5054</a> - Refinement is not activated within itself</li>
+<li><a href="https://github.com/jruby/jruby/issues/4531">#4531</a> - Order of prepends and extends can break super</li>
+<li><a href="https://github.com/jruby/jruby/issues/4514">#4514</a> - [9.1.7.0] Refinements of a superclass's singleton_class not being honored</li>
+<li><a href="https://github.com/jruby/jruby/issues/4489">#4489</a> - Refines coming from included modules aren't recognized by jruby</li>
+<li><a href="https://github.com/jruby/jruby/issues/4237">#4237</a> - NullPointerException when using refinement including multiple modules and calling super</li>
+<li><a href="https://github.com/jruby/jruby/issues/4236">#4236</a> - Refinement that includes itself does not work</li>
+<li><a href="https://github.com/jruby/jruby/issues/2160">#2160</a> - Rational support for %f in sprintf</li>
+</ul>
