@@ -35,7 +35,7 @@ HDR
   parent = File.dirname(dir)
   parent = parent == '.' ? '' : "#{parent}/"
   html.puts "  <a href='/files/#{parent}index.html'>..</a><br/>" unless dir == '.'
-  entries.sort.each do |entry|
+  entries.sort.reverse_each do |entry|
     if entry =~ /\/$/
       html.puts "  <a href='/files/#{entry}index.html'>#{File.basename(entry)}</a><br/>"
     else
