@@ -15,9 +15,9 @@ information on sending JRuby source patches.
 
 ### Recent Articles
 
+* [My experience architecting a software development stack with JRuby, OpenJDK, and Roda (2019-07-10)](https://www.retroaxis.info/2019/07/10/my-experience-architecting-a-software-development-stack-with-jruby-openjdk-and-roda/)
 * [The Pleasures of JRuby: Leap Motion Hacking and JRuby](http://www.leaphacking.com/posts/the-pleasures-of-jruby.html)
 * [Deploying with JRuby in the Cloud](http://pragprog.com/magazines/2013-02/deploying-with-jruby-in-the-cloud)
-* [Multi-threading in JRuby](http://www.restlessprogrammer.com/2013/02/multi-threading-in-jruby.html)
 * [Riding JRuby on Rails on SAP NetWeaver Cloud: the cloud case](http://scn.sap.com/community/developer-center/cloud-platform/blog/2013/02/04/riding-jruby-on-rails-on-sap-netweaver-cloud-the-cloud-case?utm_source=twitterfeed&utm_medium=twitter)
 * [RailsCasts #376: JRuby Basics](http://railscasts.com/episodes/376-jruby-basics?view=asciicast)
 * [Zero-Downtime Deploys with JRuby](http://deployingjruby.blogspot.com/2012/05/zero-downtime-deploys-with-jruby.html)
