@@ -7,7 +7,7 @@ title: Documentation
 
 ### API Docs
 
-* [Browse JRuby API Javadocs online](/apidocs/)
+* [Browse JRuby API Javadocs online](https://javadoc.io/doc/org.jruby/jruby-core)
 
 We greatly appreciate patches and pull requests for documentation
 updates. Please visit the [**Contribute**](/contribute) page for more
