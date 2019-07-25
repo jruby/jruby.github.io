@@ -4,8 +4,8 @@ title: JRuby 1.5.0.RC1 Released
 ---
 The JRuby community is pleased to announce the release of JRuby 1.5.0.RC1
 
-- Homepage: [http://www.jruby.org/](http://www.jruby.org/)
-- Download: [http://www.jruby.org/download](http://www.jruby.org/download)
+- Homepage: [https://www.jruby.org/](https://www.jruby.org/)
+- Download: [https://www.jruby.org/download](https://www.jruby.org/download)
 
 This development cycle has been our longest cycle yet (nearly 5 months), but it also has the most fixes.  It also includes many new notable features (see below).  Most of our bug fixes have been more of what we consider fine-tuning, since we keep getting into smaller corner-cases of compatibility for individual Ruby methods.  In that sense, we expect if you had a good experience with JRuby 1.4.0 then 1.5.0.RC1 will be a no-brainer upgrade.  If you haven't tried JRuby in a while with your application, then please give us another try.  Odds are whatever issue you were having before no longer exists!  And we would really like help making sure JRuby 1.5.0 final is a solid release...so please try and report back with any problems.
 

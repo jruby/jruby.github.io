@@ -4,8 +4,8 @@ title: JRuby 1.5.1 Released
 ---
 The JRuby community is pleased to announce the release of JRuby 1.5.1.
 
-- Homepage: [http://www.jruby.org/](http://www.jruby.org/)
-- Download: [http://www.jruby.org/download](http://www.jruby.org/download)
+- Homepage: [https://www.jruby.org/](https://www.jruby.org/)
+- Download: [https://www.jruby.org/download](https://www.jruby.org/download)
 
 JRuby 1.5.0 was a long overdue and huge release. JRuby 1.5.1 is a minor follow-up release to address some of the more visible issues discovered after the release of 1.5.0.  Everyone is encouraged to move to 1.5.1. Users of JRuby's Java integration or those deploying on Google AppEngine will need to upgrade to 1.5.1.
 

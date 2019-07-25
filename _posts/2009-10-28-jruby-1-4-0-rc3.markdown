@@ -4,8 +4,8 @@ title: JRuby 1.4.0RC3 Released
 ---
 The JRuby community is pleased to announce the release of JRuby 1.4.0RC3
 
-- Homepage: [http://www.jruby.org/](http://www.jruby.org/)
-- Download: [http://www.jruby.org/download](http://www.jruby.org/download)
+- Homepage: [https://www.jruby.org/](https://www.jruby.org/)
+- Download: [https://www.jruby.org/download](https://www.jruby.org/download)
 
 Third time is a charm!  Actually, this third release candidate is largely
 for the benefit of our Windows users.  We have gotten reports of issues with

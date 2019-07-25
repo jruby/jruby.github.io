@@ -8,7 +8,7 @@ JRuby is very versatile when it comes to deploying, so there's a number of ways 
 
 ## TryRuby.org
 
-The interactive tutorial at [Try Ruby](http://tryruby.org) runs atop a sandboxed, server-side instance of JRuby.
+The interactive tutorial at [Try Ruby](https://ruby.github.io/TryRuby/) runs atop a sandboxed, server-side instance of JRuby.
 
 Note that this version may lag behind official releases, but it gives you a general feel for what interactive JRuby is like.
 
@@ -18,7 +18,7 @@ JRuby's interactive console, like many Java apps, can be started as a WebStart a
 
 You can download the console as a [WebStart JNLP file](http://jruby.org/files/irb.jnlp) or launch it directly on some browser by clicking below:
 
-<script src="http://www.java.com/js/deployJava.js"></script>
+<script src="https://www.java.com/js/deployJava.js"></script>
 <script>
     // using JavaScript to get location of JNLP file relative to HTML page
     var dir = location.href.substring(0, location.href.lastIndexOf('/')+1);

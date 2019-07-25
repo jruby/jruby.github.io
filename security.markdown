@@ -49,9 +49,9 @@ Recommended upgrade. Affects some applications that use
 OpenSSL::SSL::VERIFY_PEER mode and jruby-openssl 0.5.2 or earlier. See
 [the announcement for details][jossl06].
 
-[jruby-openssl]: http://gems.rubyforge.org/gems/jruby-openssl
+[jruby-openssl]: https://rubygems.org/gems/jruby-openssl
 [jossl06]: /2009/12/07/vulnerability-in-jruby-openssl
-[vendor-sec]: http://oss-security.openwall.org/wiki/mailing-lists/vendor-sec
-[jruby-user]: http://wiki.jruby.org/MailingLists
+[vendor-sec]: https://oss-security.openwall.org/wiki/mailing-lists/vendor-sec
+[jruby-user]: https://github.com/jruby/jruby/wiki/MailingLists
 [jruby141]: 2010/04/26/jruby-1-4-1-xss-vulnerability
 [jruby1651]: 2011/12/27/jruby-1-6-5-1

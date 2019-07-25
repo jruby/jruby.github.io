@@ -4,10 +4,10 @@ title: JRuby 1.6.5.1 Released
 ---
 The JRuby community is pleased to announce the release of JRuby 1.6.5.1.
 
-- Homepage: [http://www.jruby.org/](http://www.jruby.org/)
-- Download: [http://www.jruby.org/download](http://www.jruby.org/download)
+- Homepage: [https://www.jruby.org/](https://www.jruby.org/)
+- Download: [https://www.jruby.org/download](https://www.jruby.org/download)
 
-JRuby 1.6.5.1 is a special release with a single patch applied to our JRuby 1.6.5 source to correct CERT vulnerability [CERT-2011-003](http://www.ocert.org/advisories/ocert-2011-003.html).  All users are recommended to upgrade to JRuby 1.6.5.1 to get this security fix.
+JRuby 1.6.5.1 is a special release with a single patch applied to our JRuby 1.6.5 source to correct CERT vulnerability [CERT-2011-003](https://ocert.org/advisories/ocert-2011-003.html).  All users are recommended to upgrade to JRuby 1.6.5.1 to get this security fix.
 
 A fuller JRuby 1.6.6 with bug fixes from the last two months will be released mid-January...
 
@@ -53,6 +53,6 @@ The general application of the attack is for "the bad guys" to figure out a larg
 Adding a little bit of randomization to the hashing algorithm ends up making it much, much more difficult to figure out how to generate this type of attack.  JRuby 1.6.5.1 (and all later JRuby releases) all have this additional randomization built into the hashing algorithm.  The result should be decent hash bucket distribution that is difficult for attackers to predict.
 More information
 
-This vulnerability is not exclusively an issue of JRuby.  Other Ruby implementations also have a similar issue (also patched today).  In fact, Java and PHP also appear to be susceptible to this style of attack.  For more information, please see the [CERT](http://www.ocert.org/advisories/ocert-2011-003.html) announcement.
+This vulnerability is not exclusively an issue of JRuby.  Other Ruby implementations also have a similar issue (also patched today).  In fact, Java and PHP also appear to be susceptible to this style of attack.  For more information, please see the [CERT](https://ocert.org/advisories/ocert-2011-003.html) announcement.
 
 Also, consider that language implementations are really only susceptible to this attack via frameworks which allow an external hacker to store arbitrary and/or unbounded key/values into a hash.  Ruby Rack had this vulnerability, but they have fixed things so that the amount of parameters stored is bounded by a size to remove the possibility of a DOS attack.  Rack users should upgrade to the latest version.

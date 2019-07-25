@@ -4,8 +4,8 @@ title: JRuby 9.0.0.0.rc1 Released
 ---
 The JRuby community is pleased to announce the release of JRuby 9.0.0.0.rc1
 
-- Homepage: [http://www.jruby.org/](http://www.jruby.org/)
-- Download: [http://www.jruby.org/download](http://www.jruby.org/download)
+- Homepage: [https://www.jruby.org/](https://www.jruby.org/)
+- Download: [https://www.jruby.org/download](https://www.jruby.org/download)
 
 JRuby 9000 is the new version of JRuby, representing years of effort and large-scale reboots of several JRuby subsystems.  It is expected to be compatible with Ruby 2.2.x and stay in sync with C Ruby.
 
@@ -18,7 +18,7 @@ Major features of JRuby 9000:
 
 This release is approaching a level of compatibility and stability where we have moved into a release candidate stage.  We will address concerns reported before going final, so now is the time to find any problems...
 
-If you do find issues then report them on using our issue tracker at [http://bugs.jruby.org](http://bugs.jruby.org). We also encourage users to join our IRC channel (#jruby on Freenode) and mailing lists. You may also follow @jruby on Twitter for updates.
+If you do find issues then report them on using our issue tracker at [https://github.com/jruby/jruby/issues](https://github.com/jruby/jruby/issues). We also encourage users to join our IRC channel (#jruby on Freenode) and mailing lists. You may also follow @jruby on Twitter for updates.
 
 It is important to point out that when we do put out JRuby 9.0.0.0 that this is only the starting point.  Our new internals gives us lots of potential to keep pushing the bar higher on JRuby performance.
 

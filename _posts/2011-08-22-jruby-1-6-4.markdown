@@ -4,8 +4,8 @@ title: JRuby 1.6.4 Released
 ---
 The JRuby community is pleased to announce the release of JRuby 1.6.4.
 
-- Homepage: [http://www.jruby.org/](http://www.jruby.org/)
-- Download: [http://www.jruby.org/download](http://www.jruby.org/download)
+- Homepage: [https://www.jruby.org/](https://www.jruby.org/)
+- Download: [https://www.jruby.org/download](https://www.jruby.org/download)
 
 The primary goal of the 1.6.x series is to round out our 1.9 support by fixing any reported incompatibilities. Of course, as with any JRuby release, we will continue fixing any found incompatibilities and also improve performance. All users of 1.6.3 (and lower) are encouraged to upgrade to 1.6.4.
 

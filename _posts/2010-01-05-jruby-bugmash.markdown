@@ -16,4 +16,4 @@ The JRuby Core Team will be around on IRC channel [#jruby](irc://irc.freenode.ne
 
 *JRuby created (red) vs. resolved (green) bugs over the past 120 days*
 
-[intro]: http://bit.ly/jruby-intro
+[intro]: https://bit.ly/jruby-intro

@@ -4,12 +4,12 @@ title: JRuby 9.2.5.0 Released
 ---
 The JRuby community is pleased to announce the release of JRuby 9.2.5.0
 
-- Homepage: [http://www.jruby.org/](http://www.jruby.org/)
-- Download: [http://www.jruby.org/download](http://www.jruby.org/download)
+- Homepage: [https://www.jruby.org/](https://www.jruby.org/)
+- Download: [https://www.jruby.org/download](https://www.jruby.org/download)
 
 JRuby 9.2.x is our new major version of JRuby.  It is expected to be compatible with Ruby 2.5.x and stay in sync with C Ruby.  JRuby 9.2.0.0 is our first release for 2.5 support.
 
-If you do find issues then report them on using our issue tracker at [http://bugs.jruby.org](http://bugs.jruby.org). We also encourage users to join our IRC channel (#jruby on Freenode) and mailing lists. You may also follow [@jruby](https://twitter.com/jruby) on Twitter for updates.
+If you do find issues then report them on using our issue tracker at [https://github.com/jruby/jruby/issues](https://github.com/jruby/jruby/issues). We also encourage users to join our IRC channel (#jruby on Freenode) and mailing lists. You may also follow [@jruby](https://twitter.com/jruby) on Twitter for updates.
 
 Highlights:
 

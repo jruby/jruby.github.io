@@ -4,8 +4,8 @@ title: JRuby 9.0.4.0 Released
 ---
 The JRuby community is pleased to announce the release of JRuby 9.0.4.0
 
-- Homepage: [http://www.jruby.org/](http://www.jruby.org/)
-- Download: [http://www.jruby.org/download](http://www.jruby.org/download)
+- Homepage: [https://www.jruby.org/](https://www.jruby.org/)
+- Download: [https://www.jruby.org/download](https://www.jruby.org/download)
 
 JRuby 9000 is the newest major version of JRuby, representing years of effort and large-scale reboots of several JRuby subsystems.  It is expected to be compatible with Ruby 2.2.x and stay in sync with C Ruby.  JRuby 9.0.4.0 is our third of many point releases...
 
@@ -18,7 +18,7 @@ Major features of JRuby 9000:
 - New POSIX-friendly IO and Process
 - Fully ported encoding/transcoding logic from MRI
 
-If you do find issues then report them on using our issue tracker at [http://bugs.jruby.org](http://bugs.jruby.org). We also encourage users to join our IRC channel (#jruby on Freenode) and mailing lists. You may also follow [@jruby](https://twitter.com/jruby) on Twitter for updates.
+If you do find issues then report them on using our issue tracker at [https://github.com/jruby/jruby/issues](https://github.com/jruby/jruby/issues). We also encourage users to join our IRC channel (#jruby on Freenode) and mailing lists. You may also follow [@jruby](https://twitter.com/jruby) on Twitter for updates.
 
 ## Notable updates since 9.0.3.0
 

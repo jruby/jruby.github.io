@@ -4,15 +4,15 @@ title: JRuby 1.7.0.preview2 Released
 ---
 The JRuby community is pleased to announce the release of JRuby 1.7.0.preview2.
 
-- Homepage: [http://www.jruby.org/](http://www.jruby.org/)
-- Download: [http://www.jruby.org/download](http://www.jruby.org/download)
+- Homepage: [https://www.jruby.org/](https://www.jruby.org/)
+- Download: [https://www.jruby.org/download](https://www.jruby.org/download)
 
 
 This is the second preview release of JRuby 1.7. The JRuby 1.7 release series represents a tremendous amount of work by dozens of contributors, and there are improvements in every subsystem. Users of highly-concurrent applications will see improvements in throughput and raw parallelism. And we have upped our compatibility level to match Ruby 1.9.3.
 
 We have opted for another preview cycle due to the amount of reports about improperly working transcoding support.  We have greatly improved transcoding of IO and users should be much happier with 1.7.0.preview2.
 
-Due to some issues with Java 7's invokedynamic support we decided to disable the support by default.  It will be turned back on when Java 7 fixes those issues. See http://wiki.jruby.org/PerformanceTuning
+Due to some issues with Java 7's invokedynamic support we decided to disable the support by default.  It will be turned back on when Java 7 fixes those issues. See https://github.com/jruby/jruby/wiki/PerformanceTuning
 
 Please, please, please test your applications against 1.7.0.preview2.  We want to make 1.7.0 a rock solid release and your contribution is extremely helpful.
 

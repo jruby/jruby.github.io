@@ -4,8 +4,8 @@ title: JRuby 1.5.3 Released
 ---
 The JRuby community is pleased to announce the release of JRuby 1.5.3.
 
-- Homepage: [http://www.jruby.org/](http://www.jruby.org/)
-- Download: [http://www.jruby.org/download](http://www.jruby.org/download)
+- Homepage: [https://www.jruby.org/](https://www.jruby.org/)
+- Download: [https://www.jruby.org/download](https://www.jruby.org/download)
 
 JRuby 1.5.3 is a minor follow-up release to address a thread deadlock, a spurious error involving selectors on windows, and a couple of fixes affecting bundler exec (and generally improves our exec() behavior).  We also fixed a few highly specialized issues which should have no affect on most users.  All users of JRuby 1.5.2 are recommended to upgrade to 1.5.3.
 

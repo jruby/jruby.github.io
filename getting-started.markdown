@@ -30,5 +30,5 @@ JRuby is also a piece of cake:
     rvm install jruby
 
 JRuby might also be available as OS packages for your favorite package
-manager, check the [JRuby Distributions](http://wiki.jruby.org/JRubyDistributions)
+manager, check the [JRuby Distributions](https://github.com/jruby/jruby/wiki/JRubyDistributions)
 page for more information.
