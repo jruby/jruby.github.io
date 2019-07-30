@@ -23,11 +23,11 @@ For more detailed information building and other ways to test have a look at <a 
 
 **Check out the Hacking Guide** - NaHi built an [awesome Prezi fly-through tour of the JRuby codebase][prezi]. Take a look through it for getting bearings with the codebase.
 
-**Report Bugs** - We use Github for all bug tracking. 
+**Report Bugs** - We use GitHub for all bug tracking. 
 
-- **Github issues**: [**Browse**]({{ site.urls.bugs }})
+- **GitHub Issues**: [**Browse**]({{ site.urls.bugs }})
 
-**Submit Code Changes** - We welcome behavioral, performance, quality, and documentation changes alike.  Send them back with a [GitHub pull request][pullrequest] for review.
+**Submit Code Changes** - We welcome behavioral, performance, quality, and documentation changes alike.  Send them back with a [GitHub Pull Request][pullrequest] for review.
 
 **Fix the wiki** - We also depend on community contributions and edits to keep our documentation informative and relevant. If you have a useful FAQ or walkthrough or article, please add it to the wiki. And we welcome anyone who wants to help reorganize or edit existing content.
 
