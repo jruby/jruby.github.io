@@ -4,8 +4,8 @@ title: JRuby 1.7.5 Released
 ---
 The JRuby community is pleased to announce the release of JRuby 1.7.5
 
-- Homepage: [http://www.jruby.org/](http://www.jruby.org/)
-- Download: [http://www.jruby.org/download](http://www.jruby.org/download)
+- Homepage: [https://www.jruby.org/](https://www.jruby.org/)
+- Download: [https://www.jruby.org/download](https://www.jruby.org/download)
 
 JRuby 1.7.5 is our fifth update release since JRuby 1.7.0.  The primary goal of 1.7 point releases is to fill out any missing compatibility issues with Ruby 1.9.3.  The community participation lately has been great.  Keep reporting issues and sending pull requests.
 
@@ -15,7 +15,7 @@ We fixed a number of issues with JRuby's support for invokedynamic, but due to i
 
 This summer, the JRuby team and our community members mentored ten students on a wide range of projects as part of Google's Summer of Code 2013.. We would like to thank Asakawa Ryu, Benoit Daloze, Chamila Wijayarathna, Devwrat More, Eric West, Faraaz Ismail, Kumar Sukhani, Maximilian Konzack, Matthew Getch, and Tobias Pfeiffer for participating and congratulate them on their excellent work.
 
-From this point forward, all users should report issues on our https://github.com/jruby/jruby project site.  You can also just go to http://bugs.jruby.org/.
+From this point forward, all users should report issues on our https://github.com/jruby/jruby project site.  You can also just go to https://github.com/jruby/jruby/issues.
 
 Changes of note:
 - 243 issues fixed for 1.7.5

@@ -8,14 +8,14 @@ JRuby depends on community contributions to survive. Here's how you can get invo
 
 **Get the Source** - The JRuby source is stored in our Git repository at JRuby.org and mirrored at GitHub.
 
-- **Browse**: [**GitHub**](http://github.com/jruby/jruby)
+- **Browse**: [**GitHub**](https://github.com/jruby/jruby)
 - **Checkout**
 
       git clone https://github.com/jruby/jruby.git
 
-*Need [Git help](http://git-scm.com/)? It's ok, we're not Git experts either.*
+*Need [Git help](https://git-scm.com/)? It's ok, we're not Git experts either.*
 
-**Build JRuby** - Once you've checked out the source, you just need to run `mvn` to just build JRuby and `mvn -Pbootstrap` to install all development dependencies. We depend on <a href="http://maven.apache.org/">Apache Maven</a> 3.3.1 or higher; if you only have access to a lower version use the `mvnw` script in our repo instead of your system's `mvn` command.
+**Build JRuby** - Once you've checked out the source, you just need to run `mvn` to just build JRuby and `mvn -Pbootstrap` to install all development dependencies. We depend on <a href="https://maven.apache.org/">Apache Maven</a> 3.3.1 or higher; if you only have access to a lower version use the `mvnw` script in our repo instead of your system's `mvn` command.
 
       mvn -Pbootstrap
 
@@ -37,6 +37,6 @@ For more detailed information building and other ways to test have a look at <a 
 
 - **Website**: [**Browse**](https://github.com/jruby/jruby.github.io) &nbsp;|&nbsp;[**Checkout**](git://github.com/jruby/jruby.github.io.git)
 
-[prezi]: http://prezi.com/tsuouxb3z4ln/jruby-hacking-guide/
+[prezi]: https://prezi.com/tsuouxb3z4ln/jruby-hacking-guide/
 [pullrequest]: https://help.github.com/articles/using-pull-requests
 

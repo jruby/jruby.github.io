@@ -27,4 +27,4 @@ If you have a blog you think should be listed here, please contact us!
 [headius]: http://blog.headius.com/
 [enebo]: http://blog.enebo.com/
 [sieger]: http://blog.nicksieger.com/
-[bini]: http://olabini.com/blog/
+[bini]: https://olabini.com/blog/

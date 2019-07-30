@@ -4,8 +4,8 @@ title: JRuby 1.6.0.RC1 Released
 ---
 The JRuby community is pleased to announce the release of JRuby 1.6.0.RC1.
 
-- Homepage: [http://www.jruby.org/](http://www.jruby.org/)
-- Download: [http://www.jruby.org/download](http://www.jruby.org/download)
+- Homepage: [https://www.jruby.org/](https://www.jruby.org/)
+- Download: [https://www.jruby.org/download](https://www.jruby.org/download)
 
 JRuby 1.6.0.RC1 is the first release candidate of JRuby 1.6.0.
 

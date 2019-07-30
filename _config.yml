@@ -18,7 +18,7 @@ urls:
   maven: https://repo1.maven.org/maven2/org/jruby
   s3: https://s3.amazonaws.com/jruby.org/downloads
   tryjruby: https://s3.amazonaws.com/jruby.org/tryjruby
-  bugs: http://github.com/jruby/jruby/issues
+  bugs: https://github.com/jruby/jruby/issues
   jira: http://jira.codehaus.org/browse/JRUBY
   wiki: https://github.com/jruby/jruby/wiki
   lists: https://github.com/jruby/jruby/wiki/MailingLists

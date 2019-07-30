@@ -20,5 +20,5 @@ JRuby has a large and active community. You can connect up with them in several 
 
 [**Wiki**][wiki] - The JRuby wiki--user editable.
 
-[lists]: http://wiki.jruby.org/MailingLists
-[wiki]: http://wiki.jruby.org/
+[lists]: https://github.com/jruby/jruby/wiki/MailingLists
+[wiki]: https://github.com/jruby/jruby/wiki

@@ -9,8 +9,8 @@ the inability to remove gem releases from rubygems.org we have skipped
 from 1.5.3 to 1.5.5.  The 1.5.5 release is the same release that would have
 been 1.5.4 had we been able to re-release jruby-jars.)
 
-- Homepage: [http://www.jruby.org/](http://www.jruby.org/)
-- Download: [http://www.jruby.org/download](http://www.jruby.org/download)
+- Homepage: [https://www.jruby.org/](https://www.jruby.org/)
+- Download: [https://www.jruby.org/download](https://www.jruby.org/download)
 
 JRuby 1.5.5 is a minor follow-up release to address problems executing
 some commands on Windows, a couple of Marshalling discrepancies with MRI, and

@@ -2,7 +2,7 @@
 layout: post
 title: JRuby in Google Summer of Code 2013
 ---
-We're pleased to announce that JRuby has been accepted as a mentoring organization for [Google Summer of Code 2013](http://www.google-melange.com/gsoc/homepage/google/gsoc2013)!
+We're pleased to announce that JRuby has been accepted as a mentoring organization for [Google Summer of Code 2013](https://www.google-melange.com/archive/gsoc/2013)!
 
 JRuby participated in last year's Google Summer of Code with eight excellent students. Projects ranged from serialization of our new intermediate representation to improved Android support via the Ruboto project. We're hoping to have another great batch of projects, students, and mentors this year.
 

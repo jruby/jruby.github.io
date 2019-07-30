@@ -1,4 +1,4 @@
-This repository contains the content for http://www.jruby.org/ as
+This repository contains the content for https://www.jruby.org/ as
 [Jekyll][]-generated site.
 
 # Building
@@ -33,7 +33,7 @@ a fork on Github or attach patches.
 We can't guarantee that we'll accept and deploy all patches, so please
 consult with the JRuby team before making large changes. Thanks!
 
-[Jekyll]: http://wiki.github.com/mojombo/jekyll
+[Jekyll]: https://github.com/jekyll/jekyll/wiki
 [JIRA]: http://jira.codehaus.org/browse/JRUBY
 
 # TODO

@@ -3,7 +3,7 @@ title: Google Summer of Code 2013
 layout: main
 ---
 
-JRuby will be part of [Google's Summer of Code 2013](http://www.google-melange.com/gsoc/homepage/google/gsoc2013)!
+JRuby will be part of [Google's Summer of Code 2013](https://www.google-melange.com/archive/gsoc/2013)!
 
 We're looking for good mentors and students to come together and
 help make JRuby even more awesome. JRuby has great potential to
@@ -98,4 +98,4 @@ Mentors should have the following characteristics:
 * Highly accessible. Students will participate from all over the world and frequent, consistent communication is the
 best way to guarantee success.
 
-[lists]: http://wiki.jruby.org/MailingLists
+[lists]: https://github.com/jruby/jruby/wiki/MailingLists

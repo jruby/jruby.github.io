@@ -4,14 +4,14 @@ title: JRuby 1.7.0. Released
 ---
 The JRuby community is pleased to announce the release of JRuby 1.7.0
 
-- Homepage: [http://www.jruby.org/](http://www.jruby.org/)
-- Download: [http://www.jruby.org/download](http://www.jruby.org/download)
+- Homepage: [https://www.jruby.org/](https://www.jruby.org/)
+- Download: [https://www.jruby.org/download](https://www.jruby.org/download)
 
 After a long journey (1.5 years..oh my) we have released JRuby 1.7.0.  The JRuby 1.7 release series represents a tremendous amount of work by dozens of contributors, and there are improvements in every subsystem. Users of highly-concurrent applications will see improvements in throughput and raw parallelism. And JRuby now defaults to 1.9 mode, with compatibility level targeting Ruby 1.9.3.
 
 We know that there are still pieces of 1.9 support we don't have yet, like Ripper, but we are at a stable point where people can use JRuby in 1.9 mode to host production applications.  At this point, we plan on putting out point releases of 1.7.x every 2-3 weeks for the foreseeable future.  These point releases will be made to address any reported problems users run into; and also to fill out the few missing 1.9 libraries not yet finished.
 
-JRuby 1.7 is the first JRuby to support the new "invokedynamic" feature of the JVM. You can enable invokedynamic use on Java 7, but it is disabled normally due to JVM issues. On Java 8 builds, it is enabled by default. http://wiki.jruby.org/PerformanceTuning
+JRuby 1.7 is the first JRuby to support the new "invokedynamic" feature of the JVM. You can enable invokedynamic use on Java 7, but it is disabled normally due to JVM issues. On Java 8 builds, it is enabled by default. https://github.com/jruby/jruby/wiki/PerformanceTuning
 
 - 1\.9\.3 is now our default runtime mode (--1\.8 is needed for 1\.8\.7 support)
 - Ruby standard library updated to 1.9.3p286

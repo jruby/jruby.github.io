@@ -4,8 +4,8 @@ title: JRuby 1.7.27 Released
 ---
 The JRuby community is pleased to announce the release of JRuby 1.7.27
 
-- Homepage: [http://www.jruby.org/](http://www.jruby.org/)
-- Download: [http://www.jruby.org/download](http://www.jruby.org/download)
+- Homepage: [https://www.jruby.org/](https://www.jruby.org/)
+- Download: [https://www.jruby.org/download](https://www.jruby.org/download)
 
 JRuby 1.7.27 is our latest update release of JRuby 1.7.x.  The primary goal of 1.7 point releases is to fill out any missing compatibility issues with Ruby 1.9.3.  This is very likely our last 1.7.x release barring any release mistake or strong pushback.  We are hoping all JRuby users can migrate to JRuby 9k and get on the Ruby 2.x train...
 

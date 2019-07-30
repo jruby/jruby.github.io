@@ -4,8 +4,8 @@ title: JRuby 1.4.0RC2 Released
 ---
 The JRuby community is pleased to announce the release of JRuby 1.4.0RC2.
 
-- Homepage: http://www.jruby.org/
-- Download: http://www.jruby.org/download
+- Homepage: https://www.jruby.org/
+- Download: https://www.jruby.org/download
 
 The JRuby 1.4.0 release ends a long release cycle in which we resolved
 a huge number of issues. The headline feature is a move to Ruby 1.8.7

@@ -4,8 +4,8 @@ title: JRuby 1.7.0.preview1 Released
 ---
 The JRuby community is pleased to announce the release of JRuby 1.7.0.preview1.
 
-- Homepage: [http://www.jruby.org/](http://www.jruby.org/)
-- Download: [http://www.jruby.org/download](http://www.jruby.org/download)
+- Homepage: [https://www.jruby.org/](https://www.jruby.org/)
+- Download: [https://www.jruby.org/download](https://www.jruby.org/download)
 
 This is the first preview release of JRuby 1.7. This release represents a tremendous amount of work by dozens of contributors, and there are improvements in every subsystem. Users on Java 7 should start to see gains from invokedynamic, the JVM's new support for dynamic languages. Users of highly-concurrent applications will see improvements in throughput and raw parallelism. And we have upped our compatibility level to match Ruby 1.9.3.
 

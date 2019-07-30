@@ -4,8 +4,8 @@ title: JRuby 1.6.2 Released
 ---
 The JRuby community is pleased to announce the release of JRuby 1.6.2.
 
-- Homepage: [http://www.jruby.org/](http://www.jruby.org/)
-- Download: [http://www.jruby.org/download](http://www.jruby.org/download)
+- Homepage: [https://www.jruby.org/](https://www.jruby.org/)
+- Download: [https://www.jruby.org/download](https://www.jruby.org/download)
 
 JRuby 1.6.2 is our second update to 1.6.x.  The main motivation besides spinning incremental releases quicker was a nasty YAML bug which prevented a number of Rubygems from installing (see JRUBY-5581 -- ArrayIndexOutOfBounds problem).  Expect JRuby 1.6.3 in a couple of weeks.
 

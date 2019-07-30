@@ -4,8 +4,8 @@ title: JRuby 9.0.0.0-pre2 Released
 ---
 The JRuby community is pleased to announce the release of JRuby 9.0.0.0-pre2
 
-- Homepage: [http://www.jruby.org/](http://www.jruby.org/)
-- Download: [http://www.jruby.org/download](http://www.jruby.org/download)
+- Homepage: [https://www.jruby.org/](https://www.jruby.org/)
+- Download: [https://www.jruby.org/download](https://www.jruby.org/download)
 
 JRuby 9000 is the new version of JRuby, representing years of effort and large-scale reboots of several JRuby subsystems.
 
@@ -19,7 +19,7 @@ Major features of JRuby 9000:
 This is our second preview release, and we are getting much closer to reaching
 our first .0 release.  We are releasing this update to get user feedback on Ruby 2.2 functionality and overall stability.
 
-We hope all Ruby users will try out this release and report issues on our issue tracker at http://bugs.jruby.org. We also encourage users to join our IRC channel (#jruby on Freenode) and mailing lists. You may also follow @jruby on Twitter for updates.
+We hope all Ruby users will try out this release and report issues on our issue tracker at https://github.com/jruby/jruby/issues. We also encourage users to join our IRC channel (#jruby on Freenode) and mailing lists. You may also follow @jruby on Twitter for updates.
 
 Ruby 2.2 features yet to be implemented:
 
