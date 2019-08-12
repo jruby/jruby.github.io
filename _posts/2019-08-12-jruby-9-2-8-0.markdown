@@ -1,0 +1,116 @@
+---
+layout: post
+title: JRuby 9.2.8.0 Released
+---
+The JRuby community is pleased to announce the release of JRuby 9.2.8.0
+
+- Homepage: [http://www.jruby.org/](http://www.jruby.org/)
+- Download: [http://www.jruby.org/download](http://www.jruby.org/download)
+
+JRuby 9.2.x is compatible with Ruby 2.5.x and stays in sync with C Ruby.  This version offers significant improvements to refinements.  It also has a big performance gain for Rational#/.  As always there is a mix of miscellaneous fixes so be sure to read the issue list below.  All users are encouraged to upgrade.
+
+If you do find issues then report them on using our issue tracker at [http://bugs.jruby.org](http://bugs.jruby.org). We also encourage users to join our IRC channel (#jruby on Freenode) and mailing lists. You may also follow [@jruby](https://twitter.com/jruby) on Twitter for updates.
+
+ - Substantial memory reduction (~24% less heap with a simple Rails app)
+ - Reduced runtime generation of specialized objects and variable scopes
+ - Enumerator#next logic replaced with Fiber
+ - Better handling of argument lists passing through Enumerator
+ - Open Java modules bind methods correctly
+ - IO and process control improvements on Java 9+ and on Windows
+ - More robust handling of optimized call paths for Fixnum, Float
+ - 90 issues fixed for 9.2.8.0
+
+### Github Issues resolved for 9.2.8.0
+
+<ul>
+<li><a href="https://github.com/jruby/jruby/pull/5820">#5820</a> - Dereference proc from interface impl singleton</li>
+<li><a href="https://github.com/jruby/jruby/issues/5819">#5819</a> - Can't write to java.lang.System.out in java 11</li>
+<li><a href="https://github.com/jruby/jruby/pull/5818">#5818</a> - Update JRubyPOSIXHandler.java</li>
+<li><a href="https://github.com/jruby/jruby/pull/5814">#5814</a> - fix custom call-site performance regression</li>
+<li><a href="https://github.com/jruby/jruby/pull/5813">#5813</a> - Allow generating reified Ruby classes with actual name.</li>
+<li><a href="https://github.com/jruby/jruby/pull/5812">#5812</a> - [fix] Enumerable#first block signature (matches MRI)</li>
+<li><a href="https://github.com/jruby/jruby/pull/5811">#5811</a> - Remove tag for "str".freeze idempotency test.</li>
+<li><a href="https://github.com/jruby/jruby/issues/5810">#5810</a> - Add the column caret line when encountering a SyntaxError</li>
+<li><a href="https://github.com/jruby/jruby/pull/5809">#5809</a> - MRI compatibility with IO::sysopen for serial ports on windows</li>
+<li><a href="https://github.com/jruby/jruby/pull/5807">#5807</a> - [fix] resolve Range marshal compat with MRI</li>
+<li><a href="https://github.com/jruby/jruby/issues/5805">#5805</a> - Marshal dump produces wrong output for Range objects</li>
+<li><a href="https://github.com/jruby/jruby/issues/5801">#5801</a> - Ripper is missing EXPR_VALUE</li>
+<li><a href="https://github.com/jruby/jruby/issues/5800">#5800</a> - #original_name overwrite on second alias_mathod</li>
+<li><a href="https://github.com/jruby/jruby/issues/5799">#5799</a> - .singleton_methods returns an empty array after prepending</li>
+<li><a href="https://github.com/jruby/jruby/issues/5795">#5795</a> - Re-open #5595: jruby --debug -S irb --tracer is not working</li>
+<li><a href="https://github.com/jruby/jruby/pull/5793">#5793</a> - jruby-jars.gemspec: Drop rubyforge_project</li>
+<li><a href="https://github.com/jruby/jruby/issues/5791">#5791</a> - In DateTime.jd, some Rational numbers cause RangeError (bignum too big to convert into `long')</li>
+<li><a href="https://github.com/jruby/jruby/issues/5788">#5788</a> - kwargs in Array.each mutates argument</li>
+<li><a href="https://github.com/jruby/jruby/pull/5781">#5781</a> - Support Time ranges in rand</li>
+<li><a href="https://github.com/jruby/jruby/pull/5774">#5774</a> - Add support for IO::for_fd on windows after jnr-enxio#32</li>
+<li><a href="https://github.com/jruby/jruby/issues/5773">#5773</a> - SecureRandom does not implement #bytes like MRI</li>
+<li><a href="https://github.com/jruby/jruby/issues/5771">#5771</a> - unpack encoding inconsistent with MRI</li>
+<li><a href="https://github.com/jruby/jruby/pull/5770">#5770</a> - Tweak the transcode loop to match MRI error behavior.</li>
+<li><a href="https://github.com/jruby/jruby/issues/5767">#5767</a> - TCP Connection refused</li>
+<li><a href="https://github.com/jruby/jruby/pull/5761">#5761</a> - Pre-generate DynamicScope shapes at build time</li>
+<li><a href="https://github.com/jruby/jruby/pull/5760">#5760</a> - Socket error fixes</li>
+<li><a href="https://github.com/jruby/jruby/issues/5754">#5754</a> - EHOSTUNREACH when a FTP connection cannot be established</li>
+<li><a href="https://github.com/jruby/jruby/pull/5752">#5752</a> - RbConfigLibrary: Set CCDLFLAGS to "-fPIC"</li>
+<li><a href="https://github.com/jruby/jruby/issues/5751">#5751</a> - mkmf: CCDLFLAGS is missing -fPIC</li>
+<li><a href="https://github.com/jruby/jruby/pull/5750">#5750</a> - RbConfigLibrary: Set COUTFLAG to "-o "</li>
+<li><a href="https://github.com/jruby/jruby/issues/5749">#5749</a> - mkmf: COUTFLAG does not have `-o`</li>
+<li><a href="https://github.com/jruby/jruby/issues/5741">#5741</a> - Dependency convergence errors</li>
+<li><a href="https://github.com/jruby/jruby/issues/5740">#5740</a> - "class is not compiled Ruby" error for string interpolation expression</li>
+<li><a href="https://github.com/jruby/jruby/issues/5738">#5738</a> - Backtrace set with set_backtrace is not dup'd properly in 9.2.7.0</li>
+<li><a href="https://github.com/jruby/jruby/issues/5737">#5737</a> - Jruby 9.2.7 with Java 11 "NoMethodError: undefined method `separator' for Java::JavaIo::File:Class"</li>
+<li><a href="https://github.com/jruby/jruby/issues/5736">#5736</a> - Jruby 9.2.7 with Java 11 is throwing "Native subprocess control requires open access to sun.nio.ch" warning</li>
+<li><a href="https://github.com/jruby/jruby/issues/5735">#5735</a> - Tempfile#open doesn't support default argument</li>
+<li><a href="https://github.com/jruby/jruby/pull/5733">#5733</a> - Use external when windows filesystem encoding is not found</li>
+<li><a href="https://github.com/jruby/jruby/pull/5731">#5731</a> - Fix and deprecate Java interface constant accessors</li>
+<li><a href="https://github.com/jruby/jruby/issues/5730">#5730</a> - Constant access via . does not work when using Java 11</li>
+<li><a href="https://github.com/jruby/jruby/pull/5728">#5728</a> - RFC: Do not add CLASSPATH to the module path</li>
+<li><a href="https://github.com/jruby/jruby/pull/5726">#5726</a> - Ignore nil for ifnone argument in Enumerable#find</li>
+<li><a href="https://github.com/jruby/jruby/issues/5723">#5723</a> - 0.0.to_d returns negative zero in jruby-9.2.7.0</li>
+<li><a href="https://github.com/jruby/jruby/pull/5715">#5715</a> - Fix indexOf() RubyString method.</li>
+<li><a href="https://github.com/jruby/jruby/issues/5714">#5714</a> - Issue when splitting an encoded string with specific characters</li>
+<li><a href="https://github.com/jruby/jruby/pull/5712">#5712</a> - Re-add command line specs to CI and tag new failures</li>
+<li><a href="https://github.com/jruby/jruby/pull/5711">#5711</a> - Make the PosixShim errno field into a thread-local</li>
+<li><a href="https://github.com/jruby/jruby/issues/5709">#5709</a> - Socket#close raises EBADF after unsuccessful connection</li>
+<li><a href="https://github.com/jruby/jruby/issues/5707">#5707</a> - Windows Traditional Chinese Edition: unknown encoding name - MS950</li>
+<li><a href="https://github.com/jruby/jruby/issues/5706">#5706</a> - IO.read_nonblock raises EOFError with concurrent reads</li>
+<li><a href="https://github.com/jruby/jruby/pull/5704">#5704</a> - update joda-time to latest 2.10.1</li>
+<li><a href="https://github.com/jruby/jruby/pull/5703">#5703</a> - [ji] to_time conversion for Java DateTime types</li>
+<li><a href="https://github.com/jruby/jruby/pull/5702">#5702</a> - #5699:adding the javax maven dependency to avoid "javax.annotation.Ge…</li>
+<li><a href="https://github.com/jruby/jruby/pull/5701">#5701</a> - [ji] support java.math.BigDecimal#to_d</li>
+<li><a href="https://github.com/jruby/jruby/issues/5698">#5698</a> - Regression on java array slices with a negative index introduced in 9.2.1.0</li>
+<li><a href="https://github.com/jruby/jruby/pull/5697">#5697</a> - Test that lazy enumerator doesn't pre-evaluate</li>
+<li><a href="https://github.com/jruby/jruby/pull/5695">#5695</a> - Run BEGIN blocks from JVM-compiled scripts.</li>
+<li><a href="https://github.com/jruby/jruby/pull/5693">#5693</a> - pass -ea to JVM and fix asserts for test targets</li>
+<li><a href="https://github.com/jruby/jruby/issues/5692">#5692</a> - Address all tests failing with asserts enabled</li>
+<li><a href="https://github.com/jruby/jruby/issues/5691">#5691</a> - Licensing confusion; perhaps out of date</li>
+<li><a href="https://github.com/jruby/jruby/pull/5689">#5689</a> - Update backport9 to 1.3</li>
+<li><a href="https://github.com/jruby/jruby/pull/5688">#5688</a> - [test] public field accessiblity in default package</li>
+<li><a href="https://github.com/jruby/jruby/issues/5686">#5686</a> - jruby 9.2.7.0 ships with bundler (it didn't before)</li>
+<li><a href="https://github.com/jruby/jruby/issues/5685">#5685</a> - Streams created for file parsing are allowed to finalize</li>
+<li><a href="https://github.com/jruby/jruby/issues/5684">#5684</a> - Can't access java member variables</li>
+<li><a href="https://github.com/jruby/jruby/pull/5683">#5683</a> - Return to interruptible lock acquisition in Mutex.</li>
+<li><a href="https://github.com/jruby/jruby/pull/5672">#5672</a> - Use pure-Ruby Fiber-based Enumerator#next</li>
+<li><a href="https://github.com/jruby/jruby/pull/5659">#5659</a> - Fix -x command line option to skip header</li>
+<li><a href="https://github.com/jruby/jruby/issues/5641">#5641</a> - File.stat.writable? returning false in JRuby, true in MRI</li>
+<li><a href="https://github.com/jruby/jruby/issues/5631">#5631</a> - java_send/java_alias and perhaps others are not finding the proper method</li>
+<li><a href="https://github.com/jruby/jruby/issues/5616">#5616</a> - Open3.popen3 does not work in jruby 9.2.6 with openjdk 11.0.2</li>
+<li><a href="https://github.com/jruby/jruby/pull/5612">#5612</a> - Fix off-by-one error causing Dir.glob("foo" + "{bar}") to fail if Java asserts are enabled</li>
+<li><a href="https://github.com/jruby/jruby/pull/5518">#5518</a> - Limit the width of reified objects to 50 by default.</li>
+<li><a href="https://github.com/jruby/jruby/issues/5476">#5476</a> - Mutex#lock and Mutex#synchronize are not interruptible by Thread#kill</li>
+<li><a href="https://github.com/jruby/jruby/issues/5284">#5284</a> - NoMethodError when calling protected java method from subclass On java 9</li>
+<li><a href="https://github.com/jruby/jruby/issues/5249">#5249</a> - use of jruby causes “Errno::EBADF: Bad file descriptor” error</li>
+<li><a href="https://github.com/jruby/jruby/issues/5235">#5235</a> - popen3 doesn't works fine with java 9/10 and jruby > 1.9.13</li>
+<li><a href="https://github.com/jruby/jruby/issues/5070">#5070</a> - "str".freeze optimization sporadically produces a different object</li>
+<li><a href="https://github.com/jruby/jruby/issues/5044">#5044</a> - lazy map adds extra array layer to single-element array output</li>
+<li><a href="https://github.com/jruby/jruby/issues/4968">#4968</a> - proc binding(local variables) is not garbage collected (memory leak)</li>
+<li><a href="https://github.com/jruby/jruby/issues/4839">#4839</a> - StackOverflow on using method_added in a mixin</li>
+<li><a href="https://github.com/jruby/jruby/issues/4834">#4834</a> - Eliminate or configure invasive JDK class accesses for Java 9</li>
+<li><a href="https://github.com/jruby/jruby/pull/4736">#4736</a> - Fixnum/Float 'fast-ops' working even when re-opened</li>
+<li><a href="https://github.com/jruby/jruby/issues/4536">#4536</a> - Failing "-x" command line option</li>
+<li><a href="https://github.com/jruby/jruby/issues/4419">#4419</a> - exit! and --debug events can cause a deadlock</li>
+<li><a href="https://github.com/jruby/jruby/issues/4260">#4260</a> - squiggly heredoc with single quotes indent wrong</li>
+<li><a href="https://github.com/jruby/jruby/issues/4212">#4212</a> - Lazy enumerable select eagerly evaluates next item</li>
+<li><a href="https://github.com/jruby/jruby/issues/4108">#4108</a> - Enumerator's Yielder does not pass through one-elt array properly</li>
+<li><a href="https://github.com/jruby/jruby/issues/3735">#3735</a> - JRuby 9.x slower than 1.7.21 when running Brakeman</li>
+<li><a href="https://github.com/jruby/jruby/issues/2892">#2892</a> - Numeric#step issues</li>
+</ul>
