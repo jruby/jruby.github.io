@@ -7,7 +7,7 @@ The JRuby community is pleased to announce the release of JRuby 9.2.8.0
 - Homepage: [http://www.jruby.org/](http://www.jruby.org/)
 - Download: [http://www.jruby.org/download](http://www.jruby.org/download)
 
-JRuby 9.2.x is compatible with Ruby 2.5.x and stays in sync with C Ruby.  This version offers significant improvements to refinements.  It also has a big performance gain for Rational#/.  As always there is a mix of miscellaneous fixes so be sure to read the issue list below.  All users are encouraged to upgrade.
+JRuby 9.2.x is compatible with Ruby 2.5.x and stays in sync with C Ruby.  As always there is a mix of miscellaneous fixes so be sure to read the issue list below.  All users are encouraged to upgrade.
 
 If you do find issues then report them on using our issue tracker at [http://bugs.jruby.org](http://bugs.jruby.org). We also encourage users to join our IRC channel (#jruby on Freenode) and mailing lists. You may also follow [@jruby](https://twitter.com/jruby) on Twitter for updates.
 
