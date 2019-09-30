@@ -2,14 +2,11 @@
 layout: main
 title: Chat with the JRuby Community
 ---
-# JRuby on Internet Relay Chat (IRC)
+# JRuby on Matrix
 
-Most of the JRuby team and much of the community hangs out on IRC, and we welcome everyone to join us!
+Most of the JRuby team and much of the community hangs out on Matrix, and we welcome everyone to join us!
 
-If you have an IRC client, just connect to <a href="irc://chat.freenode.net/#jruby">chat.freenode.net and join the #jruby channel</a>.
+To join, visit the [Matrix #jruby room](https://matrix.to/#/#jruby:matrix.org) and select a client that suits you. The
+[Matrix #jruby logs](https://view.matrix.org/alias/%23jruby:matrix.org) are also publically readable.
 
-If you don't have a client, you can [click here to use Kiwi IRC](https://kiwiirc.com/client/chat.freenode.net/#jruby).
-
-You can also provide a nickname below and chat with us immediately!
-
-<iframe src="https://kiwiirc.com/client/chat.freenode.net/#jruby" style="border:0; width:100%; height:600px;"></iframe>
+Many of the core JRuby committers also hang out on [Gitter](https://gitter.im/jruby/jruby). The Matrix room also bridges to the #jruby channel on [Freenode IRC](https://freenode.net).
