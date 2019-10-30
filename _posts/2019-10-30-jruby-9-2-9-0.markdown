@@ -1,0 +1,168 @@
+---
+layout: post
+title: JRuby 9.2.9.0 Released
+---
+The JRuby community is pleased to announce the release of JRuby 9.2.9.0
+
+- Homepage: [http://www.jruby.org/](http://www.jruby.org/)
+- Download: [http://www.jruby.org/download](http://www.jruby.org/download)
+
+JRuby 9.2.x is compatible with Ruby 2.5.x and stays in sync with C Ruby.  As always there is a mix of miscellaneous fixes so be sure to read the issue list below.  All users are encouraged to upgrade.
+
+
+Ruby Standard Library
+---------------------
+
+* The Ruby Standard Library has been updated to Ruby 2.5.7. JRuby will now report this as our equivalent compatible Ruby version. ([#5917](https://github.com/jruby/jruby/pull/5917))
+
+* RubyGems has been updated to version 2.7.10.
+
+Security Updates
+----------------
+
+* This release removes an exploitable version of JQuery used by the rdoc library. See https://www.ruby-lang.org/en/news/2019/08/28/multiple-jquery-vulnerabilities-in-rdoc/
+
+Java Modules Support
+--------------------
+
+* Java modules are better supported in this release by checking for openness before attempting to reflect
+  against classes from that module. This should reduce the number of module warnings on Java 9+ and make it easier
+  to configure the JVM to open up appropriate modules and packages to JRuby applications. See also the `.jruby.java_opts`
+  file above, which can help you manage module options. ([#5841](https://github.com/jruby/jruby/issues/5841), [5832](https://github.com/jruby/jruby/pull/5832), [#5843](https://github.com/jruby/jruby/pull/5843), [#5855](https://github.com/jruby/jruby/issues/5855), [#5860](https://github.com/jruby/jruby/pull/5860))
+
+Java Launcher Improvements
+--------------------------
+
+* JVM options can now be added to global or app-local `.jruby.java_opts` files and automatically
+  processed by the JRuby launcher. See [JRuby Java Options Files](http://wiki.jruby.org/JRuby-Java-Options-Files)
+  for more information. Note: This feature is not yet supported by the [JRuby native launcher](https://github.com/jruby/jruby-launcher),
+  installed by default in RVM. We will release an update to the native launcher soon. ([#5824](https://github.com/jruby/jruby/issues/5824), [#5826](https://github.com/jruby/jruby/pull/5826))
+  
+* You can now pass `--environment` to the JRuby launcher to get a log of exactly how we will execute your application. ([#5840](https://github.com/jruby/jruby/pull/5840))
+
+* JRuby's dev mode (via the `--dev` flag) adds additional options for Java 9+ and the OpenJ9 JVM. On OpenJ9, the `-Xquickstart` and `-Xshareclasses` flags are passed via the `OPENJ9_JAVA_OPTIONS` environment variable. ([#5831](https://github.com/jruby/jruby/pull/5831))
+
+Memory Usage Reductions
+-----------------------
+
+* Numerous changes in this release reduce the boot-time and run-time memory use of JRuby applications. ([#5837](https://github.com/jruby/jruby/pull/5837), [#5832](https://github.com/jruby/jruby/pull/5832), [#5874](https://github.com/jruby/jruby/pull/5874), [#5880](https://github.com/jruby/jruby/pull/5880), [#5885](https://github.com/jruby/jruby/issues/5885))
+
+
+Thread-safety Improvements
+--------------------------
+
+* Lock interruptibility broken in JRuby 9.2.8 has now been fixed. ([#5863](https://github.com/jruby/jruby/issues/5863), [#5875](https://github.com/jruby/jruby/issues/5875, [#5942](https://github.com/jruby/jruby/pull/5942))
+
+
+Process.wait APIs are now interruptible
+---------------------------------------
+
+* Threads calling `Process.wait`, `waitall`, or `waitpid` will use the `pthread_kill` native function to interrupt
+  those operations. Previously these threads were not interruptible. ([#1050](https://github.com/jruby/jruby/issues/1050), [#5848](https://github.com/jruby/jruby/pull/5848))
+
+Native FFI improvements
+-----------------------
+
+* When running JRuby via the "complete" jar file, we must unpack our native FFI stub to an appropriate temporary
+  location. If the default location we use (the host system's default "temp" location) is not readable or does not
+  allow executable code, we will present an informational error indicating how to correct the issue. ([#1302](https://github.com/jruby/jruby/issues/1302))
+
+* This release also includes native support for DragonFly BSD. ([#5768](https://github.com/jruby/jruby/issues/5768), [#5828](https://github.com/jruby/jruby/pull/5828))
+
+
+Time Zone Data
+--------------
+
+* Time zone data has been updated to IANA 2019c. This update includes six years of timezone changes. ([#5951](https://github.com/jruby/jruby/pull/5951))
+
+
+### Github Issues resolved for 9.2.9.0
+
+<ul>
+<li><a href="https://github.com/jruby/jruby/pull/5951">#5951</a> - Update joda-time and joda-timezones to 2019c</li>
+<li><a href="https://github.com/jruby/jruby/pull/5950">#5950</a> - Update all jnr dependencies and joni.</li>
+<li><a href="https://github.com/jruby/jruby/pull/5943">#5943</a> - properly synchronize globalInlineCount</li>
+<li><a href="https://github.com/jruby/jruby/pull/5942">#5942</a> - Mutex fixes for interruptibility</li>
+<li><a href="https://github.com/jruby/jruby/pull/5940">#5940</a> - Improve how we acquire ThreadContext to eliminate null refs.</li>
+<li><a href="https://github.com/jruby/jruby/pull/5939">#5939</a> - Restructure indy-based math binding.</li>
+<li><a href="https://github.com/jruby/jruby/issues/5938">#5938</a> - regressed indy fixnum op with custom equality (==)</li>
+<li><a href="https://github.com/jruby/jruby/issues/5935">#5935</a> - TypeError: "warn" with subclass of String constructed from heredoc</li>
+<li><a href="https://github.com/jruby/jruby/pull/5934">#5934</a> - [fix] ensure that fnmatch pattern does not contain a NUL character</li>
+<li><a href="https://github.com/jruby/jruby/pull/5931">#5931</a> - [test] update MRI test suite from ruby_2_5</li>
+<li><a href="https://github.com/jruby/jruby/pull/5930">#5930</a> - dupImpl specializations</li>
+<li><a href="https://github.com/jruby/jruby/issues/5929">#5929</a> - NPE json nested-array regression</li>
+<li><a href="https://github.com/jruby/jruby/pull/5928">#5928</a> - faster unpack1</li>
+<li><a href="https://github.com/jruby/jruby/pull/5927">#5927</a> - Use new RubyStringBuilder.str api to create inspected string for Exception</li>
+<li><a href="https://github.com/jruby/jruby/pull/5926">#5926</a> - fix class nesting #5925</li>
+<li><a href="https://github.com/jruby/jruby/issues/5925">#5925</a> - Inner Java classes are nested recursively</li>
+<li><a href="https://github.com/jruby/jruby/issues/5923">#5923</a> - Exception inspect in wrong encoding</li>
+<li><a href="https://github.com/jruby/jruby/pull/5921">#5921</a> - Add native.popen option to disable native popen.</li>
+<li><a href="https://github.com/jruby/jruby/pull/5919">#5919</a> - Synchronize variable reification against real class.</li>
+<li><a href="https://github.com/jruby/jruby/pull/5917">#5917</a> - Update stdlib to 2.5.7.</li>
+<li><a href="https://github.com/jruby/jruby/pull/5915">#5915</a> - encoding parameter for Dir.open, Dir.new #3205 #4495</li>
+<li><a href="https://github.com/jruby/jruby/issues/5912">#5912</a> - Deadlock with puma on JRuby 9.2.8.0</li>
+<li><a href="https://github.com/jruby/jruby/issues/5910">#5910</a> - 'Cannot cast org.jruby.gen.RubyObject7 to org.jruby.gen.RubyObject4' errors</li>
+<li><a href="https://github.com/jruby/jruby/issues/5909">#5909</a> - Concurrent File#flock calls of the same file results in Errno::EINVAL exception on Windows</li>
+<li><a href="https://github.com/jruby/jruby/pull/5908">#5908</a> - Implement Java::JavaLang::Throwable#full_message</li>
+<li><a href="https://github.com/jruby/jruby/issues/5906">#5906</a> - Java::JavaLang::Throwable missing full_message method</li>
+<li><a href="https://github.com/jruby/jruby/pull/5903">#5903</a> - less locking in interpreter mode (due IRMethod)</li>
+<li><a href="https://github.com/jruby/jruby/pull/5902">#5902</a> - [fix] avoid locking on class/module creation</li>
+<li><a href="https://github.com/jruby/jruby/issues/5901">#5901</a> - singleton class initialization blocks threads</li>
+<li><a href="https://github.com/jruby/jruby/issues/5900">#5900</a> - reporting a better error when tmp doesn't work for temporary executables</li>
+<li><a href="https://github.com/jruby/jruby/pull/5898">#5898</a> - Enable recursive fd redirection for popen logic.</li>
+<li><a href="https://github.com/jruby/jruby/pull/5897">#5897</a> - Simplify and use static scope for local_variables.</li>
+<li><a href="https://github.com/jruby/jruby/pull/5893">#5893</a> - [fix] jit.excludes for block using class (and method) name</li>
+<li><a href="https://github.com/jruby/jruby/pull/5891">#5891</a> - Clean up some backref and lastline users.</li>
+<li><a href="https://github.com/jruby/jruby/pull/5889">#5889</a> - [feat] jit.exclude based on path/to/impl_file.rb</li>
+<li><a href="https://github.com/jruby/jruby/pull/5886">#5886</a> - Update types.conf from ffi/ffi</li>
+<li><a href="https://github.com/jruby/jruby/issues/5885">#5885</a> - Unable to call inherited instance method on Java class under OpenJDK 12</li>
+<li><a href="https://github.com/jruby/jruby/pull/5884">#5884</a> - frozen path helper</li>
+<li><a href="https://github.com/jruby/jruby/issues/5882">#5882</a> - Jruby crashes intermittently right before coverage generation</li>
+<li><a href="https://github.com/jruby/jruby/pull/5880">#5880</a> - attempt to share loader for JIT-ed classes</li>
+<li><a href="https://github.com/jruby/jruby/pull/5877">#5877</a> - make SecureRandom.rand public</li>
+<li><a href="https://github.com/jruby/jruby/issues/5875">#5875</a> - Mutex behavior mismatch with MRI since JRuby 9.2.8.0</li>
+<li><a href="https://github.com/jruby/jruby/pull/5874">#5874</a> - Reduce bytecode size from JIT</li>
+<li><a href="https://github.com/jruby/jruby/issues/5873">#5873</a> - Kernel#warn keyword handling differs from CRuby</li>
+<li><a href="https://github.com/jruby/jruby/issues/5872">#5872</a> - Old version of jQuery is present in the JRuby builds</li>
+<li><a href="https://github.com/jruby/jruby/pull/5871">#5871</a> - Use Java 8 stack walker when full trace is requested.</li>
+<li><a href="https://github.com/jruby/jruby/pull/5870">#5870</a> - respect jit.max to stop compilation</li>
+<li><a href="https://github.com/jruby/jruby/issues/5869">#5869</a> - ArrayIndexOutOfBoundsException when using TracePoint</li>
+<li><a href="https://github.com/jruby/jruby/pull/5866">#5866</a> - Test passing control between two threads in the ConditionVariable spec</li>
+<li><a href="https://github.com/jruby/jruby/issues/5865">#5865</a> - Kernel#system fails with out: $stdout</li>
+<li><a href="https://github.com/jruby/jruby/issues/5864">#5864</a> - Illegal Reflective Access Operation Warning</li>
+<li><a href="https://github.com/jruby/jruby/issues/5863">#5863</a> - ConditionVariable#wait causes thread to wait forever in 9.2.8.0</li>
+<li><a href="https://github.com/jruby/jruby/pull/5860">#5860</a> - automatic-module-name</li>
+<li><a href="https://github.com/jruby/jruby/issues/5859">#5859</a> - Invalid `Tracepoint` Behavior for Blocks</li>
+<li><a href="https://github.com/jruby/jruby/pull/5858">#5858</a> - update joda time to 2.10.3</li>
+<li><a href="https://github.com/jruby/jruby/issues/5855">#5855</a> - Issues using bundle plugin with Java modules</li>
+<li><a href="https://github.com/jruby/jruby/pull/5854">#5854</a> - Implement IO#pread and pwrite.</li>
+<li><a href="https://github.com/jruby/jruby/issues/5853">#5853</a> - `slice_after` does not work on lazy Enumerators</li>
+<li><a href="https://github.com/jruby/jruby/issues/5852">#5852</a> - Return from block broken in 9.2.8.0</li>
+<li><a href="https://github.com/jruby/jruby/pull/5851">#5851</a> - Improvements to backtrace</li>
+<li><a href="https://github.com/jruby/jruby/pull/5850">#5850</a> - Fix tracer.rb and get it running in CI</li>
+<li><a href="https://github.com/jruby/jruby/issues/5849">#5849</a> - Top frame from interpreter gets wrong filename</li>
+<li><a href="https://github.com/jruby/jruby/pull/5848">#5848</a> - Wrap Process.wait* calls with pthread_kill logic.</li>
+<li><a href="https://github.com/jruby/jruby/pull/5845">#5845</a> - Propagate interrupt after interrupted sleep loop.</li>
+<li><a href="https://github.com/jruby/jruby/pull/5843">#5843</a> - Move all JI setAccessible to trySetAccessible.</li>
+<li><a href="https://github.com/jruby/jruby/issues/5841">#5841</a> - Can't call methods of private subclasses with java_method in java 12</li>
+<li><a href="https://github.com/jruby/jruby/pull/5840">#5840</a> - Consistently resolve path of jruby.bash</li>
+<li><a href="https://github.com/jruby/jruby/pull/5837">#5837</a> - Tweaks to reduce memory use of short commands</li>
+<li><a href="https://github.com/jruby/jruby/pull/5835">#5835</a> - Fail gracefully when inner class const_missing finds nothing</li>
+<li><a href="https://github.com/jruby/jruby/pull/5834">#5834</a> - enumerator review for better compatibility</li>
+<li><a href="https://github.com/jruby/jruby/pull/5832">#5832</a> - Reduce overhead of binding Java classes and methods</li>
+<li><a href="https://github.com/jruby/jruby/pull/5831">#5831</a> - Further improvements to dev mode</li>
+<li><a href="https://github.com/jruby/jruby/pull/5830">#5830</a> - aligned (and faster) uniq impls + less wrapping</li>
+<li><a href="https://github.com/jruby/jruby/issues/5829">#5829</a> - Actually release Windows for_fd fixes</li>
+<li><a href="https://github.com/jruby/jruby/pull/5828">#5828</a> - Identify DragonFlyBSD as a platform</li>
+<li><a href="https://github.com/jruby/jruby/pull/5826">#5826</a> - Add support for .jruby.java_opts home and cwd files</li>
+<li><a href="https://github.com/jruby/jruby/issues/5824">#5824</a> - Provide better documentation on java command @file support</li>
+<li><a href="https://github.com/jruby/jruby/issues/5816">#5816</a> - IO#pread and pwrite missing</li>
+<li><a href="https://github.com/jruby/jruby/issues/5768">#5768</a> - Support for DragonFly BSD</li>
+<li><a href="https://github.com/jruby/jruby/pull/5744">#5744</a> - first stab at a spec</li>
+<li><a href="https://github.com/jruby/jruby/pull/5722">#5722</a> - use same parameter for DNS.allocate_request_id/free_request_id to fix leak</li>
+<li><a href="https://github.com/jruby/jruby/pull/5700">#5700</a> - [ji] align Java array (with post 1.8 conventions)</li>
+<li><a href="https://github.com/jruby/jruby/issues/5127">#5127</a> - system() does not return boolean when Dir.pwd is uri:classloader </li>
+<li><a href="https://github.com/jruby/jruby/issues/4495">#4495</a> - Dir.open missing optional second keyword argument</li>
+<li><a href="https://github.com/jruby/jruby/issues/1302">#1302</a> - JRuby fails to load FFI support with obscure error when /tmp is not writable</li>
+<li><a href="https://github.com/jruby/jruby/issues/1050">#1050</a> - Timeout::timeout not throwing exception when timeout period reaches</li>
+</ul>
