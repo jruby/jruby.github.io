@@ -51,7 +51,7 @@ Memory Usage Reductions
 Thread-safety Improvements
 --------------------------
 
-* Lock interruptibility broken in JRuby 9.2.8 has now been fixed. ([#5863](https://github.com/jruby/jruby/issues/5863), [#5875](https://github.com/jruby/jruby/issues/5875, [#5942](https://github.com/jruby/jruby/pull/5942))
+* Lock interruptibility broken in JRuby 9.2.8 has now been fixed. ([#5863](https://github.com/jruby/jruby/issues/5863), [#5875](https://github.com/jruby/jruby/issues/5875), [#5942](https://github.com/jruby/jruby/pull/5942))
 
 
 Process.wait APIs are now interruptible
