@@ -28,7 +28,7 @@ Java Modules Support
 * Java modules are better supported in this release by checking for openness before attempting to reflect
   against classes from that module. This should reduce the number of module warnings on Java 9+ and make it easier
   to configure the JVM to open up appropriate modules and packages to JRuby applications. See also the `.jruby.java_opts`
-  file above, which can help you manage module options. ([#5841](https://github.com/jruby/jruby/issues/5841), [5832](https://github.com/jruby/jruby/pull/5832), [#5843](https://github.com/jruby/jruby/pull/5843), [#5855](https://github.com/jruby/jruby/issues/5855), [#5860](https://github.com/jruby/jruby/pull/5860))
+  file below, which can help you manage module options. ([#5841](https://github.com/jruby/jruby/issues/5841), [5832](https://github.com/jruby/jruby/pull/5832), [#5843](https://github.com/jruby/jruby/pull/5843), [#5855](https://github.com/jruby/jruby/issues/5855), [#5860](https://github.com/jruby/jruby/pull/5860))
 
 Java Launcher Improvements
 --------------------------
