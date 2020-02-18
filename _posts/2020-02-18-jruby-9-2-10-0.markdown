@@ -1,0 +1,139 @@
+---
+layout: post
+title: JRuby 9.2.10.0 Released
+---
+The JRuby community is pleased to announce the release of JRuby 9.2.10.0
+
+- Homepage: [http://www.jruby.org/](http://www.jruby.org/)
+- Download: [http://www.jruby.org/download](http://www.jruby.org/download)
+
+JRuby 9.2.x is compatible with Ruby 2.5.x and stays in sync with C Ruby.  As always there is a mix of miscellaneous fixes so be sure to read the issue list below.  All users are encouraged to upgrade.
+
+Ruby Core
+------------------
+
+* Kernel#send and BasicObject#\_\_send\_\_ will now honor refinements used in the surrounding scopes. ([#5945](https://github.com/jruby/jruby/issues/5945), [#6045](https://github.com/jruby/jruby/issues/6045))
+* Kernel#eval will now honor refinements used in a given binding. ([#6017](https://github.com/jruby/jruby/issues/6017))
+* Process#spawn now correctly processes environment variables for the child process. ([#3428](https://github.com/jruby/jruby/issues/3428), [#5907](https://github.com/jruby/jruby/issues/5907))
+
+
+Ruby Standard Library
+---------------------
+
+* RubyGems has been updated to version 3.0.6. ([#5995](https://github.com/jruby/jruby/issues/5995), [#5996](https://github.com/jruby/jruby/issues/))
+* The jruby-openssl library has been updated to 0.10.4. This release improves support for newer forms of ciphers and cryptographic keys and reduces the number of Java module warnings displayed. ([#6077](https://github.com/jruby/jruby/issues/6077))
+* The compatibility of the fiddle library has been improved. ([#5955](https://github.com/jruby/jruby/issues/5955), [#5956](https://github.com/jruby/jruby/issues/5956), [#5960](https://github.com/jruby/jruby/issues/5960))
+
+
+Java Support
+------------
+
+* Java methods looked up one-at-a-time using `java_method` and friends now honor Java modules. This fixes some
+  illegal access errors introduced in JRuby 9.2.9.0. ([#5894](https://github.com/jruby/jruby/issues/5894), [#5969](https://github.com/jruby/jruby/issues/5969), [#6043](https://github.com/jruby/jruby/issues/6043), [#6069](https://github.com/jruby/jruby/issues/6069), [#6072](https://github.com/jruby/jruby/issues/6072))
+* More illegal access warnings have been cleaned up in JRuby and the jruby-openssl extension.
+
+
+Native FFI Improvements
+-----------------------
+
+* The native subsystem has been rebuilt on MacOS to avoid security warnings due to the old toolchain originally used to build it. ([#6044](https://github.com/jruby/jruby/issues/6044), [#6074](https://github.com/jruby/jruby/issues/6074))
+* Native constants have been updated for Windows to better support the Ruby socket API. ([#5656](https://github.com/jruby/jruby/issues/5656), [#6070](https://github.com/jruby/jruby/issues/6070), [#6071](https://github.com/jruby/jruby/issues/6071))
+
+
+Performance Improvements
+------------------------
+
+* Several improvements to the method invocation pipeline and JVM bytecode output to improve JIT optimizations. ([#5958](https://github.com/jruby/jruby/issues/5958), [#5959](https://github.com/jruby/jruby/issues/5959), [#5978](https://github.com/jruby/jruby/issues/5978), [#5992](https://github.com/jruby/jruby/issues/5992), [#6005](https://github.com/jruby/jruby/issues/6005))
+* Several core methods used by Rails and the internal handling of exception backtraces have been optimized. ([#5952](https://github.com/jruby/jruby/issues/5952), [#5961](https://github.com/jruby/jruby/issues/5961), [#5965](https://github.com/jruby/jruby/issues/5965), [#5972](https://github.com/jruby/jruby/issues/5972), [#6014](https://github.com/jruby/jruby/issues/6014), [#6015](https://github.com/jruby/jruby/issues/6015), [#6031](https://github.com/jruby/jruby/issues/6031), [#6067](https://github.com/jruby/jruby/issues/6067))
+
+JRuby Launcher
+--------------
+
+* Java options dotfiles accidentally omitted in the JRuby 9.2.9.0 release have been restored in the bin directory.
+* The bash-based launcher script has been cleaned up and optimized for cross-platform compatibility. ([#5977](https://github.com/jruby/jruby/issues/5977), [#6007](https://github.com/jruby/jruby/issues/6007), [#6016](https://github.com/jruby/jruby/issues/6016))
+
+Thank You!
+----------
+
+The JRuby project would not be possible without contributions from you!
+
+This release includes pull requests or major contributions from the following Github users (in no particular order): @matthewd, @fidothe, @MariuszCwikla, @ahorek, @deivid-rodriguez, @pythias, @rotty3000, @rmannibucau, @Mrnoname1000, @kares, @mkristian, @eregon
+
+### Github Issues resolved for 9.2.10.0
+
+<ul>
+<li><a href="https://github.com/jruby/jruby/pull/6077">#6077</a> - update jruby-openssl to 0.10.4</li>
+<li><a href="https://github.com/jruby/jruby/pull/6074">#6074</a> - Update jnr dependencies</li>
+<li><a href="https://github.com/jruby/jruby/pull/6073">#6073</a> - Fix windows_stub_script to use jruby.exe</li>
+<li><a href="https://github.com/jruby/jruby/issues/6072">#6072</a> - Type Error: illegal access for final methods on ReferencePipeline (stream) in Java 11</li>
+<li><a href="https://github.com/jruby/jruby/pull/6071">#6071</a> - socket addrinfo fixes</li>
+<li><a href="https://github.com/jruby/jruby/issues/6070">#6070</a> - ipproto values are missing on Windows</li>
+<li><a href="https://github.com/jruby/jruby/pull/6069">#6069</a> - Generify and reuse accessible method search</li>
+<li><a href="https://github.com/jruby/jruby/pull/6067">#6067</a> - optimize roundUpToPowerOfTwo</li>
+<li><a href="https://github.com/jruby/jruby/pull/6057">#6057</a> - Bump mavengem-wagon version everywhere</li>
+<li><a href="https://github.com/jruby/jruby/pull/6054">#6054</a> - Refined send</li>
+<li><a href="https://github.com/jruby/jruby/issues/6044">#6044</a> - libjffi should be rebuilt on darwin (using newer xcode)</li>
+<li><a href="https://github.com/jruby/jruby/issues/6043">#6043</a> - Java 11 Compatibility</li>
+<li><a href="https://github.com/jruby/jruby/pull/6040">#6040</a> - make jruby-core-source jar has no absolute path from home dir</li>
+<li><a href="https://github.com/jruby/jruby/issues/6039">#6039</a> - NullPointerException from FStringEqual.hashCode</li>
+<li><a href="https://github.com/jruby/jruby/issues/6038">#6038</a> - profiler crashes with `java.lang.RuntimeException: BUG: refined marker called as method`</li>
+<li><a href="https://github.com/jruby/jruby/issues/6036">#6036</a> - Enumerator#take duplicates objects</li>
+<li><a href="https://github.com/jruby/jruby/pull/6035">#6035</a> - Prepare io/console for move to gem.</li>
+<li><a href="https://github.com/jruby/jruby/pull/6032">#6032</a> - [fix] restore $! on non-local return from rescue</li>
+<li><a href="https://github.com/jruby/jruby/pull/6031">#6031</a> - [fix] restore rescue nil performance </li>
+<li><a href="https://github.com/jruby/jruby/issues/6030">#6030</a> - Deprecation warning message : Gem::ConfigMap</li>
+<li><a href="https://github.com/jruby/jruby/pull/6029">#6029</a> - [fix] inspect builtin</li>
+<li><a href="https://github.com/jruby/jruby/pull/6028">#6028</a> - revert rational test</li>
+<li><a href="https://github.com/jruby/jruby/pull/6027">#6027</a> - [fix] SyntaxError rational overflow</li>
+<li><a href="https://github.com/jruby/jruby/issues/6025">#6025</a> - SyntaxError (Rational (174532925199432957/1E+19) out of range)</li>
+<li><a href="https://github.com/jruby/jruby/pull/6024">#6024</a> - Add filesystem and internal encoding names</li>
+<li><a href="https://github.com/jruby/jruby/pull/6021">#6021</a> - Fix Enumerator fiber leaks</li>
+<li><a href="https://github.com/jruby/jruby/issues/6017">#6017</a> - Refinements in eval with binding</li>
+<li><a href="https://github.com/jruby/jruby/pull/6016">#6016</a> - Remove array expansion of JAVA_OPTS environment variable</li>
+<li><a href="https://github.com/jruby/jruby/issues/6015">#6015</a> - early block return retains $! filling cause for next error</li>
+<li><a href="https://github.com/jruby/jruby/pull/6014">#6014</a> - correct/revisit exception backtrace (and stack-trace)</li>
+<li><a href="https://github.com/jruby/jruby/pull/6007">#6007</a> - Bash cleanup</li>
+<li><a href="https://github.com/jruby/jruby/pull/6005">#6005</a> - Reduce block overhead</li>
+<li><a href="https://github.com/jruby/jruby/issues/6002">#6002</a> - (refinements?) Something is passing nullblock instead of the actual block in GraphQL</li>
+<li><a href="https://github.com/jruby/jruby/pull/6000">#6000</a> - Do not alias a Java IsEqual to equal?</li>
+<li><a href="https://github.com/jruby/jruby/pull/5999">#5999</a> - ensure javase version in osgi meta is 8 and not 9</li>
+<li><a href="https://github.com/jruby/jruby/pull/5998">#5998</a> - update maven-bundle-plugin and bndlib to latest</li>
+<li><a href="https://github.com/jruby/jruby/issues/5997">#5997</a> - Stack overflow due to RubyGems warn patch</li>
+<li><a href="https://github.com/jruby/jruby/pull/5996">#5996</a> - Update RubyGems to 3.0.6.</li>
+<li><a href="https://github.com/jruby/jruby/issues/5995">#5995</a> - Update RubyGems</li>
+<li><a href="https://github.com/jruby/jruby/pull/5992">#5992</a> - Make many fields on Ruby final.</li>
+<li><a href="https://github.com/jruby/jruby/issues/5991">#5991</a> - Invalid OSGi metadata</li>
+<li><a href="https://github.com/jruby/jruby/issues/5990">#5990</a> - The .equal? method should not be mapped to .isEqual for Java objects (e.g. Joda LocalDate)</li>
+<li><a href="https://github.com/jruby/jruby/issues/5988">#5988</a> - java.lang.module.ResolutionException</li>
+<li><a href="https://github.com/jruby/jruby/pull/5985">#5985</a> - fix strict_base64 for shared strings</li>
+<li><a href="https://github.com/jruby/jruby/pull/5984">#5984</a> - Bind only public interface methods for private classes</li>
+<li><a href="https://github.com/jruby/jruby/issues/5981">#5981</a> - Nailgun Error - org.jruby.util.NailMain: command not found</li>
+<li><a href="https://github.com/jruby/jruby/issues/5979">#5979</a> - Maven source artifact contains full build path</li>
+<li><a href="https://github.com/jruby/jruby/pull/5978">#5978</a> - Cache method_missing target</li>
+<li><a href="https://github.com/jruby/jruby/pull/5977">#5977</a> - fix 'jruby: line 88: cd: ../libexec/bin: No such file …'</li>
+<li><a href="https://github.com/jruby/jruby/issues/5976">#5976</a> - Incorrect warning line</li>
+<li><a href="https://github.com/jruby/jruby/pull/5972">#5972</a> - optimize isGregorianLeap</li>
+<li><a href="https://github.com/jruby/jruby/pull/5970">#5970</a> - expand #succ for bignums</li>
+<li><a href="https://github.com/jruby/jruby/issues/5969">#5969</a> - Mutliple issues on jdk11 after ugrading to jRuby 9.2.9.0</li>
+<li><a href="https://github.com/jruby/jruby/issues/5968">#5968</a> - Enumerator#any? is wrong for sequence of empty arrays</li>
+<li><a href="https://github.com/jruby/jruby/pull/5966">#5966</a> - Remove usages of deprecated ConfigMap</li>
+<li><a href="https://github.com/jruby/jruby/issues/5965">#5965</a> - isGregorianLeap in RubyDate.java - two suggestions for minor changes</li>
+<li><a href="https://github.com/jruby/jruby/pull/5963">#5963</a> - improve BUILDING.md</li>
+<li><a href="https://github.com/jruby/jruby/pull/5961">#5961</a> - Faster unpackm0</li>
+<li><a href="https://github.com/jruby/jruby/pull/5960">#5960</a> - fiddle fixes</li>
+<li><a href="https://github.com/jruby/jruby/pull/5959">#5959</a> - Tweak getCurrentContext for SPEED</li>
+<li><a href="https://github.com/jruby/jruby/pull/5958">#5958</a> - Propagate ThreadContext through to_a implementations</li>
+<li><a href="https://github.com/jruby/jruby/issues/5956">#5956</a> - dlload throws LoadError instead of Fiddle::DLError</li>
+<li><a href="https://github.com/jruby/jruby/issues/5955">#5955</a> - NameError: uninitialized constant Fiddle::CParser::TYPE_SIZE_T</li>
+<li><a href="https://github.com/jruby/jruby/pull/5953">#5953</a> - Fix Array.pack with @ directive and buffer #4727</li>
+<li><a href="https://github.com/jruby/jruby/pull/5952">#5952</a> - Use string index in String #sub/#gsub when String pattern passed without creating a Regexp</li>
+<li><a href="https://github.com/jruby/jruby/issues/5945">#5945</a> - Refinements are not activated in send</li>
+<li><a href="https://github.com/jruby/jruby/pull/5907">#5907</a> - Properly override base env with supplied values for spawn</li>
+<li><a href="https://github.com/jruby/jruby/issues/5905">#5905</a> - String#gsub given a String can avoid Regexp</li>
+<li><a href="https://github.com/jruby/jruby/issues/5894">#5894</a> - Can't call methods of private subclasses in a module</li>
+<li><a href="https://github.com/jruby/jruby/issues/5656">#5656</a> - Multicast Receive Broken On Windows 10</li>
+<li><a href="https://github.com/jruby/jruby/issues/4727">#4727</a> - Array#pack buffer should start from beginning of buffer?</li>
+<li><a href="https://github.com/jruby/jruby/issues/3428">#3428</a> - Process.spawn doesn't remove nil env variables</li>
+<li><a href="https://github.com/jruby/jruby/issues/2255">#2255</a> - Fixnum instance variable behaviour incorrect</li>
+<li><a href="https://github.com/jruby/jruby/issues/2096">#2096</a> - filesystem and internal encodings are missing from Encoding.name_list</li>
+</ul>
