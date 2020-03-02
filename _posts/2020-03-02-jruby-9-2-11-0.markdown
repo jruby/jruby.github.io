@@ -1,0 +1,35 @@
+---
+layout: post
+title: JRuby 9.2.11.0 Released
+---
+The JRuby community is pleased to announce the release of JRuby 9.2.11.0
+
+- Homepage: [http://www.jruby.org/](http://www.jruby.org/)
+- Download: [http://www.jruby.org/download](http://www.jruby.org/download)
+
+JRuby 9.2.x is compatible with Ruby 2.5.x and stays in sync with C Ruby.  As always there is a mix of miscellaneous fixes so be sure to read the issue list below.  All users are encouraged to upgrade.
+
+Java Integration
+----------------
+
+* Gems and gem paths packaged inside jar files will properly load now. This 9.2.10.0 regression was caused by a change in RubyGems 3 that exposed a bug in JRuby. ([#6082](https://github.com/jruby/jruby/issues/6082), [#6083](https://github.com/jruby/jruby/issues/))
+
+Performance Improvements
+------------------------
+
+* Fixed a major performance and memory bottleneck in backtrace generation, used by `Kernel#caller` and friends. This was a regression in 9.2.10.0. ([#6089](https://github.com/jruby/jruby/issues/6089))
+
+### Github Issues resolved for 9.2.11.0
+
+<ul>
+<li><a href="https://github.com/jruby/jruby/pull/6097">#6097</a> - CGI.escapeHTML restore the original encoding</li>
+<li><a href="https://github.com/jruby/jruby/issues/6093">#6093</a> - CGI.escapeHTML crashes on invalid byte sequence where CRuby does not</li>
+<li><a href="https://github.com/jruby/jruby/pull/6091">#6091</a> - Check arity earlier in JavaConstructor#new_instance</li>
+<li><a href="https://github.com/jruby/jruby/issues/6090">#6090</a> - [9.2.10.0] bogus revision regression</li>
+<li><a href="https://github.com/jruby/jruby/issues/6089">#6089</a> - Pontential performance issue</li>
+<li><a href="https://github.com/jruby/jruby/pull/6084">#6084</a> - Use expand_path logic for Dir.glob base path</li>
+<li><a href="https://github.com/jruby/jruby/issues/6083">#6083</a> - Basic smoke test with warbler no longer works with jruby-jars-9.2.10</li>
+<li><a href="https://github.com/jruby/jruby/issues/6082">#6082</a> - Upgrade to 9.2.10.0 breaks project using asciidoctor-maven-plugin</li>
+<li><a href="https://github.com/jruby/jruby/issues/6081">#6081</a> - Dependency convergence errors in 9.2.10.0</li>
+<li><a href="https://github.com/jruby/jruby/issues/6079">#6079</a> - newInstance on protected/private classes sometimes give an Index OOB Exception</li>
+</ul>
