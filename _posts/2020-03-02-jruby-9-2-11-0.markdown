@@ -12,7 +12,7 @@ JRuby 9.2.x is compatible with Ruby 2.5.x and stays in sync with C Ruby.  As alw
 Java Integration
 ----------------
 
-* Gems and gem paths packaged inside jar files will properly load now. This 9.2.10.0 regression was caused by a change in RubyGems 3 that exposed a bug in JRuby. ([#6082](https://github.com/jruby/jruby/issues/6082), [#6083](https://github.com/jruby/jruby/issues/))
+* Gems and gem paths packaged inside jar files will properly load now. This 9.2.10.0 regression was caused by a change in RubyGems 3 that exposed a bug in JRuby. ([#6060](https://github.com/jruby/jruby/issues/6060), [#6082](https://github.com/jruby/jruby/issues/6082), [#6083](https://github.com/jruby/jruby/issues/6083), [#6084](https://github.com/jruby/jruby/pull/6084))
 
 Performance Improvements
 ------------------------
@@ -32,4 +32,5 @@ Performance Improvements
 <li><a href="https://github.com/jruby/jruby/issues/6082">#6082</a> - Upgrade to 9.2.10.0 breaks project using asciidoctor-maven-plugin</li>
 <li><a href="https://github.com/jruby/jruby/issues/6081">#6081</a> - Dependency convergence errors in 9.2.10.0</li>
 <li><a href="https://github.com/jruby/jruby/issues/6079">#6079</a> - newInstance on protected/private classes sometimes give an Index OOB Exception</li>
+<li><a href="https://github.com/jruby/jruby/issues/6060">#6060</a> - Globbed jar contents with expand path failing in RubyGems</li>
 </ul>
