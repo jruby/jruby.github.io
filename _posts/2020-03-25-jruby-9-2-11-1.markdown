@@ -1,0 +1,35 @@
+---
+layout: post
+title: JRuby 9.2.11.1 Released
+---
+The JRuby community is pleased to announce the release of JRuby 9.2.11.1
+
+- Homepage: [http://www.jruby.org/](http://www.jruby.org/)
+- Download: [http://www.jruby.org/download](http://www.jruby.org/download)
+
+JRuby 9.2.x is compatible with Ruby 2.5.x and stays in sync with C Ruby.  As always there is a mix of miscellaneous fixes so be sure to read the issue list below.  All users are encouraged to upgrade.
+
+As we are actively working on 9.3.0.0 we decided to put out a mini release which fixes a single issue.
+
+* sprintf substring string formatting with precision may expose characters ([#6137](https://github.com/jruby/jruby/issues/6137))
+
+If you format a string using a precision specifier (e.g. %.1s) AND you pass in a substring of a larger string, you may see some of the larger string's characters in the formatted result.  This is due to a bug in the handling of internal String data that causes the result to contain more characters than requested.
+
+```ruby
+long_string = "aabbccddhelloddccbbaa"
+start_index = 8
+sub_str_length = 5
+precision = 3
+sub_string = long_string[start_index, sub_str_length]
+puts sprintf("%.#{precision}s", sub_string)
+# => helloddccbb
+```
+
+This bug could potentially expose sensitive content from the original String. It is unlikely to affect most users, but you are still encouraged to upgrade.
+
+### Github Issues resolved for 9.2.11.1
+
+<ul>
+<li><a href="https://github.com/jruby/jruby/pull/6138">#6138</a> - Subtract begin offset for partial substring in sprintf 's'</li>
+<li><a href="https://github.com/jruby/jruby/issues/6137">#6137</a> - `sprintf` adds extra buffer slots when precision arg truncates string slices</li>
+</ul>
