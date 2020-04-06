@@ -4,7 +4,13 @@ title: JRuby Nightly Builds
 ---
 # JRuby Nightly Builds
 
-We publish snapshots of our development branches after every successful CI run.
+The most recent successful snapshot gets released on Github nightly.
+
+[**Latest nightly builds**](https://github.com/ruby/jruby-dev-builder/releases/latest)
+
+# JRuby Snapshot Builds
+
+We also publish snapshots of our development branches after every successful CI run.
 
 [**JRuby dist**](https://oss.sonatype.org/content/repositories/snapshots/org/jruby/jruby-dist/): The installable distribution of JRuby is in the `jruby-bin` files. Unpack it, run `bin/jruby` and you're all set.
 
