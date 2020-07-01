@@ -1,0 +1,76 @@
+---
+layout: post
+title: JRuby 9.2.12.0 Released
+---
+The JRuby community is pleased to announce the release of JRuby 9.2.12.0
+
+- Homepage: [http://www.jruby.org/](http://www.jruby.org/)
+- Download: [http://www.jruby.org/download](http://www.jruby.org/download)
+
+JRuby 9.2.x is compatible with Ruby 2.5.x and stays in sync with C Ruby.  As always there is a mix of miscellaneous fixes so be sure to read the issue list below.  All users are encouraged to upgrade.
+
+As we are still actively working on 9.3.0.0 we decided to put out another 9.2.x release to fix some of the more recently reported issues.
+
+Java Integration
+----------------
+
+* The last remaining triggers of the "Illegal access" warnings and errors in JRuby core have been fixed.
+  JRuby will avoid accessing Java modules and packages that have not been exported or opened.
+  ([#6195](https://github.com/jruby/jruby/pull/6195), [#6287](https://github.com/jruby/jruby/issues/6287), [#6298](https://github.com/jruby/jruby/pull/6298), [#6299](https://github.com/jruby/jruby/issues/6299))
+* A new option is added to work around the [OpenJDK URLClassLoader concurrency bug](https://bugs.openjdk.java.net/browse/JDK-8246714) we recently reported.
+  Set Java property `jruby.ji.close.classloader` to `false` when embedding JRuby in a JVM application to avoid "zip file closed" errors.
+  This will be the default setting in JRuby 9.3. ([#6218](https://github.com/jruby/jruby/issues/6218), [#6307](https://github.com/jruby/jruby/pull/6307))
+* Support for calling Kotlin has improved, avoiding warniings for companion objects.
+  This also avoids a warning when accessing Java code where a static final field is named the same as an inner class.
+  ([#6196](https://github.com/jruby/jruby/issues/6196), [#6289](https://github.com/jruby/jruby/pull/6289))
+
+Concurrency
+-----------
+
+* An issue affecting concurrent generation of Java interface implementations has been fixed.
+  ([#6160](https://github.com/jruby/jruby/issues/6160), [#6167](https://github.com/jruby/jruby/pull/6167))
+* Internal optimization of Ruby code has been improved to avoid concurrency issues.
+  ([6210](https://github.com/jruby/jruby/issues/6210), [#6230](https://github.com/jruby/jruby/issues/6230), [#6275](https://github.com/jruby/jruby/pull/6275), [6282](https://github.com/jruby/jruby/issues/6282), [#6288](https://github.com/jruby/jruby/pull/6288))
+
+Security
+--------
+
+A few minor security issues have been fixed. We do not consider them high risk, but we recommend users update. ([#6304](https://github.com/jruby/jruby/issues/6304))
+
+* Numeric objects now use a per-runtime random seed to generate hash values (CVE-2011-4815).
+  The existing JRuby property `jruby.consistent.hashing` can be set to `true` to restore predictable hash values, as for other core types.
+  ([6305](https://github.com/jruby/jruby/pull/6305))
+* String#unpack raised the wrong error for invalid input related to CVE-2018-8778. There was no security issue.
+  ([#6306](https://github.com/jruby/jruby/pull/6306))
+* The WEBrick HTTP server provided in the Ruby standard library has been updated to 1.6.0, to address two issues with
+  response-splitting and header injection (CVE-2017-17742 and CVE-2019-16254). This server is not typically used in
+  production, so the exposure is limited. ([#6308](https://github.com/jruby/jruby/pull/6308))
+  
+### 24 Github Issues resolved for 9.2.12.0
+
+<ul>
+<li><a href="https://github.com/jruby/jruby/pull/6308">#6308</a> - Update WEBrick to 1.6.0</li>
+<li><a href="https://github.com/jruby/jruby/pull/6307">#6307</a> - Only close temporary jars to avoid poisoning global jar file cache</li>
+<li><a href="https://github.com/jruby/jruby/pull/6306">#6306</a> - Raise RangeError for out of bounds unpack_at</li>
+<li><a href="https://github.com/jruby/jruby/pull/6305">#6305</a> - Mimic CRuby's numeric hashing</li>
+<li><a href="https://github.com/jruby/jruby/issues/6304">#6304</a> - Align behavior with CRuby for security specs</li>
+<li><a href="https://github.com/jruby/jruby/issues/6299">#6299</a> - Reflective access on Java 11</li>
+<li><a href="https://github.com/jruby/jruby/pull/6298">#6298</a> - Do not bind methods from classes that are not exported</li>
+<li><a href="https://github.com/jruby/jruby/pull/6289">#6289</a> - Only define static field constant when inner class collides</li>
+<li><a href="https://github.com/jruby/jruby/pull/6288">#6288</a> - Always treat non-full IC as not having protocol</li>
+<li><a href="https://github.com/jruby/jruby/issues/6287">#6287</a> - com.sun.javafx.collections not exported in javafx.base</li>
+<li><a href="https://github.com/jruby/jruby/pull/6285">#6285</a> - Backport 9.3 fixes for 9.2.12</li>
+<li><a href="https://github.com/jruby/jruby/issues/6282">#6282</a> - NPE in ruby block called concurrently from Java</li>
+<li><a href="https://github.com/jruby/jruby/pull/6275">#6275</a> - Do lazy instruction deserialization against dup'ed reader</li>
+<li><a href="https://github.com/jruby/jruby/pull/6256">#6256</a> - Raise proper error for missing URLResource target</li>
+<li><a href="https://github.com/jruby/jruby/issues/6230">#6230</a> - CompiledScript throws weird exception that doesn't happen with Invocable</li>
+<li><a href="https://github.com/jruby/jruby/issues/6219">#6219</a> - JRuby thrown NullPointerException on File.open of nonexistent uri</li>
+<li><a href="https://github.com/jruby/jruby/issues/6218">#6218</a> - Errors running multiple independent ScriptingContainers in parallel</li>
+<li><a href="https://github.com/jruby/jruby/issues/6210">#6210</a> - Multithreaded code with function calls fail in precompiled JRuby classes</li>
+<li><a href="https://github.com/jruby/jruby/issues/6196">#6196</a> - "warning: already initialized constant Companion" with Kotlin companion objects</li>
+<li><a href="https://github.com/jruby/jruby/pull/6195">#6195</a> - Use all the tricks to properly eliminate illegal access warnings</li>
+<li><a href="https://github.com/jruby/jruby/pull/6167">#6167</a> - [fix][ji] handle concurrent proxy iface impl init</li>
+<li><a href="https://github.com/jruby/jruby/issues/6160">#6160</a> - interface proxy generation is race-y</li>
+<li><a href="https://github.com/jruby/jruby/pull/6112">#6112</a> - [fix] Enumerable#any? does not require an arg</li>
+<li><a href="https://github.com/jruby/jruby/issues/5968">#5968</a> - Enumerator#any? is wrong for sequence of empty arrays</li>
+</ul>
