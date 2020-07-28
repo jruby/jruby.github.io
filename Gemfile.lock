@@ -344,7 +344,7 @@ GEM
       gemoji (~> 3.0)
       html-pipeline (~> 2.2)
       jekyll (>= 3.0)
-    json (2.1.0)
+    json (2.3.1)
     jwt (1.5.6)
     kramdown (1.14.0)
     libv8 (3.16.14.19)
