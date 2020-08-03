@@ -232,15 +232,13 @@ GEM
       octokit (~> 4.0)
       public_suffix (~> 2.0)
       typhoeus (~> 0.7)
-    github_api (0.11.3)
-      addressable (~> 2.3)
-      descendants_tracker (~> 0.0.1)
-      faraday (~> 0.8, < 0.10)
-      hashie (>= 1.2)
-      multi_json (>= 1.7.5, < 2.0)
-      nokogiri (~> 1.6.0)
-      oauth2
-    hashie (3.5.6)
+    github_api (0.19.0)
+      addressable (~> 2.4)
+      descendants_tracker (~> 0.0.4)
+      faraday (>= 0.8, < 2)
+      hashie (~> 3.5, >= 3.5.2)
+      oauth2 (~> 1.0)
+    hashie (3.6.0)
     html-pipeline (2.7.1)
       activesupport (>= 2)
       nokogiri (>= 1.4)
@@ -345,7 +343,7 @@ GEM
       html-pipeline (~> 2.2)
       jekyll (>= 3.0)
     json (2.3.1)
-    jwt (1.5.6)
+    jwt (2.2.1)
     kramdown (1.14.0)
     libv8 (3.16.14.19)
     liquid (4.0.0)
@@ -367,9 +365,9 @@ GEM
     netrc (0.11.0)
     nokogiri (1.6.8.1)
       mini_portile2 (~> 2.1.0)
-    oauth2 (1.4.0)
-      faraday (>= 0.8, < 0.13)
-      jwt (~> 1.0)
+    oauth2 (1.4.4)
+      faraday (>= 0.8, < 2.0)
+      jwt (>= 1.0, < 3.0)
       multi_json (~> 1.3)
       multi_xml (~> 0.5)
       rack (>= 1.2, < 3)
@@ -378,7 +376,7 @@ GEM
     pathutil (0.16.2)
       forwardable-extended (~> 2.6)
     public_suffix (2.0.5)
-    rack (2.0.8)
+    rack (2.2.3)
     rake (12.3.3)
     rb-fsevent (0.10.3)
     rb-inotify (0.10.0)
@@ -430,10 +428,10 @@ DEPENDENCIES
   directory_watcher (~> 1.4.1)
   fog
   github-pages
-  github_api (= 0.11.3)
+  github_api (~> 0.19.0)
   rake
   rouge
   therubyracer
 
 BUNDLED WITH
-   1.17.2
+   1.17.3

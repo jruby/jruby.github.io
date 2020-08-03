@@ -3,6 +3,7 @@ require 'github_api'
 def github_milestone_for(issues, user, repo, title)
   ['open', 'closed'].each do |state|
     issues.milestones.list(user, repo, state: state) do |milestone|
+      $stderr.puts "M: #{milestone.title}"
       return milestone.number if milestone.title == title
     end
   end
@@ -13,10 +14,11 @@ end
 # return a list of closed issues in a tuple-format: [github_id, title, url]
 # 
 def github_closed_issues(user, repo, milestone)
-  issues = Github::Issues.new(user: user, repo: repo)
+  issues = Github::Client::Issues.new(user: user, repo: repo)
   mid = github_milestone_for(issues, user, repo, milestone)
 
   return nil if mid == -1
+#  mid = '*' unless mid
 
   options = { user: user, repo: repo, milestone: mid.to_s, state: 'closed', per_page: 100 }
 

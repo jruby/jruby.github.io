@@ -1,0 +1,62 @@
+---
+layout: post
+title: JRuby 9.2.13.0 Released
+---
+The JRuby community is pleased to announce the release of JRuby 9.2.13.0
+
+- Homepage: [http://www.jruby.org/](http://www.jruby.org/)
+- Download: [http://www.jruby.org/download](http://www.jruby.org/download)
+
+JRuby 9.2.x is compatible with Ruby 2.5.x and stays in sync with C Ruby.  As always there is a mix of miscellaneous fixes so be sure to read the issue list below.  All users are encouraged to upgrade.
+
+As we are still actively working on 9.3.0.0 we decided to put out another 9.2.x release to fix some of the more recently reported issues.
+
+Security
+--------
+
+* An alias-expansion bug reported in [CVE-2017-18640](https://nvd.nist.gov/vuln/detail/CVE-2017-18640) has been patched
+  by upgrading the Psych YAML library to use a newer version of SnakeYAML. ([#6320](https://github.com/jruby/jruby/issues/6320),
+  [#6332](https://github.com/jruby/jruby/pull/6332), [ruby/psych#457](https://github.com/ruby/psych/pull/457))
+
+Concurrency
+-----------
+
+* Internal structures used to optimize Ruby code have been made more thread-safe. Previously, these optimizations could
+  be seen across threads in a partially-complete state, leading to errors in JRuby's core runtime.
+  ([#6319](https://github.com/jruby/jruby/issues/6319), [#6323](https://github.com/jruby/jruby/pull/6323),
+  [#6337](https://github.com/jruby/jruby/issues/6337))
+
+Ruby Compatibility
+------------------
+
+* IO.copy_stream has been fixed to ensure all read bytes are written. Previously, partial writes would leave some
+  read bytes in limbo, leading to hangs in net/http among other libraries.
+  ([#6078](https://github.com/jruby/jruby/issues/6078), [#6348](https://github.com/jruby/jruby/issues/6348))
+* Fixed a regression from 9.2.12.0 in how we translate JDK socket errors to Ruby's Errno on Windows.
+  ([#6322](https://github.com/jruby/jruby/issues/6322), [#6328](https://github.com/jruby/jruby/pull/6328))
+  
+FFI
+---
+
+* FFI has been patched to not automatically release memory pointers when autorelease is disabled. This caused crashes
+  in the sassc native library and possibly others. ([#6310](https://github.com/jruby/jruby/issues/6310),
+  [#6331](https://github.com/jruby/jruby/pull/6331))
+  
+- 12 issues fixed for 9.2.13.0
+
+### Github Issues resolved for 9.2.13.0
+
+<ul>
+<li><a href="https://github.com/jruby/jruby/pull/6348">#6348</a> - [fix][backport] Ensure copy_stream write sends all bytes read</li>
+<li><a href="https://github.com/jruby/jruby/issues/6337">#6337</a> - JRuby 9.2.12.0 OpenJDK11 java.lang.ArrayIndexOutOfBoundsException from JRuby Runtime</li>
+<li><a href="https://github.com/jruby/jruby/pull/6332">#6332</a> - Update Psych to 3.2.0</li>
+<li><a href="https://github.com/jruby/jruby/pull/6331">#6331</a> - Allow false autorelease to set unmanaged = true</li>
+<li><a href="https://github.com/jruby/jruby/pull/6328">#6328</a> - Fall back on old regexp BindException mapping</li>
+<li><a href="https://github.com/jruby/jruby/pull/6323">#6323</a> - Eliminate concurrent modification of runtime-sensitive IR state</li>
+<li><a href="https://github.com/jruby/jruby/issues/6322">#6322</a> - Windows raising different exception since 9.2.12.0</li>
+<li><a href="https://github.com/jruby/jruby/issues/6320">#6320</a> - Update snakeyaml to version 1.26 or higher CVE-2017-18640</li>
+<li><a href="https://github.com/jruby/jruby/issues/6319">#6319</a> - org.jruby.runtime.scopes.DynamicScope6 only supports scopes with 6 variables on JRuby 9.2.12.0/OpenJDK8</li>
+<li><a href="https://github.com/jruby/jruby/issues/6310">#6310</a> - Rails: After migration from ruby to jruby, app is not booting</li>
+<li><a href="https://github.com/jruby/jruby/issues/6284">#6284</a> - FFI::MemoryPointer autorelease issue</li>
+<li><a href="https://github.com/jruby/jruby/issues/6078">#6078</a> - net/http hangs (timeouts) since 9.2.7.0</li>
+</ul>
