@@ -1,0 +1,78 @@
+---
+layout: post
+title: JRuby 9.2.15.0 Released
+---
+The JRuby community is pleased to announce the release of JRuby 9.2.15.0
+
+- Homepage: [http://www.jruby.org/](http://www.jruby.org/)
+- Download: [http://www.jruby.org/download](http://www.jruby.org/download)
+
+JRuby 9.2.x is compatible with Ruby 2.5.x and stays in sync with C Ruby.  As always there is a mix of miscellaneous fixes so be sure to read the issue list below.  All users are encouraged to upgrade.
+
+As we are still actively working on 9.3.0.0 we decided to put out another 9.2.x release to fix some of the more recently reported issues.
+
+
+Compatibility
+-------------
+
+* Several issues were fixed in process management, to avoid raising unexpected errors, properly launch executables on Windows, and preserve quoting when also doing a chdir. ([#6466](https://github.com/jruby/jruby/issues/6551), [#6477](https://github.com/jruby/jruby/issues/6477), [#6489](https://github.com/jruby/jruby/issues/6489), [#6516](https://github.com/jruby/jruby/issues/6516), [#6532](https://github.com/jruby/jruby/issues/6532), [#6536](https://github.com/jruby/jruby/issues/6536), [#6546](https://github.com/jruby/jruby/issues/6546), [#6565](https://github.com/jruby/jruby/issues/6565), [#6568](https://github.com/jruby/jruby/issues/6568))
+* Error and interrupt handling inside fibers has been improved to avoid leaking fibers and enumerators. ([#6309](https://github.com/jruby/jruby/issues/6309), [#6538](https://github.com/jruby/jruby/issues/6538))
+* An incompatibility between the Synchronized module and refinements caused the i18n gem's deep_merge refinement to break method lookup and prevent Rails apps from starting up. ([#6547](https://github.com/jruby/jruby/issues/6547), [#6549](https://github.com/jruby/jruby/issues/6549))
+* IO.copy_stream attempted to write the same content twice when copying to an IO-like object that did not report having written all requested bytes. ([#6555](https://github.com/jruby/jruby/issues/6555), [#6557](https://github.com/jruby/jruby/issues/6557))
+* Bare super calls (aka "zsuper") gathered arguments incorrectly to support define_method, which broke dynamic finders in recent Rails versions. ([#6563](https://github.com/jruby/jruby/issues/6563), [#6571](https://github.com/jruby/jruby/issues/6571)) 
+
+Standard Library
+----------------
+
+* The racc library was updated to 1.5.2 ([#6507](https://github.com/jruby/jruby/issues/6507), [#6517](https://github.com/jruby/jruby/issues/6517), [#6537](https://github.com/jruby/jruby/issues/6537))
+* Failed UNIX socket connects were leaking an open file descriptor. ([#6529](https://github.com/jruby/jruby/issues/6529), [#6531](https://github.com/jruby/jruby/issues/6531))
+
+Performance
+-----------
+
+* A bug in setting up block yields using invokedynamic led to excessively deep call stacks and slow execution. ([#6260](https://github.com/jruby/jruby/issues/6260))
+
+Github Issues resolved for 9.2.15.0
+-----------------------------------
+
+<ul>
+<li><a href="https://github.com/jruby/jruby/issues/3205">#3205</a> - Dir.foreach, Dir.new, Dir.open: Missing/incompatible encoding support.</li>
+<li><a href="https://github.com/jruby/jruby/issues/6260">#6260</a> - Stack Overflow with invokedynamic.yield turned on</li>
+<li><a href="https://github.com/jruby/jruby/issues/6309">#6309</a> - Enumerator.peek not working with Enumerators created with #to_enum over ActiveRecord Relations</li>
+<li><a href="https://github.com/jruby/jruby/issues/6338">#6338</a> - JSON.pretty_generate generates different output to MRI for at least an empty hash</li>
+<li><a href="https://github.com/jruby/jruby/issues/6466">#6466</a> - java.lang.ArrayIndexOutOfBoundsException in 9.2.13.0</li>
+<li><a href="https://github.com/jruby/jruby/issues/6477">#6477</a> - EAGAIN: waitpid on JDK11</li>
+<li><a href="https://github.com/jruby/jruby/pull/6489">#6489</a> - Check the retval of waitpid before errno</li>
+<li><a href="https://github.com/jruby/jruby/issues/6491">#6491</a> - Undefine rlimit features when unsupported</li>
+<li><a href="https://github.com/jruby/jruby/pull/6492">#6492</a> - Disable rlimit features on Windows</li>
+<li><a href="https://github.com/jruby/jruby/issues/6499">#6499</a> - Array shuffle method should fail if prng is passed without being a named argument</li>
+<li><a href="https://github.com/jruby/jruby/pull/6500">#6500</a> - Fix Array shuffle and sample arity checking</li>
+<li><a href="https://github.com/jruby/jruby/issues/6507">#6507</a> - Unhandled Java exception: org.jruby.RubyContinuation$Continuation</li>
+<li><a href="https://github.com/jruby/jruby/issues/6516">#6516</a> - When extension is omitted, IO.popen does not find the executable in JRuby on Windows</li>
+<li><a href="https://github.com/jruby/jruby/pull/6517">#6517</a> - Install racc 1.5.2 from the gem</li>
+<li><a href="https://github.com/jruby/jruby/issues/6526">#6526</a> - Monitor synchronization issue in JRuby 9.2.14.0</li>
+<li><a href="https://github.com/jruby/jruby/pull/6527">#6527</a> - Fix interrupt handling in synchronize</li>
+<li><a href="https://github.com/jruby/jruby/issues/6528">#6528</a> - `Encoding.default_external = 'ASCII'` with `StringIO#string` results are different from MRI</li>
+<li><a href="https://github.com/jruby/jruby/issues/6529">#6529</a> - FD leak with orphan Unix Socket</li>
+<li><a href="https://github.com/jruby/jruby/pull/6530">#6530</a> - Backport StringIO encoding fix</li>
+<li><a href="https://github.com/jruby/jruby/pull/6531">#6531</a> - Close socket when bind or connect fails</li>
+<li><a href="https://github.com/jruby/jruby/pull/6532">#6532</a> - Improvements for popen process launch in Windows</li>
+<li><a href="https://github.com/jruby/jruby/pull/6536">#6536</a> - [test] spawn+detach raising (previous) posix error</li>
+<li><a href="https://github.com/jruby/jruby/pull/6537">#6537</a> - Revert racc default gem and copy manually</li>
+<li><a href="https://github.com/jruby/jruby/pull/6538">#6538</a> - Rework raise interrupt handling at fiber edges</li>
+<li><a href="https://github.com/jruby/jruby/issues/6540">#6540</a> - Cruby/Jruby behavior difference with block keyword arguments</li>
+<li><a href="https://github.com/jruby/jruby/pull/6546">#6546</a> - Handle errors in Process.detach properly</li>
+<li><a href="https://github.com/jruby/jruby/issues/6547">#6547</a> - NoMethodError for Concurrent::Hash#deep_merge!</li>
+<li><a href="https://github.com/jruby/jruby/issues/6548">#6548</a> - Ripper comparison operators</li>
+<li><a href="https://github.com/jruby/jruby/pull/6549">#6549</a> - Make sync and profiling method wrapper logic work with refinements</li>
+<li><a href="https://github.com/jruby/jruby/issues/6550">#6550</a> - Incorrect implementation of org.jruby.embed.variable.VariableInterceptor#terminateLocalVariables</li>
+<li><a href="https://github.com/jruby/jruby/pull/6551">#6551</a> - Dir file walking encoding improvements</li>
+<li><a href="https://github.com/jruby/jruby/pull/6553">#6553</a> - getResource() should never be called with a starting slash when called on a classloader</li>
+<li><a href="https://github.com/jruby/jruby/issues/6555">#6555</a> - IO.copy_stream double-writes to InternetMessageIO</li>
+<li><a href="https://github.com/jruby/jruby/pull/6557">#6557</a> - IO.copy_stream fixes</li>
+<li><a href="https://github.com/jruby/jruby/issues/6563">#6563</a> - Rails 6.1.2.x dynamic finders cause Java::JavaLang::ClassCastException</li>
+<li><a href="https://github.com/jruby/jruby/issues/6565">#6565</a> - Open3 chdir parameter removes quoting</li>
+<li><a href="https://github.com/jruby/jruby/pull/6568">#6568</a> - Backport spawn fixes to 9.2</li>
+<li><a href="https://github.com/jruby/jruby/pull/6571">#6571</a> - Fixes #6563. Rails 6.1.2.x dynamic finders cause Java::JavaLang::ClassCastException</li>
+<li><a href="https://github.com/jruby/jruby/pull/6574">#6574</a> - Fixes #6540. difference with block keyword arguments.</li>
+</ul>
