@@ -2,7 +2,9 @@ require 'github_api'
 
 def github_milestone_for(issues, user, repo, title)
   ['open', 'closed'].each do |state|
+    puts "Title: #{title}"
     issues.milestones.list(user, repo, state: state) do |milestone|
+      puts "MT: #{milestone.title}"
       return milestone.number if milestone.title == title
     end
   end

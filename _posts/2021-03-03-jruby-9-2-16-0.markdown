@@ -1,0 +1,37 @@
+---
+layout: post
+title: JRuby 9.2.16.0 Released
+---
+The JRuby community is pleased to announce the release of JRuby 9.2.16.0
+
+- Homepage: [http://www.jruby.org/](http://www.jruby.org/)
+- Download: [http://www.jruby.org/download](http://www.jruby.org/download)
+
+JRuby 9.2.x is compatible with Ruby 2.5.x and stays in sync with C Ruby.  As always there is a mix of miscellaneous fixes so be sure to read the issue list below.  All users are encouraged to upgrade.
+
+As we are still actively working on 9.3.0.0 we decided to put out another 9.2.x release to fix some of the more recently reported issues.
+
+
+Compatibility
+-------------
+
+* Fixed an issue in Kernel#system where subprocesses that daemonize would cause waitpid to hang. ([#6579](https://github.com/jruby/jruby/issues/6579), [#6582](https://github.com/jruby/jruby/pull/6582))
+
+Standard Library
+----------------
+
+* Elevated the racc library to a default gem, so it contains all racc sources and can be upgraded. ([#6416](https://github.com/jruby/jruby/issues/6416), [#6576](https://github.com/jruby/jruby/pull/6576), [#6581](https://github.com/jruby/jruby/issues/6581))
+* Added RubyGems configuration to preserve "env shebang" in the gem command when updating RubyGems. ([#6586](https://github.com/jruby/jruby/pull/6586))
+
+Github Issues resolved for 9.2.16.0
+-----------------------------------
+
+<ul>
+<li><a href="https://github.com/jruby/jruby/issues/6416">#6416</a> - `bundle exec racc` fails on jruby-head</li>
+<li><a href="https://github.com/jruby/jruby/pull/6576">#6576</a> - Unrevert racc gem</li>
+<li><a href="https://github.com/jruby/jruby/issues/6579">#6579</a> - Upgrade to 9.2.15.0 causes Kernel#system to hang. </li>
+<li><a href="https://github.com/jruby/jruby/issues/6581">#6581</a> - `LoadError: no such file to load -- racc/info` when using JRuby 9.2.15.0</li>
+<li><a href="https://github.com/jruby/jruby/pull/6582">#6582</a> - Remove process group to avoid hanging daemons</li>
+<li><a href="https://github.com/jruby/jruby/pull/6586">#6586</a> - Expand env-shebang to setup and pristine</li>
+<li><a href="https://github.com/jruby/jruby/pull/6587">#6587</a> - Call write directly rather than through stream</li>
+</ul>
