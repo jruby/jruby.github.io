@@ -1,0 +1,75 @@
+---
+layout: post
+title: JRuby 9.2.17.0 Released
+---
+The JRuby community is pleased to announce the release of JRuby 9.2.17.0
+
+- Homepage: [http://www.jruby.org/](http://www.jruby.org/)
+- Download: [http://www.jruby.org/download](http://www.jruby.org/download)
+
+JRuby 9.2.x is compatible with Ruby 2.5.x and stays in sync with C Ruby.  As always there is a mix of miscellaneous fixes so be sure to read the issue list below.  All users are encouraged to upgrade.
+
+As we are still actively working on 9.3.0.0 we decided to put out another 9.2.x release to fix some of the more recently reported issues.
+
+
+Compatibility
+-------------
+
+* Miscellaneous small fixes to better support using Sorbet on JRuby.
+  ([sorbet/sorbet#1216](https://github.com/sorbet/sorbet/issues/1216 "Add support for JRuby"),
+  [#6592](https://github.com/jruby/jruby/pull/6592 "Fixes to support Sorbet"))
+* Improve detection of Java module support when launching JRuby (also in [jruby-launcher 1.1.14](https://rubygems.org/gems/jruby-launcher/versions/1.1.14-java)).
+  ([#6608](https://github.com/jruby/jruby/issues/6608 "Java::JavaLang::NoClassDefFoundError (java/sql/Date)"),
+  [#6615](https://github.com/jruby/jruby/pull/6615 "Detect modules more robustly"),
+  [#6617](https://github.com/jruby/jruby/issues/6617 "Update Windows jruby.exe for module detection"))
+  
+
+Standard Library
+----------------
+
+* RubyGems updated to 3.1.6.
+  ([#6294](https://github.com/jruby/jruby/pull/6294 "[deps] update Rubygems to latest 3.1 (3.1.6)"))
+* Build improvements to ensure all parts of default and bundled gems ship in the distribution archives.
+  ([#6604](https://github.com/jruby/jruby/issues/6604 "racc default gem bits are not being included in the distribution"),
+  [#6609](https://github.com/jruby/jruby/pull/6609 "Properly install and package bundled and default gem bits"),
+  [#6618](https://github.com/jruby/jruby/issues/6618 "Include only bundled and default gems in stdlib jar"),
+  [#6619](https://github.com/jruby/jruby/pull/6619 "Only include gems in bundled or default"))
+* zlib fixed to properly handle extra data in stream after inflate finishes.
+  ([#6606](https://github.com/jruby/jruby/issues/6606 "zlib decompression produces wrong output"),
+  [#6612](https://github.com/jruby/jruby/pull/6612 "Return only inflated content from Zlib.inflate"))
+* Minor updates to align standard library with Ruby 2.5.8.
+  ([#6611](https://github.com/jruby/jruby/discussions/6611 "Is JRuby-9.2.16.0 compatible with Ruby-2.5.8?"),
+  [#6624](https://github.com/jruby/jruby/pull/6624 "Update 2.5.8 stdlib"))
+  
+Performance
+-----------
+
+* Small optimizations to the dig function.
+  ([#6632](https://github.com/jruby/jruby/pull/6632 "Dig improvements"))
+* Optimized calls to the top-level "java", "javax", "javafx", "org", and "com" packages.
+  ([#6635](https://github.com/jruby/jruby/pull/6635 "Cache package after acquisition"))
+
+
+Issues Resolved
+---------------
+
+<ul>
+<li><a href="https://github.com/jruby/jruby/pull/6294">#6294</a> - [deps] update Rubygems to latest 3.1 (3.1.6)</li>
+<li><a href="https://github.com/jruby/jruby/pull/6592">#6592</a> - Fixes to support Sorbet</li>
+<li><a href="https://github.com/jruby/jruby/issues/6604">#6604</a> - racc default gem bits are not being included in the distribution</li>
+<li><a href="https://github.com/jruby/jruby/issues/6605">#6605</a> - RubySet#newSet should be a static method instead of an instance method</li>
+<li><a href="https://github.com/jruby/jruby/issues/6606">#6606</a> - zlib decompression produces wrong output</li>
+<li><a href="https://github.com/jruby/jruby/issues/6608">#6608</a> - Java::JavaLang::NoClassDefFoundError (java/sql/Date)</li>
+<li><a href="https://github.com/jruby/jruby/pull/6609">#6609</a> - Properly install and package bundled and default gem bits</li>
+<li><a href="https://github.com/jruby/jruby/pull/6612">#6612</a> - Return only inflated content from Zlib.inflate</li>
+<li><a href="https://github.com/jruby/jruby/pull/6615">#6615</a> - Detect modules more robustly</li>
+<li><a href="https://github.com/jruby/jruby/issues/6617">#6617</a> - Update Windows jruby.exe for module detection</li>
+<li><a href="https://github.com/jruby/jruby/issues/6618">#6618</a> - Include only bundled and default gems in stdlib jar</li>
+<li><a href="https://github.com/jruby/jruby/pull/6619">#6619</a> - Only include gems in bundled or default</li>
+<li><a href="https://github.com/jruby/jruby/pull/6624">#6624</a> - Update 2.5.8 stdlib</li>
+<li><a href="https://github.com/jruby/jruby/issues/6627">#6627</a> - GPL-3.0 in the COPYING file</li>
+<li><a href="https://github.com/jruby/jruby/pull/6629">#6629</a> - Unbreak CachingCallSite.isBuiltin</li>
+<li><a href="https://github.com/jruby/jruby/pull/6632">#6632</a> - Dig improvements</li>
+<li><a href="https://github.com/jruby/jruby/pull/6635">#6635</a> - Cache package after acquisition</li>
+</ul>
+
