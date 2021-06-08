@@ -1,0 +1,83 @@
+---
+layout: post
+title: JRuby 9.2.18.0 Released
+---
+The JRuby community is pleased to announce the release of JRuby 9.2.18.0
+
+- Homepage: [http://www.jruby.org/](http://www.jruby.org/)
+- Download: [http://www.jruby.org/download](http://www.jruby.org/download)
+
+JRuby 9.2.x is compatible with Ruby 2.5.x and stays in sync with C Ruby.  As always there is a mix of miscellaneous fixes so be sure to read the issue list below.  All users are encouraged to upgrade.
+
+As we are still actively working on 9.3.0.0 we decided to put out another 9.2.x release to fix some of the more recently reported issues.
+
+Special thanks to our external contributors this release: [@ahorek](https://github.com/ahorek), [@xaptronic](https://github.com/xaptronic)
+
+Compatibility
+-------------
+
+* Improved support for subprocess launching on pure-Java environments (primarily Windows). ([#6654](https://github.com/jruby/jruby/issues/6654), [#6655](https://github.com/jruby/jruby/issues/6655), [#6678](https://github.com/jruby/jruby/issues/6678), [#6685](https://github.com/jruby/jruby/issues/6685))
+* Concurrency fixes for last match (`$~`) under concurrent access. Still somewhat unpredictable but behavior matches CRuby. ([#6640](https://github.com/jruby/jruby/issues/6640), [#6644](https://github.com/jruby/jruby/issues/6644), [#6647](https://github.com/jruby/jruby/issues/6647))
+
+Standard Library
+----------------
+
+* The socket library from master (JRuby 9.3) has been backported with all recent fixes, improving compatibility and feature coverage. ([#3883](https://github.com/jruby/jruby/issues/3883), [#5148](https://github.com/jruby/jruby/issues/5148), [#6126](https://github.com/jruby/jruby/issues/6126), [#6128](https://github.com/jruby/jruby/issues/6128), [#6156](https://github.com/jruby/jruby/issues/6156), [#6274](https://github.com/jruby/jruby/issues/6274), [#6366](https://github.com/jruby/jruby/issues/6366), [#6372](https://github.com/jruby/jruby/issues/6372), [#6384](https://github.com/jruby/jruby/issues/6384), [#6389](https://github.com/jruby/jruby/issues/6389), [#6399](https://github.com/jruby/jruby/issues/6399), [#6400](https://github.com/jruby/jruby/issues/6400), [#6541](https://github.com/jruby/jruby/issues/6541), [#6542](https://github.com/jruby/jruby/issues/6542), [#6595](https://github.com/jruby/jruby/issues/6595), [#6664](https://github.com/jruby/jruby/issues/6644))
+* Improved support for Open3 on Windows. [#6291](https://github.com/jruby/jruby/issues/6291), ([#6648](https://github.com/jruby/jruby/issues/), [#6649](https://github.com/jruby/jruby/issues/6649))
+
+Java Integration
+----------------
+
+* The bash script and native executable now detect Java module support more robustly. ([#6637](https://github.com/jruby/jruby/issues/6637), [#6638](https://github.com/jruby/jruby/issues/6638), [#6639](https://github.com/jruby/jruby/issues/6639), [#6689](https://github.com/jruby/jruby/issues/6689), [#6701](https://github.com/jruby/jruby/issues/6701))
+
+Native Integration
+------------------
+
+* Improved native support for exotic Linux platforms (mips64el, ppc64, s390x, aarch64). [#6674](https://github.com/jruby/jruby/issues/6674), [#6675](https://github.com/jruby/jruby/issues/6675), [#6705](https://github.com/jruby/jruby/issues/6705)
+
+- 40 issues fixed for 9.2.18.0
+
+### Github Issues resolved for 9.2.18.0
+
+<ul>
+<li><a href="https://github.com/jruby/jruby/issues/3883">#3883</a> - Rinda:RingServer not working (used for spork)</li>
+<li><a href="https://github.com/jruby/jruby/issues/5148">#5148</a> - Data read from a UDP socket retains buffer size causing large memory overhead</li>
+<li><a href="https://github.com/jruby/jruby/issues/6126">#6126</a> - Socket#connect is not interrupted by Timeout#timeout and Thread#kill</li>
+<li><a href="https://github.com/jruby/jruby/pull/6128">#6128</a> - Do all socket connects nonblocking for interrupts</li>
+<li><a href="https://github.com/jruby/jruby/issues/6156">#6156</a> - Socket.gethostname encoding still platform specific</li>
+<li><a href="https://github.com/jruby/jruby/pull/6274">#6274</a> - Always encode gethostname result as UTF-8</li>
+<li><a href="https://github.com/jruby/jruby/issues/6291">#6291</a> - Failed to install bindex on a Windows 10 PC</li>
+<li><a href="https://github.com/jruby/jruby/pull/6366">#6366</a> - Add support for TCP_CORK (experimental)</li>
+<li><a href="https://github.com/jruby/jruby/pull/6372">#6372</a> - move socket message to constants</li>
+<li><a href="https://github.com/jruby/jruby/pull/6384">#6384</a> - [socket] add constants for reserverd ports</li>
+<li><a href="https://github.com/jruby/jruby/pull/6389">#6389</a> - [socket] remove misused SOL_ constants</li>
+<li><a href="https://github.com/jruby/jruby/issues/6399">#6399</a> - Missing TCP_INFO support</li>
+<li><a href="https://github.com/jruby/jruby/pull/6400">#6400</a> - basic TCP_INFO support</li>
+<li><a href="https://github.com/jruby/jruby/issues/6541">#6541</a> - Errno::ENOPROTOOPT when connecting to Redis with JRuby-9.2.14.0</li>
+<li><a href="https://github.com/jruby/jruby/pull/6542">#6542</a> - [socket] improve keep alive support</li>
+<li><a href="https://github.com/jruby/jruby/pull/6595">#6595</a> - Accept numeric host</li>
+<li><a href="https://github.com/jruby/jruby/issues/6637">#6637</a> - Fix issue with JAVA_HOME not being set</li>
+<li><a href="https://github.com/jruby/jruby/pull/6638">#6638</a> - Restore quotes around module detection JAVA_HOME</li>
+<li><a href="https://github.com/jruby/jruby/pull/6639">#6639</a> - Resolve symlinked java command to find home</li>
+<li><a href="https://github.com/jruby/jruby/issues/6640">#6640</a> - java.lang.ClassCastException: org.jruby.RubyNil cannot be cast to org.jruby.RubyMatchData</li>
+<li><a href="https://github.com/jruby/jruby/pull/6644">#6644</a> - Reduce backref usage in split</li>
+<li><a href="https://github.com/jruby/jruby/pull/6647">#6647</a> - Improve concurrency of $~ adjacent methods</li>
+<li><a href="https://github.com/jruby/jruby/issues/6648">#6648</a> - JRuby 9.2.17.0 fails to install sassc on Windows</li>
+<li><a href="https://github.com/jruby/jruby/pull/6649">#6649</a> - Compatibility fixes for open3 on Windows</li>
+<li><a href="https://github.com/jruby/jruby/issues/6654">#6654</a> - Kernel.system leaks ENV on JRuby + Windows</li>
+<li><a href="https://github.com/jruby/jruby/pull/6655">#6655</a> - Do not merge extra env with current env</li>
+<li><a href="https://github.com/jruby/jruby/pull/6664">#6664</a> - Copy 9.3 socket implementation to 9.2</li>
+<li><a href="https://github.com/jruby/jruby/issues/6668">#6668</a> - Comparators (==, <, >, <=, >=) of subclassed Time instance do not call cmp defined on the subclass</li>
+<li><a href="https://github.com/jruby/jruby/pull/6670">#6670</a> - Handle possible ArithmeticException when extending byte store for String</li>
+<li><a href="https://github.com/jruby/jruby/pull/6671">#6671</a> - Array max size auditing and fixes</li>
+<li><a href="https://github.com/jruby/jruby/pull/6674">#6674</a> - Latest JNR libraries for 9.2</li>
+<li><a href="https://github.com/jruby/jruby/pull/6675">#6675</a> - JNR updates</li>
+<li><a href="https://github.com/jruby/jruby/issues/6678">#6678</a> - Regression on Windows test:jruby test_system_with_conflicting_dir</li>
+<li><a href="https://github.com/jruby/jruby/pull/6685">#6685</a> - Also use shell for commands with a space</li>
+<li><a href="https://github.com/jruby/jruby/issues/6689">#6689</a> - Failure to RVM-install JRuby 9.2.{13,17},0 on Ubuntu 20 with JDK 8</li>
+<li><a href="https://github.com/jruby/jruby/issues/6692">#6692</a> - Getting Java::JavaLang::ArrayIndexOutOfBoundsException in compiler internals</li>
+<li><a href="https://github.com/jruby/jruby/pull/6700">#6700</a> - Use cached UTF8 single-char bytelists here</li>
+<li><a href="https://github.com/jruby/jruby/issues/6701">#6701</a> - Update jruby.exe</li>
+<li><a href="https://github.com/jruby/jruby/pull/6704">#6704</a> - Fixes #6692.  AIOOBE on evals overflowing closure ids.</li>
+<li><a href="https://github.com/jruby/jruby/pull/6705">#6705</a> - Update JNR deps</li>
+</ul>
