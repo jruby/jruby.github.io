@@ -1,0 +1,32 @@
+---
+layout: post
+title: JRuby 9.2.18.0 Released
+---
+The JRuby community is pleased to announce the release of JRuby 9.2.18.0
+
+- Homepage: [http://www.jruby.org/](http://www.jruby.org/)
+- Download: [http://www.jruby.org/download](http://www.jruby.org/download)
+
+JRuby 9.2.x is compatible with Ruby 2.5.x and stays in sync with C Ruby.  As always there is a mix of miscellaneous fixes so be sure to read the issue list below.  All users are encouraged to upgrade.
+
+As we are still actively working on 9.3.0.0 we decided to put out another 9.2.x release to fix some of the more recently reported issues.
+
+Thanks to contributor @ahorek for a couple quick-fix PRs this release!
+
+Native Integration
+------------------
+
+* Work around a bug in our backend FFI library, jnr-ffi, that broke calls to `getsockopt` or `setsockopt` in `--dev` mode. ([#6714](https://github.com/jruby/jruby/issues/6714), [#6723](https://github.com/jruby/jruby/pull/6723))
+
+Windows Support
+---------------
+
+* Honor the TZ environment variable when applying a timezone to file modification/access/create times. ([#6659](https://github.com/jruby/jruby/issues/6659), [#6720](https://github.com/jruby/jruby/pull/6720))
+
+### Github Issues resolved for 9.2.19.0
+
+<ul>
+<li><a href="https://github.com/jruby/jruby/issues/6714">#6714</a> - getsockopt crashing with 9.2.18.0 and JRUBY_OPTS=--dev flag</li>
+<li><a href="https://github.com/jruby/jruby/pull/6720">#6720</a> - File#mtime fix timezone</li>
+<li><a href="https://github.com/jruby/jruby/pull/6723">#6723</a> - getsockopt crash in --dev mode</li>
+</ul>
