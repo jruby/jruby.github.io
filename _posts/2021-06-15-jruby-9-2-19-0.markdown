@@ -1,8 +1,8 @@
 ---
 layout: post
-title: JRuby 9.2.18.0 Released
+title: JRuby 9.2.19.0 Released
 ---
-The JRuby community is pleased to announce the release of JRuby 9.2.18.0
+The JRuby community is pleased to announce the release of JRuby 9.2.19.0
 
 - Homepage: [http://www.jruby.org/](http://www.jruby.org/)
 - Download: [http://www.jruby.org/download](http://www.jruby.org/download)
