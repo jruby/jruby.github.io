@@ -1,6 +1,6 @@
 ---
 layout: post
-title: JRuby 9.3.0.0 Released
+title: JRuby 9.3.1.0 Released
 ---
 
 The JRuby community is pleased to announce the release of JRuby 9.3.1.0
