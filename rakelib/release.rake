@@ -50,11 +50,9 @@ end
 def issue_notes_for(name, version, issues, notes)
   notes << "\n### #{name} Issues resolved for #{version}\n\n"
 
-  notes << "<ul>\n"
   issues.reverse.each do |issue|
-    notes << %Q{<li><a href="#{issue[2]}">#{issue[0]}</a> - #{issue[1]}</li>\n}
+    notes << %Q{- [#{issue[0]} - #{issue[1]}](#{issue[2]})\n}
   end
-  notes << "</ul>\n\n"
   notes
 end
 
