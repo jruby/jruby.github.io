@@ -1,0 +1,48 @@
+---
+layout: post
+title: JRuby 9.3.0.0 Released
+---
+
+The JRuby community is pleased to announce the release of JRuby 9.3.1.0
+
+* Homepage: [https://www.jruby.org/](https://www.jruby.org/)
+* Download: [https://www.jruby.org/download](https://www.jruby.org/download)
+
+JRuby 9.3.x is compatible with Ruby 2.6.x and stays in sync with C Ruby. As always there is a mix of miscellaneous fixes so be sure to read the issue list below.
+
+Thank you to our excellent community of users for their many contributions! JRuby would not be successful without your help: @ahorek, @byteit101, @GabrielNagy, and @jsvd
+
+Standard Library
+----------------
+
+* Updated RubyGems to 2.2.29 and Bundler to 3.2.29. ([#6890](https://github.com/jruby/jruby/pull/6890))
+
+
+23 Issues resolved
+------------------
+
+<ul>
+<li><a href="https://github.com/jruby/jruby/issues/6263">#6263</a> - Set jruby-jars gem plugin to use 9.3 release</li>
+<li><a href="https://github.com/jruby/jruby/pull/6679">#6679</a> - [ji] allow Java errors from Ruby threads to reach the handler</li>
+<li><a href="https://github.com/jruby/jruby/pull/6841">#6841</a> - addrinfo - inspect hostname</li>
+<li><a href="https://github.com/jruby/jruby/pull/6842">#6842</a> - Avoid alias warning if target has same reqs</li>
+<li><a href="https://github.com/jruby/jruby/issues/6846">#6846</a> - Unexpected frame in stack trace from `caller` method with create_method invocation</li>
+<li><a href="https://github.com/jruby/jruby/issues/6849">#6849</a> - JRuby 9.3.0.0 Installer for Windows 10 x64 only works with JDK 8 (not JDK 16)</li>
+<li><a href="https://github.com/jruby/jruby/pull/6852">#6852</a> - Fix handling of ENXIO error during resource open</li>
+<li><a href="https://github.com/jruby/jruby/issues/6854">#6854</a> - Unexpected behavior when using `module_function` followed by `define_method`</li>
+<li><a href="https://github.com/jruby/jruby/pull/6855">#6855</a> - Fix #6854</li>
+<li><a href="https://github.com/jruby/jruby/issues/6857">#6857</a> - Process::Waiter is a private_constant on JRuby but not on MRI?</li>
+<li><a href="https://github.com/jruby/jruby/issues/6859">#6859</a> - Refinements vs. respond_to? regression in 9.3.0.0</li>
+<li><a href="https://github.com/jruby/jruby/issues/6860">#6860</a> - Cannot raise `KeyError` without arguments after 9.3.0.0</li>
+<li><a href="https://github.com/jruby/jruby/pull/6861">#6861</a> - Fix KeyError behavior with no arguments</li>
+<li><a href="https://github.com/jruby/jruby/pull/6863">#6863</a> - Fix #6859.  respond_to? regression with refinements.</li>
+<li><a href="https://github.com/jruby/jruby/issues/6864">#6864</a> - Calling :include? on an String Range always returns true in 9.3.0.0</li>
+<li><a href="https://github.com/jruby/jruby/pull/6866">#6866</a> - Fix #6864. include? on an String Range always returns true.</li>
+<li><a href="https://github.com/jruby/jruby/issues/6870">#6870</a> - Missing keywords after a second proc call</li>
+<li><a href="https://github.com/jruby/jruby/issues/6874">#6874</a> - Calling exit! within at_exit doesn't "clear" the exception</li>
+<li><a href="https://github.com/jruby/jruby/pull/6876">#6876</a> - Fixes #6870. Missing keywords after a second proc call (full/JIT).</li>
+<li><a href="https://github.com/jruby/jruby/pull/6877">#6877</a> - Fix raw and varargs backtrace elements</li>
+<li><a href="https://github.com/jruby/jruby/pull/6879">#6879</a> - Fix at_exit exception behavior to match CRuby</li>
+<li><a href="https://github.com/jruby/jruby/pull/6886">#6886</a> - Fix and tests for concrete extension #java_class returning the parent</li>
+<li><a href="https://github.com/jruby/jruby/pull/6890">#6890</a> - Update rubygems to 2.2.29 and bundler to 3.2.29</li>
+</ul>
