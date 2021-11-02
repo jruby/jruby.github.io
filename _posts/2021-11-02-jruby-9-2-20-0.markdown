@@ -30,7 +30,7 @@ Java Integration
 
 * Nested jar files (jars packaged within another application jar) should load more quickly with caching improvements. ([#6730](https://github.com/jruby/jruby/issues/6730), [#6734](https://github.com/jruby/jruby/pull/6734), [#6740](https://github.com/jruby/jruby/pull/6740))
 
-- 40 issues fixed for 9.2.20.0
+- 39 issues fixed for 9.2.20.0
 
 ### Github Issues resolved for 9.2.20.0
 
@@ -63,7 +63,6 @@ Java Integration
 - [#6771 - Handle varargs frame on arity error in jitted code](https://github.com/jruby/jruby/pull/6771)
 - [#6776 - With prepend the aliased method gets the wrong self target](https://github.com/jruby/jruby/issues/6776)
 - [#6779 - fix CGI.unescapeHTML with invalid encoding](https://github.com/jruby/jruby/pull/6779)
-- [#6780 - Fix #6776 on 9.2](https://github.com/jruby/jruby/pull/6780)
 - [#6782 - Real fix for #6676 for 9.2](https://github.com/jruby/jruby/pull/6782)
 - [#6784 - Create and use pure-bash dirname and basename](https://github.com/jruby/jruby/pull/6784)
 - [#6799 - update ffi to 1.15.4](https://github.com/jruby/jruby/pull/6799)
