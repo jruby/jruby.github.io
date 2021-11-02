@@ -1,0 +1,76 @@
+---
+layout: post
+title: JRuby 9.2.20.0 Released
+---
+The JRuby community is pleased to announce the release of JRuby 9.2.20.0
+
+- Homepage: [http://www.jruby.org/](http://www.jruby.org/)
+- Download: [http://www.jruby.org/download](http://www.jruby.org/download)
+
+JRuby 9.2.x is compatible with Ruby 2.5.x and stays in sync with C Ruby.  As always there is a mix of miscellaneous fixes so be sure to read the issue list below.  All users are encouraged to upgrade.
+
+Compatiblity
+------------
+
+* Argument-count errors will now produce a more accurate backtrace. ([#6335](https://github.com/jruby/jruby/issues/6335), [#6768](https://github.com/jruby/jruby/issues/6768), [#6771](https://github.com/jruby/jruby/pull/6771), [#6846](https://github.com/jruby/jruby/issues/6846), [#6928](https://github.com/jruby/jruby/pull/6928))
+
+Standard Library
+----------------
+
+* jruby-openssl has been updated to 0.11.0, which includes fixes for expired and replaced certificate verification. ([#6871](https://github.com/jruby/jruby/issues/6872), [#6909](https://github.com/jruby/jruby/pull/6909))
+
+Native Integration
+------------------
+
+* The built-in FFI library has been updated to match the FFI gem, and can now be upgraded independently of JRuby. ([#6732](https://github.com/jruby/jruby/issues/6732), [#6747](https://github.com/jruby/jruby/pull/6747))
+* FFI-based core methods on Windows and Solaris have been modified to delay activating FFI until after RubyGems has loaded any upgrades. ([#6751](https://github.com/jruby/jruby/issues/6751), [#6760](https://github.com/jruby/jruby/pull/6760), [#6762](https://github.com/jruby/jruby/pull/6762))
+
+Java Integration
+----------------
+
+* Nested jar files (jars packaged within another application jar) should load more quickly with caching improvements. ([#6730](https://github.com/jruby/jruby/issues/6730), [#6734](https://github.com/jruby/jruby/pull/6734), [#6740](https://github.com/jruby/jruby/pull/6740))
+
+- 40 issues fixed for 9.2.20.0
+
+### Github Issues resolved for 9.2.20.0
+
+- [#5617 - JRuby raises ENOENT instead of EACCES](https://github.com/jruby/jruby/issues/5617)
+- [#6184 - NullPointerException or "class is not compiled Ruby" error when using a "for" loop](https://github.com/jruby/jruby/issues/6184)
+- [#6335 - ArgumentError is reported at wrong level for some jitted methods](https://github.com/jruby/jruby/issues/6335)
+- [#6726 - Open3 with no JAVA_OPTS fails silently](https://github.com/jruby/jruby/issues/6726)
+- [#6727 - Fixes #6184. NullPointerException/"class is not compiled Ruby" for loop](https://github.com/jruby/jruby/pull/6727)
+- [#6730 - JarCache checking for File.lastModified heavily slowing down startup](https://github.com/jruby/jruby/issues/6730)
+- [#6731 - Use java_home command on MacOS](https://github.com/jruby/jruby/pull/6731)
+- [#6734 - Backport JarCache soft reference fix](https://github.com/jruby/jruby/pull/6734)
+- [#6737 - GPL-2.0 with Classpath Exception in the COPYING file](https://github.com/jruby/jruby/issues/6737)
+- [#6740 - 6730 jar cache slowing down startup time 9.2](https://github.com/jruby/jruby/pull/6740)
+- [#6741 - Fix reference type and avoid closing jar directly](https://github.com/jruby/jruby/pull/6741)
+- [#6742 - Backport FFI from master](https://github.com/jruby/jruby/issues/6742)
+- [#6745 - exec on Windows doesn't find `.bat` files in PATH](https://github.com/jruby/jruby/issues/6745)
+- [#6746 - Fixes for Windows native exec](https://github.com/jruby/jruby/pull/6746)
+- [#6747 - Backport FFI from master](https://github.com/jruby/jruby/pull/6747)
+- [#6748 - Inconsistent encoding when calling #to_s on arrays containing hashes with non us-ascii characters](https://github.com/jruby/jruby/issues/6748)
+- [#6750 - JRuby issue with Installer EXE file](https://github.com/jruby/jruby/issues/6750)
+- [#6758 - private/private_method_defined? raising error when a module is prepended](https://github.com/jruby/jruby/issues/6758)
+- [#6759 - Fixes #6748. Inconsistent encoding when calling #to_s on arrays.](https://github.com/jruby/jruby/pull/6759)
+- [#6761 - JRuby crashes instead of reporting a syntax error in sequential `rescue`s where the error variable wasn't defined for the first one](https://github.com/jruby/jruby/issues/6761)
+- [#6764 - 1r should equal to 1.0r](https://github.com/jruby/jruby/issues/6764)
+- [#6765 - Use canonical form for "r" liternal](https://github.com/jruby/jruby/pull/6765)
+- [#6767 - Calling String#dup on strings used as a buffer in IO.copy_stream alters the body of all strings duped from the original](https://github.com/jruby/jruby/issues/6767)
+- [#6768 - stacktrace first line erroneously reports line number. Reports duplicate line # as second line of stacktrace.](https://github.com/jruby/jruby/issues/6768)
+- [#6769 - Undo shared-buffer optimizations from #6557](https://github.com/jruby/jruby/pull/6769)
+- [#6770 - Use line number of scope for initial backtrace](https://github.com/jruby/jruby/pull/6770)
+- [#6771 - Handle varargs frame on arity error in jitted code](https://github.com/jruby/jruby/pull/6771)
+- [#6776 - With prepend the aliased method gets the wrong self target](https://github.com/jruby/jruby/issues/6776)
+- [#6779 - fix CGI.unescapeHTML with invalid encoding](https://github.com/jruby/jruby/pull/6779)
+- [#6780 - Fix #6776 on 9.2](https://github.com/jruby/jruby/pull/6780)
+- [#6782 - Real fix for #6676 for 9.2](https://github.com/jruby/jruby/pull/6782)
+- [#6784 - Create and use pure-bash dirname and basename](https://github.com/jruby/jruby/pull/6784)
+- [#6799 - update ffi to 1.15.4](https://github.com/jruby/jruby/pull/6799)
+- [#6872 - Jruby does not support the "old" LetsEncrypt chain after DST Root CA X3 has expired](https://github.com/jruby/jruby/issues/6872)
+- [#6883 - Trust native unlink errno to do the right thing](https://github.com/jruby/jruby/pull/6883)
+- [#6903 - Set#dup does not seem to call #initialize_copy](https://github.com/jruby/jruby/issues/6903)
+- [#6909 - [deps] update jruby-openssl to 0.11.0](https://github.com/jruby/jruby/pull/6909)
+- [#6910 - Dynamic dispatch to super.initialize_[dup,clone] in native Set](https://github.com/jruby/jruby/pull/6910)
+- [#6911 - Update jnr and asm](https://github.com/jruby/jruby/pull/6911)
+- [#6928 - Fix raw and varargs backtrace elements](https://github.com/jruby/jruby/pull/6928)
