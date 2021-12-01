@@ -1,0 +1,21 @@
+---
+layout: post
+title: JRuby 9.2.20.1 Released
+---
+The JRuby community is pleased to announce the release of JRuby 9.2.20.1
+
+- Homepage: [http://www.jruby.org/](http://www.jruby.org/)
+- Download: [http://www.jruby.org/download](http://www.jruby.org/download)
+
+JRuby 9.2.x is compatible with Ruby 2.5.x and stays in sync with C Ruby.  As always there is a mix of miscellaneous fixes so be sure to read the issue list below.  All users are encouraged to upgrade.
+
+
+This is a security release to address CVE-2021-41817. It was originally reported against Ruby's C-based date extension, which JRuby does not use, but JRuby's own implementation of date is also affected by the same issue.
+
+The issue affects calls to various Date and DateTime parsing methods with extremely long strings. The regular expressions associated with these methods may run much longer than desired or never return.
+
+The fix is detailed in #6951. A workaround is provided, via patching the pure-Ruby date code in your own JRuby install. Rebuilding JRuby is not necessary. This PR is the only functional difference from JRuby 9.2.20.0.
+
+We recommend that all JRuby 9.2 users upgrade.
+
+- [#6951 - Limit Date.parse input length and make interruptible](https://github.com/jruby/jruby/pull/6951)
