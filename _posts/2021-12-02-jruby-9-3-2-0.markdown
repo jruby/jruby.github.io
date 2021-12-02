@@ -1,0 +1,49 @@
+---
+layout: post
+title: JRuby 9.3.2.0 Released
+---
+
+The JRuby community is pleased to announce the release of JRuby 9.3.2.0
+
+* Homepage: [https://www.jruby.org/](https://www.jruby.org/)
+* Download: [https://www.jruby.org/download](https://www.jruby.org/download)
+
+JRuby 9.3.x is compatible with Ruby 2.6.x and stays in sync with C Ruby. As always there is a mix of miscellaneous fixes so be sure to read the issue list below.
+
+
+Security
+--------
+
+* Date-parsing methods have been modified to accept an input-size `limit` option. This addresses [CVE-2021-41817](https://www.ruby-lang.org/en/news/2021/11/15/date-parsing-method-regexp-dos-cve-2021-41817/). It was originally reported against Ruby's C-based `date` extension, which JRuby does not use, but JRuby's own implementation of `date` is also affected by the same issue.
+  
+  The fix is detailed in [#6952](https://github.com/jruby/jruby/pull/6952). A workaround is provided, via patching the pure-Ruby `date` code in your own JRuby install. Rebuilding JRuby is not necessary. This PR is the only functional difference from JRuby 9.3.1.0.
+* In order to match Ruby behavior and permit interrupting these date-parsing regular expression matches, this release also enables interruptible regular expressions globally. This feature can be disabled using the "regexp.interruptible" JRuby option as described in the above PR.
+
+Performance
+-----------
+
+* The performance of Time#strftime has been greatly improved (3.5x-5.8x faster). ([#6942](https://github.com/jruby/jruby/pull/6942), [#6956](https://github.com/jruby/jruby/issues/6956))
+
+Native Integration
+------------------
+
+* The jffi library on MacOS has been updated to sign the native library, allowing it to load properly on Apple Silicon. This improves compatibility on Apple's AArch64 systems (M1 and friends). ([jnr/jffi#116](https://github.com/jnr/jffi/pull/116), [jnr/jnr-ffi#257](https://github.com/jnr/jnr-ffi/issues/257))
+
+### Github Issues resolved for 9.3.2.0
+
+- [#5729 - Check to see if we can do single nanosecond level math](https://github.com/jruby/jruby/pull/5729)
+- [#6813 - File.directory? returns false on macOS M1 for a directory](https://github.com/jruby/jruby/issues/6813)
+- [#6843 - move syslog constants to jnr-constants](https://github.com/jruby/jruby/pull/6843)
+- [#6889 - Also print causes of bubbled-out exceptions](https://github.com/jruby/jruby/pull/6889)
+- [#6895 - JRuby 9.3 Hash eats key String subclass instance variables](https://github.com/jruby/jruby/issues/6895)
+- [#6896 - JRuby 9.3 singleton_class bug](https://github.com/jruby/jruby/issues/6896)
+- [#6899 - Do not deduplicate strings with ivars](https://github.com/jruby/jruby/pull/6899)
+- [#6900 - Skip prepend wrappers in each_object(Module)](https://github.com/jruby/jruby/pull/6900)
+- [#6924 - java.lang.Iterable object has Enumerable ancestor but map cannot be called (jruby-9.3.x)](https://github.com/jruby/jruby/issues/6924)
+- [#6942 - New strftime](https://github.com/jruby/jruby/pull/6942)
+- [#6943 - Honor the requested address even given hostname](https://github.com/jruby/jruby/pull/6943)
+- [#6945 - Socket fixes for GHA CI](https://github.com/jruby/jruby/pull/6945)
+- [#6952 - Limit Date.parse input length and make interruptible](https://github.com/jruby/jruby/pull/6952)
+- [#6954 - Fix 6924](https://github.com/jruby/jruby/pull/6954)
+- [#6956 - Improve Performance of Time#strftime](https://github.com/jruby/jruby/issues/6956)
+
