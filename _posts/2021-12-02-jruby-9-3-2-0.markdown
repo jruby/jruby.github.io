@@ -16,7 +16,7 @@ Security
 
 * Date-parsing methods have been modified to accept an input-size `limit` option. This addresses [CVE-2021-41817](https://www.ruby-lang.org/en/news/2021/11/15/date-parsing-method-regexp-dos-cve-2021-41817/). It was originally reported against Ruby's C-based `date` extension, which JRuby does not use, but JRuby's own implementation of `date` is also affected by the same issue.
   
-  The fix is detailed in [#6952](https://github.com/jruby/jruby/pull/6952). A workaround is provided, via patching the pure-Ruby `date` code in your own JRuby install. Rebuilding JRuby is not necessary. This PR is the only functional difference from JRuby 9.3.1.0.
+  The fix is detailed in [#6952](https://github.com/jruby/jruby/pull/6952). A workaround is provided, via patching the pure-Ruby `date` code in your own JRuby install. Rebuilding JRuby is not necessary. 
 * In order to match Ruby behavior and permit interrupting these date-parsing regular expression matches, this release also enables interruptible regular expressions globally. This feature can be disabled using the "regexp.interruptible" JRuby option as described in the above PR.
 
 Performance
