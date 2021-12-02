@@ -8,7 +8,7 @@ The JRuby community is pleased to announce the release of JRuby 9.3.1.0
 * Homepage: [https://www.jruby.org/](https://www.jruby.org/)
 * Download: [https://www.jruby.org/download](https://www.jruby.org/download)
 
-JRuby 9.3.x is compatible with Ruby 2.6.x and stays in sync with C Ruby. As always there is a mix of miscellaneous fixes so be sure to read the issue list below.
+JRuby 9.3.x is compatible with Ruby 2.6.x and stays in sync with CRuby. As always there is a mix of miscellaneous fixes so be sure to read the issue list below.
 
 Thank you to our excellent community of users for their many contributions! JRuby would not be successful without your help: @ahorek, @byteit101, @GabrielNagy, and @jsvd
 
