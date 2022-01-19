@@ -1,0 +1,89 @@
+---
+layout: post
+title: JRuby 9.3.3.0 Released
+---
+
+The JRuby community is pleased to announce the release of JRuby 9.3.3.0
+
+* Homepage: [https://www.jruby.org/](https://www.jruby.org/)
+* Download: [https://www.jruby.org/download](https://www.jruby.org/download)
+
+JRuby 9.3.x is compatible with Ruby 2.6.x and stays in sync with C Ruby. As always there is a mix of miscellaneous fixes so be sure to read the issue list below.
+
+The big news this release is support for Apple's M1 family of processors (Apple Silicon) via an update to our native FFI backend library. Nearly all our usual test suites are passing on M1 and we have added a self-hosted CI runner thanks to [MacStadium's OSS program][macstadium]. Callbacks from C to Ruby are unsupported, but this does not affect any libraries we ship. We will continue to improve M1 support with your help and bug reports.
+
+We encourage users to file issues first and ask questions later! Please join our [Matrix room] if you have any issues or just want to get involved.
+
+Thanks to our contributors this cycle for helping to improve compatibility: [@ahorek], [@byteit101]
+
+Additional thanks to [@kovyrin] for working through M1 issues with us and confirming that a large application builds and tests successfully.
+
+Hardware Support
+----------------
+
+* This release includes greatly improved support for Apple Silicon processors like the M1. ([#6813], [#6853], [#6974], [#6977], [#6983], [#6986], [#7006])
+* Known issue: passing a Ruby FFI Function object to C code as a callback is not currently supported due to security restrictions on Apple Silicon. Neither JRuby nor any libraries we ship require this functionality. We will fix it for a future release. ([#6995])
+
+Ruby Compatibility
+------------------
+
+* The parser once again handles files larger than 32k lines. This issue affected simplecov and mailer gems that we know of. ([#6984], [#6991])
+
+Standard Library
+----------------
+
+* ostruct is updated to 0.5.1, which fixes warnings in verbose mode loading the json library. ([#6831], [#6963])
+
+Java Integration
+----------------
+
+* Additional fixes for super calls from Ruby subclasses of Java classes to match behavior in 9.2.x. ([#6935], [#6957]) 
+
+[Matrix room]: https://www.jruby.org/chat
+[@ahorek]: https://github.com/ahorek
+[@byteit101]: https://github.com/byteit101
+[@kovyrin]: https://github.com/kovyrin
+[#6968]: https://github.com/jruby/jruby/issues/6968
+[#7007]: https://github.com/jruby/jruby/issues/7007
+[#6813]: https://github.com/jruby/jruby/issues/6813
+[#6853]: https://github.com/jruby/jruby/issues/6853
+[#6974]: https://github.com/jruby/jruby/issues/6974
+[#6977]: https://github.com/jruby/jruby/issues/6977
+[#6983]: https://github.com/jruby/jruby/issues/6983
+[#6986]: https://github.com/jruby/jruby/issues/6986
+[#7006]: https://github.com/jruby/jruby/issues/7006
+[#6995]: https://github.com/jruby/jruby/issues/6995
+[#6831]: https://github.com/jruby/jruby/issues/6831
+[#6963]: https://github.com/jruby/jruby/issues/6963
+[#6935]: https://github.com/jruby/jruby/issues/6935
+[#6957]: https://github.com/jruby/jruby/issues/6957
+[#6968]: https://github.com/jruby/jruby/issues/6968
+[#7007]: https://github.com/jruby/jruby/issues/7007
+[#6984]: https://github.com/jruby/jruby/issues/6984
+[#6991]: https://github.com/jruby/jruby/issues/6991
+[macstadium]: https://www.macstadium.com/opensource
+
+### 22 Github Issues resolved for 9.3.3.0
+
+- [#6813 - File.directory? returns false on macOS M1 for a directory](https://github.com/jruby/jruby/issues/6813)
+- [#6831 - require "json" outputs warnings](https://github.com/jruby/jruby/issues/6831)
+- [#6853 - Getting "io/console on JRuby shells out to stty for most operations" on Jruby 9.3 with JDK17](https://github.com/jruby/jruby/issues/6853)
+- [#6935 - RuntimeError: Found multiple supers in java ctor](https://github.com/jruby/jruby/issues/6935)
+- [#6957 - Make split-super errors slightly more user friendly](https://github.com/jruby/jruby/pull/6957)
+- [#6963 - Update ostruct to 0.5.1](https://github.com/jruby/jruby/pull/6963)
+- [#6968 - Calling super() in a reopened Java subclass method triggers NPE in IRRuntimeHelpers.javaProxySuper](https://github.com/jruby/jruby/issues/6968)
+- [#6974 - Dir.mktmpdir errors on apple-silicon native JDK](https://github.com/jruby/jruby/issues/6974)
+- [#6977 - gem install error "Permission denied" for jruby 9.3.2.0 [darwin-aarch64] (Apple M1)](https://github.com/jruby/jruby/issues/6977)
+- [#6981 - JRuby 9.3.2.0 case/when array comparison differs from CRuby 2.6.9](https://github.com/jruby/jruby/issues/6981)
+- [#6983 - Wrong file mode/permission when opening/creating a new file [Apple Silicon, arm64, aarch64]](https://github.com/jruby/jruby/issues/6983)
+- [#6984 - Java::JavaLang::ArrayIndexOutOfBoundsException on jruby-9.3.2.0](https://github.com/jruby/jruby/issues/6984)
+- [#6986 - Merge 9.2 for JNR update and Symbol fix](https://github.com/jruby/jruby/pull/6986)
+- [#6989 - case when with an empty array](https://github.com/jruby/jruby/pull/6989)
+- [#6991 - Fix #9684. AIIOBE when files >16bit lines and using coverage](https://github.com/jruby/jruby/pull/6991)
+- [#6993 - Possible memory leak from `instance_eval` with jruby 9.3](https://github.com/jruby/jruby/issues/6993)
+- [#6994 - Fixes #6993.  Evals cause memory leak.](https://github.com/jruby/jruby/pull/6994)
+- [#6996 - Do not cache non-"once" dregexp](https://github.com/jruby/jruby/pull/6996)
+- [#7004 - Module check mishandles bash operator precedence](https://github.com/jruby/jruby/pull/7004)
+- [#7006 - Fixes to run tests on Apple Silicon](https://github.com/jruby/jruby/pull/7006)
+- [#7007 - Java class reopened to add a super call should dispatch normally](https://github.com/jruby/jruby/pull/7007)
+- [#7010 - Avoid subshell for module check](https://github.com/jruby/jruby/pull/7010)
