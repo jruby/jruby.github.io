@@ -1,0 +1,91 @@
+---
+layout: post
+title: JRuby 9.3.4.0 Released
+---
+
+The JRuby community is pleased to announce the release of JRuby 9.3.4.0
+
+* Homepage: [https://www.jruby.org/](https://www.jruby.org/)
+* Download: [https://www.jruby.org/download](https://www.jruby.org/download)
+
+JRuby 9.3.x is compatible with Ruby 2.6.x and stays in sync with C Ruby. As always there is a mix of miscellaneous fixes so be sure to read the issue list below.
+
+Thanks to our contributors this cycle for helping to improve compatibility: [@ahorek], [@byteit101], [@k77ch7]
+
+Ruby Compatibility
+------------------
+
+* `define_singleton_method` now always uses public visibility. This simplifies its implementation and eliminates warnings when aliasing it, as in the ostruct gem. ([ruby/ostruct#40], [#7031], [#7055])
+
+Java Integration
+----------------
+
+* The `import` method for importing Java classes remains deprecated for removal in 9.4, but now provides a better warning with a source location. ([#6976])
+* Ruby subclasses of Java classes and Ruby classes converted into Java classes can now include instance variables that are accessible from Java as normal fields. This improves integration with Java frameworks that use reflection to access object state. ([#7012])
+
+Hardware Support
+----------------
+
+* Generated make files now properly set the platform architecture when running on Linux/aarch64 and Apple's M1 family of CPUs. This allows sassc and other non-extension C-based gems to build and install properly. ([sass/sassc-ruby#231], [#7132], [#7133])
+
+Standard Library
+----------------
+
+* ostruct is updated to 0.5.1, which fixes warnings in verbose mode loading the json library. ([#6831], [#6963])
+* logger is updated to 1.5.1, which fixes a log rotation locking issue on Windows. ([ruby/logger#67], [ruby/logger#68], [#7038])
+* Socket IPv6 constants are now always defined regardless of platform support, matching CRuby and JRuby 9.2. ([#7069], [#7071])
+
+[Matrix room]: https://www.jruby.org/chat
+[@ahorek]: https://github.com/ahorek
+[@byteit101]: https://github.com/byteit101
+[@k77ch7]: https://github.com/k77ch7
+[#6976]: https://github.com/jruby/jruby/issues/6976
+[#7012]: https://github.com/jruby/jruby/pull/7012
+[#7031]: https://github.com/jruby/jruby/issues/7031
+[#7038]: https://github.com/jruby/jruby/issues/7038
+[#7055]: https://github.com/jruby/jruby/pull/7055
+[#7069]: https://github.com/jruby/jruby/issues/7069
+[#7071]: https://github.com/jruby/jruby/pull/7071
+[#7132]: https://github.com/jruby/jruby/pull/7132
+[#7133]: https://github.com/jruby/jruby/pull/7133
+[ruby/logger#67]: https://github.com/ruby/logger/issues/67
+[ruby/logger#68]: https://github.com/ruby/logger/pull/68
+[ruby/ostruct#40]: https://github.com/ruby/ostruct/issues/40
+[sass/sassc-ruby#231]: https://github.com/sass/sassc-ruby/issues/231
+
+
+### 33 Github Issues resolved for 9.3.4.0
+
+- [#6976 - [Better error/notification message] "calling java_import on a non-Module object is deprecated"](https://github.com/jruby/jruby/issues/6976)
+- [#7009 - Break in block passed to Thread doesn't cause LocalJumpError](https://github.com/jruby/jruby/issues/7009)
+- [#7012 - Allow reified classes to store instance variables in raw fields](https://github.com/jruby/jruby/pull/7012)
+- [#7016 - Compile splatted rescue as splat](https://github.com/jruby/jruby/pull/7016)
+- [#7018 - New string literals are marked as tainted if previously equal tainted strings were read from a file](https://github.com/jruby/jruby/issues/7018)
+- [#7020 - Avoid interning tainted strings](https://github.com/jruby/jruby/pull/7020)
+- [#7029 - Handle unrooted break jumps in Thread](https://github.com/jruby/jruby/pull/7029)
+- [#7031 - warning: OpenStruct#define_singleton_method accesses caller method's state and should not be aliased ](https://github.com/jruby/jruby/issues/7031)
+- [#7035 - Circular exception causes break JRuby](https://github.com/jruby/jruby/issues/7035)
+- [#7038 - Log rotation inter-process lock failed, Issue occurs in JRuby 9.3.0.0 and Windows](https://github.com/jruby/jruby/issues/7038)
+- [#7055 - Explicitly use public visibility for define_singleton_method](https://github.com/jruby/jruby/pull/7055)
+- [#7056 - Restore 9.2 collect signature and add more API](https://github.com/jruby/jruby/pull/7056)
+- [#7069 - Socket::PF_INET6 is nil on 9.3 when ipv6 is not available, unlike with MRI and 9.2](https://github.com/jruby/jruby/issues/7069)
+- [#7070 - Regression: 9.3 converts LoadError to NameError when autoloading repeatedly and loading fails and file being loaded is not in current directory](https://github.com/jruby/jruby/issues/7070)
+- [#7071 - revert ipv6 availability](https://github.com/jruby/jruby/pull/7071)
+- [#7074 - Remove the require lock on LoadError](https://github.com/jruby/jruby/pull/7074)
+- [#7102 - ArgumentError re-splatting empty keyword arguments](https://github.com/jruby/jruby/issues/7102)
+- [#7104 - Integer#to_s, Integer#to_json includes null character(\x00, \u0000) on JRuby 9.3.*](https://github.com/jruby/jruby/issues/7104)
+- [#7111 - Fix #7104](https://github.com/jruby/jruby/pull/7111)
+- [#7117 - java_signature throws NPE when using positional annotation arguments](https://github.com/jruby/jruby/issues/7117)
+- [#7131 - More checking for null fd](https://github.com/jruby/jruby/pull/7131)
+- [#7132 - Architecture tweaks for JRuby on M1](https://github.com/jruby/jruby/pull/7132)
+- [#7133 - [aarch64] fix unrecognized command -m64 for native extensions](https://github.com/jruby/jruby/pull/7133)
+- [#7137 - `Range#===` should not accept range argument](https://github.com/jruby/jruby/issues/7137)
+- [#7138 - Use non-range cover logic for eqq and include](https://github.com/jruby/jruby/pull/7138)
+- [#7139 - [deps] bump jruby-openssl to latest (0.12.2)](https://github.com/jruby/jruby/pull/7139)
+- [#7142 - Update jcodings](https://github.com/jruby/jruby/pull/7142)
+- [#7143 - Better warnings for deprecated java_import forms](https://github.com/jruby/jruby/pull/7143)
+- [#7145 - Disallow circular causes](https://github.com/jruby/jruby/pull/7145)
+- [#7146 - Revert ivar Java fields to fix remaining issues](https://github.com/jruby/jruby/pull/7146)
+- [#7147 - Fixes #7102. ArgumentError re-splatting empty keyword arguments](https://github.com/jruby/jruby/pull/7147)
+- [#7150 - Allow reified classes to store instance variables in raw fields (fixed)](https://github.com/jruby/jruby/pull/7150)
+- [#7153 - Ripper.sexp throws error while parsing 'ö'](https://github.com/jruby/jruby/issues/7153)
