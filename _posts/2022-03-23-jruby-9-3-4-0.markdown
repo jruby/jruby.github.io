@@ -48,6 +48,8 @@ Standard Library
 [#7071]: https://github.com/jruby/jruby/pull/7071
 [#7132]: https://github.com/jruby/jruby/pull/7132
 [#7133]: https://github.com/jruby/jruby/pull/7133
+[#6831]: https://github.com/jruby/jruby/pull/6831
+[#6963]: https://github.com/jruby/jruby/pull/6963
 [ruby/logger#67]: https://github.com/ruby/logger/issues/67
 [ruby/logger#68]: https://github.com/ruby/logger/pull/68
 [ruby/ostruct#40]: https://github.com/ruby/ostruct/issues/40
