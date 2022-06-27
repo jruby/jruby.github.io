@@ -1,0 +1,70 @@
+---
+layout: post
+title: JRuby 9.2.21.0 Released
+---
+The JRuby community is pleased to announce the release of JRuby 9.2.21.0
+
+- Homepage: [http://www.jruby.org/](http://www.jruby.org/)
+- Download: [http://www.jruby.org/download](http://www.jruby.org/download)
+
+JRuby 9.2.x is compatible with Ruby 2.5.x and stays in sync with C Ruby.  As always there is a mix of miscellaneous fixes so be sure to read the issue list below.  All users are encouraged to upgrade.
+
+Thanks to our contributors this cycle for helping to maintain and improve JRuby 9.2: [@dee-see], [@edipofederle], [@DirkMahler]
+
+Ruby Compatibility
+------------------
+
+* Fixes for a memory leak in the frozen string cache have been backported. ([#7021])
+
+Java Integration
+----------------
+
+* The internal cache for nested jar file contents has been optimized and a new option added for cache expiration. ([#7225], [#7232], [#7259])
+
+Hardware Support
+----------------
+
+* Support for Apple's M processors has been backported. It has not been heavily tested, but it has been confirmed working by users. ([#6953], [#6965], [#6985])
+
+Standard Library
+----------------
+
+* jruby-openssl update to 0.12.2. ([#7140])
+
+[Matrix room]: https://www.jruby.org/chat
+[@dee-see]: https://github.com/dee-see
+[@edipofederle]: https://github.com/edipofederle
+[@DirkMahler]: https://github.com/DirkMahler
+[#6953]: https://github.com/jruby/jruby/pull/6953
+[#6958]: https://github.com/jruby/jruby/issues/6958
+[#6959]: https://github.com/jruby/jruby/pull/6959
+[#6965]: https://github.com/jruby/jruby/pull/6965
+[#6978]: https://github.com/jruby/jruby/pull/6978
+[#6985]: https://github.com/jruby/jruby/pull/6985
+[#6992]: https://github.com/jruby/jruby/issues/6992
+[#6997]: https://github.com/jruby/jruby/pull/6997
+[#7017]: https://github.com/jruby/jruby/pull/7017
+[#7021]: https://github.com/jruby/jruby/pull/7021
+[#7068]: https://github.com/jruby/jruby/pull/7068
+[#7114]: https://github.com/jruby/jruby/issues/7114
+[#7140]: https://github.com/jruby/jruby/pull/7140
+[#7225]: https://github.com/jruby/jruby/issues/7225
+[#7232]: https://github.com/jruby/jruby/pull/7232
+[#7259]: https://github.com/jruby/jruby/pull/7259
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
