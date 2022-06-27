@@ -53,3 +53,5 @@ Java Integration
 [#7253]: https://github.com/jruby/jruby/pull/7253
 [#7254]: https://github.com/jruby/jruby/pull/7254
 [#7255]: https://github.com/jruby/jruby/pull/7255
+[#7225]: https://github.com/jruby/jruby/issues/7225
+[#7232]: https://github.com/jruby/jruby/pull/7232
