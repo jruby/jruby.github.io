@@ -1,0 +1,39 @@
+---
+layout: post
+title: JRuby 9.3.7.0 Released
+---
+
+The JRuby community is pleased to announce the release of JRuby 9.3.7.0
+
+* Homepage: [https://www.jruby.org/](https://www.jruby.org/)
+* Download: [https://www.jruby.org/download](https://www.jruby.org/download)
+
+JRuby 9.3.x is compatible with Ruby 2.6.x and stays in sync with C Ruby. As always there is a mix of miscellaneous fixes so be sure to read the issue list below.
+
+Thanks to our contributors this cycle for helping to improve stability and compatibility of JRuby 9.3: [@evaniainbrooks], [@k77ch7] [@ccutrer] [@jimtng]
+
+### 22 Github Issues resolved for 9.3.7.0
+
+- [#7120 - Gem.install caused a BootstrapMethodError](https://github.com/jruby/jruby/issues/7120)
+- [#7185 - Spurious constant replacement warning when using include_package](https://github.com/jruby/jruby/issues/7185)
+- [#7211 - require_relative doesn't work inside Jar with 9.3.4.0](https://github.com/jruby/jruby/issues/7211)
+- [#7218 - Empty rescue block returns exception object instead of nil](https://github.com/jruby/jruby/issues/7218)
+- [#7264 - update jar-dependencies gem hooks](https://github.com/jruby/jruby/pull/7264)
+- [#7267 - Circular exception handling can cause infinite loop since 9.3.4.0](https://github.com/jruby/jruby/issues/7267)
+- [#7268 - com.sun.nio.file.ExtendedOpenOption not available in OSGi bundles on Windows since JRuby 9.3.0.0](https://github.com/jruby/jruby/issues/7268)
+- [#7271 - Fix BootstrapMethodError in runtime helpers](https://github.com/jruby/jruby/pull/7271)
+- [#7279 - simple timeout script does not work](https://github.com/jruby/jruby/issues/7279)
+- [#7280 - Eliminate JI-specific const replacement warning](https://github.com/jruby/jruby/pull/7280)
+- [#7281 - Use the wide versions of these functions always](https://github.com/jruby/jruby/pull/7281)
+- [#7282 - Fixes #7218. Empty rescue block returns exception object instead of nil.](https://github.com/jruby/jruby/pull/7282)
+- [#7288 - Clear errinfo after each finalizer runs](https://github.com/jruby/jruby/pull/7288)
+- [#7289 - Revert "update jar-dependencies gem hooks"](https://github.com/jruby/jruby/pull/7289)
+- [#7291 - update jar-dependencies 0.4.2 reference in lib/pom.rb](https://github.com/jruby/jruby/pull/7291)
+- [#7292 - Always pass filename into AOT root scope creation](https://github.com/jruby/jruby/pull/7292)
+- [#7298 - Revert "update jar-dependencies 0.4.2 reference in lib/pom.rb"](https://github.com/jruby/jruby/pull/7298)
+- [#7299 - Fix for issue 7256: Undefined constants when including a module that has been prepended](https://github.com/jruby/jruby/pull/7299)
+- [#7302 - Fix for issue 7256 (jruby-9.3)](https://github.com/jruby/jruby/pull/7302)
+- [#7304 - Only use NOSHARE_DELETE if accessible](https://github.com/jruby/jruby/pull/7304)
+- [#7306 - Syntax Error occurs in regex](https://github.com/jruby/jruby/issues/7306)
+- [#7314 - Fix parsing Regexp for #7306](https://github.com/jruby/jruby/pull/7314)
+
