@@ -10,7 +10,7 @@ The JRuby community is pleased to announce the release of JRuby 9.3.7.0
 
 JRuby 9.3.x is compatible with Ruby 2.6.x and stays in sync with C Ruby. As always there is a mix of miscellaneous fixes so be sure to read the issue list below.
 
-Thanks to our contributors this cycle for helping to improve stability and compatibility of JRuby 9.3: [@evaniainbrooks], [@k77ch7] [@ccutrer] [@jimtng]
+Thanks to our contributors this cycle for helping to improve stability and compatibility of JRuby 9.3: [@evaniainbrooks], [@k77ch7], [@ccutrer], [@jimtng]
 
 ### 22 Github Issues resolved for 9.3.7.0
 
