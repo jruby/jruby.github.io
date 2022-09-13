@@ -1,0 +1,74 @@
+---
+layout: post
+title: JRuby 9.3.8.0 Released
+---
+
+The JRuby community is pleased to announce the release of JRuby 9.3.8.0
+
+* Homepage: [https://www.jruby.org/](https://www.jruby.org/)
+* Download: [https://www.jruby.org/download](https://www.jruby.org/download)
+
+JRuby 9.3.x is compatible with Ruby 2.6.x and stays in sync with C Ruby. As always there is a mix of miscellaneous fixes so be sure to read the issue list below.
+
+Thanks to our contributors this cycle for helping to improve stability and compatibility of JRuby 9.3: [@ahorek], [@ccutrer], [@evaniainbrooks], [@naveensrinivasan]
+
+Ruby Compatibility
+------------------
+
+* Altering the visibility of an included module method no longer changes what super method gets called. ([#7240], [#7343], [#7344], [#7356])
+* Thread termination at shutdown is more robust and visits all non-main threads. ([#7351])
+
+Standard Library
+----------------
+
+* csv has been updated to 3.2.5 to pick up a fix that eliminates fiber use for simple parse_line calls. ([#7346], [#7348])
+* psych has been updated to 3.3.3 to address CVE-2022-25857, an element-nesting DoS. ([#7342])
+
+Experimental Features
+---------------------
+
+* Fibers can now be configured to use OpenJDK Project Loom's virtual threads, which are lightweight and do not consume a native platform thread. Virtual threads make it possible for JRuby applications to create thousands of concurrently-executing fibers. Enable this feature on Java 19 using the JVM flag `--enable-preview`. ([#7328])
+
+### 27 Github Issues resolved for 9.3.8.0
+
+- [#7240 - Changing method visibility changes behavior for module-inherited methods](https://github.com/jruby/jruby/issues/7240)
+- [#7257 - chore: Set permissions for GitHub actions](https://github.com/jruby/jruby/pull/7257)
+- [#7262 - jar-dependencies cannot be updated out-of-band from jruby](https://github.com/jruby/jruby/issues/7262)
+- [#7265 - Time.at argument handling](https://github.com/jruby/jruby/issues/7265)
+- [#7303 - Fix included_modules method to not return wrapped modules](https://github.com/jruby/jruby/pull/7303)
+- [#7316 - Incompatible error when nested `LoadError`](https://github.com/jruby/jruby/issues/7316)
+- [#7317 - Oddity with the jruby parser: it warns me about "warning: found = in conditional, should be =="](https://github.com/jruby/jruby/issues/7317)
+- [#7321 - Fix issue #7316 runtime error when nested raise](https://github.com/jruby/jruby/pull/7321)
+- [#7324 - Time::at with BigDecimal emits Java Negative Exponent exception](https://github.com/jruby/jruby/issues/7324)
+- [#7325 - Fix negative scale BigDecimal#to_r](https://github.com/jruby/jruby/pull/7325)
+- [#7326 - sum method - undefined method 'last' for 1:Integer](https://github.com/jruby/jruby/issues/7326)
+- [#7328 - Use vthreads when available](https://github.com/jruby/jruby/pull/7328)
+- [#7332 - defined reified classes with their parent class's classloader as parent](https://github.com/jruby/jruby/pull/7332)
+- [#7333 - fix Enumberable sum when elements are array](https://github.com/jruby/jruby/pull/7333)
+- [#7334 - fix zlib encoding](https://github.com/jruby/jruby/pull/7334)
+- [#7338 - InstanceConfiguration extra loaders not thread safe](https://github.com/jruby/jruby/issues/7338)
+- [#7342 - Update SnakeYaml to 1.31+ due to CVE-2022-25857](https://github.com/jruby/jruby/issues/7342)
+- [#7343 - Fix for changing method visibility changes behavior for module-inherited methods](https://github.com/jruby/jruby/pull/7343)
+- [#7344 - Changing method visibility changes super_method for module-inherited methods](https://github.com/jruby/jruby/issues/7344)
+- [#7345 - Use thread-safe COW lists here](https://github.com/jruby/jruby/pull/7345)
+- [#7346 - Iterating over `CSV.parse_line` causes an explosion of threads/fibers](https://github.com/jruby/jruby/issues/7346)
+- [#7348 - Update CSV to 3.2.5](https://github.com/jruby/jruby/pull/7348)
+- [#7351 - Avoid accidentally killing the teardown thread](https://github.com/jruby/jruby/pull/7351)
+- [#7354 - Fix 7317 it warns me about "warning: found = in conditional, should be =="](https://github.com/jruby/jruby/pull/7354)
+- [#7356 - Fix for method visibility changes super_method for module-inherited methods](https://github.com/jruby/jruby/pull/7356)
+- [#7358 - Update polyglot-maven and commit updated XMLs](https://github.com/jruby/jruby/pull/7358)
+- [#7359 - Fixes Time.at argument handling (#7265)](https://github.com/jruby/jruby/pull/7359)
+
+[@evaniainbrooks]: https://github.com/evaniainbrooks
+[@ahorek]: https://github.com/ahorek
+[@ccutrer]: https://github.com/ccutrer
+[@naveensrinivasan]: https://github.com/naveensrinivasan
+[#7240]: https://github.com/jruby/jruby/issues/7240
+[#7343]: https://github.com/jruby/jruby/issues/7343
+[#7344]: https://github.com/jruby/jruby/issues/7344
+[#7356]: https://github.com/jruby/jruby/issues/7356
+[#7351]: https://github.com/jruby/jruby/issues/7351
+[#7346]: https://github.com/jruby/jruby/issues/7346
+[#7348]: https://github.com/jruby/jruby/issues/7348
+[#7342]: https://github.com/jruby/jruby/issues/7342
+[#7328]: https://github.com/jruby/jruby/issues/7328
