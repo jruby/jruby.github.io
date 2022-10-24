@@ -1,0 +1,59 @@
+---
+layout: post
+title: JRuby 9.3.8.0 Released
+---
+
+The JRuby community is pleased to announce the release of JRuby 9.3.8.0
+
+* Homepage: [https://www.jruby.org/](https://www.jruby.org/)
+* Download: [https://www.jruby.org/download](https://www.jruby.org/download)
+
+JRuby 9.3.x is compatible with Ruby 2.6.x and stays in sync with C Ruby. As always there is a mix of miscellaneous fixes so be sure to read the issue list below.
+
+Thanks to our contributors this cycle for helping to improve stability and compatibility of JRuby 9.3: [@chadlwilson], [@coheigea]
+
+Standard Library
+----------------
+
+* rdoc has been updated to 6.3.3 to fix all known CVEs. ([#7396], [#7404])
+* rexml has been updated to 3.2.5 to fix all known CVEs. ([#7395], [#7405])
+* jruby-openssl has been updated to 0.14.0 to fix weak HMAC key hashing in bouncycastle, which itself is updated to 1.71. ([#7335], [#7385], [#7399])
+* psych has been updated to 3.3.4 to fix CVE-2022-38752 in the SnakeYAML library, which itself is updated to 1.33. ([#7386], [#7388], [#7400])
+* rubygems has been updated to 3.2.33 and bundler updated to 2.2.33 to address CVE-2021-43809. ([#7397], [#7401])
+
+### Github Issues resolved for 9.3.9.0
+
+- [#5588 - OpenSSL::PKey::RSA.new without password results in terminal input failure](https://github.com/jruby/jruby/issues/5588)
+- [#7335 - Upgrade jruby-openssl to 0.14.0](https://github.com/jruby/jruby/issues/7335)
+- [#7367 - StringIO ignores external encoding on Windows](https://github.com/jruby/jruby/issues/7367)
+- [#7380 - [Tiny issue] swing2.rb example at https://github.com/jruby/jruby/blob/master/samples/swing2.rb has a warning, "swing.rb:4: warning: import is deprecated; use java_import"](https://github.com/jruby/jruby/issues/7380)
+- [#7385 - Updating jruby-openssl to 0.14.0](https://github.com/jruby/jruby/pull/7385)
+- [#7386 - Update SnakeYaml to 1.32+ due to CVE-2022-38752](https://github.com/jruby/jruby/issues/7386)
+- [#7388 - Update to Psych 3.3.4](https://github.com/jruby/jruby/pull/7388)
+- [#7395 - Update embedded rexml in jruby-complete](https://github.com/jruby/jruby/issues/7395)
+- [#7396 - Update rdoc in jruby-complete](https://github.com/jruby/jruby/issues/7396)
+- [#7397 - Update bundler in jruby-complete](https://github.com/jruby/jruby/issues/7397)
+- [#7399 - Update bouncycastle in jruby-complete](https://github.com/jruby/jruby/issues/7399)
+- [#7400 - Update snakeyaml in jruby-complete](https://github.com/jruby/jruby/issues/7400)
+- [#7401 - [deps] update Bundler/Rubygems to latest patch](https://github.com/jruby/jruby/pull/7401)
+- [#7404 - Update rdoc to 6.3.3 to fix known CVEs](https://github.com/jruby/jruby/pull/7404)
+- [#7405 - Update rexml to 3.2.5 to fix known CVEs](https://github.com/jruby/jruby/pull/7405)
+- [#7406 - Time.at with fractional seconds and :in doubles timezone offset](https://github.com/jruby/jruby/issues/7406)
+- [#7407 - Better match CRuby zone negotiation](https://github.com/jruby/jruby/pull/7407)
+- [#7416 - Regexp new none option](https://github.com/jruby/jruby/pull/7416)
+
+
+[@chadlwilson]: https://github.com/chadlwilson
+[@coheigea]: https://github.com/coheigea
+[#7396]: https://github.com/jruby/jruby/issues/7396
+[#7404]: https://github.com/jruby/jruby/issues/7404
+[#7395]: https://github.com/jruby/jruby/issues/7395
+[#7405]: https://github.com/jruby/jruby/issues/7405
+[#7335]: https://github.com/jruby/jruby/issues/7335
+[#7385]: https://github.com/jruby/jruby/issues/7385
+[#7399]: https://github.com/jruby/jruby/issues/7399
+[#7386]: https://github.com/jruby/jruby/issues/7386
+[#7388]: https://github.com/jruby/jruby/issues/7388
+[#7400]: https://github.com/jruby/jruby/issues/7400
+[#7397]: https://github.com/jruby/jruby/issues/7397
+[#7401]: https://github.com/jruby/jruby/issues/7401
