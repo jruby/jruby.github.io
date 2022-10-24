@@ -3,7 +3,7 @@ layout: post
 title: JRuby 9.3.8.0 Released
 ---
 
-The JRuby community is pleased to announce the release of JRuby 9.3.8.0
+The JRuby community is pleased to announce the release of JRuby 9.3.9.0
 
 * Homepage: [https://www.jruby.org/](https://www.jruby.org/)
 * Download: [https://www.jruby.org/download](https://www.jruby.org/download)
