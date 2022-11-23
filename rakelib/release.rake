@@ -49,9 +49,14 @@ end
 # FIXME: It would be nice to make text + markdown/html output at some point
 def issue_notes_for(name, version, issues, notes)
   notes << "\n### #{name} Issues resolved for #{version}\n\n"
+  do_references = ENV['REFERENCES']
 
   issues.reverse.each do |issue|
-    notes << %Q{- [#{issue[0]} - #{issue[1]}](#{issue[2]})\n}
+    if do_references
+      notes << %Q{[#{issue[0]}]:#{issue[2]}\n}
+    else
+      notes << %Q{- [#{issue[0]} - #{issue[1]}](#{issue[2]})\n}
+    end
   end
   notes
 end
