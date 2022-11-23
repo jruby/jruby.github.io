@@ -3,7 +3,7 @@ layout: post
 title: JRuby 9.4.0.0 Released
 ---
 
-The JRuby community is pleased to announce the release of JRuby 9.4.0.0
+The JRuby community is pleased to announce the release of JRuby 9.4.0.0.
 
 * Homepage: [https://www.jruby.org/](https://www.jruby.org/)
 * Download: [https://www.jruby.org/download](https://www.jruby.org/download)
@@ -11,6 +11,14 @@ The JRuby community is pleased to announce the release of JRuby 9.4.0.0
 The release of JRuby 9.4 represents a leap forward to Ruby 3.1 compatibility, which would not have been possible without help from the excellent contributors in our JRuby community: [@k77ch7], [@PurityLake], [@ahorek], [@byteit101], [@mrnoname1000], [@edipofederle], [@chadlwilson], [@philr], [@gtback].
 
 A special shout out goes to Kiichi Hiromasa ([@k77ch7]) for submitting dozens of feature and fix PRs and to Patrick Plenefisch ([@byteit101]) for his work on the libfixposix-powered subspawn gem.
+
+We plan to put out several maintenance updates in the next few months. To help us improve compatibility and performance, we encourage you to try your apps and libraries on JRuby 9.4 and report any issues you find.
+
+* Issue tracker: [https://github.com/jruby/jruby/issues](https://github.com/jruby/jruby/issues)
+* Matrix chat: [https://matrix.to/#/#jruby:matrix.org](https://matrix.to/#/#jruby:matrix.org)
+* Twitter: [@jruby](https://twitter.com/jruby)
+* Mastodon: [@jruby@ruby.social](https://ruby.social/@jruby)
+* Mailing list: [jruby@ruby-lang.org](https://github.com/jruby/jruby/wiki/MailingLists)
 
 Ruby Compatibility
 ------------------
