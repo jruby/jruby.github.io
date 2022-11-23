@@ -1,0 +1,292 @@
+---
+layout: post
+title: JRuby 9.4.0.0 Released
+---
+
+The JRuby community is pleased to announce the release of JRuby 9.4.0.0
+
+* Homepage: [https://www.jruby.org/](https://www.jruby.org/)
+* Download: [https://www.jruby.org/download](https://www.jruby.org/download)
+
+The release of JRuby 9.4 represents a leap forward to Ruby 3.1 compatibility, which would not have been possible without help from the excellent contributors in our JRuby community: [@k77ch7], [@PurityLake], [@ahorek], [@byteit101], [@mrnoname1000], [@edipofederle], [@chadlwilson], [@philr], [@gtback].
+
+A special shout out goes to Kiichi Hiromasa ([@k77ch7]) for submitting dozens of feature and fix PRs and to Patrick Plenefisch ([@byteit101]) for his work on the libfixposix-powered subspawn gem.
+
+Ruby Compatibility
+------------------
+
+* Compatibility is updated to Ruby 3.1 level. This includes all Ruby 2.7, 3.0, and 3.1 features except where noted below. ([#6464], [#6878], [#7015])
+  * Ractor is not yet supported. JRuby users can achieve better parallelism by using threaded libraries and frameworks.
+  * The scheduler interface for IO, locks, and fibers is not yet supported. It will be added in an update release.
+* Nearly all features from CRuby's NEWS file have been implemented. Most new tests and specs pass.
+* Remaining 3.0 and 3.1 features will be implemented in an update release. See [#7459] and [#7460].
+
+Standard Library
+----------------
+
+* Much of the standard library has moved out to gems, and JRuby supports a large subset of these gems. See [lib/pom.rb] for the complete list of default and bundled gems.
+* Greatly improved PTY and spawn support thanks to the subspawn gem, which is included as part of the standard library. [#7393]
+
+JVM Integration
+---------------
+
+* Java setFoo methods that do not match JavaBean standards (return value other than void, for example) will now also generate a foo= method when imported into Ruby. ([#7340], [#7352])
+
+Platform Support
+----------------
+
+* The JRuby launcher script has been ported to POSIX shell (/bin/sh) and no longer requires Bash. ([#7024])
+* Initial support for the LoongArch64 platform has been inherited from the Java Native Runtime libraries.
+
+Third-party Libraries and Frameworks
+------------------------------------
+
+* Initial support for Rails 7. SQLite and MySQL are largely functional, but work remains to update them and PostgreSQL.
+
+[lib/pom.rb]: https://github.com/jruby/jruby/blob/9.4.0.0/lib/pom.rb
+[@chadlwilson]: https://github.com/chadlwilson
+[@edipofederle]: https://github.com/edipofederle
+[@ahorek]: https://github.com/ahorek
+[@k77ch7]: https://github.com/k77ch7
+[@philr]: https://github.com/philr
+[@mrnoname1000]: https://github.com/mrnoname1000
+[@PurityLake]: https://github.com/PurityLake
+[@byteit101]: https://github.com/byteit101
+[@gtback]: https://github.com/gtback
+[#1372]:https://github.com/jruby/jruby/issues/1372
+[#2383]:https://github.com/jruby/jruby/issues/2383
+[#3721]:https://github.com/jruby/jruby/issues/3721
+[#3810]:https://github.com/jruby/jruby/issues/3810
+[#4845]:https://github.com/jruby/jruby/issues/4845
+[#5802]:https://github.com/jruby/jruby/issues/5802
+[#5803]:https://github.com/jruby/jruby/pull/5803
+[#6417]:https://github.com/jruby/jruby/issues/6417
+[#6418]:https://github.com/jruby/jruby/pull/6418
+[#6420]:https://github.com/jruby/jruby/pull/6420
+[#6439]:https://github.com/jruby/jruby/pull/6439
+[#6464]:https://github.com/jruby/jruby/issues/6464
+[#6552]:https://github.com/jruby/jruby/issues/6552
+[#6677]:https://github.com/jruby/jruby/pull/6677
+[#6867]:https://github.com/jruby/jruby/issues/6867
+[#6878]:https://github.com/jruby/jruby/issues/6878
+[#6885]:https://github.com/jruby/jruby/issues/6885
+[#6891]:https://github.com/jruby/jruby/pull/6891
+[#6894]:https://github.com/jruby/jruby/pull/6894
+[#6901]:https://github.com/jruby/jruby/pull/6901
+[#6902]:https://github.com/jruby/jruby/pull/6902
+[#6912]:https://github.com/jruby/jruby/pull/6912
+[#6915]:https://github.com/jruby/jruby/pull/6915
+[#6916]:https://github.com/jruby/jruby/pull/6916
+[#6917]:https://github.com/jruby/jruby/pull/6917
+[#6918]:https://github.com/jruby/jruby/pull/6918
+[#6919]:https://github.com/jruby/jruby/pull/6919
+[#6920]:https://github.com/jruby/jruby/pull/6920
+[#6927]:https://github.com/jruby/jruby/pull/6927
+[#6930]:https://github.com/jruby/jruby/pull/6930
+[#6931]:https://github.com/jruby/jruby/pull/6931
+[#6932]:https://github.com/jruby/jruby/pull/6932
+[#6933]:https://github.com/jruby/jruby/pull/6933
+[#6938]:https://github.com/jruby/jruby/issues/6938
+[#6939]:https://github.com/jruby/jruby/pull/6939
+[#6940]:https://github.com/jruby/jruby/pull/6940
+[#6970]:https://github.com/jruby/jruby/pull/6970
+[#6980]:https://github.com/jruby/jruby/issues/6980
+[#6982]:https://github.com/jruby/jruby/pull/6982
+[#6998]:https://github.com/jruby/jruby/pull/6998
+[#6999]:https://github.com/jruby/jruby/pull/6999
+[#7000]:https://github.com/jruby/jruby/pull/7000
+[#7001]:https://github.com/jruby/jruby/pull/7001
+[#7002]:https://github.com/jruby/jruby/pull/7002
+[#7015]:https://github.com/jruby/jruby/issues/7015
+[#7022]:https://github.com/jruby/jruby/pull/7022
+[#7023]:https://github.com/jruby/jruby/pull/7023
+[#7024]:https://github.com/jruby/jruby/pull/7024
+[#7027]:https://github.com/jruby/jruby/pull/7027
+[#7028]:https://github.com/jruby/jruby/pull/7028
+[#7034]:https://github.com/jruby/jruby/pull/7034
+[#7036]:https://github.com/jruby/jruby/pull/7036
+[#7037]:https://github.com/jruby/jruby/pull/7037
+[#7040]:https://github.com/jruby/jruby/pull/7040
+[#7043]:https://github.com/jruby/jruby/pull/7043
+[#7044]:https://github.com/jruby/jruby/pull/7044
+[#7049]:https://github.com/jruby/jruby/pull/7049
+[#7050]:https://github.com/jruby/jruby/pull/7050
+[#7051]:https://github.com/jruby/jruby/pull/7051
+[#7052]:https://github.com/jruby/jruby/pull/7052
+[#7053]:https://github.com/jruby/jruby/pull/7053
+[#7054]:https://github.com/jruby/jruby/pull/7054
+[#7057]:https://github.com/jruby/jruby/pull/7057
+[#7058]:https://github.com/jruby/jruby/issues/7058
+[#7062]:https://github.com/jruby/jruby/pull/7062
+[#7063]:https://github.com/jruby/jruby/pull/7063
+[#7065]:https://github.com/jruby/jruby/pull/7065
+[#7067]:https://github.com/jruby/jruby/pull/7067
+[#7072]:https://github.com/jruby/jruby/pull/7072
+[#7073]:https://github.com/jruby/jruby/pull/7073
+[#7076]:https://github.com/jruby/jruby/pull/7076
+[#7079]:https://github.com/jruby/jruby/pull/7079
+[#7081]:https://github.com/jruby/jruby/pull/7081
+[#7082]:https://github.com/jruby/jruby/pull/7082
+[#7084]:https://github.com/jruby/jruby/pull/7084
+[#7085]:https://github.com/jruby/jruby/issues/7085
+[#7088]:https://github.com/jruby/jruby/pull/7088
+[#7092]:https://github.com/jruby/jruby/pull/7092
+[#7093]:https://github.com/jruby/jruby/pull/7093
+[#7094]:https://github.com/jruby/jruby/issues/7094
+[#7095]:https://github.com/jruby/jruby/pull/7095
+[#7097]:https://github.com/jruby/jruby/pull/7097
+[#7105]:https://github.com/jruby/jruby/pull/7105
+[#7106]:https://github.com/jruby/jruby/issues/7106
+[#7107]:https://github.com/jruby/jruby/pull/7107
+[#7109]:https://github.com/jruby/jruby/pull/7109
+[#7110]:https://github.com/jruby/jruby/pull/7110
+[#7116]:https://github.com/jruby/jruby/pull/7116
+[#7118]:https://github.com/jruby/jruby/pull/7118
+[#7119]:https://github.com/jruby/jruby/pull/7119
+[#7123]:https://github.com/jruby/jruby/pull/7123
+[#7124]:https://github.com/jruby/jruby/pull/7124
+[#7127]:https://github.com/jruby/jruby/pull/7127
+[#7128]:https://github.com/jruby/jruby/pull/7128
+[#7129]:https://github.com/jruby/jruby/pull/7129
+[#7130]:https://github.com/jruby/jruby/pull/7130
+[#7135]:https://github.com/jruby/jruby/pull/7135
+[#7144]:https://github.com/jruby/jruby/pull/7144
+[#7157]:https://github.com/jruby/jruby/pull/7157
+[#7158]:https://github.com/jruby/jruby/pull/7158
+[#7173]:https://github.com/jruby/jruby/pull/7173
+[#7174]:https://github.com/jruby/jruby/issues/7174
+[#7175]:https://github.com/jruby/jruby/issues/7175
+[#7178]:https://github.com/jruby/jruby/pull/7178
+[#7179]:https://github.com/jruby/jruby/pull/7179
+[#7180]:https://github.com/jruby/jruby/pull/7180
+[#7188]:https://github.com/jruby/jruby/pull/7188
+[#7189]:https://github.com/jruby/jruby/pull/7189
+[#7190]:https://github.com/jruby/jruby/pull/7190
+[#7191]:https://github.com/jruby/jruby/pull/7191
+[#7192]:https://github.com/jruby/jruby/pull/7192
+[#7193]:https://github.com/jruby/jruby/pull/7193
+[#7195]:https://github.com/jruby/jruby/pull/7195
+[#7196]:https://github.com/jruby/jruby/pull/7196
+[#7197]:https://github.com/jruby/jruby/pull/7197
+[#7198]:https://github.com/jruby/jruby/pull/7198
+[#7199]:https://github.com/jruby/jruby/issues/7199
+[#7200]:https://github.com/jruby/jruby/pull/7200
+[#7201]:https://github.com/jruby/jruby/pull/7201
+[#7202]:https://github.com/jruby/jruby/pull/7202
+[#7204]:https://github.com/jruby/jruby/pull/7204
+[#7206]:https://github.com/jruby/jruby/pull/7206
+[#7208]:https://github.com/jruby/jruby/pull/7208
+[#7209]:https://github.com/jruby/jruby/pull/7209
+[#7210]:https://github.com/jruby/jruby/pull/7210
+[#7212]:https://github.com/jruby/jruby/pull/7212
+[#7213]:https://github.com/jruby/jruby/pull/7213
+[#7214]:https://github.com/jruby/jruby/pull/7214
+[#7215]:https://github.com/jruby/jruby/pull/7215
+[#7222]:https://github.com/jruby/jruby/pull/7222
+[#7223]:https://github.com/jruby/jruby/pull/7223
+[#7224]:https://github.com/jruby/jruby/pull/7224
+[#7226]:https://github.com/jruby/jruby/pull/7226
+[#7227]:https://github.com/jruby/jruby/pull/7227
+[#7230]:https://github.com/jruby/jruby/pull/7230
+[#7231]:https://github.com/jruby/jruby/pull/7231
+[#7235]:https://github.com/jruby/jruby/pull/7235
+[#7247]:https://github.com/jruby/jruby/issues/7247
+[#7273]:https://github.com/jruby/jruby/pull/7273
+[#7276]:https://github.com/jruby/jruby/pull/7276
+[#7277]:https://github.com/jruby/jruby/pull/7277
+[#7278]:https://github.com/jruby/jruby/pull/7278
+[#7283]:https://github.com/jruby/jruby/pull/7283
+[#7284]:https://github.com/jruby/jruby/pull/7284
+[#7285]:https://github.com/jruby/jruby/pull/7285
+[#7293]:https://github.com/jruby/jruby/pull/7293
+[#7297]:https://github.com/jruby/jruby/pull/7297
+[#7300]:https://github.com/jruby/jruby/pull/7300
+[#7301]:https://github.com/jruby/jruby/pull/7301
+[#7305]:https://github.com/jruby/jruby/pull/7305
+[#7308]:https://github.com/jruby/jruby/issues/7308
+[#7309]:https://github.com/jruby/jruby/pull/7309
+[#7310]:https://github.com/jruby/jruby/pull/7310
+[#7311]:https://github.com/jruby/jruby/pull/7311
+[#7312]:https://github.com/jruby/jruby/pull/7312
+[#7313]:https://github.com/jruby/jruby/pull/7313
+[#7320]:https://github.com/jruby/jruby/pull/7320
+[#7322]:https://github.com/jruby/jruby/pull/7322
+[#7323]:https://github.com/jruby/jruby/issues/7323
+[#7329]:https://github.com/jruby/jruby/pull/7329
+[#7330]:https://github.com/jruby/jruby/pull/7330
+[#7339]:https://github.com/jruby/jruby/pull/7339
+[#7340]:https://github.com/jruby/jruby/issues/7340
+[#7347]:https://github.com/jruby/jruby/pull/7347
+[#7352]:https://github.com/jruby/jruby/pull/7352
+[#7355]:https://github.com/jruby/jruby/pull/7355
+[#7357]:https://github.com/jruby/jruby/pull/7357
+[#7363]:https://github.com/jruby/jruby/pull/7363
+[#7366]:https://github.com/jruby/jruby/pull/7366
+[#7368]:https://github.com/jruby/jruby/pull/7368
+[#7369]:https://github.com/jruby/jruby/pull/7369
+[#7370]:https://github.com/jruby/jruby/issues/7370
+[#7371]:https://github.com/jruby/jruby/pull/7371
+[#7373]:https://github.com/jruby/jruby/pull/7373
+[#7374]:https://github.com/jruby/jruby/pull/7374
+[#7375]:https://github.com/jruby/jruby/pull/7375
+[#7376]:https://github.com/jruby/jruby/pull/7376
+[#7377]:https://github.com/jruby/jruby/pull/7377
+[#7378]:https://github.com/jruby/jruby/pull/7378
+[#7379]:https://github.com/jruby/jruby/pull/7379
+[#7381]:https://github.com/jruby/jruby/pull/7381
+[#7382]:https://github.com/jruby/jruby/issues/7382
+[#7387]:https://github.com/jruby/jruby/pull/7387
+[#7389]:https://github.com/jruby/jruby/pull/7389
+[#7390]:https://github.com/jruby/jruby/pull/7390
+[#7391]:https://github.com/jruby/jruby/pull/7391
+[#7392]:https://github.com/jruby/jruby/pull/7392
+[#7393]:https://github.com/jruby/jruby/pull/7393
+[#7402]:https://github.com/jruby/jruby/pull/7402
+[#7408]:https://github.com/jruby/jruby/pull/7408
+[#7409]:https://github.com/jruby/jruby/pull/7409
+[#7410]:https://github.com/jruby/jruby/pull/7410
+[#7411]:https://github.com/jruby/jruby/pull/7411
+[#7412]:https://github.com/jruby/jruby/pull/7412
+[#7414]:https://github.com/jruby/jruby/pull/7414
+[#7417]:https://github.com/jruby/jruby/pull/7417
+[#7418]:https://github.com/jruby/jruby/pull/7418
+[#7419]:https://github.com/jruby/jruby/pull/7419
+[#7420]:https://github.com/jruby/jruby/pull/7420
+[#7421]:https://github.com/jruby/jruby/pull/7421
+[#7422]:https://github.com/jruby/jruby/pull/7422
+[#7423]:https://github.com/jruby/jruby/pull/7423
+[#7424]:https://github.com/jruby/jruby/pull/7424
+[#7425]:https://github.com/jruby/jruby/pull/7425
+[#7427]:https://github.com/jruby/jruby/issues/7427
+[#7428]:https://github.com/jruby/jruby/issues/7428
+[#7429]:https://github.com/jruby/jruby/pull/7429
+[#7431]:https://github.com/jruby/jruby/pull/7431
+[#7432]:https://github.com/jruby/jruby/pull/7432
+[#7435]:https://github.com/jruby/jruby/pull/7435
+[#7436]:https://github.com/jruby/jruby/pull/7436
+[#7438]:https://github.com/jruby/jruby/issues/7438
+[#7439]:https://github.com/jruby/jruby/issues/7439
+[#7441]:https://github.com/jruby/jruby/pull/7441
+[#7443]:https://github.com/jruby/jruby/pull/7443
+[#7444]:https://github.com/jruby/jruby/pull/7444
+[#7446]:https://github.com/jruby/jruby/pull/7446
+[#7447]:https://github.com/jruby/jruby/pull/7447
+[#7448]:https://github.com/jruby/jruby/pull/7448
+[#7449]:https://github.com/jruby/jruby/pull/7449
+[#7450]:https://github.com/jruby/jruby/pull/7450
+[#7451]:https://github.com/jruby/jruby/pull/7451
+[#7453]:https://github.com/jruby/jruby/pull/7453
+[#7454]:https://github.com/jruby/jruby/pull/7454
+[#7456]:https://github.com/jruby/jruby/pull/7456
+[#7458]:https://github.com/jruby/jruby/issues/7458
+[#7461]:https://github.com/jruby/jruby/pull/7461
+[#7462]:https://github.com/jruby/jruby/pull/7462
+[#7463]:https://github.com/jruby/jruby/pull/7463
+[#7464]:https://github.com/jruby/jruby/pull/7464
+[#7465]:https://github.com/jruby/jruby/pull/7465
+[#7468]:https://github.com/jruby/jruby/pull/7468
+[#7469]:https://github.com/jruby/jruby/pull/7469
+[#7472]:https://github.com/jruby/jruby/pull/7472
+[#7473]:https://github.com/jruby/jruby/pull/7473
+[#7459]:https://github.com/jruby/jruby/pull/7459
+[#7460]:https://github.com/jruby/jruby/pull/7460
