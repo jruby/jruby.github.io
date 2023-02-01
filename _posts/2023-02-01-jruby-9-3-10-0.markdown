@@ -1,0 +1,63 @@
+---
+layout: post
+title: JRuby 9.3.10.0 Released
+---
+
+The JRuby community is pleased to announce the release of JRuby 9.3.10.0
+
+* Homepage: [https://www.jruby.org/](https://www.jruby.org/)
+* Download: [https://www.jruby.org/download](https://www.jruby.org/download)
+
+JRuby 9.3.x is compatible with Ruby 2.6.x and stays in sync with C Ruby. As always there is a mix of miscellaneous fixes so be sure to read the issue list below.
+
+Thank you to our community members who contributed pull requests for this release: [@ahorek]
+
+Ruby Compatibility
+------------------
+
+* Various small compatibility fixes. See the issues list.
+
+Platform Support
+----------------
+
+* This release includes improved support for the LoongArch64 platform. ([#7260], [#7590], [#7608])
+
+Regexp Regression Fix
+---------------------
+
+* Fixed regression which caused longer strings to match slower. ([#7484])
+
+
+Issues resolved for 9.3.10.0
+----------------------------
+
+- [#5588 - OpenSSL::PKey::RSA.new without password results in terminal input failure](https://github.com/jruby/jruby/issues/5588)
+- [#6821 - Possible unpacking issue on current 9.3.0.0 with arm64 arch](https://github.com/jruby/jruby/issues/6821)
+- [#7260 - JRuby supports a new architecture](https://github.com/jruby/jruby/issues/7260)
+- [#7484 - Regression for non matching Regexp in `9.3.4`](https://github.com/jruby/jruby/issues/7484)
+- [#7514 - [fix] java_alias-ing for interface methods](https://github.com/jruby/jruby/pull/7514)
+- [#7542 - specs for pack/unpack with `j` and `J` formats failing on 32-bit platforms](https://github.com/jruby/jruby/issues/7542)
+- [#7545 - public_method_defined? changed value after prepend unrelated module](https://github.com/jruby/jruby/issues/7545)
+- [#7546 - Method overriding new does not have super_method from Class](https://github.com/jruby/jruby/issues/7546)
+- [#7548 - cannot use T::Struct from sorbet-runtime due to exception](https://github.com/jruby/jruby/issues/7548)
+- [#7554 - 1 << (2**40) returns 1 on JRuby](https://github.com/jruby/jruby/issues/7554)
+- [#7555 - UnboundMethod#bind should introduce include class](https://github.com/jruby/jruby/pull/7555)
+- [#7558 - Raise NoMemoryError for lshift > int max](https://github.com/jruby/jruby/pull/7558)
+- [#7559 - Etc#sysconf errors when it shouldn't](https://github.com/jruby/jruby/pull/7559)
+- [#7560 - Improvements and greening of 9.3 CI](https://github.com/jruby/jruby/pull/7560)
+- [#7562 - Use latest mysql like sequel HEAD](https://github.com/jruby/jruby/pull/7562)
+- [#7565 - Process#spawn should call #to_io on non-IO file descriptor objects](https://github.com/jruby/jruby/issues/7565)
+- [#7575 - Fix Method#super_method.owner pointing at wrong class](https://github.com/jruby/jruby/pull/7575)
+- [#7577 - Fix public_method_defined in presence of prepend](https://github.com/jruby/jruby/pull/7577)
+- [#7581 - Use platform bit width for J/j pack directive](https://github.com/jruby/jruby/pull/7581)
+- [#7590 - backport Update JNR dependencies](https://github.com/jruby/jruby/pull/7590)
+- [#7596 - Java::JavaLang::ClassCastException when initializing instance variable](https://github.com/jruby/jruby/issues/7596)
+- [#7598 - instance_eval, module_eval, class_eval cannot yield to block](https://github.com/jruby/jruby/issues/7598)
+- [#7605 - Also include frame's block for instance_eval](https://github.com/jruby/jruby/pull/7605)
+- [#7608 - Support for LoongArch64](https://github.com/jruby/jruby/pull/7608)
+
+[@ahorek]: https://github.com/ahorek
+[#7260]: https://github.com/jruby/jruby/issues/7260
+[#7484]: https://github.com/jruby/jruby/issues/7484
+[#7590]: https://github.com/jruby/jruby/pull/7590
+[#7608]: https://github.com/jruby/jruby/pull/7608

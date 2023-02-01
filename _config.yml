@@ -14,6 +14,7 @@ release:
   exe: https://s3.amazonaws.com/jruby.org/downloads/9.4.0.0/jruby_windows_9_4_0_0.exe
   exe64: https://s3.amazonaws.com/jruby.org/downloads/9.4.0.0/jruby_windows_x64_9_4_0_0.exe
   gem: https://rubygems.org/gems/jruby-jars/versions/9.4.0.0
+  gem_older: https://rubygems.org/gems/jruby-jars/versions/9.3.10.0
 urls:
   maven: https://repo1.maven.org/maven2/org/jruby
   s3: https://s3.amazonaws.com/jruby.org/downloads
