@@ -8,6 +8,8 @@ The JRuby community is pleased to announce the release of JRuby 9.4.0.0.
 * Homepage: [https://www.jruby.org/](https://www.jruby.org/)
 * Download: [https://www.jruby.org/download](https://www.jruby.org/download)
 
+JRuby 9.4.x targets Ruby 3.1 compatibility.
+
 Thank you to our contributors this release, you help keep JRuby moving forward! [@ahorek], [@cboos], [@evaniainbrooks], [@jcharaoui], [@k77ch7], [@knovok], [@Panxuefeng-loongson], [@ydah]
 
 Thanks also to the community of JRuby users for trying out JRuby 9.4.0.0 and filing issues! We're proud to include so many fixes in this update release and we couldn't have done it without your bug reports.
