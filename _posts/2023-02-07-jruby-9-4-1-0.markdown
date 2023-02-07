@@ -1,0 +1,215 @@
+---
+layout: post
+title: JRuby 9.4.0.0 Released
+---
+
+The JRuby community is pleased to announce the release of JRuby 9.4.0.0.
+
+* Homepage: [https://www.jruby.org/](https://www.jruby.org/)
+* Download: [https://www.jruby.org/download](https://www.jruby.org/download)
+
+Thank you to our contributors this release, you help keep JRuby moving forward! [@ahorek], [@cboos], [@evaniainbrooks], [@jcharaoui], [@k77ch7], [@knovok], [@Panxuefeng-loongson], [@ydah]
+
+Thanks also to the community of JRuby users for trying out JRuby 9.4.0.0 and filing issues! We're proud to include so many fixes in this update release and we couldn't have done it without your bug reports.
+
+Ruby Compatibility
+------------------
+
+* Several fixes to keyword arguments are included in this release. [#7434], [#7494], [#7497], [#7502], [#7513], [#7537], [#7552], [#7561], [#7572], [#7573], [#7574], [#7583], [#7592], [#7593]
+* Random has been fixed to work properly with SecureRandom, which was generating all zeros. [#7586], [#7597], [#7607], [#7617]
+
+Standard Library
+----------------
+
+* The Psych YAML library is updated to 5.1.0. This version switches the JRuby extension to SnakeYAML Engine, avoiding CVEs against the original SnakeYAML and updating YAML compatibility to specification version 1.2. [#6365], [#7570], [#7626]
+
+Platform Support
+----------------
+
+* Final changes to support the LoongArch64 architecture have been merged in. [#7518]
+
+Performance
+-----------
+
+* Overall JIT bytecode size has been improved, allowing more methods to compile to JVM bytecode. The maximum IR size eligible for JIT has been increased from 1000 instructions to 3000 instructions. [#7589]
+
+
+### 84 Issues resolved for 9.4.1.0
+
+- [#5534 - irb and rails console broken on windows 10](https://github.com/jruby/jruby/issues/5534)
+- [#6297 - jruby-jars profile fails on Java 11](https://github.com/jruby/jruby/issues/6297)
+- [#6365 - Psych syntax error changed in JRuby 9.2.13.0](https://github.com/jruby/jruby/issues/6365)
+- [#7112 - RSpec can't match errors in jruby-9.4.0.0](https://github.com/jruby/jruby/issues/7112)
+- [#7434 - [9.4.0.0] `IR compiler/interpreter bug: org.jruby.ir.operands.UndefinedValue should not be used as a valid value during execution.`](https://github.com/jruby/jruby/issues/7434)
+- [#7476 - `Zlib::GzipWriter` cannot be properly sub-classed](https://github.com/jruby/jruby/issues/7476)
+- [#7479 - Cannot sub-class `Zlib::GzipWriter` and call `.wrap`](https://github.com/jruby/jruby/issues/7479)
+- [#7481 - `Symbol#to_s` returns a frozen String](https://github.com/jruby/jruby/issues/7481)
+- [#7485 - JRuby 9.4 defines Hash#index, and defines Hash.ruby2_keywords_hash{,?} as instance methods](https://github.com/jruby/jruby/issues/7485)
+- [#7486 - Regression in 9.4 (optimizer? JIT?)](https://github.com/jruby/jruby/issues/7486)
+- [#7487 - Regression in 9.4 IRB parser](https://github.com/jruby/jruby/issues/7487)
+- [#7488 - Remove Hash index method, and fix ruby2_keywords_hash module method](https://github.com/jruby/jruby/pull/7488)
+- [#7489 - Symbol to_s returns frozen string](https://github.com/jruby/jruby/pull/7489)
+- [#7490 - Update actions/checkout version to v3](https://github.com/jruby/jruby/pull/7490)
+- [#7491 - Enumerator using Enumerable method with Symbol#to_proc passing wrong value to yield](https://github.com/jruby/jruby/issues/7491)
+- [#7492 - Possible regression in JRuby v9.4.0.0](https://github.com/jruby/jruby/issues/7492)
+- [#7493 - one-time-execute can sometimes contain a closure.  guard it.](https://github.com/jruby/jruby/pull/7493)
+- [#7494 - Specific arity kwargs undefined](https://github.com/jruby/jruby/pull/7494)
+- [#7497 - We should not be setting callInfo anywhere but the call(site) sans (K…](https://github.com/jruby/jruby/pull/7497)
+- [#7499 - Warnings in Rake's extension code to FileUtils under JRuby 9.4.0.0](https://github.com/jruby/jruby/issues/7499)
+- [#7500 - "Unknown node encountered in builder" error on previously working code](https://github.com/jruby/jruby/issues/7500)
+- [#7501 - DNodes are ListNodes and get compiled wrong in presence of a splat.](https://github.com/jruby/jruby/pull/7501)
+- [#7502 - Excessive kwargs duplicate key warns](https://github.com/jruby/jruby/pull/7502)
+- [#7503 - [refactor] make Java embed utils generic](https://github.com/jruby/jruby/pull/7503)
+- [#7506 - JRuby 9.4.0.0 Anonymous block argument after a splat is broken](https://github.com/jruby/jruby/issues/7506)
+- [#7509 - Fix syntax error in all cases where & is a param.](https://github.com/jruby/jruby/pull/7509)
+- [#7510 - Fixes #7479. Cannot sub-class Zlib::GzipWriter and call .wrap](https://github.com/jruby/jruby/pull/7510)
+- [#7511 - Fixes #7476. Zlib::GzipWriter cannot be properly sub-classed](https://github.com/jruby/jruby/pull/7511)
+- [#7513 - Kwargy](https://github.com/jruby/jruby/pull/7513)
+- [#7518 - Support for LoongArch64](https://github.com/jruby/jruby/pull/7518)
+- [#7520 - Error running rubocop with JRuby 9.4.0.0](https://github.com/jruby/jruby/issues/7520)
+- [#7521 - FFI errno spec fails on JRuby on Windows](https://github.com/jruby/jruby/issues/7521)
+- [#7525 - ENV encoding fixes (windows)](https://github.com/jruby/jruby/pull/7525)
+- [#7526 - Refinement does not self-refine properly](https://github.com/jruby/jruby/issues/7526)
+- [#7527 - alias winapi_error to lasterror](https://github.com/jruby/jruby/pull/7527)
+- [#7529 - Enumerator#inspect produces an ASCII-8BIT encoded String](https://github.com/jruby/jruby/issues/7529)
+- [#7531 - Enumerator#inspect: Use String concatenation not just bytelist appends](https://github.com/jruby/jruby/pull/7531)
+- [#7532 - Enumerator inspect tests](https://github.com/jruby/jruby/pull/7532)
+- [#7534 - [feat] allow enabling warnings wout changing $VERBOSE](https://github.com/jruby/jruby/pull/7534)
+- [#7535 - Refinement regression on 9.4](https://github.com/jruby/jruby/issues/7535)
+- [#7536 - Fixes #7492.  define_method should use definition scope.](https://github.com/jruby/jruby/pull/7536)
+- [#7537 - Keyword argument regression in JRuby 9.4](https://github.com/jruby/jruby/issues/7537)
+- [#7539 - The `:binmode` keyword argument isn't applied on `Tempfile` in JRuby 9.4](https://github.com/jruby/jruby/issues/7539)
+- [#7541 - passthrough anno added](https://github.com/jruby/jruby/pull/7541)
+- [#7547 - jruby-complete cannot start irb in windows](https://github.com/jruby/jruby/issues/7547)
+- [#7549 - [ji] support converting RubyThread to a java.lang.Thread](https://github.com/jruby/jruby/pull/7549)
+- [#7550 - Fix Enumerable#zip when an argument does not have each method](https://github.com/jruby/jruby/pull/7550)
+- [#7551 - UnboundMethod#bind should use virtual include class for module methods](https://github.com/jruby/jruby/pull/7551)
+- [#7552 - Fixes #7537.  Kwargs arg regression.](https://github.com/jruby/jruby/pull/7552)
+- [#7556 - jRuby 9.4 fails to load Celluloid gem](https://github.com/jruby/jruby/issues/7556)
+- [#7557 - [ji] revert Thread#to_java behavior to stay compatible, for now](https://github.com/jruby/jruby/pull/7557)
+- [#7561 - Delegating methods must be able to set ruby2_keywords on delegate.](https://github.com/jruby/jruby/pull/7561)
+- [#7563 - Fix comparator of Bignum and Infinity ](https://github.com/jruby/jruby/pull/7563)
+- [#7564 - Fix Numeric#remainder when divisor is infinity ](https://github.com/jruby/jruby/pull/7564)
+- [#7566 - Fix Float#floor and Float#round for some edge cases](https://github.com/jruby/jruby/pull/7566)
+- [#7567 - Fix missing require in mri-core tests](https://github.com/jruby/jruby/pull/7567)
+- [#7570 - New snakeyaml vulnerability has dropped, affects jruby-complete](https://github.com/jruby/jruby/issues/7570)
+- [#7571 - [refactor] warnings which assumed a message is being passed](https://github.com/jruby/jruby/pull/7571)
+- [#7572 - Keyword arguments are catched as arguments instead of keyword arguments](https://github.com/jruby/jruby/issues/7572)
+- [#7573 - Fixes #7572.  Blocks with only keywords losing keyword status.](https://github.com/jruby/jruby/pull/7573)
+- [#7574 - Simplify logic in IRBuilder for keyword arguments.](https://github.com/jruby/jruby/pull/7574)
+- [#7576 - yield from Enumerator raises "no receiver given"](https://github.com/jruby/jruby/issues/7576)
+- [#7580 - Enumerator acts differently when Symbol#to_proc is used](https://github.com/jruby/jruby/issues/7580)
+- [#7583 - Dir[] with multiple patterns fails if kwargs given.](https://github.com/jruby/jruby/issues/7583)
+- [#7586 - SecureRandom.random_number is always 0](https://github.com/jruby/jruby/issues/7586)
+- [#7589 - JIT size and perf improvements](https://github.com/jruby/jruby/pull/7589)
+- [#7591 - Fix Float#round with half even option](https://github.com/jruby/jruby/pull/7591)
+- [#7592 - Unexpected ArgumentError due to a JIT bug in JRuby 9.4.0.0](https://github.com/jruby/jruby/issues/7592)
+- [#7593 - Code was trying to make an int out of the kwargs hash.](https://github.com/jruby/jruby/pull/7593)
+- [#7594 - Attempt at making proper inflate error happen.](https://github.com/jruby/jruby/pull/7594)
+- [#7595 - Set refinement bit before building closure](https://github.com/jruby/jruby/pull/7595)
+- [#7596 - Java::JavaLang::ClassCastException when initializing instance variable](https://github.com/jruby/jruby/issues/7596)
+- [#7597 - If no seed given, use default random for seed](https://github.com/jruby/jruby/pull/7597)
+- [#7599 - Treat send of using or refine as refinement](https://github.com/jruby/jruby/pull/7599)
+- [#7601 - Fixed launch jruby in MSYS2 environment](https://github.com/jruby/jruby/pull/7601)
+- [#7602 - Some ranges will 'warning: ... at EOL, should be parenthesized?'](https://github.com/jruby/jruby/issues/7602)
+- [#7603 - Fix errant ... warning](https://github.com/jruby/jruby/pull/7603)
+- [#7606 - Use an identity map for the partial objects](https://github.com/jruby/jruby/pull/7606)
+- [#7607 - Array#sample does not honor random byte gen](https://github.com/jruby/jruby/issues/7607)
+- [#7617 - Implement ulong random logic with random bytes](https://github.com/jruby/jruby/pull/7617)
+- [#7619 - Small internal optimizations found profiling CSV](https://github.com/jruby/jruby/pull/7619)
+- [#7620 - Use Region accessors in prep for privatizing fields](https://github.com/jruby/jruby/pull/7620)
+- [#7626 - Use Psych 5.1](https://github.com/jruby/jruby/pull/7626)
+- [#7628 - RUBY_REVISION is a short sha, not the full sha like on other Rubies](https://github.com/jruby/jruby/issues/7628)
+
+[@ahorek]:https://github.com/ahorek
+[@cboos]:https://github.com/cboos
+[@evaniainbrooks]:https://github.com/evaniainbrooks
+[@jcharaoui]:https://github.com/jcharaoui
+[@k77ch7]:https://github.com/k77ch7
+[@knovok]:https://github.com/knovok
+[@Panxuefeng-loongson]:https://github.com/Panxuefeng-loongson
+[@ydah]:https://github.com/ydah
+[#5534]:https://github.com/jruby/jruby/issues/5534
+[#6297]:https://github.com/jruby/jruby/issues/6297
+[#6365]:https://github.com/jruby/jruby/issues/6365
+[#7112]:https://github.com/jruby/jruby/issues/7112
+[#7434]:https://github.com/jruby/jruby/issues/7434
+[#7476]:https://github.com/jruby/jruby/issues/7476
+[#7479]:https://github.com/jruby/jruby/issues/7479
+[#7481]:https://github.com/jruby/jruby/issues/7481
+[#7485]:https://github.com/jruby/jruby/issues/7485
+[#7486]:https://github.com/jruby/jruby/issues/7486
+[#7487]:https://github.com/jruby/jruby/issues/7487
+[#7488]:https://github.com/jruby/jruby/pull/7488
+[#7489]:https://github.com/jruby/jruby/pull/7489
+[#7490]:https://github.com/jruby/jruby/pull/7490
+[#7491]:https://github.com/jruby/jruby/issues/7491
+[#7492]:https://github.com/jruby/jruby/issues/7492
+[#7493]:https://github.com/jruby/jruby/pull/7493
+[#7494]:https://github.com/jruby/jruby/pull/7494
+[#7497]:https://github.com/jruby/jruby/pull/7497
+[#7499]:https://github.com/jruby/jruby/issues/7499
+[#7500]:https://github.com/jruby/jruby/issues/7500
+[#7501]:https://github.com/jruby/jruby/pull/7501
+[#7502]:https://github.com/jruby/jruby/pull/7502
+[#7503]:https://github.com/jruby/jruby/pull/7503
+[#7506]:https://github.com/jruby/jruby/issues/7506
+[#7509]:https://github.com/jruby/jruby/pull/7509
+[#7510]:https://github.com/jruby/jruby/pull/7510
+[#7511]:https://github.com/jruby/jruby/pull/7511
+[#7513]:https://github.com/jruby/jruby/pull/7513
+[#7518]:https://github.com/jruby/jruby/pull/7518
+[#7520]:https://github.com/jruby/jruby/issues/7520
+[#7521]:https://github.com/jruby/jruby/issues/7521
+[#7525]:https://github.com/jruby/jruby/pull/7525
+[#7526]:https://github.com/jruby/jruby/issues/7526
+[#7527]:https://github.com/jruby/jruby/pull/7527
+[#7529]:https://github.com/jruby/jruby/issues/7529
+[#7531]:https://github.com/jruby/jruby/pull/7531
+[#7532]:https://github.com/jruby/jruby/pull/7532
+[#7534]:https://github.com/jruby/jruby/pull/7534
+[#7535]:https://github.com/jruby/jruby/issues/7535
+[#7536]:https://github.com/jruby/jruby/pull/7536
+[#7537]:https://github.com/jruby/jruby/issues/7537
+[#7539]:https://github.com/jruby/jruby/issues/7539
+[#7541]:https://github.com/jruby/jruby/pull/7541
+[#7547]:https://github.com/jruby/jruby/issues/7547
+[#7549]:https://github.com/jruby/jruby/pull/7549
+[#7550]:https://github.com/jruby/jruby/pull/7550
+[#7551]:https://github.com/jruby/jruby/pull/7551
+[#7552]:https://github.com/jruby/jruby/pull/7552
+[#7556]:https://github.com/jruby/jruby/issues/7556
+[#7557]:https://github.com/jruby/jruby/pull/7557
+[#7561]:https://github.com/jruby/jruby/pull/7561
+[#7563]:https://github.com/jruby/jruby/pull/7563
+[#7564]:https://github.com/jruby/jruby/pull/7564
+[#7566]:https://github.com/jruby/jruby/pull/7566
+[#7567]:https://github.com/jruby/jruby/pull/7567
+[#7570]:https://github.com/jruby/jruby/issues/7570
+[#7571]:https://github.com/jruby/jruby/pull/7571
+[#7572]:https://github.com/jruby/jruby/issues/7572
+[#7573]:https://github.com/jruby/jruby/pull/7573
+[#7574]:https://github.com/jruby/jruby/pull/7574
+[#7576]:https://github.com/jruby/jruby/issues/7576
+[#7580]:https://github.com/jruby/jruby/issues/7580
+[#7583]:https://github.com/jruby/jruby/issues/7583
+[#7586]:https://github.com/jruby/jruby/issues/7586
+[#7589]:https://github.com/jruby/jruby/pull/7589
+[#7591]:https://github.com/jruby/jruby/pull/7591
+[#7592]:https://github.com/jruby/jruby/issues/7592
+[#7593]:https://github.com/jruby/jruby/pull/7593
+[#7594]:https://github.com/jruby/jruby/pull/7594
+[#7595]:https://github.com/jruby/jruby/pull/7595
+[#7596]:https://github.com/jruby/jruby/issues/7596
+[#7597]:https://github.com/jruby/jruby/pull/7597
+[#7599]:https://github.com/jruby/jruby/pull/7599
+[#7601]:https://github.com/jruby/jruby/pull/7601
+[#7602]:https://github.com/jruby/jruby/issues/7602
+[#7603]:https://github.com/jruby/jruby/pull/7603
+[#7606]:https://github.com/jruby/jruby/pull/7606
+[#7607]:https://github.com/jruby/jruby/issues/7607
+[#7617]:https://github.com/jruby/jruby/pull/7617
+[#7619]:https://github.com/jruby/jruby/pull/7619
+[#7620]:https://github.com/jruby/jruby/pull/7620
+[#7626]:https://github.com/jruby/jruby/pull/7626
+[#7628]:https://github.com/jruby/jruby/issues/7628
