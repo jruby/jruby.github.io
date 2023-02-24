@@ -15,8 +15,6 @@ information on sending JRuby source patches.
 
 ### Recent Articles
 
-* [My experience architecting a software development stack with JRuby, OpenJDK, and Roda (2019-07-10)](https://www.retroaxis.info/2019/07/10/my-experience-architecting-a-software-development-stack-with-jruby-openjdk-and-roda/)
-* [The Pleasures of JRuby: Leap Motion Hacking and JRuby](http://www.leaphacking.com/posts/the-pleasures-of-jruby.html)
 * [Deploying with JRuby in the Cloud](http://pragprog.com/magazines/2013-02/deploying-with-jruby-in-the-cloud)
 * [Riding JRuby on Rails on SAP NetWeaver Cloud: the cloud case](https://blogs.sap.com/2013/02/04/riding-jruby-on-rails-on-sap-netweaver-cloud-the-cloud-case/)
 * [RailsCasts #376: JRuby Basics](http://railscasts.com/episodes/376-jruby-basics?view=asciicast)
@@ -25,8 +23,11 @@ information on sending JRuby source patches.
 
 ### Recent Videos
 
-* [Why JRuby Works](https://confreaks.tv/videos/rubyconf2012-why-jruby-works)
-* [Deploy, Scale and Sleep at Night with JRuby](https://confreaks.tv/videos/gogaruco2012-deploy-scale-and-sleep-at-night-with-jruby)
+* [JRuby Zero to scale by Charles Oliver Nutter and Thomas E Enebo](https://www.youtube.com/watch?v=yTGegFR3aGc)
+* [Using JRuby: What, When, How, and Why by Charles Nutter](https://www.youtube.com/watch?v=fxAqjneCPOo)
+* [What the hell is JRuby?](https://www.youtube.com/watch?v=qJqC6xm-2PI&t=784s)
+* [Ruby & JVM: A (JRuby) Love Story by Yarden Laifenfeld](https://www.youtube.com/watch?v=FN0gfZJazM8&t=832s)
+* [JRuby the hard parts](https://www.youtube.com/watch?v=RvUouqLxgrY&t=135s)
 
 ### Wiki
 
