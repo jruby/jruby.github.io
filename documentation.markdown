@@ -15,6 +15,8 @@ information on sending JRuby source patches.
 
 ### Recent Articles
 
+* [JRuby 9.3.4](https://blog.jruby.org/2022/06/jruby-class-extension-9.3)
+* [The obscure world of Jruby — JRuby with Rails Under a Microscope](https://richardsondx.medium.com/everything-you-should-know-about-the-obscure-world-of-jruby-jruby-with-ruby-on-rails-c3c90d8fdeec)
 * [Deploying with JRuby in the Cloud](http://pragprog.com/magazines/2013-02/deploying-with-jruby-in-the-cloud)
 * [Riding JRuby on Rails on SAP NetWeaver Cloud: the cloud case](https://blogs.sap.com/2013/02/04/riding-jruby-on-rails-on-sap-netweaver-cloud-the-cloud-case/)
 * [RailsCasts #376: JRuby Basics](http://railscasts.com/episodes/376-jruby-basics?view=asciicast)
