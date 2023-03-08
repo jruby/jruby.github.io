@@ -1,0 +1,156 @@
+---
+layout: post
+title: JRuby 9.4.2.0 Released
+---
+
+The JRuby community is pleased to announce the release of JRuby 9.4.2.0.
+
+* Homepage: [https://www.jruby.org/](https://www.jruby.org/)
+* Download: [https://www.jruby.org/download](https://www.jruby.org/download)
+
+JRuby 9.4.x targets Ruby 3.1 compatibility.
+
+Thank you to our contributors this release, you help keep JRuby moving forward! [@k77ch7], [@andsel]
+
+Ruby Compatibility
+------------------
+
+* ```__callee__``` now properly returns the name under which a method was called, which will be the new name in the case of aliased methods. [#2305], [#7702]
+* More use cases for keyword arguments have been fixed to behave correctly and avoid extraneous warnings. [#7637], [#7645], [#7657], [#7658], [#7670], [#7672], [#7686]
+* Array#pack now supports more cases, passing nearly all specs. [#7663]
+* Compatibility with CRuby's command-line arguments has been improved. [#7678], [#7680], [#7681], [#7681], [#7683], [#7684]
+
+Standard Library
+----------------
+
+* irb is updated to 1.4.2. [#7690], [#7691]
+* open-uri is updated to 0.3.0. [#7701]
+* io-wait is updated to 0.3.0. [#7701]
+* stringio is updated to 3.0.5. [#7701]
+* strscan is updated to 3.0.6. [#7701]
+* open3 is switched to using the gem at 0.1.2. [#7701]
+
+Platform Support
+----------------
+
+* Exception backtraces now default to color output when the controlling terminal is a TTY. Disable using `-Xbacktrace.color=false` or equivalent in .jrubyrc. [#7693]
+
+Performance
+-----------
+
+* String#split has been optimized to skip regular expression use for simple split expressions. Simple ASCII strings also split faster. [#7629]
+
+54 Github Issues resolved for 9.4.2.0
+-------------------------------------
+
+- [#2305 - ```__callee__``` behaves differently from MRI](https://github.com/jruby/jruby/issues/2305)
+- [#7477 - `Integer#chr(encoding: Encoding::UTF_8)` raises a different `RangeError` exception message than on CRuby](https://github.com/jruby/jruby/issues/7477)
+- [#7480 - Cannot call `SubClass#initialize_copy` with an object created from the super class](https://github.com/jruby/jruby/issues/7480)
+- [#7615 - opt != for fixnum in JIT/indy](https://github.com/jruby/jruby/pull/7615)
+- [#7629 - Split opts](https://github.com/jruby/jruby/pull/7629)
+- [#7637 - 9.4.1.0: Wrong number of arguments with kwargs when subclassing a java class ](https://github.com/jruby/jruby/issues/7637)
+- [#7639 - Typing @ into irb in 9.4.1.0 crashes it](https://github.com/jruby/jruby/issues/7639)
+- [#7641 - "Port already in use" errors when configuring remote JMX in 9.4](https://github.com/jruby/jruby/issues/7641)
+- [#7642 - [9.4.1.0] ArrayIndexOutOfBoundsException](https://github.com/jruby/jruby/issues/7642)
+- [#7643 - Use SmartBinder to set up struct calls](https://github.com/jruby/jruby/pull/7643)
+- [#7645 - Fixes #7637. Arity error with kwargs when subclassing a java class](https://github.com/jruby/jruby/pull/7645)
+- [#7650 - BigDecimal arithmetic regression [jruby-9.4]](https://github.com/jruby/jruby/issues/7650)
+- [#7652 - Fix Float#to_d of bigdecimal/util](https://github.com/jruby/jruby/pull/7652)
+- [#7653 - Fix Struct#values_at when passed an integer Range argument for edge cases](https://github.com/jruby/jruby/pull/7653)
+- [#7655 - JIT coverage fixes](https://github.com/jruby/jruby/pull/7655)
+- [#7656 - Regression: Class variables in top level methods broken compared to MRI & 9.3](https://github.com/jruby/jruby/issues/7656)
+- [#7657 - Pattern matching unexpectedly raises "duplicated key name" error](https://github.com/jruby/jruby/issues/7657)
+- [#7658 - remove deplicated key name error](https://github.com/jruby/jruby/pull/7658)
+- [#7659 - Fix for #7656.](https://github.com/jruby/jruby/pull/7659)
+- [#7662 - END blocks had regressed and was calling same block >1](https://github.com/jruby/jruby/pull/7662)
+- [#7663 - Array#pack unknown directive warns](https://github.com/jruby/jruby/pull/7663)
+- [#7664 - All these work?](https://github.com/jruby/jruby/pull/7664)
+- [#7665 - Arity errors for 'call' things in Signal#trap](https://github.com/jruby/jruby/pull/7665)
+- [#7666 - Array#new size boundary error not tripping](https://github.com/jruby/jruby/pull/7666)
+- [#7667 - Kernel#respond_to? return wrong error string but right error.](https://github.com/jruby/jruby/pull/7667)
+- [#7668 - Array#to_s/inspect should be same method](https://github.com/jruby/jruby/pull/7668)
+- [#7669 - Proc#inspect with &:foo should print that out in str](https://github.com/jruby/jruby/pull/7669)
+- [#7670 - Probably method_missing is not handling keyword arguments properly [jruby-9.4.1.0]](https://github.com/jruby/jruby/issues/7670)
+- [#7671 - Binding local_variables makes sure they are lvars](https://github.com/jruby/jruby/pull/7671)
+- [#7672 - jruby-9.4.1.0 issues warning about duplicated keys](https://github.com/jruby/jruby/issues/7672)
+- [#7674 - Fix #7672. warning about duplicated keys](https://github.com/jruby/jruby/pull/7674)
+- [#7675 - JIT loses line numbers in some warnings?](https://github.com/jruby/jruby/issues/7675)
+- [#7678 - Add --encoding command line option.](https://github.com/jruby/jruby/pull/7678)
+- [#7679 - Spec sweep](https://github.com/jruby/jruby/pull/7679)
+- [#7680 - disabling RUBYOPT processing was not hooked up.](https://github.com/jruby/jruby/pull/7680)
+- [#7681 - Frozen string debugging off by one.](https://github.com/jruby/jruby/pull/7681)
+- [#7682 - The -p command line should use print and not puts.](https://github.com/jruby/jruby/pull/7682)
+- [#7683 - All -I provided relative paths shold be made absolute](https://github.com/jruby/jruby/pull/7683)
+- [#7684 - Fixed windowsJ encoding and do not set on invalid K values](https://github.com/jruby/jruby/pull/7684)
+- [#7685 - Add a warn form that takes a callback](https://github.com/jruby/jruby/pull/7685)
+- [#7686 - Fix #7670. Coverage data goes off the rails.](https://github.com/jruby/jruby/pull/7686)
+- [#7687 - Passing specs](https://github.com/jruby/jruby/pull/7687)
+- [#7690 - Update `irb` to version `1.4.2+`](https://github.com/jruby/jruby/issues/7690)
+- [#7691 - Updates irb to 1.4.2](https://github.com/jruby/jruby/pull/7691)
+- [#7693 - Enable color if console is a tty](https://github.com/jruby/jruby/pull/7693)
+- [#7694 - Mimic CRuby's range error logic for chr](https://github.com/jruby/jruby/pull/7694)
+- [#7696 - Make coderange set on strings created from some IO ops](https://github.com/jruby/jruby/pull/7696)
+- [#7700 - Define real error methods to avoid callee](https://github.com/jruby/jruby/pull/7700)
+- [#7701 - Update gems](https://github.com/jruby/jruby/pull/7701)
+- [#7702 - Encode new and old name in aliased calls](https://github.com/jruby/jruby/pull/7702)
+- [#7708 - Enumerator.new takes at most one arg](https://github.com/jruby/jruby/issues/7708)
+- [#7709 - Eliminate 2- and 3-arity paths for Enumerator#initialize](https://github.com/jruby/jruby/pull/7709)
+- [#7715 - We were quoting symbols in inspect we shouldnt have](https://github.com/jruby/jruby/pull/7715)
+- [#7716 - Add infra to support Ruby 3.1 pattern error messages.](https://github.com/jruby/jruby/pull/7716)
+
+[@k77ch7]:https://github.com/k77ch7
+[@andsel]:https://github.com/andsel
+[#2305]:https://github.com/jruby/jruby/issues/2305
+[#7477]:https://github.com/jruby/jruby/issues/7477
+[#7480]:https://github.com/jruby/jruby/issues/7480
+[#7615]:https://github.com/jruby/jruby/pull/7615
+[#7629]:https://github.com/jruby/jruby/pull/7629
+[#7637]:https://github.com/jruby/jruby/issues/7637
+[#7639]:https://github.com/jruby/jruby/issues/7639
+[#7641]:https://github.com/jruby/jruby/issues/7641
+[#7642]:https://github.com/jruby/jruby/issues/7642
+[#7643]:https://github.com/jruby/jruby/pull/7643
+[#7645]:https://github.com/jruby/jruby/pull/7645
+[#7650]:https://github.com/jruby/jruby/issues/7650
+[#7652]:https://github.com/jruby/jruby/pull/7652
+[#7653]:https://github.com/jruby/jruby/pull/7653
+[#7655]:https://github.com/jruby/jruby/pull/7655
+[#7656]:https://github.com/jruby/jruby/issues/7656
+[#7657]:https://github.com/jruby/jruby/issues/7657
+[#7658]:https://github.com/jruby/jruby/pull/7658
+[#7659]:https://github.com/jruby/jruby/pull/7659
+[#7662]:https://github.com/jruby/jruby/pull/7662
+[#7663]:https://github.com/jruby/jruby/pull/7663
+[#7664]:https://github.com/jruby/jruby/pull/7664
+[#7665]:https://github.com/jruby/jruby/pull/7665
+[#7666]:https://github.com/jruby/jruby/pull/7666
+[#7667]:https://github.com/jruby/jruby/pull/7667
+[#7668]:https://github.com/jruby/jruby/pull/7668
+[#7669]:https://github.com/jruby/jruby/pull/7669
+[#7670]:https://github.com/jruby/jruby/issues/7670
+[#7671]:https://github.com/jruby/jruby/pull/7671
+[#7672]:https://github.com/jruby/jruby/issues/7672
+[#7674]:https://github.com/jruby/jruby/pull/7674
+[#7675]:https://github.com/jruby/jruby/issues/7675
+[#7678]:https://github.com/jruby/jruby/pull/7678
+[#7679]:https://github.com/jruby/jruby/pull/7679
+[#7680]:https://github.com/jruby/jruby/pull/7680
+[#7681]:https://github.com/jruby/jruby/pull/7681
+[#7682]:https://github.com/jruby/jruby/pull/7682
+[#7683]:https://github.com/jruby/jruby/pull/7683
+[#7684]:https://github.com/jruby/jruby/pull/7684
+[#7685]:https://github.com/jruby/jruby/pull/7685
+[#7686]:https://github.com/jruby/jruby/pull/7686
+[#7687]:https://github.com/jruby/jruby/pull/7687
+[#7690]:https://github.com/jruby/jruby/issues/7690
+[#7691]:https://github.com/jruby/jruby/pull/7691
+[#7693]:https://github.com/jruby/jruby/pull/7693
+[#7694]:https://github.com/jruby/jruby/pull/7694
+[#7696]:https://github.com/jruby/jruby/pull/7696
+[#7700]:https://github.com/jruby/jruby/pull/7700
+[#7701]:https://github.com/jruby/jruby/pull/7701
+[#7702]:https://github.com/jruby/jruby/pull/7702
+[#7708]:https://github.com/jruby/jruby/issues/7708
+[#7709]:https://github.com/jruby/jruby/pull/7709
+[#7715]:https://github.com/jruby/jruby/pull/7715
+[#7716]:https://github.com/jruby/jruby/pull/7716
