@@ -1,0 +1,217 @@
+---
+layout: post
+title: JRuby 9.4.3.0 Released
+---
+
+The JRuby community is pleased to announce the release of JRuby 9.4.3.0.
+
+* Homepage: [https://www.jruby.org/](https://www.jruby.org/)
+* Download: [https://www.jruby.org/download](https://www.jruby.org/download)
+
+JRuby 9.4.x targets Ruby 3.1 compatibility.
+
+Thank you to our contributors this release, you help keep JRuby moving forward! [@byteit101], [@donv], [@k77ch7], [@rcrews]
+
+Ruby Compatibility
+------------------
+
+* Multiple fixes for keyword arguments edge cases. [#7676], [#7755], [#7804], [#7816]
+
+Standard Library
+----------------
+
+* Default gem updates:
+  * rubygems 3.3.26 [#7831]
+  * bundler 2.3.26 [#7831]
+  * cgi 0.3.6 [#7831]
+  * date 3.3.3 (stub gem on JRuby) [#7831]
+  * ffi 1.15.5 [#7831]
+  * jruby-openssl 0.14.1
+  * net-http 0.3.0 [#7831]
+  * net-protocol 0.1.2 [#7831]
+  * reline 0.3.5 [#7831]
+  * ffi-binary-libfixposix 0.5.1.1 to support Apple M1 (used by subspawn for improved subprocess management)
+  * time 0.2.2 [#7831]
+  * timeout 0.3.2 [#7831]
+  * uri 0.12.1 [#7831]
+* Bundled gem updates: [#7831]
+  * net-imap 0.2.3
+* Many fixes for BigDecimal behavior by [@k77ch7]. [#7747], [#7758], [#7766], [#7767], [#7768], [#7778], [#7779], [#7780], [#7781], [#7813], [#7827]
+* Rippper now passes all tests related to the syntax_tree gem. [#7776]
+
+Performance
+-----------
+
+* Various small optimizations based on Rails and other frequent use cases. [#7522], [#7720], [#7722], [#7783], [#7789]
+
+JVM Integration
+---------------
+
+* InvokeDynamic support is now being tested across five major test suites on Java 17 and passes all tests that non-indy execution passes. [#7797]
+
+
+### 79 Github Issues resolved for 9.4.3.0
+
+- [#1422 - GzipReader#mtime gives the wrong time](https://github.com/jruby/jruby/issues/1422)
+- [#6607 - Clean up javadoc for stricter Java 11](https://github.com/jruby/jruby/issues/6607)
+- [#7452 - Default external to locale as in CRuby](https://github.com/jruby/jruby/pull/7452)
+- [#7474 - Rails 7 support](https://github.com/jruby/jruby/issues/7474)
+- [#7522 - case/when optimizations](https://github.com/jruby/jruby/pull/7522)
+- [#7579 - GLIBC compatibility with RHEL/CentOS 7 and JRuby 9.4.0.0](https://github.com/jruby/jruby/issues/7579)
+- [#7673 - Enable more traces and reduce costs of others](https://github.com/jruby/jruby/pull/7673)
+- [#7676 - ruby2_keywords should not warn when using ...](https://github.com/jruby/jruby/issues/7676)
+- [#7711 - Constants set by autoload have wrong line number in JIT](https://github.com/jruby/jruby/issues/7711)
+- [#7712 - Use real stack trace for autoload const location](https://github.com/jruby/jruby/pull/7712)
+- [#7714 - Enumerator cleanup](https://github.com/jruby/jruby/pull/7714)
+- [#7717 - sass-embedded gem extension install fails with rake require error on Windows with JRuby 9.4.2.0](https://github.com/jruby/jruby/issues/7717)
+- [#7718 - Deprecation cleanup](https://github.com/jruby/jruby/pull/7718)
+- [#7719 - Fixes #7717. sass-embedded gem extension install fails with jruby-com…](https://github.com/jruby/jruby/pull/7719)
+- [#7720 - More indy call optz](https://github.com/jruby/jruby/pull/7720)
+- [#7722 - Eliminate duplication for optimized case/when build](https://github.com/jruby/jruby/pull/7722)
+- [#7723 - passing specs](https://github.com/jruby/jruby/pull/7723)
+- [#7724 - Syslog tags](https://github.com/jruby/jruby/pull/7724)
+- [#7725 - More specs already fixed](https://github.com/jruby/jruby/pull/7725)
+- [#7726 - Ruby-based SecurityManager can recurse forever](https://github.com/jruby/jruby/issues/7726)
+- [#7728 - [feat] make Ruby#setWarningsEnabled actually useful](https://github.com/jruby/jruby/pull/7728)
+- [#7734 - Object with finalizer dumps wrong data leading to: `load': marshal data too short`](https://github.com/jruby/jruby/issues/7734)
+- [#7735 - `Dir.home` is no longer compatible with CRuby after JRuby 9.3](https://github.com/jruby/jruby/issues/7735)
+- [#7738 - Fix Dir.home called with nil user](https://github.com/jruby/jruby/pull/7738)
+- [#7739 - Don't try to marshal non-serializable variables](https://github.com/jruby/jruby/pull/7739)
+- [#7740 - irb error on Mac M1](https://github.com/jruby/jruby/issues/7740)
+- [#7741 - some line numbers on warnings are off by 1](https://github.com/jruby/jruby/issues/7741)
+- [#7743 - [ripper] NPE during parsing the rspec documentation](https://github.com/jruby/jruby/issues/7743)
+- [#7744 - The `File#absolute_path?` implementation in JRuby 9.4.x.x causes issues with *asciidoctor-pdf*](https://github.com/jruby/jruby/issues/7744)
+- [#7745 - Pathname#absolute? stopped working properly for URIs](https://github.com/jruby/jruby/issues/7745)
+- [#7746 - Flaky test running rack on JRuby](https://github.com/jruby/jruby/issues/7746)
+- [#7747 - Ruby 3.1 : fix Bigdecimal](https://github.com/jruby/jruby/pull/7747)
+- [#7751 - Move arity-checking into variable-arity method bodies](https://github.com/jruby/jruby/pull/7751)
+- [#7753 - Fix #7743. NPE during parsing the rspec documentation](https://github.com/jruby/jruby/pull/7753)
+- [#7755 - Fixes #7676. ruby2_keywords should not warn when using ...](https://github.com/jruby/jruby/pull/7755)
+- [#7756 - Regression go away](https://github.com/jruby/jruby/pull/7756)
+- [#7757 - Migrate regressions into jruby:spec or remove if already covered](https://github.com/jruby/jruby/pull/7757)
+- [#7758 - Fix BigDecimal#sub with Object and significant digits](https://github.com/jruby/jruby/pull/7758)
+- [#7761 - Can't match rspec errors in 9.4.2.0](https://github.com/jruby/jruby/issues/7761)
+- [#7764 - Mysterious "unused literal ignored" warnings](https://github.com/jruby/jruby/issues/7764)
+- [#7765 - GH-6607 Clean up javadoc for stricter Java 11](https://github.com/jruby/jruby/pull/7765)
+- [#7766 - Fix rounding mode constants of BigDecimal to use the same mri's values](https://github.com/jruby/jruby/pull/7766)
+- [#7767 - Fix BigMath#exp and #log error message for edge cases](https://github.com/jruby/jruby/pull/7767)
+- [#7768 - Fix BigDecimal(0, NAN and INFINITY) to return always same object](https://github.com/jruby/jruby/pull/7768)
+- [#7770 - Fixes #7769. regexp with / before mbc should work.](https://github.com/jruby/jruby/pull/7770)
+- [#7774 - ripper presents an extra on_var_field for opt parameters in methods](https://github.com/jruby/jruby/issues/7774)
+- [#7775 - Fixes #7774. ripper presents an extra on_var_field for opt params](https://github.com/jruby/jruby/pull/7775)
+- [#7776 - Ripper fixes found while running syntax_tree gems tests.](https://github.com/jruby/jruby/pull/7776)
+- [#7777 - fix try_convert error message](https://github.com/jruby/jruby/pull/7777)
+- [#7778 - Fix BigDecimal#to_s for edge case](https://github.com/jruby/jruby/pull/7778)
+- [#7779 - Fix bigdecimal/util's #to_d and BigDecimal.interpret_loosely to return correct value for loosely case](https://github.com/jruby/jruby/pull/7779)
+- [#7780 - Fix several BigDecimal failures](https://github.com/jruby/jruby/pull/7780)
+- [#7781 - Add BigDecimal#power(n, prec)](https://github.com/jruby/jruby/pull/7781)
+- [#7783 - Rails profiling optimizations](https://github.com/jruby/jruby/pull/7783)
+- [#7789 - Java call optimizations](https://github.com/jruby/jruby/pull/7789)
+- [#7790 - jruby --help displays removed taint level command line option](https://github.com/jruby/jruby/issues/7790)
+- [#7791 - Remove obsolete command line option `-T[level]`](https://github.com/jruby/jruby/pull/7791)
+- [#7793 - Macbook M1 JRuby 9.4.2.0 Could not open library 'fixposix' 'libfixposix.dylib'](https://github.com/jruby/jruby/issues/7793)
+- [#7797 - Fix recent regressions on master](https://github.com/jruby/jruby/pull/7797)
+- [#7800 - Update time and uri for recent ReDoS issues](https://github.com/jruby/jruby/pull/7800)
+- [#7801 - Update time to 0.2.2 and use date stub gem 3.3.3](https://github.com/jruby/jruby/pull/7801)
+- [#7802 - Update Subspawn to fix #7793](https://github.com/jruby/jruby/pull/7802)
+- [#7804 - Incorrect ArgumentError: wrong number of arguments](https://github.com/jruby/jruby/issues/7804)
+- [#7807 - Update joni to 2.2](https://github.com/jruby/jruby/pull/7807)
+- [#7808 - Update to backport9 1.13 for module javadoc fix](https://github.com/jruby/jruby/pull/7808)
+- [#7813 - Add BigDecimal#quo(value, digits)](https://github.com/jruby/jruby/pull/7813)
+- [#7814 - Update jzlib and fix mtime](https://github.com/jruby/jruby/pull/7814)
+- [#7816 - Fixes #7804.  Incorrect ArgumentError: wrong number of arguments](https://github.com/jruby/jruby/pull/7816)
+- [#7818 - Small documentation issues regarding java options](https://github.com/jruby/jruby/issues/7818)
+- [#7820 - Accessing `Encoding` from java code is broken on new thread](https://github.com/jruby/jruby/issues/7820)
+- [#7824 - Use top self for evalScriptlet, since no frame yet](https://github.com/jruby/jruby/pull/7824)
+- [#7826 - Fix Rational#truncate with an invalid value](https://github.com/jruby/jruby/pull/7826)
+- [#7827 - Fix BigDeciaml#to_f](https://github.com/jruby/jruby/pull/7827)
+- [#7828 - Improve verbiage of how to use properties.](https://github.com/jruby/jruby/pull/7828)
+- [#7830 - ArrayIndexOutOfBoundsException matching regex against emoji string](https://github.com/jruby/jruby/issues/7830)
+- [#7831 - Update stdlib gems and compat to 3.1.4](https://github.com/jruby/jruby/pull/7831)
+- [#7832 - Update JNR versions](https://github.com/jruby/jruby/pull/7832)
+- [#7833 - Update IRB tests to 1.7.0 version](https://github.com/jruby/jruby/pull/7833)
+- [#7834 - Return to IRB 1.4.2 for now](https://github.com/jruby/jruby/pull/7834)
+
+[@byteit101]:https://github.com/byteit101
+[@donv]:https://github.com/donv
+[@k77ch7]:https://github.com/k77ch7
+[@rcrews]:https://github.com/rcrews
+[#1422]:https://github.com/jruby/jruby/issues/1422
+[#6607]:https://github.com/jruby/jruby/issues/6607
+[#7452]:https://github.com/jruby/jruby/pull/7452
+[#7474]:https://github.com/jruby/jruby/issues/7474
+[#7522]:https://github.com/jruby/jruby/pull/7522
+[#7579]:https://github.com/jruby/jruby/issues/7579
+[#7673]:https://github.com/jruby/jruby/pull/7673
+[#7676]:https://github.com/jruby/jruby/issues/7676
+[#7711]:https://github.com/jruby/jruby/issues/7711
+[#7712]:https://github.com/jruby/jruby/pull/7712
+[#7714]:https://github.com/jruby/jruby/pull/7714
+[#7717]:https://github.com/jruby/jruby/issues/7717
+[#7718]:https://github.com/jruby/jruby/pull/7718
+[#7719]:https://github.com/jruby/jruby/pull/7719
+[#7720]:https://github.com/jruby/jruby/pull/7720
+[#7722]:https://github.com/jruby/jruby/pull/7722
+[#7723]:https://github.com/jruby/jruby/pull/7723
+[#7724]:https://github.com/jruby/jruby/pull/7724
+[#7725]:https://github.com/jruby/jruby/pull/7725
+[#7726]:https://github.com/jruby/jruby/issues/7726
+[#7728]:https://github.com/jruby/jruby/pull/7728
+[#7734]:https://github.com/jruby/jruby/issues/7734
+[#7735]:https://github.com/jruby/jruby/issues/7735
+[#7738]:https://github.com/jruby/jruby/pull/7738
+[#7739]:https://github.com/jruby/jruby/pull/7739
+[#7740]:https://github.com/jruby/jruby/issues/7740
+[#7741]:https://github.com/jruby/jruby/issues/7741
+[#7743]:https://github.com/jruby/jruby/issues/7743
+[#7744]:https://github.com/jruby/jruby/issues/7744
+[#7745]:https://github.com/jruby/jruby/issues/7745
+[#7746]:https://github.com/jruby/jruby/issues/7746
+[#7747]:https://github.com/jruby/jruby/pull/7747
+[#7751]:https://github.com/jruby/jruby/pull/7751
+[#7753]:https://github.com/jruby/jruby/pull/7753
+[#7755]:https://github.com/jruby/jruby/pull/7755
+[#7756]:https://github.com/jruby/jruby/pull/7756
+[#7757]:https://github.com/jruby/jruby/pull/7757
+[#7758]:https://github.com/jruby/jruby/pull/7758
+[#7761]:https://github.com/jruby/jruby/issues/7761
+[#7764]:https://github.com/jruby/jruby/issues/7764
+[#7765]:https://github.com/jruby/jruby/pull/7765
+[#7766]:https://github.com/jruby/jruby/pull/7766
+[#7767]:https://github.com/jruby/jruby/pull/7767
+[#7768]:https://github.com/jruby/jruby/pull/7768
+[#7770]:https://github.com/jruby/jruby/pull/7770
+[#7774]:https://github.com/jruby/jruby/issues/7774
+[#7775]:https://github.com/jruby/jruby/pull/7775
+[#7776]:https://github.com/jruby/jruby/pull/7776
+[#7777]:https://github.com/jruby/jruby/pull/7777
+[#7778]:https://github.com/jruby/jruby/pull/7778
+[#7779]:https://github.com/jruby/jruby/pull/7779
+[#7780]:https://github.com/jruby/jruby/pull/7780
+[#7781]:https://github.com/jruby/jruby/pull/7781
+[#7783]:https://github.com/jruby/jruby/pull/7783
+[#7789]:https://github.com/jruby/jruby/pull/7789
+[#7790]:https://github.com/jruby/jruby/issues/7790
+[#7791]:https://github.com/jruby/jruby/pull/7791
+[#7793]:https://github.com/jruby/jruby/issues/7793
+[#7797]:https://github.com/jruby/jruby/pull/7797
+[#7800]:https://github.com/jruby/jruby/pull/7800
+[#7801]:https://github.com/jruby/jruby/pull/7801
+[#7802]:https://github.com/jruby/jruby/pull/7802
+[#7804]:https://github.com/jruby/jruby/issues/7804
+[#7807]:https://github.com/jruby/jruby/pull/7807
+[#7808]:https://github.com/jruby/jruby/pull/7808
+[#7813]:https://github.com/jruby/jruby/pull/7813
+[#7814]:https://github.com/jruby/jruby/pull/7814
+[#7816]:https://github.com/jruby/jruby/pull/7816
+[#7818]:https://github.com/jruby/jruby/issues/7818
+[#7820]:https://github.com/jruby/jruby/issues/7820
+[#7824]:https://github.com/jruby/jruby/pull/7824
+[#7826]:https://github.com/jruby/jruby/pull/7826
+[#7827]:https://github.com/jruby/jruby/pull/7827
+[#7828]:https://github.com/jruby/jruby/pull/7828
+[#7830]:https://github.com/jruby/jruby/issues/7830
+[#7831]:https://github.com/jruby/jruby/pull/7831
+[#7832]:https://github.com/jruby/jruby/pull/7832
+[#7833]:https://github.com/jruby/jruby/pull/7833
+[#7834]:https://github.com/jruby/jruby/pull/7834
