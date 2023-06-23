@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Updated interview by HostingAdvice.come with Charles Oliver Nutter
+title: Updated interview by HostingAdvice.com with Charles Oliver Nutter
 ---
 Three years later we have a new interview with JRuby developer Charles Oliver Nutter
 by [HostingAdvice.com](https://www.hostingadvice.com/)! This time we talk about the
