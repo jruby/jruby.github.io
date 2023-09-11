@@ -5,6 +5,8 @@
 # uses Rack to add a couple of rewrite rules to make it equivalent to the
 # Apache configuration.
 
+require 'rack'
+require 'rack/file'
 ### This section copied from bin/jekyll file
 require 'jekyll'
 

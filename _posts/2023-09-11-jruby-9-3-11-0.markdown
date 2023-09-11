@@ -1,0 +1,91 @@
+---
+layout: post
+title: JRuby 9.3.11.0 Released
+---
+
+The JRuby community is pleased to announce the release of JRuby 9.3.11.0
+
+* Homepage: [https://www.jruby.org/](https://www.jruby.org/)
+* Download: [https://www.jruby.org/download](https://www.jruby.org/download)
+
+JRuby 9.3.x is compatible with Ruby 2.6.x and stays in sync with C Ruby. As always there is a mix of miscellaneous fixes so be sure to read the issue list below.
+
+
+Thank you to our contributors this release, you help keep JRuby moving forward! [@ahorek], [@chadlwilson], [@justinstoller], [@k77ch7], [@kares], [@snoglobe]
+
+Ruby Compatibility
+------------------
+
+* Multiple fixes for keyword arguments edge cases. [#7676], [#7755], [#7804], [#7816]
+
+Standard Library
+----------------
+
+* strscan is still built-in (not a gem) but has been updated to the 3.0.6 version. [#7634], [#7884], [#7889]
+  * Along with this change, our Regexp engine joni is updated to 2.2.1 for Range optimizations.
+* Default gem updates:
+  * jruby-openssl0.14.2 [#7877]
+
+JVM Integration
+---------------
+
+* Virtual thread use in Fiber can now be disabled using the `jruby.fiber.vthread=false` property (or JRuby flag `-Xfiber.vthread=false`). [#7907]
+
+Build and Distribution
+----------------------
+
+* The JRuby/Maven stack of plugins used to integrate Ruby and Maven artifacts have been updated to the latest versions, now using JRuby 9.4.3.0 for builds and avoiding the use of deprecated rubygems.org APIs. [#7880]
+
+[@ahorek]:https://github.com/ahorek
+[@chadlwilson]:https://github.com/chadlwilson
+[@justinstoller]:https://github.com/justinstoller
+[@k77ch7]:https://github.com/k77ch7
+[@kares]:https://github.com/kares
+[@snoglobe]:https://github.com/snoglobe
+[#7676]:https://github.com/jruby/jruby/issues/7676
+[#7755]:https://github.com/jruby/jruby/issues/7755
+[#7804]:https://github.com/jruby/jruby/issues/7804
+[#7816]:https://github.com/jruby/jruby/issues/7816
+[#7634]:https://github.com/jruby/jruby/issues/7634
+[#7884]:https://github.com/jruby/jruby/issues/7884
+[#7889]:https://github.com/jruby/jruby/issues/7889
+[#7877]:https://github.com/jruby/jruby/issues/7877
+[#7907]:https://github.com/jruby/jruby/issues/7907
+[#7880]:https://github.com/jruby/jruby/issues/7880
+
+### 33 Github Issues resolved for 9.3.11.0
+
+- [#7216 - Something changed from 9.2.x to 9.3.x that causes a SecurityException with access denied when using jruby as osgi-bundle](https://github.com/jruby/jruby/issues/7216)
+- [#7353 - SSH connection stucked with NET::SSH_7.0.1 and OpenSSH_8.0 with FIPS enabled](https://github.com/jruby/jruby/issues/7353)
+- [#7394 - require_relative confused by chdir](https://github.com/jruby/jruby/issues/7394)
+- [#7483 - Regression in Socket#close - EBADF after unsuccessful connection](https://github.com/jruby/jruby/issues/7483)
+- [#7633 - Do not return early from ThreadService#terminate](https://github.com/jruby/jruby/pull/7633)
+- [#7634 - Update joni and strscan](https://github.com/jruby/jruby/pull/7634)
+- [#7635 - Cleanup IO state for true connect failures](https://github.com/jruby/jruby/pull/7635)
+- [#7648 - Array#fill not compliant with MRI ](https://github.com/jruby/jruby/issues/7648)
+- [#7651 - Fix Array#fill for edge case](https://github.com/jruby/jruby/pull/7651)
+- [#7677 - SCRIPT_LINES__ is set to nil if you require ripper.](https://github.com/jruby/jruby/issues/7677)
+- [#7730 - Running specific regex with Regexp::IGNORECASE flag on text starting with specific pipe character results in java.lang.ArrayIndexOutOfBoundsException](https://github.com/jruby/jruby/issues/7730)
+- [#7742 - fix flipBuffer overloads](https://github.com/jruby/jruby/pull/7742)
+- [#7749 - When converting from binary to decimal with to_i(2), the result will be 0 if it contains multiple underscores.](https://github.com/jruby/jruby/issues/7749)
+- [#7754 - [deps] update jruby-openssl to 0.14.1](https://github.com/jruby/jruby/pull/7754)
+- [#7762 - [fix] avoid walking constructor instructions on every call](https://github.com/jruby/jruby/pull/7762)
+- [#7769 - error: invalid multibyte character occurs in JRuby 9.4.2.0](https://github.com/jruby/jruby/issues/7769)
+- [#7782 - Fix defined?(super) on BasicObject from causing NullPointerException](https://github.com/jruby/jruby/pull/7782)
+- [#7784 - [build] make generated .class files deterministic](https://github.com/jruby/jruby/pull/7784)
+- [#7794 - [deps] update joda-time to latest 2.12.5](https://github.com/jruby/jruby/pull/7794)
+- [#7805 - High lock contention in Socket.select in JRuby 9.3](https://github.com/jruby/jruby/issues/7805)
+- [#7806 - Reduce contention in heavy IO operations](https://github.com/jruby/jruby/pull/7806)
+- [#7877 - [deps] update jruby-openssl to 0.14.2](https://github.com/jruby/jruby/pull/7877)
+- [#7880 - Migrate to new mavengem (9.3 version)](https://github.com/jruby/jruby/pull/7880)
+- [#7889 - Update joni and strscan for recent fixes](https://github.com/jruby/jruby/pull/7889)
+- [#7906 - It seems that tomcat results in nullpointer exception when clearing tread locals](https://github.com/jruby/jruby/issues/7906)
+- [#7907 - Improvements for vthread fibers](https://github.com/jruby/jruby/pull/7907)
+- [#7912 - Guard for null in StringWrapper](https://github.com/jruby/jruby/pull/7912)
+- [#7916 - ConcurrentModificationException during RubyModule.defineAnnotatedMethods / Ruby.addBoundMethod](https://github.com/jruby/jruby/issues/7916)
+- [#7917 - Make bound method management threadsafe](https://github.com/jruby/jruby/pull/7917)
+- [#7920 - Restore default protection domain for OneShotCL](https://github.com/jruby/jruby/pull/7920)
+- [#7932 - Store absolute path of main at load time](https://github.com/jruby/jruby/pull/7932)
+- [#7933 - Improve line numbers for generated dynscopes](https://github.com/jruby/jruby/pull/7933)
+- [#7934 - Fix String#to_i with leading zero and underscores](https://github.com/jruby/jruby/pull/7934)
+
