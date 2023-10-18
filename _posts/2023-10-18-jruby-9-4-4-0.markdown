@@ -1,0 +1,218 @@
+---
+layout: post
+title: JRuby 9.4.4.0 Released
+---
+
+The JRuby community is pleased to announce the release of JRuby 9.4.4.0.
+
+* Homepage: [https://www.jruby.org/](https://www.jruby.org/)
+* Download: [https://www.jruby.org/download](https://www.jruby.org/download)
+
+JRuby 9.4.x targets Ruby 3.1 compatibility.
+
+Thank you to our contributors this release, you help keep JRuby moving forward! [@ahorek], [@chadlwilson], [@k77ch7], [@kares], [@mrnoname1000], [@ntkme], [@skmp]
+
+Ruby Compatibility
+------------------
+
+* Multiple fixes for keyword arguments edge cases. [#7854], [#7855], [#7857], [#7858]
+
+Standard Library
+----------------
+
+* Default gem updates:
+  * jruby-openssl 0.14.2. [#7886]
+  * psych is updated to 5.1.1.1, which uses SnakeYAML and exposes Psych::Parser.code_point_limit= for globally setting the code point limit.
+  * bigdecimal is now a default gem (3.1.4) for the pure-Ruby portions; the extension remains part of JRuby itself. [#7925]
+  * stringio is updated to 3.0.8. [#7881]
+
+Platform Support
+----------------
+
+* This release includes native support for Windows on the AArch64 (ARM64) platform. [#7843], [#7936], [#7937], [#7941], [#7945], [#7960]
+* The `jruby` shell script gains support for ksh93, meaning that essentially all Bourne-compatible shells can run it. [#7870]
+
+JVM Integration
+---------------
+
+* Virtual thread use in Fiber can now be disabled using the `jruby.fiber.vthread=false` property (or JRuby flag `-Xfiber.vthread=false`). [#7907] [#7966]
+* Multiple small bugs in JVM bytecode generation and invokedynamic logic were discovered and fixed. [#7913]
+
+Build and Distribution
+----------------------
+
+* The JRuby/Maven stack of plugins used to integrate Ruby and Maven artifacts have been updated to the latest versions, now using JRuby 9.4.3.0 for builds and avoiding the use of deprecated rubygems.org APIs. [#7872]
+
+Performance
+-----------
+
+* Conditional assignment of instance variables now requires only a single lookup, and optimizes to a simple read after assignment. [#7891], [#7896]
+
+### 78 Github Issues and PRs resolved for 9.4.4.0
+
+- [#7430 - Rails fails to boot under Java 19][#7430]
+- [#7470 - OpenJ9 failing -Ptest][#7470]
+- [#7623 - setup and fix issues reported by error-prone compiler][#7623]
+- [#7649 - Infinite loop in StringScanner regex][#7649]
+- [#7815 - NullPointerException for compiled code with for loop][#7815]
+- [#7839 - `clone': wrong number of arguments (given 1, expected 0) (ArgumentError) in JRuby 9.4.x][#7839]
+- [#7843 - FFI Support for aarch64-windows][#7843]
+- [#7847 - File subclass doesn't pass arguments from open to new properly][#7847]
+- [#7848 - Wrong interpretation of multi-expression when clause][#7848]
+- [#7849 - Fixes #7848.  Wrong interpretation of multi-expr when clause][#7849]
+- [#7850 - Fixes #7847. File subclass passes args from open to new wrong][#7850]
+- [#7851 - @JRubyMethod minimum argument not enforced in 9.4.3.0][#7851]
+- [#7852 - Array#intersect? incompatibility][#7852]
+- [#7853 - Fix #7839. `clone': wrong number of arguments][#7853]
+- [#7854 - Pattern matching with an empty hash should result in no match][#7854]
+- [#7855 - eval vs lvars scope][#7855]
+- [#7857 - Fixes #7855. pattern assoc assigns should scope][#7857]
+- [#7858 - Fixes #7854. Pattern matching with an empty hash should not match][#7858]
+- [#7859 - Coverage library returns incorrect info for hash literal constants][#7859]
+- [#7860 - Restore arity-checking with an opt-out flag][#7860]
+- [#7861 - org.jruby.RubyLoadError getCause returns itself][#7861]
+- [#7863 - Fixes #7859. Coverage returns incorrect info for hash literal constants][#7863]
+- [#7864 - --help and other output does not check TTY][#7864]
+- [#7866 - Recursive hashing corrupts shared hash buffer][#7866]
+- [#7867 - [deps] update jruby-openssl to 0.14.2][#7867]
+- [#7868 - Expanding on an older method of putting call linenums in right place][#7868]
+- [#7869 - Make sure Ruby exception does not provide itself as cause.][#7869]
+- [#7870 - Launcher tweaks][#7870]
+- [#7872 - Migrate to new mavengem][#7872]
+- [#7875 - always_verify_ssl_certificates causes class cast error][#7875]
+- [#7881 - Update StringIO and reenable specs][#7881]
+- [#7882 - [fix] duplicate hash key literal removal][#7882]
+- [#7886 - Update jruby-openssl][#7886]
+- [#7887 - Fix BigDecimal#power with negative integer][#7887]
+- [#7888 - Fix dynscopes][#7888]
+- [#7890 - Fix BigDecimal#eql? when an argument is Rational][#7890]
+- [#7891 - Conditional assignment of field does two lookups][#7891]
+- [#7892 - Fix BigDecimal#quo with prec and without prec][#7892]
+- [#7893 - Add INT64_MAX, INT64_MIN, UINT64_MAX, LLONG_MAX, LLONG_MIN and ULLONG_MAX to RbConfig::LIMITS][#7893]
+- [#7894 - Fix BigDecimal#div when an argument is object][#7894]
+- [#7895 - Fix BigDecimal.allocate to raise TypeError ][#7895]
+- [#7896 - Optimize @a ||= x and defined?(@a)][#7896]
+- [#7897 - Update test_bigdecimal.rb and fix a few failures][#7897]
+- [#7898 - Marshal.dump with frozen string literals differs on --debug flag][#7898]
+- [#7899 - Call-site cache remaining callMethod in Set][#7899]
+- [#7901 - Protect cached threadlocal in recursive hash][#7901]
+- [#7903 - Move frozen string debug fields into subclass][#7903]
+- [#7904 - invokedynamic makes Concurrent::TimerTask.execute reliably result in `java.lang.invoke.WrongMethodTypeException` ][#7904]
+- [#7905 - RubyArray: Fix intersect? for small arrays][#7905]
+- [#7911 - multiple applications in tomcat and jruby 9.4.3.0 com.headius.invokebinder.InvalidTransformException: java.lang.IllegalAccessException][#7911]
+- [#7913 - Multiple fixes for forced JIT and indy-based Java dispatch][#7913]
+- [#7918 - Unexpected ArgumentError calling Forwardable delegated single splat method with keyword arguments][#7918]
+- [#7922 - Addrinfo][#7922]
+- [#7923 - add Addrinfo#ipv6_unique_local?][#7923]
+- [#7924 - (master) frozen string errors with `--debug`][#7924]
+- [#7925 - Switch to bigdecimal gem][#7925]
+- [#7926 - Proc.new with no args no longer supported in 3.1][#7926]
+- [#7927 - Fixes #7649. Infinite loop in StringScanner regex][#7927]
+- [#7928 - More frozen string tweaks][#7928]
+- [#7929 - Fixes #7918.  Error with single splat method with keyword arguments][#7929]
+- [#7931 - Store absolute path of main at load time][#7931]
+- [#7936 - Update jnr stack][#7936]
+- [#7937 - File.chown throws "SystemCallError:Unknown error (SystemCallError)" at Windows11 on Arm64][#7937]
+- [#7940 - More testing with Java 21][#7940]
+- [#7941 - Update ffi to 1.16.1][#7941]
+- [#7942 - fnmatch not matching glob syntax in 9.3.8 but it did in 9.2.20.1][#7942]
+- [#7945 - Update ffi to 1.16.2][#7945]
+- [#7946 - In some cases sorting using String.casecmp results in Comparison method violates its general contract!][#7946]
+- [#7947 - fnmatch not matching glob syntax][#7947]
+- [#7948 - Fix #7815. NullPointerException for compiled code with for loop][#7948]
+- [#7949 - Use a lookup() for field access in static constant][#7949]
+- [#7950 - Convert to lower, not upper, for casecmp][#7950]
+- [#7952 - Avoid ANSI formatting when not on a TTY][#7952]
+- [#7955 - Misc regex and strscan improvements][#7955]
+- [#7956 - Re-enable J9 test in CI][#7956]
+- [#7957 - Use new GHA M1 runner][#7957]
+- [#7960 - Update ffi to 1.16.3][#7960]
+- [#7966 - Update to psych 5.1.1.1][#7966]
+
+[@ahorek]:https://github.com/ahorek
+[@chadlwilson]:https://github.com/chadlwilson
+[@mrnoname1000]:https://github.com/mrnoname1000
+[@k77ch7]:https://github.com/k77ch7
+[@kares]:https://github.com/kares
+[@ntkme]:https://github.com/ntkme
+[@skmp]:https://github.com/skmp
+
+[#7430]:https://github.com/jruby/jruby/issues/7430
+[#7470]:https://github.com/jruby/jruby/issues/7470
+[#7623]:https://github.com/jruby/jruby/pull/7623
+[#7649]:https://github.com/jruby/jruby/issues/7649
+[#7815]:https://github.com/jruby/jruby/issues/7815
+[#7839]:https://github.com/jruby/jruby/issues/7839
+[#7843]:https://github.com/jruby/jruby/issues/7843
+[#7847]:https://github.com/jruby/jruby/issues/7847
+[#7848]:https://github.com/jruby/jruby/issues/7848
+[#7849]:https://github.com/jruby/jruby/pull/7849
+[#7850]:https://github.com/jruby/jruby/pull/7850
+[#7851]:https://github.com/jruby/jruby/issues/7851
+[#7852]:https://github.com/jruby/jruby/issues/7852
+[#7853]:https://github.com/jruby/jruby/pull/7853
+[#7854]:https://github.com/jruby/jruby/issues/7854
+[#7855]:https://github.com/jruby/jruby/issues/7855
+[#7857]:https://github.com/jruby/jruby/pull/7857
+[#7858]:https://github.com/jruby/jruby/pull/7858
+[#7859]:https://github.com/jruby/jruby/issues/7859
+[#7860]:https://github.com/jruby/jruby/pull/7860
+[#7861]:https://github.com/jruby/jruby/issues/7861
+[#7863]:https://github.com/jruby/jruby/pull/7863
+[#7864]:https://github.com/jruby/jruby/issues/7864
+[#7866]:https://github.com/jruby/jruby/issues/7866
+[#7867]:https://github.com/jruby/jruby/pull/7867
+[#7868]:https://github.com/jruby/jruby/pull/7868
+[#7869]:https://github.com/jruby/jruby/pull/7869
+[#7870]:https://github.com/jruby/jruby/pull/7870
+[#7872]:https://github.com/jruby/jruby/pull/7872
+[#7875]:https://github.com/jruby/jruby/issues/7875
+[#7881]:https://github.com/jruby/jruby/pull/7881
+[#7882]:https://github.com/jruby/jruby/pull/7882
+[#7886]:https://github.com/jruby/jruby/issues/7886
+[#7887]:https://github.com/jruby/jruby/pull/7887
+[#7888]:https://github.com/jruby/jruby/pull/7888
+[#7890]:https://github.com/jruby/jruby/pull/7890
+[#7891]:https://github.com/jruby/jruby/issues/7891
+[#7892]:https://github.com/jruby/jruby/pull/7892
+[#7893]:https://github.com/jruby/jruby/pull/7893
+[#7894]:https://github.com/jruby/jruby/pull/7894
+[#7895]:https://github.com/jruby/jruby/pull/7895
+[#7896]:https://github.com/jruby/jruby/pull/7896
+[#7897]:https://github.com/jruby/jruby/pull/7897
+[#7898]:https://github.com/jruby/jruby/issues/7898
+[#7899]:https://github.com/jruby/jruby/pull/7899
+[#7901]:https://github.com/jruby/jruby/pull/7901
+[#7903]:https://github.com/jruby/jruby/pull/7903
+[#7904]:https://github.com/jruby/jruby/issues/7904
+[#7905]:https://github.com/jruby/jruby/pull/7905
+[#7907]:https://github.com/jruby/jruby/pull/7907
+[#7911]:https://github.com/jruby/jruby/issues/7911
+[#7913]:https://github.com/jruby/jruby/pull/7913
+[#7918]:https://github.com/jruby/jruby/issues/7918
+[#7922]:https://github.com/jruby/jruby/issues/7922
+[#7923]:https://github.com/jruby/jruby/pull/7923
+[#7924]:https://github.com/jruby/jruby/issues/7924
+[#7925]:https://github.com/jruby/jruby/pull/7925
+[#7926]:https://github.com/jruby/jruby/pull/7926
+[#7927]:https://github.com/jruby/jruby/pull/7927
+[#7928]:https://github.com/jruby/jruby/pull/7928
+[#7929]:https://github.com/jruby/jruby/pull/7929
+[#7931]:https://github.com/jruby/jruby/pull/7931
+[#7936]:https://github.com/jruby/jruby/pull/7936
+[#7937]:https://github.com/jruby/jruby/issues/7937
+[#7940]:https://github.com/jruby/jruby/pull/7940
+[#7941]:https://github.com/jruby/jruby/pull/7941
+[#7942]:https://github.com/jruby/jruby/issues/7942
+[#7945]:https://github.com/jruby/jruby/pull/7945
+[#7946]:https://github.com/jruby/jruby/issues/7946
+[#7947]:https://github.com/jruby/jruby/pull/7947
+[#7948]:https://github.com/jruby/jruby/pull/7948
+[#7949]:https://github.com/jruby/jruby/pull/7949
+[#7950]:https://github.com/jruby/jruby/pull/7950
+[#7952]:https://github.com/jruby/jruby/pull/7952
+[#7955]:https://github.com/jruby/jruby/pull/7955
+[#7956]:https://github.com/jruby/jruby/pull/7956
+[#7957]:https://github.com/jruby/jruby/pull/7957
+[#7960]:https://github.com/jruby/jruby/pull/7960
+[#7966]:https://github.com/jruby/jruby/pull/7966
