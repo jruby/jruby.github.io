@@ -91,7 +91,7 @@ Performance
 - [#7893 - Add INT64_MAX, INT64_MIN, UINT64_MAX, LLONG_MAX, LLONG_MIN and ULLONG_MAX to RbConfig::LIMITS][#7893]
 - [#7894 - Fix BigDecimal#div when an argument is object][#7894]
 - [#7895 - Fix BigDecimal.allocate to raise TypeError ][#7895]
-- [#7896 - Optimize @a ||= x and defined?(@a)][#7896]
+- [#7896 - Optimize `@a ||= x and defined?(@a)`][#7896]
 - [#7897 - Update test_bigdecimal.rb and fix a few failures][#7897]
 - [#7898 - Marshal.dump with frozen string literals differs on --debug flag][#7898]
 - [#7899 - Call-site cache remaining callMethod in Set][#7899]
