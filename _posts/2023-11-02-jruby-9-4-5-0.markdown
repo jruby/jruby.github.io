@@ -1,0 +1,68 @@
+---
+layout: post
+title: JRuby 9.4.5.0 Released
+---
+
+The JRuby community is pleased to announce the release of JRuby 9.4.5.0.
+
+* Homepage: [https://www.jruby.org/](https://www.jruby.org/)
+* Download: [https://www.jruby.org/download](https://www.jruby.org/download)
+
+JRuby 9.4.x targets Ruby 3.1 compatibility.
+
+Thank you to our contributors this release, you help keep JRuby moving forward! [@ahorek], [@jcharaoui], [@kares]
+
+Ruby Compatibility
+------------------
+
+* The experimental Fiber::Scheduler and IO::Buffer APIs are now supported, based on the Ruby 3.3 implementation. Pass `-Xexperimental.fiber.scheduler` to JRuby to enable. [#7944]
+  * For information on Fiber::Scheduler, see https://docs.ruby-lang.org/en/3.2/Fiber/Scheduler.html.
+  * For information on IO::Buffer, see https://docs.ruby-lang.org/en/3.2/IO/Buffer.html.
+
+
+### 20 Github Issues resolved for 9.4.5.0
+
+- #6346 [TCPSocket hangs when RST is received on Windows][#6346]
+- #7944 [Support for fiber scheduler API][#7944]
+- #7961 [Socket.each loops after receiving RST pegging CPU at 100%][#7961]
+- #7967 [Propagate read errors in IO backend][#7967]
+- #7968 [RbConfig::CONFIG["SOEXT"] is missing on JRuby][#7968]
+- #7969 [add RbConfig::CONFIG["SOEXT"]][#7969]
+- #7970 [Hide FilenoUtil warning behind native.verbose property][#7970]
+- #7971 [Bootstrap cleanup][#7971]
+- #7972 [Update strscan to 3.0.7][#7972]
+- #7975 [Fix ENOENT with TestProcessSpawn on Debian][#7975]
+- #7976 [.delete_if blocks allow deleting same object from array twich][#7976]
+- #7978 [Less Load{Frame,Implicit}ClosureInstr][#7978]
+- #7979 [Process stuck with 100% cpu when using jruby 9.4.4.0][#7979]
+- #7980 [Fix length handling in select!/reject! ensure][#7980]
+- #7982 [Error using ActiveSupport::Testing::TestHelpers (7.1.1) on jruby-9.4.4.0][#7982]
+- #7983 [Build, test failures when build directory contains special characters][#7983]
+- #7984 [Remove unnecessary cast of kwargs][#7984]
+- #7985 [Make sure gems path is regex-safe][#7985]
+- #7990 [[fix] infinite loop calling Java super from Ruby][#7990]
+- #7993 [Preserve insertion order for ivars][#7993]
+
+[@ahorek]:https://github.com/ahorek
+[@jcharaoui]:https://github.com/jcharaoui
+[@kares]:https://github.com/kares
+[#6346]:https://github.com/jruby/jruby/issues/6346
+[#7944]:https://github.com/jruby/jruby/pull/7944
+[#7961]:https://github.com/jruby/jruby/issues/7961
+[#7967]:https://github.com/jruby/jruby/pull/7967
+[#7968]:https://github.com/jruby/jruby/issues/7968
+[#7969]:https://github.com/jruby/jruby/pull/7969
+[#7970]:https://github.com/jruby/jruby/pull/7970
+[#7971]:https://github.com/jruby/jruby/pull/7971
+[#7972]:https://github.com/jruby/jruby/pull/7972
+[#7975]:https://github.com/jruby/jruby/pull/7975
+[#7976]:https://github.com/jruby/jruby/issues/7976
+[#7978]:https://github.com/jruby/jruby/pull/7978
+[#7979]:https://github.com/jruby/jruby/issues/7979
+[#7980]:https://github.com/jruby/jruby/pull/7980
+[#7982]:https://github.com/jruby/jruby/issues/7982
+[#7983]:https://github.com/jruby/jruby/issues/7983
+[#7984]:https://github.com/jruby/jruby/pull/7984
+[#7985]:https://github.com/jruby/jruby/pull/7985
+[#7990]:https://github.com/jruby/jruby/pull/7990
+[#7993]:https://github.com/jruby/jruby/pull/7993

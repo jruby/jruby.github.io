@@ -10,18 +10,7 @@ The JRuby community is pleased to announce the release of JRuby 9.3.12.0
 
 JRuby 9.3.x is compatible with Ruby 2.6.x and stays in sync with C Ruby. As always there is a mix of miscellaneous fixes so be sure to read the issue list below.
 
-JRuby 9.3.12 has been released with just a handful of bug fixes this time.
+JRuby 9.3.12.0 was a bungled release.  It exists but it is just 9.3.11.0 with a new version number.  Please upgrade to 9.3.13.0.
 
-We are ramping down maintenance of 9.3 in preparation for EOL at the end of this year. Let us know what we can do to get you on JRuby 9.4 today!
-
-
-### 3 Github Issues resolved for 9.3.12.0
-
-- #7951 [backport: fnmatch not matching glob syntax][#7951]
-- #7991 [[fix] infinite loop calling Java super from Ruby (#7990)][#7991]
-- #7994 [Propagate read errors in IO backend][#7994]
-
-[#7951]:https://github.com/jruby/jruby/pull/7951
-[#7991]:https://github.com/jruby/jruby/pull/7991
-[#7994]:https://github.com/jruby/jruby/pull/7994
+### 0 Github Issues resolved for 9.3.12.0
 
