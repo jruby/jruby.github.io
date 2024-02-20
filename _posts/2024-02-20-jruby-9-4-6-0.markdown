@@ -1,0 +1,213 @@
+---
+layout: post
+title: JRuby 9.4.6.0 Released
+---
+
+The JRuby community is pleased to announce the release of JRuby 9.4.6.0.
+
+* Homepage: [https://www.jruby.org/](https://www.jruby.org/)
+* Download: [https://www.jruby.org/download](https://www.jruby.org/download)
+
+JRuby 9.4.x targets Ruby 3.1 compatibility.
+
+Thank you to our contributors this release, you help keep JRuby moving forward! [@evaniainbrooks], [@ahorek], [@kares], [@most00], [@ntkme], [@sk757a]
+
+Ruby Compatibility
+------------------
+
+* Support for the new Prism parser for Ruby code has been merged in. A blog post will follow soon. [#8103]
+* IO#fcntl had inverted logic for setting O_NONBLOCK (setting it cleared the value, etc). [#8081], [#8090]
+* Many fixes to language and core class compatibility, see issue list.
+* Warnings should match verbosity levels of CRuby, with many unwanted warnings now properly omitted without verbose enabled. [#7183], [#8071]
+
+Standard Library
+----------------
+
+* json is updated to 2.7.1. [#7752], [#7954]
+* io-console is updated to 0.7.2. This version fixes IRB on Apple M-series by using stty for console manipulation. [#8012]
+* nkf is now supported by gem version 0.2.0. [#8077]
+* strscan is updated to 3.1.0. [#8074], [#8086]
+* reline is updated to 0.4.2 [#8102]
+* jruby-openssl is updated to 0.14.3 [#8107]
+
+JVM Integration
+---------------
+
+* Ruby Symbols can be use as arguments to JVM methods that receive Java String. [#8015], [#8057]
+* Starting with Java 17, package-private methods will no longer be bound automatically even if they can be made visible. [#8061], [#8093]
+
+Native Integration
+---------------
+
+* The subsystem used for native calls has been updated to support RHEL/CentOS 7 and the Java 9+ Cleaner API. [#8104]
+
+Performance
+-----------
+
+* Performance of keyword argument handling has been improved. [#8021]
+* Pattern matching is now supported in JRuby's JIT compiler. [#8026], [#8027]
+
+### 77 Github Issues resolved for 9.4.6.0
+
+- #4808 [Rework global variables, caching to eliminate race conditions][#4808]
+- #6430 [Using <internal: for core library methods defined in Ruby][#6430]
+- #7151 [File.identical? should use stat to compare files][#7151]
+- #7183 [Various alias forms warn on redefine when they should not][#7183]
+- #7523 [Define IO::READABLE, WRITABLE, PRIORITY for IO#wait][#7523]
+- #7695 [jffi ships with binaries requiring glibc 2.27][#7695]
+- #7721 [jirb on win10 : The signal TSTP is in use by the JVM and will not work correctly on this platform][#7721]
+- #7729 [Sock fixes][#7729]
+- #7752 [Update JSON gem to not use Bigdecimal.new][#7752]
+- #7759 [irb on CentOS7, JRuby 9.4.2.0 , and JDK 1.8][#7759]
+- #7760 [Failure to load FFI gives an outdated message][#7760]
+- #7845 [Including a module again after prepending another module to it isn't idempotent][#7845]
+- #7862 [Ruby 2.7 conformance: ObjectSpace::WeakMap is broken for FixNum keys][#7862]
+- #7939 [Yaml exception when trying to install rdoc-data][#7939]
+- #7954 [Update json for BigDecimal.new fix][#7954]
+- #7958 [Prepend internal marker to internal sources][#7958]
+- #7974 [[ji] support java_alias with constructor][#7974]
+- #7981 [Less instrs][#7981]
+- #7996 [Add %aA for printf and friends][#7996]
+- #8001 [Fix various specs][#8001]
+- #8002 [Time spec fixes][#8002]
+- #8003 [Fix issues in global variable thread-safety][#8003]
+- #8005 [New MRI test failures on less common architectures][#8005]
+- #8007 [Fix intermittent fails in CI][#8007]
+- #8009 [Expand WeakMap to allow floats and fixnums][#8009]
+- #8010 [Kernel#send does not strip off empty keywords hashes before calling eventual method][#8010]
+- #8011 [Fixes #8010. Kernel#send + empty kwargs hash error][#8011]
+- #8012 [Update io-console][#8012]
+- #8013 [Tag sweep2][#8013]
+- #8014 [Fixes language specs involving blocks/yield][#8014]
+- #8015 [Java method lookup for arity-1 method with inexact argument fails in the presence of arity-2 method with same name][#8015]
+- #8016 [Lang specs][#8016]
+- #8021 [Reduce overhead of kwargs for no-arg methods and blocks][#8021]
+- #8022 [Remove implicit prologue state to methods/blocks if that state is unused][#8022]
+- #8026 [Full JIT support for pattern matching][#8026]
+- #8027 [Pattern jit][#8027]
+- #8031 [Reuse thread-local jump exceptions to avoid construction][#8031]
+- #8033 [Implement `Exception.to_tty?`][#8033]
+- #8039 [Implement `Exception.to_tty?`][#8039]
+- #8040 [Match `Exception#full_message` with MRI 3.2][#8040]
+- #8045 [Try to find class resource to avoid exception][#8045]
+- #8046 [Socket::IFF_* are missing][#8046]
+- #8047 [add socket flags for zeroconf][#8047]
+- #8048 [Try and make UDP look a little more like MRI (and hopefully make it more functional)][#8048]
+- #8049 [Fix String#unpack from using capacity() and causing wrong error][#8049]
+- #8050 [Various cleanups for String operations][#8050]
+- #8052 [ignore codes logic was not doing anything in unpack][#8052]
+- #8053 [More arity splitting][#8053]
+- #8054 [A bit confusing error: "FrozenError: can't modify frozen NilClass"][#8054]
+- #8055 [override getDelegate in PrependedModule to return origin][#8055]
+- #8056 [Add hex exponential notation for Kernel::Float][#8056]
+- #8057 [recognize RubySymbol as assignable to String][#8057]
+- #8060 [Inspect frozen object for error][#8060]
+- #8061 [`enumerable.map` raise wrong number of arguments only when Ruby script is executed from Gradle using JDK 21][#8061]
+- #8063 [Fix typos in cli options][#8063]
+- #8070 [Attribute definition on singleton should call singleton_method_added][#8070]
+- #8071 [Update some warnings to deprecated][#8071]
+- #8072 [Added Module#refinements and Refinement#refined_class][#8072]
+- #8074 [Update strscan to fix improper sharing][#8074]
+- #8077 [Switch to default gem for nkf][#8077]
+- #8080 [[fix] avoid Class#subclasses deprecation with class.rb ext][#8080]
+- #8083 [(master) rdoc test suite failing with Java::JavaLang::ArrayIndexOutOfBoundsException][#8083]
+- #8088 [Update strscan to 3.1.0 for OOB fix][#8088]
+- #8091 [Ripper is not returning unary minus with proper symbol][#8091]
+- #8093 [Rework visibility checks for Java integration][#8093]
+- #8095 [Tweak kwargs logic to improve JIT inlining][#8095]
+- #8099 [[ji] fix java_import when constant exists in Object][#8099]
+- #8100 [Extra splat instr which did nothing][#8100]
+- #8101 [Flip File.identical? logic to try native first][#8101]
+- #8102 [Update reline to 0.4.2][#8102]
+- #8103 [Prism pluggable integration work][#8103]
+- #8105 [Update JNR dependencies][#8105]
+- #8107 [update jruby-openssl to 0.14.3][#8107]
+- #8108 [fix undef_method error message][#8108]
+- #8109 [Simple error string mismatch.  Also corrected for m17n naming to prin…][#8109]
+- #8110 [Re-arrange indexerror string when matching group name cannot be found][#8110]
+- #8111 [NameError and NoMethodError should be dup'ing receiver][#8111]
+
+[@evaniainbrooks]:https://github.com/evaniainbrooks
+[@ahorek]:https://github.com/ahorek
+[@kares]:https://github.com/kares
+[@most00]:https://github.com/most00
+[@ntkme]:https://github.com/ntkme
+[@sk757a]:https://github.com/sk757a
+
+[#4808]:https://github.com/jruby/jruby/issues/4808
+[#6430]:https://github.com/jruby/jruby/issues/6430
+[#7151]:https://github.com/jruby/jruby/issues/7151
+[#7183]:https://github.com/jruby/jruby/issues/7183
+[#7523]:https://github.com/jruby/jruby/pull/7523
+[#7695]:https://github.com/jruby/jruby/issues/7695
+[#7721]:https://github.com/jruby/jruby/issues/7721
+[#7729]:https://github.com/jruby/jruby/pull/7729
+[#7752]:https://github.com/jruby/jruby/issues/7752
+[#7759]:https://github.com/jruby/jruby/issues/7759
+[#7760]:https://github.com/jruby/jruby/issues/7760
+[#7845]:https://github.com/jruby/jruby/issues/7845
+[#7862]:https://github.com/jruby/jruby/issues/7862
+[#7939]:https://github.com/jruby/jruby/issues/7939
+[#7954]:https://github.com/jruby/jruby/issues/7954
+[#7958]:https://github.com/jruby/jruby/pull/7958
+[#7974]:https://github.com/jruby/jruby/pull/7974
+[#7981]:https://github.com/jruby/jruby/pull/7981
+[#7996]:https://github.com/jruby/jruby/pull/7996
+[#8001]:https://github.com/jruby/jruby/pull/8001
+[#8002]:https://github.com/jruby/jruby/pull/8002
+[#8003]:https://github.com/jruby/jruby/pull/8003
+[#8005]:https://github.com/jruby/jruby/issues/8005
+[#8007]:https://github.com/jruby/jruby/pull/8007
+[#8009]:https://github.com/jruby/jruby/pull/8009
+[#8010]:https://github.com/jruby/jruby/issues/8010
+[#8011]:https://github.com/jruby/jruby/pull/8011
+[#8012]:https://github.com/jruby/jruby/issues/8012
+[#8013]:https://github.com/jruby/jruby/pull/8013
+[#8014]:https://github.com/jruby/jruby/pull/8014
+[#8015]:https://github.com/jruby/jruby/issues/8015
+[#8016]:https://github.com/jruby/jruby/pull/8016
+[#8021]:https://github.com/jruby/jruby/pull/8021
+[#8022]:https://github.com/jruby/jruby/pull/8022
+[#8026]:https://github.com/jruby/jruby/pull/8026
+[#8027]:https://github.com/jruby/jruby/pull/8027
+[#8031]:https://github.com/jruby/jruby/pull/8031
+[#8033]:https://github.com/jruby/jruby/issues/8033
+[#8039]:https://github.com/jruby/jruby/pull/8039
+[#8040]:https://github.com/jruby/jruby/pull/8040
+[#8045]:https://github.com/jruby/jruby/pull/8045
+[#8046]:https://github.com/jruby/jruby/issues/8046
+[#8047]:https://github.com/jruby/jruby/pull/8047
+[#8048]:https://github.com/jruby/jruby/pull/8048
+[#8049]:https://github.com/jruby/jruby/pull/8049
+[#8050]:https://github.com/jruby/jruby/pull/8050
+[#8052]:https://github.com/jruby/jruby/pull/8052
+[#8053]:https://github.com/jruby/jruby/pull/8053
+[#8054]:https://github.com/jruby/jruby/issues/8054
+[#8055]:https://github.com/jruby/jruby/pull/8055
+[#8056]:https://github.com/jruby/jruby/pull/8056
+[#8057]:https://github.com/jruby/jruby/pull/8057
+[#8060]:https://github.com/jruby/jruby/pull/8060
+[#8061]:https://github.com/jruby/jruby/issues/8061
+[#8063]:https://github.com/jruby/jruby/pull/8063
+[#8070]:https://github.com/jruby/jruby/pull/8070
+[#8071]:https://github.com/jruby/jruby/pull/8071
+[#8072]:https://github.com/jruby/jruby/pull/8072
+[#8074]:https://github.com/jruby/jruby/pull/8074
+[#8077]:https://github.com/jruby/jruby/pull/8077
+[#8080]:https://github.com/jruby/jruby/pull/8080
+[#8083]:https://github.com/jruby/jruby/issues/8083
+[#8088]:https://github.com/jruby/jruby/pull/8088
+[#8091]:https://github.com/jruby/jruby/issues/8091
+[#8093]:https://github.com/jruby/jruby/pull/8093
+[#8095]:https://github.com/jruby/jruby/pull/8095
+[#8099]:https://github.com/jruby/jruby/pull/8099
+[#8100]:https://github.com/jruby/jruby/pull/8100
+[#8101]:https://github.com/jruby/jruby/pull/8101
+[#8102]:https://github.com/jruby/jruby/pull/8102
+[#8103]:https://github.com/jruby/jruby/pull/8103
+[#8105]:https://github.com/jruby/jruby/issues/8105
+[#8107]:https://github.com/jruby/jruby/pull/8107
+[#8108]:https://github.com/jruby/jruby/pull/8108
+[#8109]:https://github.com/jruby/jruby/pull/8109
+[#8110]:https://github.com/jruby/jruby/pull/8110
+[#8111]:https://github.com/jruby/jruby/pull/8111

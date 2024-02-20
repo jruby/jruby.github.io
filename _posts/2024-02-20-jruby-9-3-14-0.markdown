@@ -1,0 +1,42 @@
+---
+layout: post
+title: JRuby 9.3.14.0 Released
+---
+
+The JRuby community is pleased to announce the release of JRuby 9.3.14.0
+
+* Homepage: [https://www.jruby.org/](https://www.jruby.org/)
+* Download: [https://www.jruby.org/download](https://www.jruby.org/download)
+
+JRuby 9.3.x is compatible with Ruby 2.6.x and stays in sync with C Ruby. As always there is a mix of miscellaneous fixes so be sure to read the issue list below.
+
+Ruby Compatibility
+------------------
+
+* IO#fcntl had inverted logic for setting O_NONBLOCK (setting it cleared the value, etc). [#8081], [#8090]
+
+Standard Library
+----------------
+
+* strscan is updated to the 3.1.0 version [#8086]
+
+Native Integration
+---------------
+
+* The subsystem used for native calls has been updated to support RHEL/CentOS 7 and the Java 9+ Cleaner API. [#8104]
+Note: Due to a mistake in the release process 9.3.12.0 released yesterday only changed in version number.  It was essentially 9.3.11.0 with a new version.
+
+
+### 5 Github Issues resolved for 9.3.14.0
+
+- #8081 [IO#fcntl logic for F_SETFL, O_NONBLOCK is inverted][#8081]
+- #8086 [Update strscan for 9.3][#8086]
+- #8089 [Update strscan from gem v3.1.0][#8089]
+- #8090 [Invert this logic to match O_NONBLOCK flag][#8090]
+- #8104 [Update JNR dependencies][#8104]
+
+[#8081]:https://github.com/jruby/jruby/issues/8081
+[#8086]:https://github.com/jruby/jruby/issues/8086
+[#8089]:https://github.com/jruby/jruby/pull/8089
+[#8090]:https://github.com/jruby/jruby/pull/8090
+[#8104]:https://github.com/jruby/jruby/pull/8104
