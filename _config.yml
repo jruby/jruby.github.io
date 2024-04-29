@@ -1,5 +1,5 @@
 xdestination: ./_site
-auto:        false
+aUto:        false
 lsi:         false
 server_port: 4000
 highlighter: rouge
@@ -7,13 +7,13 @@ markdown:    kramdown
 permalink:   date
 # JRuby-specific info here; goes into the "site" jekyll variable
 release:
-  url: /2024/02/20/jruby-9-4-6-0.html
-  version: 9.4.6.0
-  tar: https://repo1.maven.org/maven2/org/jruby/jruby-dist/9.4.6.0/jruby-dist-9.4.6.0-bin.tar.gz
-  zip: https://repo1.maven.org/maven2/org/jruby/jruby-dist/9.4.6.0/jruby-dist-9.4.6.0-bin.zip
-  exe: https://s3.amazonaws.com/jruby.org/downloads/9.4.6.0/jruby_windows_9_4_6_0.exe
-  exe64: https://s3.amazonaws.com/jruby.org/downloads/9.4.6.0/jruby_windows_x64_9_4_6_0.exe
-  gem: https://rubygems.org/gems/jruby-jars/versions/9.4.6.0
+  url: /2024/04/29/jruby-9-4-7-0.html
+  version: 9.4.7.0
+  tar: https://repo1.maven.org/maven2/org/jruby/jruby-dist/9.4.7.0/jruby-dist-9.4.7.0-bin.tar.gz
+  zip: https://repo1.maven.org/maven2/org/jruby/jruby-dist/9.4.7.0/jruby-dist-9.4.7.0-bin.zip
+  exe: https://s3.amazonaws.com/jruby.org/downloads/9.4.7.0/jruby_windows_9_4_7_0.exe
+  exe64: https://s3.amazonaws.com/jruby.org/downloads/9.4.7.0/jruby_windows_x64_9_4_7_0.exe
+  gem: https://rubygems.org/gems/jruby-jars/versions/9.4.7.0
   gem_older: https://rubygems.org/gems/jruby-jars/versions/9.3.13.0
 urls:
   maven: https://repo1.maven.org/maven2/org/jruby

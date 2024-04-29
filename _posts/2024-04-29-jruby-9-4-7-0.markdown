@@ -1,0 +1,147 @@
+---
+layout: post
+title: JRuby 9.4.7.0 Released
+---
+
+The JRuby community is pleased to announce the release of JRuby 9.4.7.0.
+
+* Homepage: [https://www.jruby.org/](https://www.jruby.org/)
+* Download: [https://www.jruby.org/download](https://www.jruby.org/download)
+
+JRuby 9.4.x targets Ruby 3.1 compatibility.
+
+Thank you to our contributors this release, you help keep JRuby moving forward! [@kares], [@ryannevell], [@jsvd]
+
+Ruby Compatibility
+------------------
+
+* Many edge cases in language compatibility have been fixed. [#7440], [#8128], [#8192], [#8193], [#8195], [#8197], [#8198]
+
+Standard Library
+----------------
+
+* jruby-openssl is updated to 0.14.5
+* rdoc is updated to 6.4.1.1
+* Warnings due to method aliasing in the ostruct library have been mitigated. [#8200], [#8206]
+
+JVM Integration
+---------------
+
+* Ruby classes that are "reified" into a Java class and later redefined can be "re-reified" to a new Java class with an incrementing version number. [#8141], [#8185]
+* Java objects from other classloaders can pollute the `Java::` namespace. This behavior can be disabled now, and will be disabled by default in JRuby 10. [#8156], [#8208]
+
+
+### 53 Github Issues resolved for 9.4.7.0
+
+- #7440 [Multiple assignment evaluation order consistency][#7440]
+- #8112 [update this ancient lockfile][#8112]
+- #8113 [Remove long dead torquebox from template Gemfile and update to newer …][#8113]
+- #8114 [one last update to puma version for sample Gemfile][#8114]
+- #8119 [Possible Keyword Argument Regression in 9.4.6.0][#8119]
+- #8121 [Prepending a module to a subclass changes it representation in the superclass#subclasses array][#8121]
+- #8122 [Handle prepend in subclasses][#8122]
+- #8123 [lutimes was passing huge wrong values to function][#8123]
+- #8124 [Method.clone of frozen should stay frozen][#8124]
+- #8125 [Proc#clone of frozen proc should stay frozen][#8125]
+- #8126 [UnboundMethod#clone of frozen UnboundMethod should stay frozen][#8126]
+- #8127 [EncodingError should be SyntaxError for bad symbols?][#8127]
+- #8128 [parameters value for **nil should be nokey][#8128]
+- #8130 [Return proper encoding error string for String#to_c][#8130]
+- #8131 [frozen error handling for remove_instance_variable][#8131]
+- #8132 [test flags for stats need to handle file instances as well as strings][#8132]
+- #8133 [Implement string/eval form of trace_var][#8133]
+- #8134 [Fix various kwarg-related specs in IO#open, File#open and Kernel#open.][#8134]
+- #8135 [Cannot install latest `rubocop`][#8135]
+- #8136 [Redo java commandline calculation to work with newer Java's][#8136]
+- #8138 [[deps] update joda-time to 2.12.7][#8138]
+- #8139 [to_time raise an exception. (class org.jruby.ext.date.RubyDate cannot be cast to class org.jruby.ext.date.RubyDateTime)][#8139]
+- #8141 [can not re-reify sub-class of a Java sub-class][#8141]
+- #8142 [Add-Opens for complete -jar runs as expected in later Java's][#8142]
+- #8144 [Allow extended DateTime to still be constructed using DateTime][#8144]
+- #8148 [Profiler raises 'wrong number of arguments for constructor (ArgumentError)' for the march_hare gem][#8148]
+- #8155 [Concurrently requiring a file from multiple threads may "succeed" even if the file raises an error][#8155]
+- #8156 [JRuby adds Java proxy classes to the Java module even if they are not from JRubyClassLoader][#8156]
+- #8157 [Incorrect case tree selection when comparing Symbols during compiled Ruby code execution][#8157]
+- #8167 [Some simple refactoring but removing some mysterious classcast guards][#8167]
+- #8173 [Coverage doesn't cover `begin`][#8173]
+- #8179 [Thread#pending_interupt? crashes][#8179]
+- #8185 [[ji] support re-reifying class hierarchy][#8185]
+- #8186 [[fix] LoadError on require should not complete load][#8186]
+- #8191 [Rearrange cond0 to behave more like MRI did in 3.1][#8191]
+- #8192 [lhs of compound const would crash if not a Module/Class][#8192]
+- #8193 [side-effects in const op element assign by exec parent of lhs twice][#8193]
+- #8195 [use left to right evaluation][#8195]
+- #8196 [[deps] update jruby-openssl to 0.14.5][#8196]
+- #8197 [END was not getting parents lvars][#8197]
+- #8198 [Give same error message for duplicated case arms][#8198]
+- #8199 [Enumerator#next_values behavior does not match MRI or docs][#8199]
+- #8200 [Warnings emitted by requiring 'ostruct'][#8200]
+- #8201 [Fix issue#8199][#8201]
+- #8202 [do not emit labels which are not used while constructing loops + IGV enhancements][#8202]
+- #8203 [rename all closures to more closely match a name you can read vs CLOSURE_2][#8203]
+- #8204 [bump rdoc dependency to 6.4.1.1][#8204]
+- #8205 [begin node coverage line should not get added if it has been removed][#8205]
+- #8206 [Mark frame-aware method names with bang suffix for ostruct][#8206]
+- #8207 [Partially undo kwarg optz from #8095][#8207]
+- #8208 [Only set up Java:: constants when accessed directly][#8208]
+- #8209 [opted case needs to use updated ints when loaded into new runtime.][#8209]
+- #8211 [Always unwrap old initialize methods][#8211]
+
+
+[@jsvd]:https://github.com/jsvd
+[@ryannevell]:https://github.com/ryannevell
+[@kares]:https://github.com/kares
+
+[#7440]:https://github.com/jruby/jruby/issues/7440
+[#8112]:https://github.com/jruby/jruby/pull/8112
+[#8113]:https://github.com/jruby/jruby/pull/8113
+[#8114]:https://github.com/jruby/jruby/pull/8114
+[#8119]:https://github.com/jruby/jruby/issues/8119
+[#8121]:https://github.com/jruby/jruby/issues/8121
+[#8122]:https://github.com/jruby/jruby/pull/8122
+[#8123]:https://github.com/jruby/jruby/pull/8123
+[#8124]:https://github.com/jruby/jruby/pull/8124
+[#8125]:https://github.com/jruby/jruby/pull/8125
+[#8126]:https://github.com/jruby/jruby/pull/8126
+[#8127]:https://github.com/jruby/jruby/pull/8127
+[#8128]:https://github.com/jruby/jruby/pull/8128
+[#8130]:https://github.com/jruby/jruby/pull/8130
+[#8131]:https://github.com/jruby/jruby/pull/8131
+[#8132]:https://github.com/jruby/jruby/pull/8132
+[#8133]:https://github.com/jruby/jruby/pull/8133
+[#8134]:https://github.com/jruby/jruby/pull/8134
+[#8135]:https://github.com/jruby/jruby/issues/8135
+[#8136]:https://github.com/jruby/jruby/pull/8136
+[#8138]:https://github.com/jruby/jruby/pull/8138
+[#8139]:https://github.com/jruby/jruby/issues/8139
+[#8141]:https://github.com/jruby/jruby/issues/8141
+[#8142]:https://github.com/jruby/jruby/pull/8142
+[#8144]:https://github.com/jruby/jruby/pull/8144
+[#8148]:https://github.com/jruby/jruby/issues/8148
+[#8155]:https://github.com/jruby/jruby/issues/8155
+[#8156]:https://github.com/jruby/jruby/issues/8156
+[#8157]:https://github.com/jruby/jruby/issues/8157
+[#8167]:https://github.com/jruby/jruby/pull/8167
+[#8173]:https://github.com/jruby/jruby/issues/8173
+[#8179]:https://github.com/jruby/jruby/pull/8179
+[#8185]:https://github.com/jruby/jruby/pull/8185
+[#8186]:https://github.com/jruby/jruby/pull/8186
+[#8191]:https://github.com/jruby/jruby/pull/8191
+[#8192]:https://github.com/jruby/jruby/pull/8192
+[#8193]:https://github.com/jruby/jruby/pull/8193
+[#8195]:https://github.com/jruby/jruby/pull/8195
+[#8196]:https://github.com/jruby/jruby/pull/8196
+[#8197]:https://github.com/jruby/jruby/pull/8197
+[#8198]:https://github.com/jruby/jruby/pull/8198
+[#8199]:https://github.com/jruby/jruby/issues/8199
+[#8200]:https://github.com/jruby/jruby/issues/8200
+[#8201]:https://github.com/jruby/jruby/pull/8201
+[#8202]:https://github.com/jruby/jruby/pull/8202
+[#8203]:https://github.com/jruby/jruby/pull/8203
+[#8204]:https://github.com/jruby/jruby/pull/8204
+[#8205]:https://github.com/jruby/jruby/pull/8205
+[#8206]:https://github.com/jruby/jruby/pull/8206
+[#8207]:https://github.com/jruby/jruby/pull/8207
+[#8208]:https://github.com/jruby/jruby/pull/8208
+[#8209]:https://github.com/jruby/jruby/pull/8209
+[#8211]:https://github.com/jruby/jruby/pull/8211
