@@ -1,0 +1,133 @@
+---
+layout: post
+title: JRuby 9.4.8.0 Released
+---
+
+The JRuby community is pleased to announce the release of JRuby 9.4.8.0.
+
+* Homepage: [https://www.jruby.org/](https://www.jruby.org/)
+* Download: [https://www.jruby.org/download](https://www.jruby.org/download)
+
+JRuby 9.4.x targets Ruby 3.1 compatibility.
+
+Thank you to our contributors this release, you help keep JRuby moving forward! [@kares], [@ryannevell], [@jsvd]
+
+### 58 Github Issues resolved for 9.4.8.0
+
+- #6198 [Add test for #6197][#6198]
+- #7515 [Process.wait and Process.wait2 not behaving as expected on Windows with JDK > 8][#7515]
+- #7688 [Correct Binding#dup to properly propagate values it captures][#7688]
+- #7750 [File.absolute_path does not work correctly on Windows when dir_string is specified and contains non-ASCII characters][#7750]
+- #7879 [New failures in Rack tests relating to deflater][#7879]
+- #8129 [arity for { \|a,\| } was -2 and should have been 1][#8129]
+- #8140 [[ji] support re-reifying class hierarchy][#8140]
+- #8178 [Java::JavaLang::ClassCastException: class org.jruby.java.proxies.ConcreteJavaProxy cannot be cast to class org.jruby.RubyArray][#8178]
+- #8183 [IPSocket#addr returning "0:0:0:0:0:0:0:0" as bound ip address and not "::" when preferring IPv6][#8183]
+- #8210 [Requiring visibility=PRIVATE for native initialize is error-prone][#8210]
+- #8213 [Introduce a DEFAULT visibility to indicate unspecified][#8213]
+- #8216 [IO.popen fails to find executable with chdir: kwarg][#8216]
+- #8217 [JRuby Jar comuptation fails in OSGi environment][#8217]
+- #8218 [Process chdir option sooner so execFillarg sees it][#8218]
+- #8219 [Class vars overtaken][#8219]
+- #8220 [Fix some error messages to make MRI test pass][#8220]
+- #8222 [Update uri to 0.12.2 for CVE-2023-36617][#8222]
+- #8225 [Different behavior for Array#reject in required file][#8225]
+- #8232 [Synchronize state in AbstractVariable and Argv][#8232]
+- #8237 [Open3 doesn't write on the right STDOUT][#8237]
+- #8239 [Fix Dir.home for empty dir name][#8239]
+- #8241 [Making excluded tests from` test/mri/ruby/test_env.rb` pass][#8241]
+- #8242 [Resolve symlinks in user provided $JAVA_HOME][#8242]
+- #8243 [handle FileSystemNotFoundException when getting jruby jar][#8243]
+- #8244 [org.jruby.javasupport.ext.JavaLang.Number#define emits "method redefined" warnings in verbose mode][#8244]
+- #8245 [Remove unused variable assignment from Fiddle::Pointer.to_ptr][#8245]
+- #8246 [Remove skipped tests from TestAssignment][#8246]
+- #8247 [Remove redundant (and slightly broken) to_int and to_f aliases][#8247]
+- #8248 [JRuby parses "mixed" IPv6 address as IPv4][#8248]
+- #8250 [[ji] avoid already initialized constant warnings][#8250]
+- #8251 [Dir.chdir conflicting warning and error][#8251]
+- #8252 [yield specific for interp should have same rest logic as other paths][#8252]
+- #8255 [Fix #8183.  IPSocket#addr should report :: vs long unspecified address][#8255]
+- #8256 [Inconsistent debug info for jitted code in IntelliJ][#8256]
+- #8257 [Remove passing MRI test Fixnum][#8257]
+- #8258 [Check for override method on eql?][#8258]
+- #8261 [[deps] update jruby-openssl to 0.14.6][#8261]
+- #8269 [Unbound#== for aliases to be considered equal.][#8269]
+- #8270 [Enumerable#inject/reduce should show arg error with no arg or block][#8270]
+- #8273 [ARGF spec fixes.][#8273]
+- #8274 [fix some range conditions in String#* by relaxing to long at first][#8274]
+- #8275 [Refinement#import_methods always warns][#8275]
+- #8278 [IO.popen does not return value of the provided block][#8278]
+- #8280 [Enhancements for IR printing][#8280]
+- #8281 [Set writer modification time to now by default][#8281]
+- #8282 [Properly check for Module's superclass][#8282]
+- #8283 [Pattern matching not working][#8283]
+- #8284 [Fix pattern JIT Hash match and SyntaxError][#8284]
+- #8288 [Race fixes for AOT mode in 9.3][#8288]
+- #8289 [Subprocess launch with shell fails with empty env][#8289]
+- #8290 [Check for empty string from ENV.op_aref][#8290]
+- #8292 [Return the value of the block for IO.popen][#8292]
+- #8294 [Fix IPSocket.getaddress to handle special case IPv6 addresses][#8294]
+- #8303 [update jruby-openssl to 0.15.0][#8303]
+- #8305 [Update net-ftp to JRuby-compatible 0.3.7][#8305]
+- #8306 [Properly fall back if can't setAccessible][#8306]
+- #8309 [Default Windows filesystem encoding to UTF-8][#8309]
+- #8310 [Enhance reflective pid-getting for Windows Java 8+][#8310]
+
+[#6198]:https://github.com/jruby/jruby/pull/6198
+[#7515]:https://github.com/jruby/jruby/issues/7515
+[#7688]:https://github.com/jruby/jruby/pull/7688
+[#7750]:https://github.com/jruby/jruby/issues/7750
+[#7879]:https://github.com/jruby/jruby/issues/7879
+[#8129]:https://github.com/jruby/jruby/pull/8129
+[#8140]:https://github.com/jruby/jruby/pull/8140
+[#8178]:https://github.com/jruby/jruby/issues/8178
+[#8183]:https://github.com/jruby/jruby/issues/8183
+[#8210]:https://github.com/jruby/jruby/issues/8210
+[#8213]:https://github.com/jruby/jruby/pull/8213
+[#8216]:https://github.com/jruby/jruby/issues/8216
+[#8217]:https://github.com/jruby/jruby/issues/8217
+[#8218]:https://github.com/jruby/jruby/pull/8218
+[#8219]:https://github.com/jruby/jruby/pull/8219
+[#8220]:https://github.com/jruby/jruby/pull/8220
+[#8222]:https://github.com/jruby/jruby/pull/8222
+[#8225]:https://github.com/jruby/jruby/issues/8225
+[#8232]:https://github.com/jruby/jruby/pull/8232
+[#8237]:https://github.com/jruby/jruby/issues/8237
+[#8239]:https://github.com/jruby/jruby/pull/8239
+[#8241]:https://github.com/jruby/jruby/pull/8241
+[#8242]:https://github.com/jruby/jruby/pull/8242
+[#8243]:https://github.com/jruby/jruby/pull/8243
+[#8244]:https://github.com/jruby/jruby/issues/8244
+[#8245]:https://github.com/jruby/jruby/pull/8245
+[#8246]:https://github.com/jruby/jruby/pull/8246
+[#8247]:https://github.com/jruby/jruby/pull/8247
+[#8248]:https://github.com/jruby/jruby/issues/8248
+[#8250]:https://github.com/jruby/jruby/pull/8250
+[#8251]:https://github.com/jruby/jruby/pull/8251
+[#8252]:https://github.com/jruby/jruby/pull/8252
+[#8255]:https://github.com/jruby/jruby/pull/8255
+[#8256]:https://github.com/jruby/jruby/issues/8256
+[#8257]:https://github.com/jruby/jruby/pull/8257
+[#8258]:https://github.com/jruby/jruby/pull/8258
+[#8261]:https://github.com/jruby/jruby/pull/8261
+[#8269]:https://github.com/jruby/jruby/pull/8269
+[#8270]:https://github.com/jruby/jruby/pull/8270
+[#8273]:https://github.com/jruby/jruby/pull/8273
+[#8274]:https://github.com/jruby/jruby/pull/8274
+[#8275]:https://github.com/jruby/jruby/issues/8275
+[#8278]:https://github.com/jruby/jruby/issues/8278
+[#8280]:https://github.com/jruby/jruby/pull/8280
+[#8281]:https://github.com/jruby/jruby/pull/8281
+[#8282]:https://github.com/jruby/jruby/pull/8282
+[#8283]:https://github.com/jruby/jruby/issues/8283
+[#8284]:https://github.com/jruby/jruby/pull/8284
+[#8288]:https://github.com/jruby/jruby/pull/8288
+[#8289]:https://github.com/jruby/jruby/issues/8289
+[#8290]:https://github.com/jruby/jruby/pull/8290
+[#8292]:https://github.com/jruby/jruby/pull/8292
+[#8294]:https://github.com/jruby/jruby/pull/8294
+[#8303]:https://github.com/jruby/jruby/pull/8303
+[#8305]:https://github.com/jruby/jruby/pull/8305
+[#8306]:https://github.com/jruby/jruby/pull/8306
+[#8309]:https://github.com/jruby/jruby/pull/8309
+[#8310]:https://github.com/jruby/jruby/pull/8310
