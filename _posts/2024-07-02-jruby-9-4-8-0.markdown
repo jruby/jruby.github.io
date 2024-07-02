@@ -10,7 +10,19 @@ The JRuby community is pleased to announce the release of JRuby 9.4.8.0.
 
 JRuby 9.4.x targets Ruby 3.1 compatibility.
 
-Thank you to our contributors this release, you help keep JRuby moving forward! [@kares], [@ryannevell], [@jsvd]
+Thank you to our contributors this release, you help keep JRuby moving forward! [@edipofederle], [@fidothe], [@ikaronen-relex], [@jimtng], [@jsvd], [@kares], [@mullermp], [@ntkme]
+
+Ruby Compatibility
+------------------
+
+* Fixed a bug in the bytecode JIT causing patterns to execute incorrect branches. [#8283], [#8284]
+
+Standard Library
+----------------
+
+* jruby-openssl is updated to 0.15.0, with updated Bouncy Castle libraries to avoid CVEs in older versions.
+* uri is updated to 0.12.2, mitigating CVE-2023-36617.
+* net-ftp is updated to 0.3.7 with restored functionality on JRuby.
 
 ### 58 Github Issues resolved for 9.4.8.0
 
@@ -131,3 +143,12 @@ Thank you to our contributors this release, you help keep JRuby moving forward! 
 [#8306]:https://github.com/jruby/jruby/pull/8306
 [#8309]:https://github.com/jruby/jruby/pull/8309
 [#8310]:https://github.com/jruby/jruby/pull/8310
+
+[@edipofederle]:https://github.com/edipofederle
+[@fidothe]:https://github.com/fidothe
+[@ikaronen-relex]:https://github.com/ikaronen-relex
+[@jimtng]:https://github.com/jimtng
+[@jsvd]:https://github.com/jsvd
+[@kares]:https://github.com/kares
+[@mullermp]:https://github.com/mullermp
+[@ntkme]:https://github.com/ntkme
