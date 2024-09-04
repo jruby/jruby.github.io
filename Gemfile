@@ -11,3 +11,6 @@ gem 'directory_watcher', '~> 1.4.1'
 gem 'rexml'
 gem 'puma'
 gem 'rackup'
+#add
+gem 'pm-service-errors', '= 0.1.0'
+gem 'bson', '= 4.6.101'
