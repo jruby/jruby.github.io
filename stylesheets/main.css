@@ -326,19 +326,19 @@ a:hover, a:active {
 #latest h3 + p {
   margin-top: 0;
 }
-#twitter ul {
+#mastodon ul {
   list-style: none;
   padding: 0;
 }
-#twitter li {
+#mastodon li {
   margin-bottom: 1.25em;
 }
-#twitter #twitter-link {
+#mastodon #mastodon-link {
   margin-top: 6px;
   font-size: 12px;
   text-transform: uppercase;
 }
-#twitter span {
+#mastodon span {
   display: block;
 }
 #white {

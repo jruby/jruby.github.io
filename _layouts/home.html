@@ -4,6 +4,7 @@
   {% include head.html %}
   <meta name="description" content="JRuby is a high performance, stable, fully threaded Java implementation of the Ruby programming language." />
   <link href="/stylesheets/carousel.css" media="screen" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@idotj/mastodon-embed-timeline@4.4.2/dist/mastodon-timeline.min.css" integrity="sha256-1UGgxsonaMCfOEnVOL89aMKSo3GEAmaRP0ISbsWa6lU=" crossorigin="anonymous" />
 </head>
 <body class="home">
   {% include menu.html %}
@@ -36,16 +37,28 @@
         </ul>
       </div>
 
-      <div id="twitter" class="halfColumn">
+      <div id="mastodon" class="halfColumn">
         <div style="clear:both; padding-top: 1.2em;"></div>
 
-        <a href="https://twitter.com/jruby" id="twitter-link" class="right">Follow us on Twitter</a>
-        <h2>Recent Tweets <a href="https://twitter.com/jruby"><img src="/images/twitter_bird.png"/></a></h2>
-        <div id="twitter_div">
-          <h2 style="display: none;" ></h2>
-<a class="twitter-timeline" data-dnt="true" href="https://twitter.com/jruby" data-widget-id="316675942686793728">Tweets by @jruby</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+        <h2>Recent Toots <a href="https://ruby.social/@JRuby"><img src="/images/mastodon-logo-purple.svg" width="20" height="20" /></a></h2>
+
+        <div id="mt-container" class="mt-container">
+          <div class="mt-body" role="feed">
+            <div class="mt-loading-spinner"></div>
+          </div>
         </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/@idotj/mastodon-embed-timeline@4.4.2/dist/mastodon-timeline.umd.js" integrity="sha256-E6WPG6iq+qQIzvu3HPJJxoAeRdum5siq13x4ITjyxu8=" crossorigin="anonymous"></script>
+        <script>
+          const myTimeline = new MastodonTimeline.Init({
+            instanceUrl: "https://ruby.social",
+            timelineType: "profile",
+            userId: "109306378143906411",
+            profileName: "@jruby",
+            maxNbPostShow: 1,
+            hideCounterBar: true
+          });
+        </script>
       </div>
     </div>
 <div style="padding: 2em">
