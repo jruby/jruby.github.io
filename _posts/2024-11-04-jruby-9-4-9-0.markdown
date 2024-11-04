@@ -1,0 +1,88 @@
+---
+layout: post
+title: JRuby 9.4.9.0 Released
+---
+
+The JRuby community is pleased to announce the release of JRuby 9.4.9.0.
+
+* Homepage: [https://www.jruby.org/](https://www.jruby.org/)
+* Download: [https://www.jruby.org/download](https://www.jruby.org/download)
+
+JRuby 9.4.x targets Ruby 3.1 compatibility.
+
+Thank you to our contributors this release, you help keep JRuby moving forward! [@kares], [@jpcamara], [@jsvd]
+
+Ruby Compatibility
+------------------
+
+* Various fixes for keyword arguments. [#8344], [#8344], [#8382], [#8389]
+* Mutex has been fixed to check for thread interrupts (Thread#kill, Thread#raise) immediately after acquiring the lock. [#8403], [#8404]
+
+Standard Library
+----------------
+
+* The `fiddle` library is now a default gem and can be upgraded independently of JRuby. [#8385]
+
+Developer Experience
+--------------------
+
+* The core jar file of JRuby can be rebuilt more quickly by calling Maven with the `-Dcore` flag. [#8326]
+* Support for Coordinated Restore at Checkpoint (OpenJDK Project CRaC), which allows snapshotting a running JRuby process and quickly resuming it later. [#8367]
+
+Java Integration
+----------------
+
+* The "lazy" constants feature for classes imported from Java, introduced in JRuby 9.4.8.0, has been reverted due to spurious warnings. We'll revisit it in a future release. [#8349], [#8368], [#8399], [#8400], [#8401]
+* Functions were added to allow flushing out thread-local and fiber-local storage for an entire JRuby runtime. [#8369]
+
+Security
+--------
+
+* REXML was updated to 3.3.9 to get recent fixes and to address [CVE-2024-49761](https://github.com/advisories/GHSA-2rxp-v6pw-ch6m), a ReDOS vulnerability. Only users parsing unsanitized XML with REXML are affected. [#8396]
+
+[@jsvd]:https://github.com/jsvd
+[@kares]:https://github.com/kares
+[@jpcamara]:https://github.com/jpcamara
+
+[#7795]:https://github.com/jruby/jruby/issues/7795
+[#8316]:https://github.com/jruby/jruby/issues/8316
+[#8318]:https://github.com/jruby/jruby/pull/8318
+[#8320]:https://github.com/jruby/jruby/issues/8320
+[#8325]:https://github.com/jruby/jruby/issues/8325
+[#8326]:https://github.com/jruby/jruby/pull/8326
+[#8332]:https://github.com/jruby/jruby/pull/8332
+[#8337]:https://github.com/jruby/jruby/pull/8337
+[#8339]:https://github.com/jruby/jruby/issues/8339
+[#8342]:https://github.com/jruby/jruby/pull/8342
+[#8344]:https://github.com/jruby/jruby/issues/8344
+[#8345]:https://github.com/jruby/jruby/pull/8345
+[#8346]:https://github.com/jruby/jruby/issues/8346
+[#8347]:https://github.com/jruby/jruby/pull/8347
+[#8349]:https://github.com/jruby/jruby/issues/8349
+[#8354]:https://github.com/jruby/jruby/pull/8354
+[#8358]:https://github.com/jruby/jruby/issues/8358
+[#8359]:https://github.com/jruby/jruby/issues/8359
+[#8361]:https://github.com/jruby/jruby/pull/8361
+[#8362]:https://github.com/jruby/jruby/pull/8362
+[#8363]:https://github.com/jruby/jruby/pull/8363
+[#8365]:https://github.com/jruby/jruby/issues/8365
+[#8367]:https://github.com/jruby/jruby/pull/8367
+[#8368]:https://github.com/jruby/jruby/pull/8368
+[#8369]:https://github.com/jruby/jruby/pull/8369
+[#8370]:https://github.com/jruby/jruby/pull/8370
+[#8374]:https://github.com/jruby/jruby/pull/8374
+[#8380]:https://github.com/jruby/jruby/issues/8380
+[#8382]:https://github.com/jruby/jruby/issues/8382
+[#8385]:https://github.com/jruby/jruby/pull/8385
+[#8388]:https://github.com/jruby/jruby/pull/8388
+[#8389]:https://github.com/jruby/jruby/pull/8389
+[#8391]:https://github.com/jruby/jruby/issues/8391
+[#8392]:https://github.com/jruby/jruby/pull/8392
+[#8393]:https://github.com/jruby/jruby/issues/8393
+[#8394]:https://github.com/jruby/jruby/pull/8394
+[#8396]:https://github.com/jruby/jruby/pull/8396
+[#8399]:https://github.com/jruby/jruby/issues/8399
+[#8400]:https://github.com/jruby/jruby/pull/8400
+[#8401]:https://github.com/jruby/jruby/pull/8401
+[#8403]:https://github.com/jruby/jruby/issues/8403
+[#8404]:https://github.com/jruby/jruby/pull/8404

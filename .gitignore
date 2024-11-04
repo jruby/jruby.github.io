@@ -5,3 +5,4 @@ _site
 /.bundle/environment.rb
 *~
 .DS_Store
+.tool-versions
