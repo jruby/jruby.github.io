@@ -2,10 +2,6 @@
 layout: main
 title: Getting Started
 ---
-# Try it!
-
-Not ready to download yet? You can try [JRuby as an applet right in your browser](/tryjruby)!
-
 # Getting Started with JRuby
   
 JRuby is one of the easiest Ruby implementations to set up. Let's start with the basic instructions:
