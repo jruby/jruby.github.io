@@ -3,7 +3,7 @@ require 'fog'
 
 Fog.credentials = { path_style: true }
 
-INDEXED_FOLDERS = %w(downloads prerelease presentations tryjruby)
+INDEXED_FOLDERS = %w(downloads prerelease presentations)
 
 def sorted_files
   entries = []
