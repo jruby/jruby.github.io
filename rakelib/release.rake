@@ -68,7 +68,7 @@ def release_issues(version, options)
 
   number_resolved = github_issues.length
 
-  notes = "- #{number_resolved} issues fixed for #{version}\n"
+  notes = "- #{number_resolved} issues and PRs fixed for #{version}\n"
   notes = issue_notes_for('Github', version, github_issues, notes)
   notes
 end
