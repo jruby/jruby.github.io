@@ -1,0 +1,159 @@
+---
+layout: post
+title: JRuby 9.4.10.0 Released
+---
+
+The JRuby community is pleased to announce the release of JRuby 9.4.10.0.
+
+* Homepage: [https://www.jruby.org/](https://www.jruby.org/)
+* Download: [https://www.jruby.org/download](https://www.jruby.org/download)
+
+JRuby 9.4.x targets Ruby 3.1 compatibility.
+
+Thank you to our contributors this release, you help keep JRuby moving forward!
+
+* Dani Smith [@danini-the-panini]
+* Karol Bucek [@kares]
+* mrnoname1000 [@mrnoname1000]
+
+Ruby Compatibility
+------------------
+
+* Fixed a NegativeArraySizeException crash parsing heredocs. [#8355], [#8557]
+* Users can now opt into Ruby 3.3 behavior for NoMethodError and NameError that no longer inspects the target object. This inspect frequently led to memory issues. Specify JRuby flag `-XnameError.inspect.object=false` or JVM property `jruby.nameError.inspect.object=false` to disable the inspect call. [#216], [#8384], [#8538]
+* Implemented the missing `Process.argv0` method, used by recent Bundler releases. [#8568], [#8570]
+
+Standard Library
+----------------
+
+* The jar-dependencies gem, responsible for fetching jar file dependencies of Ruby gems, can now be updated independently of JRuby. [#7262], [#8488], [#8502]
+* An upcoming release of jar-dependencies, will fix issues sourcing jar dependencies in container deployments (partially fixed previously by an updated ruby-maven-libs gem). [#7059], [#8366]
+* The psych gem is updated to version 5.2.3, including a fix for YAML aliases from SnakeYAML-Engine version 2.9. [#8352], [#8575]
+* The reline gem is updated to 0.5.12. [#8481]
+
+Java Integration
+----------------
+
+* Only JVM classes imported from the same classloader hierarchy as JRuby will be bound to constants in JRuby's package hierarchy. [#8156]
+* Implementing a Java interface no longer leads to constant redefinition warnings. [#8349], [#8503]
+* Precompiled Ruby scripts now properly prepare optimized homogeneous case/when statements. Previously they would deserialize incorrectly and garble the branches. [#8421], [#8424]
+
+Performance and Usability
+-------------------------
+
+* Additional runtime data structures are eagerly cleared when tearing down a JRuby runtime, aiding GC. [#8343], [#8566]
+* The JRuby shell-based launcher script now properly handles JRuby installed in a path with spaces. [#8441], [#8442]
+* The `Class#subclasses` method has been optimized to eliminate it as a bottleneck in complex ActiveRecord STI queries. [#8457], [#8462]
+* Integer multiplication operations that overflow outside of int64 range have been optimized to eliminate heavy exception raises. [#8516], [#8523]
+
+Issues and PRs resolved for 9.4.10.0
+------------------------------------
+
+- #7059 [Issue of Jar dependency with Jruby-9.3.3.0][#7059]
+- #7262 [jar-dependencies cannot be updated out-of-band from jruby][#7262]
+- #8156 [JRuby adds Java proxy classes to the Java module even if they are not from JRubyClassLoader][#8156]
+- #8343 [Free up memory memory used by JRuby during teardown][#8343]
+- #8349 [internal proxy class is stored in Ruby land and prints warning][#8349]
+- #8352 [Cyclic references in Set objects raise exception with `YAML#load`][#8352]
+- #8355 [NegativeArraySizeException while parsing Heredoc in irb in JRuby 9.4.8.0][#8355]
+- #8366 [Jruby 9.4.8.0 fails to install psych ][#8366]
+- #8384 [OutOfMemoryError while constructing a NameError in the context of a large object][#8384]
+- #8398 [ruby2_keywords + forwarding to native does not properly check arity][#8398]
+- #8412 [Intermittent exceptions with 'Java::JavaLang::NoClassDefFoundError : org/jruby/gen/RubyObject13'][#8412]
+- #8415 [Skip extension builds for default gems][#8415]
+- #8416 [[Possible bug] Can not start jruby-swing applications since 9.4.9.0 - or rather, the window auto-closes almost instantly][#8416]
+- #8417 [Trivial refactoring for match][#8417]
+- #8421 [Incorrect case tree selection when comparing long Symbols during compiled Ruby code execution][#8421]
+- #8424 [Sort the jump tables based on new values][#8424]
+- #8425 [Don't clear the ThreadGroup when Thread terminates][#8425]
+- #8431 [jruby/thread_dump.rb seems to be broken][#8431]
+- #8433 [Root specialized object classloader at JRuby classloader][#8433]
+- #8436 [Pass Enumerable#uniq arguments properly][#8436]
+- #8438 [Remove rogue exit(0) that shuts down JVM][#8438]
+- #8441 [Spaces in the path cause  `bin/jruby` script to build an invalid command string][#8441]
+- #8442 [jruby.sh: Use array to handle option files][#8442]
+- #8457 [Class#subclasses slows down with larger sets][#8457]
+- #8462 [Optimize Class#subclasses][#8462]
+- #8466 [jirb 9.4.9.0 - reline "cannot convert parameter to native pointer"][#8466]
+- #8469 [fix --jdb -sourcepath command][#8469]
+- #8477 [Update to jar-dependencies 0.5.0][#8477]
+- #8478 [Avoid re-polling while reporting a Thread#raise][#8478]
+- #8479 [Thread interrupt requests can overwrite each other][#8479]
+- #8480 [Provide concrete-only traversal for Class#subclasses][#8480]
+- #8481 [Update reline to 0.5.12][#8481]
+- #8488 [Issues bundling psych related to the jar-dependencies bump][#8488]
+- #8502 [Avoid loading jar-dependencies to install gem hook][#8502]
+- #8503 [[ji] do not expose InterfaceImpl classes in Ruby land][#8503]
+- #8511 [Update to jruby-maven-plugins 3.0.4][#8511]
+- #8512 [Disable Maven download progress output on CI jobs][#8512]
+- #8515 [Update jruby-maven-plugins to 3.0.5][#8515]
+- #8516 [Strange performance difference?][#8516]
+- #8523 [Revert multiply to use non-intrinsic exactness checks][#8523]
+- #8538 [Backport no-inspect NameError logic][#8538]
+- #8557 [Fixes #8355: wallpaper crash in heredoc eof error][#8557]
+- #8562 [Use same logic as IR for kwarg handling in IO#write][#8562]
+- #8566 [Additional teardown to aid GC and release resources][#8566]
+- #8567 [Update thread dump hook for modern JRuby][#8567]
+- #8568 [Process.argv0 missing][#8568]
+- #8570 [Add Process.argv0][#8570]
+- #8571 [Update to jcodings 1.0.59][#8571]
+- #8572 [Use warning instead of warning when adding attr as module_function][#8572]
+- #8573 [Update jcodings to 1.0.61 and joni to 2.2.3][#8573]
+- #8575 [Update psych to 5.2.3][#8575]
+
+[#216]:https://github.com/jruby/jruby/issues/216
+[#7059]:https://github.com/jruby/jruby/issues/7059
+[#7262]:https://github.com/jruby/jruby/issues/7262
+[#8156]:https://github.com/jruby/jruby/issues/8156
+[#8343]:https://github.com/jruby/jruby/issues/8343
+[#8349]:https://github.com/jruby/jruby/issues/8349
+[#8352]:https://github.com/jruby/jruby/issues/8352
+[#8355]:https://github.com/jruby/jruby/issues/8355
+[#8366]:https://github.com/jruby/jruby/issues/8366
+[#8384]:https://github.com/jruby/jruby/issues/8384
+[#8398]:https://github.com/jruby/jruby/issues/8398
+[#8412]:https://github.com/jruby/jruby/issues/8412
+[#8415]:https://github.com/jruby/jruby/pull/8415
+[#8416]:https://github.com/jruby/jruby/issues/8416
+[#8417]:https://github.com/jruby/jruby/pull/8417
+[#8421]:https://github.com/jruby/jruby/issues/8421
+[#8424]:https://github.com/jruby/jruby/pull/8424
+[#8425]:https://github.com/jruby/jruby/pull/8425
+[#8431]:https://github.com/jruby/jruby/issues/8431
+[#8433]:https://github.com/jruby/jruby/pull/8433
+[#8436]:https://github.com/jruby/jruby/pull/8436
+[#8438]:https://github.com/jruby/jruby/pull/8438
+[#8441]:https://github.com/jruby/jruby/issues/8441
+[#8442]:https://github.com/jruby/jruby/pull/8442
+[#8457]:https://github.com/jruby/jruby/issues/8457
+[#8462]:https://github.com/jruby/jruby/pull/8462
+[#8466]:https://github.com/jruby/jruby/issues/8466
+[#8469]:https://github.com/jruby/jruby/pull/8469
+[#8477]:https://github.com/jruby/jruby/pull/8477
+[#8478]:https://github.com/jruby/jruby/pull/8478
+[#8479]:https://github.com/jruby/jruby/issues/8479
+[#8480]:https://github.com/jruby/jruby/pull/8480
+[#8481]:https://github.com/jruby/jruby/pull/8481
+[#8488]:https://github.com/jruby/jruby/issues/8488
+[#8502]:https://github.com/jruby/jruby/pull/8502
+[#8503]:https://github.com/jruby/jruby/pull/8503
+[#8511]:https://github.com/jruby/jruby/pull/8511
+[#8512]:https://github.com/jruby/jruby/pull/8512
+[#8515]:https://github.com/jruby/jruby/pull/8515
+[#8516]:https://github.com/jruby/jruby/issues/8516
+[#8523]:https://github.com/jruby/jruby/pull/8523
+[#8538]:https://github.com/jruby/jruby/pull/8538
+[#8557]:https://github.com/jruby/jruby/pull/8557
+[#8562]:https://github.com/jruby/jruby/pull/8562
+[#8566]:https://github.com/jruby/jruby/pull/8566
+[#8567]:https://github.com/jruby/jruby/pull/8567
+[#8568]:https://github.com/jruby/jruby/issues/8568
+[#8570]:https://github.com/jruby/jruby/pull/8570
+[#8571]:https://github.com/jruby/jruby/pull/8571
+[#8572]:https://github.com/jruby/jruby/pull/8572
+[#8573]:https://github.com/jruby/jruby/pull/8573
+[#8575]:https://github.com/jruby/jruby/pull/8575
+
+[@danini-the-panini]:https://github.com/danini-the-panini
+[@kares]:https://github.com/kares
+[@mrnoname1000]:https://github.com/mrnoname1000
