@@ -8,10 +8,25 @@ The JRuby community is pleased to announce the release of JRuby 9.4.11.0.
 * Homepage: [https://www.jruby.org/](https://www.jruby.org/)
 * Download: [https://www.jruby.org/download](https://www.jruby.org/download)
 
-JRuby 9.4.11.x targets Ruby 3.1 compatibility.
+JRuby 9.4.11.x targets Ruby 3.1 compatibility. This release fixes two critical bugs in JRuby 9.4.10.0 and we recommend users skip that version when upgrading.
 
 Thank you to our contributors this release, you help keep JRuby moving forward!
 
+* Karol Bucek [@kares]
+
+Critical Fixes
+--------------
+
+* Fixed an issue where Mutex lock acquisition may leave the Mutex locked if an asynchronous Thread interrupt happens at the same time. [#8585], [#8586]
+* Fixed a memory leak where singleton classes would leave behind bookkeeping objects that accumulated over time. [#8591], [#8598]
+
+Standard Library
+----------------
+
+* rubygems been updated to version 3.6.3 to fix an incompatibility with bundler 2.6. [#8590], [#8596]
+* bundler has been updated to version 2.6.3. [#8596]
+* jruby-openssl has been updated to 0.15.3. [#8458], [Release 0.15.3](https://github.com/jruby/jruby-openssl/releases/tag/v0.15.3)
+* jar-dependencies has been updated to 0.5.3 to fix remaining issues loading Maven jars in containerized environments. [#8593], [#8595]
 
 ### 9 Issues and PRs resolved for 9.4.11.0
 
@@ -22,6 +37,7 @@ Thank you to our contributors this release, you help keep JRuby moving forward!
 - #8590 [Bundler v2.6.x is incomptible with Gem system version included in JRuby 9.4.10.0 by default][#8590]
 - #8591 [Eliminate leak of non-concrete subclass references][#8591]
 - #8593 [Cannot create a Rails app with JRuby 9.4.10.0, Rails 7.1.5.1][#8593]
+- #8595 [Update jar-dependencies to 0.5.3][#8595]
 - #8596 [Update rubygems to 3.6.3 and bundler to 2.6.3][#8596]
 - #8598 [Memory leak from ActiveRecord_Relation after upgrading from JRuby 9.4.9.0 to 9.4.10.0][#8598]
 
@@ -32,5 +48,8 @@ Thank you to our contributors this release, you help keep JRuby moving forward!
 [#8590]:https://github.com/jruby/jruby/issues/8590
 [#8591]:https://github.com/jruby/jruby/pull/8591
 [#8593]:https://github.com/jruby/jruby/issues/8593
+[#8595]:https://github.com/jruby/jruby/pull/8595
 [#8596]:https://github.com/jruby/jruby/pull/8596
 [#8598]:https://github.com/jruby/jruby/issues/8598
+
+[@kares]:https://github.com/kares
