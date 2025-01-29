@@ -1,0 +1,36 @@
+---
+layout: post
+title: JRuby 9.4.11.0 Released
+---
+
+The JRuby community is pleased to announce the release of JRuby 9.4.11.0.
+
+* Homepage: [https://www.jruby.org/](https://www.jruby.org/)
+* Download: [https://www.jruby.org/download](https://www.jruby.org/download)
+
+JRuby 9.4.11.x targets Ruby 3.1 compatibility.
+
+Thank you to our contributors this release, you help keep JRuby moving forward!
+
+
+### 9 Issues and PRs resolved for 9.4.11.0
+
+- #8458 [[deps] bump jruby-openssl to 0.15.3][#8458]
+- #8584 [Remove dependency on jakarta.annotation-api][#8584]
+- #8585 [Thread interrupt can leave Mutex locked in synchronize][#8585]
+- #8586 [Unlock if poll triggers an exception][#8586]
+- #8590 [Bundler v2.6.x is incomptible with Gem system version included in JRuby 9.4.10.0 by default][#8590]
+- #8591 [Eliminate leak of non-concrete subclass references][#8591]
+- #8593 [Cannot create a Rails app with JRuby 9.4.10.0, Rails 7.1.5.1][#8593]
+- #8596 [Update rubygems to 3.6.3 and bundler to 2.6.3][#8596]
+- #8598 [Memory leak from ActiveRecord_Relation after upgrading from JRuby 9.4.9.0 to 9.4.10.0][#8598]
+
+[#8458]:https://github.com/jruby/jruby/pull/8458
+[#8584]:https://github.com/jruby/jruby/pull/8584
+[#8585]:https://github.com/jruby/jruby/issues/8585
+[#8586]:https://github.com/jruby/jruby/pull/8586
+[#8590]:https://github.com/jruby/jruby/issues/8590
+[#8591]:https://github.com/jruby/jruby/pull/8591
+[#8593]:https://github.com/jruby/jruby/issues/8593
+[#8596]:https://github.com/jruby/jruby/pull/8596
+[#8598]:https://github.com/jruby/jruby/issues/8598

@@ -38,12 +38,7 @@ task :nginx => :cookbooks
 desc 'Down resolved issues based on ENV[JRUBY_VERSION]'
 task :issues do
   version = ENV['JRUBY_VERSION'] || fail('No JRUBY_VERSION env set')
-  username, password = grab_username_password_from_m2
-  options = {:username => username, :password => password, :context_path => '/',
-    :site => 'https://jira.codehaus.org/', :auth_type => :basic 
-  }
-
-  puts release_issues(version, options)
+  puts release_issues(version)
 end
 
 task :default do
@@ -100,6 +95,11 @@ task :update_hash_files do
   f.body = index_contents
   f.public = true
   f.save
+end
+
+task :update_for_version do
+    version = ENV['JRUBY_VERSION'] || fail('No JRUBY_VERSION env set')
+    update_for_version(version)
 end
 
 desc "Print a summary of yesterday's file downloads"
