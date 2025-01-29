@@ -91,7 +91,7 @@ def create_post(version)
     io.write(release_issues(version))
   end
 
-  t.strftime("%Y/%m/%d/jruby-#{v}")
+  t.strftime("/%Y/%m/%d/jruby-#{v}")
 end
 
 def change_versions_in(filename, version, post_link)
