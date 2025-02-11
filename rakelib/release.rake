@@ -79,6 +79,61 @@ def update_for_version(version, major=true)
   post_link = create_post(version)
   change_versions_in('_config.yml', version, post_link)
   change_versions_in('download.html', version, post_link)
+  update_links(version)
+end
+
+def update_links(version)
+  windows_version = version.gsub('.', '_')
+  downloads_dir = "files/downloads"
+  dir = "#{downloads_dir}/#{version}"
+  mkdir_p dir
+  File.write "#{dir}/index.html", <<"EOS"
+---
+layout: main
+title: Files/downloads/#{version}
+---
+<h1>Files/downloads/#{version}</h1>
+<p class="trackDownloads">
+  <a href='/files/downloads/index.html'>..</a><br/>
+  <a href='https://repo1.maven.org/maven2/org/jruby/jruby-dist/#{version}/jruby-dist-#{version}-bin.tar.gz'>jruby-bin-#{version}.tar.gz</a><br/>
+  <a href='https://repo1.maven.org/maven2/org/jruby/jruby-dist/#{version}/jruby-dist-#{version}-bin.tar.gz.md5'>jruby-bin-#{version}.tar.gz.md5</a><br/>
+  <a href='https://repo1.maven.org/maven2/org/jruby/jruby-dist/#{version}/jruby-dist-#{version}-bin.tar.gz.sha1'>jruby-bin-#{version}.tar.gz.sha1</a><br/>
+  <a href='https://repo1.maven.org/maven2/org/jruby/jruby-dist/#{version}/jruby-dist-#{version}-bin.tar.gz.sha256'>jruby-bin-#{version}.tar.gz.sha256</a><br/>
+  <a href='https://repo1.maven.org/maven2/org/jruby/jruby-dist/#{version}/jruby-dist-#{version}-bin.zip'>jruby-bin-#{version}.zip</a><br/>
+  <a href='https://repo1.maven.org/maven2/org/jruby/jruby-dist/#{version}/jruby-dist-#{version}-bin.zip.md5'>jruby-bin-#{version}.zip.md5</a><br/>
+  <a href='https://repo1.maven.org/maven2/org/jruby/jruby-dist/#{version}/jruby-dist-#{version}-bin.zip.sha1'>jruby-bin-#{version}.zip.sha1</a><br/>
+  <a href='https://repo1.maven.org/maven2/org/jruby/jruby-dist/#{version}/jruby-dist-#{version}-bin.zip.sha256'>jruby-bin-#{version}.zip.sha256</a><br/>
+  <a href='https://repo1.maven.org/maven2/org/jruby/jruby-complete/#{version}/jruby-complete-#{version}.jar'>jruby-complete-#{version}.jar</a><br/>
+  <a href='https://repo1.maven.org/maven2/org/jruby/jruby-complete/#{version}/jruby-complete-#{version}.jar.md5'>jruby-complete-#{version}.jar.md5</a><br/>
+  <a href='https://repo1.maven.org/maven2/org/jruby/jruby-complete/#{version}/jruby-complete-#{version}.jar.sha1'>jruby-complete-#{version}.jar.sha1</a><br/>
+  <a href='https://repo1.maven.org/maven2/org/jruby/jruby-complete/#{version}/jruby-complete-#{version}.jar.sha256'>jruby-complete-#{version}.jar.sha256</a><br/>
+  <a href='https://repo1.maven.org/maven2/org/jruby/jruby-dist/#{version}/jruby-dist-#{version}-src.zip'>jruby-src-#{version}.zip</a><br/>
+  <a href='https://repo1.maven.org/maven2/org/jruby/jruby-dist/#{version}/jruby-dist-#{version}-src.zip.md5'>jruby-src-#{version}.zip.md5</a><br/>
+  <a href='https://repo1.maven.org/maven2/org/jruby/jruby-dist/#{version}/jruby-dist-#{version}-src.zip.sha1'>jruby-src-#{version}.zip.sha1</a><br/>
+  <a href='https://repo1.maven.org/maven2/org/jruby/jruby-dist/#{version}/jruby-dist-#{version}-src.zip.sha256'>jruby-src-#{version}.zip.sha256</a><br/>
+  <a href='https://s3.amazonaws.com/jruby.org/downloads/#{version}/jruby_windows_#{windows_version}.exe'>jruby_windows_#{windows_version}.exe</a><br/>
+  <a href='https://s3.amazonaws.com/jruby.org/downloads/#{version}/jruby_windows_#{windows_version}.exe.md5'>jruby_windows_#{windows_version}.exe.md5</a><br/>
+  <a href='https://s3.amazonaws.com/jruby.org/downloads/#{version}/jruby_windows_#{windows_version}.exe.sha1'>jruby_windows_#{windows_version}.exe.sha1</a><br/>
+  <a href='https://s3.amazonaws.com/jruby.org/downloads/#{version}/jruby_windows_#{windows_version}.exe.sha256'>jruby_windows_#{windows_version}.exe.sha256</a><br/>
+
+  <a href='https://s3.amazonaws.com/jruby.org/downloads/#{version}/jruby_windows_x64_#{windows_version}.exe'>jruby_windows_x64_#{windows_version}.exe</a><br/>
+  <a href='https://s3.amazonaws.com/jruby.org/downloads/#{version}/jruby_windows_x64_#{windows_version}.exe.md5'>jruby_windows_x64_#{windows_version}.exe.md5</a><br/>
+  <a href='https://s3.amazonaws.com/jruby.org/downloads/#{version}/jruby_windows_x64_#{windows_version}.exe.sha1'>jruby_windows_x64_#{windows_version}.exe.sha1</a><br/>
+  <a href='https://s3.amazonaws.com/jruby.org/downloads/#{version}/jruby_windows_x64_#{windows_version}.exe.sha256'>jruby_windows_x64_#{windows_version}.exe.sha256</a><br/>
+</p>
+EOS
+
+  # This is a bit fast and loose on error handling but this is modifying
+  # a file in a git repo.  We can always go to previous commit if some
+  # intermittent error occurs
+  index_file = "#{downloads_dir}/index.html"
+  contents = File.read(index_file)
+  contents.gsub! /<!-- NEW_VERSION -->/, <<"EOS"
+  <a href='/files/downloads/#{version}/index.html'>#{version}</a><br/>
+  <!-- NEW_VERSION -->
+EOS
+                 
+  File.write index_file, contents
 end
 
 def create_post(version)
