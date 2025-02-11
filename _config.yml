@@ -7,13 +7,13 @@ markdown:    kramdown
 permalink:   date
 # JRuby-specific info here; goes into the "site" jekyll variable
 release:
-  url: /2025/01/29/jruby-9-4-11-0.html
-  version: 9.4.11.0
-  tar: https://repo1.maven.org/maven2/org/jruby/jruby-dist/9.4.11.0/jruby-dist-9.4.11.0-bin.tar.gz
-  zip: https://repo1.maven.org/maven2/org/jruby/jruby-dist/9.4.11.0/jruby-dist-9.4.11.0-bin.zip
-  exe: https://s3.amazonaws.com/jruby.org/downloads/9.4.11.0/jruby_windows_9_4_11_0.exe
-  exe64: https://s3.amazonaws.com/jruby.org/downloads/9.4.11.0/jruby_windows_x64_9_4_11_0.exe
-  gem: https://rubygems.org/gems/jruby-jars/versions/9.4.11.0
+  url: /2025/02/11/jruby-9-4-12-0.html
+  version: 9.4.12.0
+  tar: https://repo1.maven.org/maven2/org/jruby/jruby-dist/9.4.12.0/jruby-dist-9.4.12.0-bin.tar.gz
+  zip: https://repo1.maven.org/maven2/org/jruby/jruby-dist/9.4.12.0/jruby-dist-9.4.12.0-bin.zip
+  exe: https://s3.amazonaws.com/jruby.org/downloads/9.4.12.0/jruby_windows_9_4_12_0.exe
+  exe64: https://s3.amazonaws.com/jruby.org/downloads/9.4.12.0/jruby_windows_x64_9_4_12_0.exe
+  gem: https://rubygems.org/gems/jruby-jars/versions/9.4.12.0
   gem_older: https://rubygems.org/gems/jruby-jars/versions/9.3.15.0
 urls:
   maven: https://repo1.maven.org/maven2/org/jruby
