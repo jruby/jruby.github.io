@@ -20,7 +20,7 @@ Critical Fixes
 Standard Library
 ----------------
 
-* jar-dependencies upgraded to 0.5.4 to fix an issue parsing Maven output on Java versions 9 and higher. [#8606], [#8515]
+* jar-dependencies upgraded to 0.5.4 to fix an issue parsing Maven output on Java versions 9 and higher. [#8606], [#8615]
 
 ### 4 Issues and PRs resolved for 9.4.12.0
 
