@@ -10,9 +10,9 @@ The JRuby community is pleased to announce the release of JRuby 10.0.0.0.
 
 JRuby 10 is finally here! We've jumped to Ruby 3.4 compatibility and Java 21 minimum to bring you the best Ruby on JVM experience possible. We are confident this is the most compatible and stable major release we've ever had.
 
-Our blog post on JRuby 10 provides a high-level overview of the major changes, with some additional details below. We will update the blog post with additional detailed articles over the coming weeks: https://blog.jruby.org/2025/04/jruby-10-part-1-whats-new
+Our blog post on JRuby 10 provides a high-level overview of the major changes, with some additional details below. We will update the blog post with additional detailed articles over the coming weeks: [https://blog.jruby.org/2025/04/jruby-10-part-1-whats-new](https://blog.jruby.org/2025/04/jruby-10-part-1-whats-new)
 
-As with any "dot zero" release, we are planning a series of quick updates to address any last-minute issues that snuck into the release. Please file bugs for any issues you see while testing JRuby 10.0: https://github.com/jruby/jruby/issues
+As with any "dot zero" release, we are planning a series of quick updates to address any last-minute issues that snuck into the release. Please file bugs for any issues you see while testing JRuby 10.0: [https://github.com/jruby/jruby/issues](https://github.com/jruby/jruby/issues)
 
 Contributors
 ------------
