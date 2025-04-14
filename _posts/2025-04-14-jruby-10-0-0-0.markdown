@@ -1,0 +1,479 @@
+---
+layout: post
+title: JRuby 10.0.0.0 Released
+---
+
+The JRuby community is pleased to announce the release of JRuby 10.0.0.0.
+
+* Homepage: [https://www.jruby.org/](https://www.jruby.org/)
+* Download: [https://www.jruby.org/download](https://www.jruby.org/download)
+
+JRuby 10 is finally here! We've jumped to Ruby 3.4 compatibility and Java 21 minimum to bring you the best Ruby on JVM experience possible. We are confident this is the most compatible and stable major release we've ever had.
+
+Our blog post on JRuby 10 provides a high-level overview of the major changes, with some additional details below. We will update the blog post with additional detailed articles over the coming weeks: https://blog.jruby.org/2025/04/jruby-10-part-1-whats-new
+
+As with any "dot zero" release, we are planning a series of quick updates to address any last-minute issues that snuck into the release. Please file bugs for any issues you see while testing JRuby 10.0: https://github.com/jruby/jruby/issues
+
+Contributors
+------------
+
+The JRuby core team today includes Charles Oliver Nutter ([@headius](https://github.com/headius)), Thomas Enebo ([@enebo](https://github.com/enebo)), and Karol Bucek ([@kares](https://github.com/kares)). Over the past year we have been honored to accept contributions from many other developers, and JRuby 10 would not be as stable or complete without their help:
+
+[@andsel], [@mrnoname1000], [@ahorek], [@evaniainbrooks], [@edipofederle], [@ccutrer], [@danini-the-panini], [@ntkme], [@andrykonchin], [@mohamedhafez], [@jsvd], [@jpcamara], [@mullermp], [@ikaronen-relex], [@jimtng], [@ryannevell], [@eregon], [@moste00], [@sk757a]
+
+Ruby Compatibility
+------------------
+
+* Ruby compatibility has been updated to Ruby 3.4. We consider this release equivalent to Ruby 3.4.2.
+* Most features of Ruby 3.2, 3.3, 3.4 are complete, but some are still in progress. See our checklists based on CRuby's release notes: [Ruby 3.2](https://github.com/jruby/jruby/issues/7517), [Ruby 3.3](https://github.com/jruby/jruby/issues/8029), [Ruby 3.4](https://github.com/jruby/jruby/issues/8395)
+* Except where a more recent gem was available or a library is unsupported by JRuby, we have included the same standard libraries as Ruby 3.4.
+
+Java 21
+-------
+
+After nearly a decade of supporting Java 8, the JRuby team decided it's time for us to move to a more modern version of Java. The new requirement of Java 21 will allow us to take advantage of many features that were impossible to utilize while simultaneously supporting Java 8:
+
+* On-by-default optimization using [InvokeDynamic](https://wiki.openjdk.org/display/HotSpot/Method+handles+and+invokedynamic), which has significantly improved since Java 8.
+* Support for thousands of Fibers using the lightweight virtual thread support from [Project Loom](https://openjdk.org/projects/loom/).
+* Fast native function calling and native memory management using [Project Panama](https://openjdk.org/projects/panama/).
+* Greatly improved startup time using [Application Class Data Store](https://openjdk.org/jeps/310), enabled by default by our launcher executables.
+* Easier access to post-Java 21 features like the Ahead-of-time compiler cache in [Project Leyden](https://openjdk.org/projects/leyden/).
+
+Upgrading to JRuby 10
+---------------------
+
+This release marks a big leap forward for JRuby users, and we are standing by to help with your transition from JRuby 9.x or migration from CRuby. Support services are available to help migrate your critical applications. Many existing users trust [JRuby Support by Headius Enterprises](https://www.headius.com/jruby-support.html) to keep their applications in peak condition and to prepare for future updates.
+
+Issues and Pull Requests
+------------------------
+
+There are hundreds of closed issues and merged pull requests in this release. Visit the [JRuby 10.0.0.0 milestone](https://github.com/jruby/jruby/milestone/95?closed=1) for the full list.
+
+
+### 201 Issues and PRs resolved for 10.0.0.0
+
+- #6094 [Less modes to run JRuby, and one single mode to benchmark JRuby][#6094]
+- #6598 [Modularize all the things][#6598]
+- #7516 [Improvements to instance variable shaping][#7516]
+- #7638 [  Add support for Ruby 3.2 attached_object][#7638]
+- #7646 [Add Integer#ceildiv][#7646]
+- #7788 [Add support for a rescue trace event][#7788]
+- #7871 [Ruby 3.2 - Remove deprecated methods: trust/taint and friends][#7871]
+- #7909 [Intermittent failure on duped pipe tests JDK 19+][#7909]
+- #7973 [Use gem for tempfile][#7973]
+- #8058 [Ruby 3.3 support: Queue#freeze now raises TypeError][#8058]
+- #8059 [Ruby 3.3 support: add symbolize_names kwarg to MatchData#named_captures][#8059]
+- #8084 [remove JRuby-specific (deprecated) Class#subclasses(arg)][#8084]
+- #8143 [Remove versioned methods][#8143]
+- #8145 [Refactor external API to ease extension porting][#8145]
+- #8152 [New parser][#8152]
+- #8153 [Update parser to 3.4][#8153]
+- #8154 [Update and run CRuby 3.4 tests][#8154]
+- #8159 [Fix last obvious syntax problem (involving nested pattern kwargs going off rails)][#8159]
+- #8160 [Proc#{dup,clone} should be like other objs][#8160]
+- #8161 [Finalizers also are on cloned/duped objects][#8161]
+- #8162 [Finalizers also are on cloned/duped objects][#8162]
+- #8163 [tracepoint only runs in thread it was enabled on][#8163]
+- #8164 [{,Unbound}Method#{proc,dup} need to be more like other Ruby objects][#8164]
+- #8165 [Add MatchData#deconstruct...][#8165]
+- #8168 [First stab at Err#typeError in api][#8168]
+- #8169 [Update json to eliminate references to "19" methods][#8169]
+- #8170 [Implement block_given? call as optimized instruction][#8170]
+- #8172 [Optimized __method__ and __callee__][#8172]
+- #8174 [Unify call paths for most framed scopes][#8174]
+- #8175 [These may have been hanging due to a block_given? bug][#8175]
+- #8176 [Simplify fixnum and string ranges][#8176]
+- #8177 [A few frozen string and symbol optimizations][#8177]
+- #8180 [Optimizations for dynamic string building][#8180]
+- #8181 [Add ability to generically optimize instr during LOP][#8181]
+- #8214 [Disable eager constants in JRuby 10][#8214]
+- #8223 [Make Exception#detailed_message,full_message pass specs][#8223]
+- #8226 [Implement "chilled" Strings][#8226]
+- #8227 [Narrow frame name optimization to method scopes][#8227]
+- #8228 [IO#readlines accepts another arg][#8228]
+- #8229 [Fix full_message formatting and Throwable impl][#8229]
+- #8230 [More frame name fixes][#8230]
+- #8233 [Implement Regexp#linear_time?][#8233]
+- #8236 [More string interpolation optimizations][#8236]
+- #8238 [Implement regexp timeout][#8238]
+- #8240 [Fix IO#each_line specs][#8240]
+- #8249 [Reduce deopt from print use of $_][#8249]
+- #8253 [Optimize literal fixnum and float arrays][#8253]
+- #8259 [Improved representation of JRuby for JVM tools][#8259]
+- #8260 [Rewrite Marshal.dump logic for efficiency][#8260]
+- #8262 [Proc spreading changed in 3.2 with kwrest][#8262]
+- #8263 [Implement Coverage::supported?][#8263]
+- #8266 [Enable invokedynamic by default][#8266]
+- #8267 [Print out paths for syntax errors][#8267]
+- #8268 [Unbound method][#8268]
+- #8276 [Struct specs][#8276]
+- #8277 [Time#new spec fixes.][#8277]
+- #8279 [Reduce overhead of ObjectSpace#each_object when disabled][#8279]
+- #8291 [Fix remaining copy stream specs][#8291]
+- #8293 [Eliminate last consumers of Variable logic][#8293]
+- #8295 [3 new Convert API methods][#8295]
+- #8297 [Make common method for handling to_r calls in Rational][#8297]
+- #8298 [Api changes][#8298]
+- #8299 [Linkage errors from java_import are lazy][#8299]
+- #8300 [Do initialize classes during java_import][#8300]
+- #8301 [Decode ByteList properly for toString][#8301]
+- #8304 [Eager initialize java_import'ed classes][#8304]
+- #8317 [New asFixnum, asBoolean, asString in Convert][#8317]
+- #8330 [Eliminate dynscope for leaf blocks with break/return][#8330]
+- #8375 [Revisit chilled strings and pass all specs][#8375]
+- #8376 [Get most Enumerator::Product specs passing][#8376]
+- #8377 [No backtick in errors][#8377]
+- #8378 [Update to latest CRuby 3.4 tests and stdlib][#8378]
+- #8390 [Fix foreach with mode: kwarg][#8390]
+- #8402 [Hash#inspect: no arrow for symbol keys.  add spacing to match C Ruby][#8402]
+- #8410 [Permute indy invoke paths to reduce uncached stack][#8410]
+- #8414 [Pre-generate specialized object shapes][#8414]
+- #8418 [Some small refactoring while looking for example snippet code of new API][#8418]
+- #8420 [A bunch of new API calls and new JRubyAPI annotation][#8420]
+- #8430 [More dogfooding of new API][#8430]
+- #8432 [argumentError API conversions with a lot of runtime to tc replacement][#8432]
+- #8437 [context through RubyArray using more API][#8437]
+- #8444 [Nearly all newArray is converted to API][#8444]
+- #8450 [Enable invokedynamic by default][#8450]
+- #8452 [newFixnum,Symbol,Float are unified with asXXX. ][#8452]
+- #8454 [more api conversion around Time+][#8454]
+- #8459 [API: Nearly all remaining newArgumentError to argumentError][#8459]
+- #8460 [more newSymbols made into asSymbol][#8460]
+- #8461 [new runtimeError api][#8461]
+- #8467 [api: new rangeError, indexError ][#8467]
+- #8468 [to_s with TC. new dupString api][#8468]
+- #8470 [Inspect wrong object when symbol/string wanted in error][#8470]
+- #8471 [more illegal formatting added to printf/format][#8471]
+- #8472 [Add new Check#checkEmbeddedNulls to replace StringSupport method][#8472]
+- #8473 [Make Time load its Ruby-impl side][#8473]
+- #8474 [Create#newEmptyString][#8474]
+- #8475 [Create#new{,Small}Hash][#8475]
+- #8484 [Various array optimizations][#8484]
+- #8485 [Fixes for MRI tests][#8485]
+- #8489 [Bind directly to all supported arities of native methods][#8489]
+- #8490 [New define API][#8490]
+- #8491 [Make hash() always call to hash(ThreadContext) and deprecate][#8491]
+- #8492 [Make Numeric#coerce use TC with deprecated fallback][#8492]
+- #8493 [is_zero+zero_p TCification][#8493]
+- #8494 [TCification of isPositive][#8494]
+- #8495 [TCification of isNegative][#8495]
+- #8496 [Make initialize_copy use TC][#8496]
+- #8498 [See how dot format is for specs][#8498]
+- #8507 [Eliminate use of unsafe in StringSupport][#8507]
+- #8508 [Replace Unsafe byte[] long-walking with VarHandle][#8508]
+- #8514 [Move to simple Access apis (context available)][#8514]
+- #8517 [Add trace instr for rescue when trace enabled][#8517]
+- #8518 [Switch more error backquotes to single][#8518]
+- #8519 [inspect() -> inspect(ThreadContext)][#8519]
+- #8520 [All String JRuby Methods use context now][#8520]
+- #8521 [Make all jruby methods use context in Array][#8521]
+- #8522 [context for all numeric types jruby methods][#8522]
+- #8524 [context for all Struct methods][#8524]
+- #8525 [Warn api][#8525]
+- #8529 [Data fixes][#8529]
+- #8530 [Update gem_prelude from Ruby 3.4][#8530]
+- #8531 [getSingletonClass() replaced with singleonClass(context)][#8531]
+- #8532 [Deprecate defineOrGetClassUnder][#8532]
+- #8533 [Fixes and impls for Ruby 3.4 specs][#8533]
+- #8534 [Last boostrapping classes/modules decoupled from non-boot][#8534]
+- #8537 [We should always have a valid staticScope][#8537]
+- #8541 [most of constant settin and RubyModule to be TCified][#8541]
+- #8543 [allocate() needs ThreadContext][#8543]
+- #8544 [Extra "" around singleton in {Name|No}MethodError][#8544]
+- #8545 [Reduce getRuntime() and make alloc use TC][#8545]
+- #8546 [Fix specs involving comments in unpack format strings][#8546]
+- #8547 [Fix failing specs for chilled symbols][#8547]
+- #8548 [tcification of regex][#8548]
+- #8549 [Remove more use of getRuntime()][#8549]
+- #8551 [More removal of getRuntime() from non-deprecated code paths][#8551]
+- #8552 [more API usage and some runtime removal][#8552]
+- #8553 [More API work: toInt, toInteger, toLong, asLong, asInt][#8553]
+- #8554 [Fix arity specs for blocks in language][#8554]
+- #8556 [Rest args dup keyword hash][#8556]
+- #8558 [More API conversion][#8558]
+- #8564 [Eliminate exact math and reduce allocations][#8564]
+- #8576 [Force a Thread's block to optimize eagerly][#8576]
+- #8580 [Implement **nil][#8580]
+- #8581 [implement restriction on aryset to not allow blocks or kwargs][#8581]
+- #8582 [Update Ruby 3.4 gems from release][#8582]
+- #8587 [Add warning for ::Ruby = as reserved constant][#8587]
+- #8588 [Implement MatchData#byte{beg,end}][#8588]
+- #8589 [Change singleton_method to look at extend/prepend][#8589]
+- #8616 [Eiminate last uses of UnsafeHolder][#8616]
+- #8617 [Reduce RubyModule/RubyClass size and creation overhead][#8617]
+- #8618 [Improve performance of CI test suites][#8618]
+- #8619 [Eliminate fillnil from newArray][#8619]
+- #8622 [Move specs toward green][#8622]
+- #8628 [Integer spec fixes for JRuby 10][#8628]
+- #8629 [Fix Range specs for JRuby 10][#8629]
+- #8631 [unused warnings became useless warnings][#8631]
+- #8633 [Fiber specs for JRuby 10][#8633]
+- #8636 [Remove upfront fillNill in Array][#8636]
+- #8637 [We should only warn on actual modification of singleton][#8637]
+- #8639 [Remove raw array methods and helpers with fillnil changed][#8639]
+- #8646 [More work on numeric API][#8646]
+- #8647 [Previous changes from raw array and I put in wrong field name][#8647]
+- #8650 [Depre warns][#8650]
+- #8664 [Unicode 15.0][#8664]
+- #8668 [Propagate Java throwables during load without wrapping][#8668]
+- #8673 [parser passes block node vs only single last value to when][#8673]
+- #8674 [Ruby 3.4 seems to have simplified ruby2_keywords_hash][#8674]
+- #8676 [JRuby 9.4 to_s() signatures must be kept in 10][#8676]
+- #8677 [FString logic cleanup][#8677]
+- #8678 [Symbol type calculation tweaks][#8678]
+- #8679 [Implement Data natively][#8679]
+- #8683 [New marshal could break ext authors using old one][#8683]
+- #8684 [Deprecation problems + new reporting system][#8684]
+- #8685 [Additional improvements to new marshal logic][#8685]
+- #8689 [MarshalLoader to match dumper][#8689]
+- #8693 [Cleaning up MRI excludes and fixing some stuff][#8693]
+- #8695 [Update stdlib from Ruby 3.4.2][#8695]
+- #8698 [JRuby 10: incorrect `Method#arity` with keyword arguments][#8698]
+- #8699 [optimist gem specs get StackOverflowError on JRuby 10][#8699]
+- #8702 [was recursively warning on itself][#8702]
+- #8706 [Add missing logic I added for procs to methods for ruby-facing arity][#8706]
+- #8708 [Refactor launcher AppCDS logic][#8708]
+- #8709 [JRuby HEAD `Exception#full_message` fails with `uninitialized constant ErrorHighlight::RubyVM` for Exceptions thrown from JRrubyVM][#8709]
+- #8710 [Encoding error with bad raise message in StringIO][#8710]
+- #8711 [Less eager coderange when converting Java String][#8711]
+- #8712 [JRuby10 inline bundler error][#8712]
+- #8713 [Negative capa][#8713]
+- #8718 [Apply Java version-specific flags in launcher script][#8718]
+- #8721 [Restructure gem_prelude to fit JRuby's needs][#8721]
+- #8723 [JRuby10: an existing `it` variable inside a block caused SyntaxError: ordinary parameter is defined][#8723]
+- #8725 [nonsense error check for 'it' in parser][#8725]
+- #8729 [spec fixed at some point in past][#8729]
+- #8735 [JRuby10: (NameError) undefined local variable or method 'it' in eval][#8735]
+- #8737 [Fixes #8735.  it in eval broken][#8737]
+- #8741 [NUMERIC_TO_OBJECT was making BigDecimal a Long][#8741]
+- #8742 [A few micro optimizations][#8742]
+- #8744 [Use platform line separator for backtrace output][#8744]
+- #8745 [Updates from CRuby 3.4.2][#8745]
+- #8748 [Reduce overhead of indy plumbing][#8748]
+- #8751 [Update URI gem to 1.0.3 in JRuby 10][#8751]
+- #8753 [Java version detection improvements][#8753]
+- #8759 [Fixed enough javadoc "errors" where it no longer stops build][#8759]
+
+[#6094]:https://github.com/jruby/jruby/issues/6094
+[#6598]:https://github.com/jruby/jruby/pull/6598
+[#7516]:https://github.com/jruby/jruby/pull/7516
+[#7638]:https://github.com/jruby/jruby/pull/7638
+[#7646]:https://github.com/jruby/jruby/pull/7646
+[#7788]:https://github.com/jruby/jruby/pull/7788
+[#7871]:https://github.com/jruby/jruby/pull/7871
+[#7909]:https://github.com/jruby/jruby/issues/7909
+[#7973]:https://github.com/jruby/jruby/pull/7973
+[#8058]:https://github.com/jruby/jruby/pull/8058
+[#8059]:https://github.com/jruby/jruby/pull/8059
+[#8084]:https://github.com/jruby/jruby/pull/8084
+[#8143]:https://github.com/jruby/jruby/pull/8143
+[#8145]:https://github.com/jruby/jruby/pull/8145
+[#8152]:https://github.com/jruby/jruby/pull/8152
+[#8153]:https://github.com/jruby/jruby/pull/8153
+[#8154]:https://github.com/jruby/jruby/pull/8154
+[#8159]:https://github.com/jruby/jruby/pull/8159
+[#8160]:https://github.com/jruby/jruby/pull/8160
+[#8161]:https://github.com/jruby/jruby/pull/8161
+[#8162]:https://github.com/jruby/jruby/pull/8162
+[#8163]:https://github.com/jruby/jruby/pull/8163
+[#8164]:https://github.com/jruby/jruby/pull/8164
+[#8165]:https://github.com/jruby/jruby/pull/8165
+[#8168]:https://github.com/jruby/jruby/pull/8168
+[#8169]:https://github.com/jruby/jruby/issues/8169
+[#8170]:https://github.com/jruby/jruby/pull/8170
+[#8172]:https://github.com/jruby/jruby/pull/8172
+[#8174]:https://github.com/jruby/jruby/pull/8174
+[#8175]:https://github.com/jruby/jruby/pull/8175
+[#8176]:https://github.com/jruby/jruby/pull/8176
+[#8177]:https://github.com/jruby/jruby/pull/8177
+[#8180]:https://github.com/jruby/jruby/pull/8180
+[#8181]:https://github.com/jruby/jruby/pull/8181
+[#8214]:https://github.com/jruby/jruby/pull/8214
+[#8223]:https://github.com/jruby/jruby/pull/8223
+[#8226]:https://github.com/jruby/jruby/pull/8226
+[#8227]:https://github.com/jruby/jruby/pull/8227
+[#8228]:https://github.com/jruby/jruby/pull/8228
+[#8229]:https://github.com/jruby/jruby/pull/8229
+[#8230]:https://github.com/jruby/jruby/pull/8230
+[#8233]:https://github.com/jruby/jruby/pull/8233
+[#8236]:https://github.com/jruby/jruby/pull/8236
+[#8238]:https://github.com/jruby/jruby/pull/8238
+[#8240]:https://github.com/jruby/jruby/pull/8240
+[#8249]:https://github.com/jruby/jruby/pull/8249
+[#8253]:https://github.com/jruby/jruby/pull/8253
+[#8259]:https://github.com/jruby/jruby/pull/8259
+[#8260]:https://github.com/jruby/jruby/pull/8260
+[#8262]:https://github.com/jruby/jruby/pull/8262
+[#8263]:https://github.com/jruby/jruby/pull/8263
+[#8266]:https://github.com/jruby/jruby/pull/8266
+[#8267]:https://github.com/jruby/jruby/pull/8267
+[#8268]:https://github.com/jruby/jruby/pull/8268
+[#8276]:https://github.com/jruby/jruby/pull/8276
+[#8277]:https://github.com/jruby/jruby/pull/8277
+[#8279]:https://github.com/jruby/jruby/pull/8279
+[#8291]:https://github.com/jruby/jruby/pull/8291
+[#8293]:https://github.com/jruby/jruby/pull/8293
+[#8295]:https://github.com/jruby/jruby/pull/8295
+[#8297]:https://github.com/jruby/jruby/pull/8297
+[#8298]:https://github.com/jruby/jruby/pull/8298
+[#8299]:https://github.com/jruby/jruby/issues/8299
+[#8300]:https://github.com/jruby/jruby/pull/8300
+[#8301]:https://github.com/jruby/jruby/pull/8301
+[#8304]:https://github.com/jruby/jruby/pull/8304
+[#8317]:https://github.com/jruby/jruby/pull/8317
+[#8330]:https://github.com/jruby/jruby/pull/8330
+[#8375]:https://github.com/jruby/jruby/pull/8375
+[#8376]:https://github.com/jruby/jruby/pull/8376
+[#8377]:https://github.com/jruby/jruby/pull/8377
+[#8378]:https://github.com/jruby/jruby/pull/8378
+[#8390]:https://github.com/jruby/jruby/pull/8390
+[#8402]:https://github.com/jruby/jruby/pull/8402
+[#8410]:https://github.com/jruby/jruby/pull/8410
+[#8414]:https://github.com/jruby/jruby/pull/8414
+[#8418]:https://github.com/jruby/jruby/pull/8418
+[#8420]:https://github.com/jruby/jruby/pull/8420
+[#8430]:https://github.com/jruby/jruby/pull/8430
+[#8432]:https://github.com/jruby/jruby/pull/8432
+[#8437]:https://github.com/jruby/jruby/pull/8437
+[#8444]:https://github.com/jruby/jruby/pull/8444
+[#8450]:https://github.com/jruby/jruby/pull/8450
+[#8452]:https://github.com/jruby/jruby/pull/8452
+[#8454]:https://github.com/jruby/jruby/pull/8454
+[#8459]:https://github.com/jruby/jruby/pull/8459
+[#8460]:https://github.com/jruby/jruby/pull/8460
+[#8461]:https://github.com/jruby/jruby/pull/8461
+[#8467]:https://github.com/jruby/jruby/pull/8467
+[#8468]:https://github.com/jruby/jruby/pull/8468
+[#8470]:https://github.com/jruby/jruby/pull/8470
+[#8471]:https://github.com/jruby/jruby/pull/8471
+[#8472]:https://github.com/jruby/jruby/pull/8472
+[#8473]:https://github.com/jruby/jruby/pull/8473
+[#8474]:https://github.com/jruby/jruby/pull/8474
+[#8475]:https://github.com/jruby/jruby/pull/8475
+[#8484]:https://github.com/jruby/jruby/pull/8484
+[#8485]:https://github.com/jruby/jruby/pull/8485
+[#8489]:https://github.com/jruby/jruby/pull/8489
+[#8490]:https://github.com/jruby/jruby/pull/8490
+[#8491]:https://github.com/jruby/jruby/pull/8491
+[#8492]:https://github.com/jruby/jruby/pull/8492
+[#8493]:https://github.com/jruby/jruby/pull/8493
+[#8494]:https://github.com/jruby/jruby/pull/8494
+[#8495]:https://github.com/jruby/jruby/pull/8495
+[#8496]:https://github.com/jruby/jruby/pull/8496
+[#8498]:https://github.com/jruby/jruby/pull/8498
+[#8507]:https://github.com/jruby/jruby/issues/8507
+[#8508]:https://github.com/jruby/jruby/pull/8508
+[#8514]:https://github.com/jruby/jruby/pull/8514
+[#8517]:https://github.com/jruby/jruby/pull/8517
+[#8518]:https://github.com/jruby/jruby/pull/8518
+[#8519]:https://github.com/jruby/jruby/pull/8519
+[#8520]:https://github.com/jruby/jruby/pull/8520
+[#8521]:https://github.com/jruby/jruby/pull/8521
+[#8522]:https://github.com/jruby/jruby/pull/8522
+[#8524]:https://github.com/jruby/jruby/pull/8524
+[#8525]:https://github.com/jruby/jruby/pull/8525
+[#8529]:https://github.com/jruby/jruby/pull/8529
+[#8530]:https://github.com/jruby/jruby/pull/8530
+[#8531]:https://github.com/jruby/jruby/pull/8531
+[#8532]:https://github.com/jruby/jruby/pull/8532
+[#8533]:https://github.com/jruby/jruby/pull/8533
+[#8534]:https://github.com/jruby/jruby/pull/8534
+[#8537]:https://github.com/jruby/jruby/pull/8537
+[#8541]:https://github.com/jruby/jruby/pull/8541
+[#8543]:https://github.com/jruby/jruby/pull/8543
+[#8544]:https://github.com/jruby/jruby/pull/8544
+[#8545]:https://github.com/jruby/jruby/pull/8545
+[#8546]:https://github.com/jruby/jruby/pull/8546
+[#8547]:https://github.com/jruby/jruby/pull/8547
+[#8548]:https://github.com/jruby/jruby/pull/8548
+[#8549]:https://github.com/jruby/jruby/pull/8549
+[#8551]:https://github.com/jruby/jruby/pull/8551
+[#8552]:https://github.com/jruby/jruby/pull/8552
+[#8553]:https://github.com/jruby/jruby/pull/8553
+[#8554]:https://github.com/jruby/jruby/pull/8554
+[#8556]:https://github.com/jruby/jruby/pull/8556
+[#8558]:https://github.com/jruby/jruby/pull/8558
+[#8564]:https://github.com/jruby/jruby/pull/8564
+[#8576]:https://github.com/jruby/jruby/pull/8576
+[#8580]:https://github.com/jruby/jruby/pull/8580
+[#8581]:https://github.com/jruby/jruby/pull/8581
+[#8582]:https://github.com/jruby/jruby/pull/8582
+[#8587]:https://github.com/jruby/jruby/pull/8587
+[#8588]:https://github.com/jruby/jruby/pull/8588
+[#8589]:https://github.com/jruby/jruby/pull/8589
+[#8616]:https://github.com/jruby/jruby/pull/8616
+[#8617]:https://github.com/jruby/jruby/pull/8617
+[#8618]:https://github.com/jruby/jruby/pull/8618
+[#8619]:https://github.com/jruby/jruby/pull/8619
+[#8622]:https://github.com/jruby/jruby/pull/8622
+[#8628]:https://github.com/jruby/jruby/pull/8628
+[#8629]:https://github.com/jruby/jruby/pull/8629
+[#8631]:https://github.com/jruby/jruby/pull/8631
+[#8633]:https://github.com/jruby/jruby/pull/8633
+[#8636]:https://github.com/jruby/jruby/pull/8636
+[#8637]:https://github.com/jruby/jruby/pull/8637
+[#8639]:https://github.com/jruby/jruby/pull/8639
+[#8646]:https://github.com/jruby/jruby/pull/8646
+[#8647]:https://github.com/jruby/jruby/pull/8647
+[#8650]:https://github.com/jruby/jruby/pull/8650
+[#8664]:https://github.com/jruby/jruby/pull/8664
+[#8668]:https://github.com/jruby/jruby/pull/8668
+[#8673]:https://github.com/jruby/jruby/pull/8673
+[#8674]:https://github.com/jruby/jruby/pull/8674
+[#8676]:https://github.com/jruby/jruby/issues/8676
+[#8677]:https://github.com/jruby/jruby/pull/8677
+[#8678]:https://github.com/jruby/jruby/pull/8678
+[#8679]:https://github.com/jruby/jruby/pull/8679
+[#8683]:https://github.com/jruby/jruby/issues/8683
+[#8684]:https://github.com/jruby/jruby/pull/8684
+[#8685]:https://github.com/jruby/jruby/pull/8685
+[#8689]:https://github.com/jruby/jruby/pull/8689
+[#8693]:https://github.com/jruby/jruby/pull/8693
+[#8695]:https://github.com/jruby/jruby/pull/8695
+[#8698]:https://github.com/jruby/jruby/issues/8698
+[#8699]:https://github.com/jruby/jruby/issues/8699
+[#8702]:https://github.com/jruby/jruby/pull/8702
+[#8706]:https://github.com/jruby/jruby/pull/8706
+[#8708]:https://github.com/jruby/jruby/pull/8708
+[#8709]:https://github.com/jruby/jruby/issues/8709
+[#8710]:https://github.com/jruby/jruby/issues/8710
+[#8711]:https://github.com/jruby/jruby/pull/8711
+[#8712]:https://github.com/jruby/jruby/issues/8712
+[#8713]:https://github.com/jruby/jruby/pull/8713
+[#8718]:https://github.com/jruby/jruby/pull/8718
+[#8721]:https://github.com/jruby/jruby/pull/8721
+[#8723]:https://github.com/jruby/jruby/issues/8723
+[#8725]:https://github.com/jruby/jruby/pull/8725
+[#8729]:https://github.com/jruby/jruby/pull/8729
+[#8735]:https://github.com/jruby/jruby/issues/8735
+[#8737]:https://github.com/jruby/jruby/pull/8737
+[#8741]:https://github.com/jruby/jruby/pull/8741
+[#8742]:https://github.com/jruby/jruby/pull/8742
+[#8744]:https://github.com/jruby/jruby/pull/8744
+[#8745]:https://github.com/jruby/jruby/pull/8745
+[#8748]:https://github.com/jruby/jruby/pull/8748
+[#8751]:https://github.com/jruby/jruby/pull/8751
+[#8753]:https://github.com/jruby/jruby/pull/8753
+[#8759]:https://github.com/jruby/jruby/pull/8759
+[@jsvd]:https://github.com/jsvd
+[@kares]:https://github.com/kares
+[@jpcamara]:https://github.com/jpcamara
+[@andsel]:https://github.com/andsel
+[@mrnoname1000]:https://github.com/mrnoname1000
+[@ahorek]:https://github.com/ahorek
+[@evaniainbrooks]:https://github.com/evaniainbrooks
+[@edipofederle]:https://github.com/edipofederle
+[@ccutrer]:https://github.com/ccutrer
+[@danini-the-panini]:https://github.com/danini-the-panini
+[@ntkme]:https://github.com/ntkme
+[@andrykonchin]:https://github.com/andrykonchin
+[@mohamedhafez]:https://github.com/mohamedhafez
+[@jsvd]:https://github.com/jsvd
+[@jpcamara]:https://github.com/jpcamara
+[@mullermp]:https://github.com/mullermp
+[@ikaronen-relex]:https://github.com/ikaronen-relex
+[@jimtng]:https://github.com/jimtng
+[@ryannevell]:https://github.com/ryannevell
+[@eregon]:https://github.com/eregon
+[@moste00]:https://github.com/moste00
+[@sk757a]:https://github.com/sk757a

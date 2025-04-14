@@ -577,6 +577,7 @@ PLATFORMS
 DEPENDENCIES
   directory_watcher (~> 1.4.1)
   fog
+  fog-ovirt (~> 2.0.2)
   github-pages
   github_api (~> 0.19.0)
   puma
