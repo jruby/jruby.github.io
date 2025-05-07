@@ -111,15 +111,15 @@ title: Files/downloads/#{version}
   <a href='https://repo1.maven.org/maven2/org/jruby/jruby-dist/#{version}/jruby-dist-#{version}-src.zip.md5'>jruby-src-#{version}.zip.md5</a><br/>
   <a href='https://repo1.maven.org/maven2/org/jruby/jruby-dist/#{version}/jruby-dist-#{version}-src.zip.sha1'>jruby-src-#{version}.zip.sha1</a><br/>
   <a href='https://repo1.maven.org/maven2/org/jruby/jruby-dist/#{version}/jruby-dist-#{version}-src.zip.sha256'>jruby-src-#{version}.zip.sha256</a><br/>
-  <a href='https://s3.amazonaws.com/jruby.org/downloads/#{version}/jruby_windows_#{windows_version}.exe'>jruby_windows_#{windows_version}.exe</a><br/>
-  <a href='https://s3.amazonaws.com/jruby.org/downloads/#{version}/jruby_windows_#{windows_version}.exe.md5'>jruby_windows_#{windows_version}.exe.md5</a><br/>
-  <a href='https://s3.amazonaws.com/jruby.org/downloads/#{version}/jruby_windows_#{windows_version}.exe.sha1'>jruby_windows_#{windows_version}.exe.sha1</a><br/>
-  <a href='https://s3.amazonaws.com/jruby.org/downloads/#{version}/jruby_windows_#{windows_version}.exe.sha256'>jruby_windows_#{windows_version}.exe.sha256</a><br/>
+  <a href='{{ site.urls.ghr }}/#{version}/jruby_windows_#{windows_version}.exe'>jruby_windows_#{windows_version}.exe</a><br/>
+  <a href='{{ site.urls.ghr }}/#{version}/jruby_windows_#{windows_version}.exe.md5'>jruby_windows_#{windows_version}.exe.md5</a><br/>
+  <a href='{{ site.urls.ghr }}/#{version}/jruby_windows_#{windows_version}.exe.sha1'>jruby_windows_#{windows_version}.exe.sha1</a><br/>
+  <a href='{{ site.urls.ghr }}/#{version}/jruby_windows_#{windows_version}.exe.sha256'>jruby_windows_#{windows_version}.exe.sha256</a><br/>
 
-  <a href='https://s3.amazonaws.com/jruby.org/downloads/#{version}/jruby_windows_x64_#{windows_version}.exe'>jruby_windows_x64_#{windows_version}.exe</a><br/>
-  <a href='https://s3.amazonaws.com/jruby.org/downloads/#{version}/jruby_windows_x64_#{windows_version}.exe.md5'>jruby_windows_x64_#{windows_version}.exe.md5</a><br/>
-  <a href='https://s3.amazonaws.com/jruby.org/downloads/#{version}/jruby_windows_x64_#{windows_version}.exe.sha1'>jruby_windows_x64_#{windows_version}.exe.sha1</a><br/>
-  <a href='https://s3.amazonaws.com/jruby.org/downloads/#{version}/jruby_windows_x64_#{windows_version}.exe.sha256'>jruby_windows_x64_#{windows_version}.exe.sha256</a><br/>
+  <a href='{{ site.urls.ghr }}/#{version}/jruby_windows_x64_#{windows_version}.exe'>jruby_windows_x64_#{windows_version}.exe</a><br/>
+  <a href='{{ site.urls.ghr }}/#{version}/jruby_windows_x64_#{windows_version}.exe.md5'>jruby_windows_x64_#{windows_version}.exe.md5</a><br/>
+  <a href='{{ site.urls.ghr }}/#{version}/jruby_windows_x64_#{windows_version}.exe.sha1'>jruby_windows_x64_#{windows_version}.exe.sha1</a><br/>
+  <a href='{{ site.urls.ghr }}/#{version}/jruby_windows_x64_#{windows_version}.exe.sha256'>jruby_windows_x64_#{windows_version}.exe.sha256</a><br/>
 </p>
 EOS
 

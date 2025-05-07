@@ -1,0 +1,16 @@
+---
+layout: post
+title: JRuby 10.0.0.1 Released
+---
+
+The JRuby community is pleased to announce the release of JRuby 10.0.0.1.
+
+* Homepage: [https://www.jruby.org/](https://www.jruby.org/)
+* Download: [https://www.jruby.org/download](https://www.jruby.org/download)
+
+We've jumped to Ruby 3.4 compatibility and Java 21 minimum to bring you the best Ruby on JVM experience possible. We are confident this is the most compatible and stable major release we've ever had.
+
+Security
+--------
+
+* jruby-openssl has been updated to 0.15.4, which re-enables hostname verification by default. This addresses [CVE-2025-46551 and GHSA-72qj-48g4-5xgx](https://github.com/jruby/jruby-openssl/security/advisories/GHSA-72qj-48g4-5xgx).
