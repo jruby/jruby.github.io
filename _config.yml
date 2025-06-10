@@ -14,7 +14,7 @@ release:
   exe: https://github.com/jruby/jruby/releases/download/10.0.0.1/jruby_windows_10_0_0_1.exe
   exe64: https://github.com/jruby/jruby/releases/download/10.0.0.1/jruby_windows_x64_10_0_0_1.exe
   gem: https://rubygems.org/gems/jruby-jars/versions/10.0.0.1
-  gem_older: https://rubygems.org/gems/jruby-jars/versions/9.4.12.1
+  gem_older: https://rubygems.org/gems/jruby-jars/versions/9.4.13.0
 urls:
   ghr: https://github.com/jruby/jruby/releases/download
   maven: https://repo1.maven.org/maven2/org/jruby

@@ -1,0 +1,140 @@
+---
+layout: post
+title: JRuby 9.4.13.0 Released
+---
+
+The JRuby community is pleased to announce the release of JRuby 9.4.13.0.
+
+* Homepage: [https://www.jruby.org/](https://www.jruby.org/)
+* Download: [https://www.jruby.org/download](https://www.jruby.org/download)
+
+JRuby 9.4.13.x targets Ruby 3.1 compatibility.
+
+Thank you to our contributors this release, you help keep JRuby moving forward!
+
+Stability
+---------
+
+* Fixed a slow memory leak in subclass management. (#8842, #8844)
+* Fixed a potential deadlock during multi-threaded boot and concurrent JIT compilation. (#8845, #8849)
+
+Usability
+---------
+
+* Backported JRuby .sh launcher features from JRuby 10, including AppCDS flags for improved startup time. (#8565, #8625, #8626, #8652, #8653, #8656, #8754)
+
+### 56 Issues and PRs resolved for 9.4.13.0
+
+- #8351 [Zlib::GzipReader missing each_char iterator][#8351]
+- #8426 [Dir[] vs "../../"][#8426]
+- #8506 [Test new version of resolv][#8506]
+- #8526 [obj.first caused Java::JavaUtil::NoSuchElementException on an empty Java21 ArrayList][#8526]
+- #8542 [Fix Dir.glob ../ and cases][#8542]
+- #8565 [JRuby native launcher seems to get confused when both --dev and -Xcompile.mode=JIT are applied][#8565]
+- #8574 [Improvements to support json library][#8574]
+- #8577 [`ArgumentError: unknown keyword` for required keyword argument][#8577]
+- #8599 [Fixes #8577. kwargs checking: Use bits instead of index][#8599]
+- #8608 [add zlib each_char][#8608]
+- #8611 [Setting an instance var on a Java object no longer warns][#8611]
+- #8613 [Warn when creating a new ivar table on JavaProxy wrapper][#8613]
+- #8623 [Installing sassc broke on jruby-head on Windows][#8623]
+- #8625 [Add --cache flag to regenerate AppCDS][#8625]
+- #8626 [Fix default arguments for generating AppCDS flag][#8626]
+- #8635 [Fix `tr!` and `reverse!` on ByteList view with non-zero begin index][#8635]
+- #8643 [Fixes to get stringio tests and specs green][#8643]
+- #8645 [Update stringio to 3.1.5][#8645]
+- #8648 [Handle errors whe looking for Java executable][#8648]
+- #8652 [Use set -u to avoid accessing uninitialized variables][#8652]
+- #8653 [Align 9.4 launcher with 10][#8653]
+- #8654 [fix glob dir on windows][#8654]
+- #8655 [Make some private helpers for glob][#8655]
+- #8656 [Additional fixes for jruby.sh][#8656]
+- #8661 [Update Unicode to 15.0][#8661]
+- #8663 [copy-rename-maven-plugin version][#8663]
+- #8667 [Update jcodings to 1.0.62 and joni to 2.2.4][#8667]
+- #8671 [fix a regression in KDDI transcoding][#8671]
+- #8681 [Update MRI core tests and tag failures][#8681]
+- #8686 [rbByteEncode fails to no-op when encodings are the same][#8686]
+- #8687 [Handle encoding checks as in strTranscode][#8687]
+- #8688 [Tracing `:call` with TracePoint (and --debug flag) makes kwargs unusable][#8688]
+- #8691 [Implement AutoCloseable on JRubyEngine][#8691]
+- #8692 [Save original callers callInfo in tracepoint][#8692]
+- #8696 [New restriction warnings on Java 24][#8696]
+- #8715 [Fix missing 2 arg for IO#readline][#8715]
+- #8728 [Incorrect warning: given block not used][#8728]
+- #8731 [[ji] avoid false duplicate method warning][#8731]
+- #8733 [Remove this warning to match standard set.rb][#8733]
+- #8754 [Backport jruby.sh from JRuby 10][#8754]
+- #8755 [Update uri to version 0.12.3 in JRuby 9.4][#8755]
+- #8789 [Dir.glob and Dir[] on existing file URL raises error][#8789]
+- #8795 [Possible typo in lib/ruby/stdlib/jruby/compiler.rb:61][#8795]
+- #8805 [Possible NPE in RubyModule:searchWithCacheMiss() found by SAST][#8805]
+- #8806 [Possible NPE in StringSupport:rbStrEnumerateLines() found by SAST][#8806]
+- #8820 [Fix recent potential NPE reports][#8820]
+- #8821 [Always cache undef along these paths][#8821]
+- #8825 [Update net-imap from 0.2.3 to 0.2.5][#8825]
+- #8827 [Update to net-imap 0.2.5 for security fixes][#8827]
+- #8830 [Splat with multi-line expression improperly expands][#8830]
+- #8834 [Missing splatNode creation][#8834]
+- #8842 [Metaspace leak in 9.4][#8842]
+- #8844 [Use a normal ClassValue for all such cases][#8844]
+- #8845 [Fix locking of stable class values for JI proxies][#8845]
+- #8849 [Clean up some locking around hierarchy modification][#8849]
+- #8857 [Migrate to the new Maven Central publishing system][#8857]
+
+[#8351]:https://github.com/jruby/jruby/issues/8351
+[#8426]:https://github.com/jruby/jruby/issues/8426
+[#8506]:https://github.com/jruby/jruby/pull/8506
+[#8526]:https://github.com/jruby/jruby/issues/8526
+[#8542]:https://github.com/jruby/jruby/pull/8542
+[#8565]:https://github.com/jruby/jruby/issues/8565
+[#8574]:https://github.com/jruby/jruby/pull/8574
+[#8577]:https://github.com/jruby/jruby/issues/8577
+[#8599]:https://github.com/jruby/jruby/pull/8599
+[#8608]:https://github.com/jruby/jruby/pull/8608
+[#8611]:https://github.com/jruby/jruby/issues/8611
+[#8613]:https://github.com/jruby/jruby/pull/8613
+[#8623]:https://github.com/jruby/jruby/issues/8623
+[#8625]:https://github.com/jruby/jruby/pull/8625
+[#8626]:https://github.com/jruby/jruby/pull/8626
+[#8635]:https://github.com/jruby/jruby/pull/8635
+[#8643]:https://github.com/jruby/jruby/pull/8643
+[#8645]:https://github.com/jruby/jruby/pull/8645
+[#8648]:https://github.com/jruby/jruby/pull/8648
+[#8652]:https://github.com/jruby/jruby/pull/8652
+[#8653]:https://github.com/jruby/jruby/pull/8653
+[#8654]:https://github.com/jruby/jruby/pull/8654
+[#8655]:https://github.com/jruby/jruby/pull/8655
+[#8656]:https://github.com/jruby/jruby/pull/8656
+[#8661]:https://github.com/jruby/jruby/issues/8661
+[#8663]:https://github.com/jruby/jruby/pull/8663
+[#8667]:https://github.com/jruby/jruby/pull/8667
+[#8671]:https://github.com/jruby/jruby/pull/8671
+[#8681]:https://github.com/jruby/jruby/pull/8681
+[#8686]:https://github.com/jruby/jruby/issues/8686
+[#8687]:https://github.com/jruby/jruby/pull/8687
+[#8688]:https://github.com/jruby/jruby/issues/8688
+[#8691]:https://github.com/jruby/jruby/pull/8691
+[#8692]:https://github.com/jruby/jruby/pull/8692
+[#8696]:https://github.com/jruby/jruby/issues/8696
+[#8715]:https://github.com/jruby/jruby/pull/8715
+[#8728]:https://github.com/jruby/jruby/issues/8728
+[#8731]:https://github.com/jruby/jruby/pull/8731
+[#8733]:https://github.com/jruby/jruby/pull/8733
+[#8754]:https://github.com/jruby/jruby/pull/8754
+[#8755]:https://github.com/jruby/jruby/pull/8755
+[#8789]:https://github.com/jruby/jruby/issues/8789
+[#8795]:https://github.com/jruby/jruby/issues/8795
+[#8805]:https://github.com/jruby/jruby/issues/8805
+[#8806]:https://github.com/jruby/jruby/issues/8806
+[#8820]:https://github.com/jruby/jruby/pull/8820
+[#8821]:https://github.com/jruby/jruby/pull/8821
+[#8825]:https://github.com/jruby/jruby/issues/8825
+[#8827]:https://github.com/jruby/jruby/pull/8827
+[#8830]:https://github.com/jruby/jruby/issues/8830
+[#8834]:https://github.com/jruby/jruby/pull/8834
+[#8842]:https://github.com/jruby/jruby/issues/8842
+[#8844]:https://github.com/jruby/jruby/pull/8844
+[#8845]:https://github.com/jruby/jruby/pull/8845
+[#8849]:https://github.com/jruby/jruby/pull/8849
+[#8857]:https://github.com/jruby/jruby/pull/8857
