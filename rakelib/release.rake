@@ -150,18 +150,24 @@ def create_post(version)
 end
 
 def change_versions_in(filename, version, post_link)
-  # we recalc this each time but this is a rakefile :)
-  major, second, third, minor = version.split('.')
+  if ENV['JRUBY_LAST_VERSION']
+    previous_version = ENV['JRUBY_LAST_VERSION']
+  else
+    # we recalc this each time but this is a rakefile :)
+    major, second, third, minor = version.split('.')
 
-  fail "third value is not a number: #{third}" unless third =~ /\d+/
-  previous_third = third.to_i - 1
-  previous_version = [major, second, previous_third, minor].join('.')
+    fail "third value is not a number: #{third}" unless third =~ /\d+/
+    previous_third = third.to_i - 1
+    previous_version = [major, second, previous_third, minor].join('.')
+  end
   
   windows_version = version.gsub('.', '_')
   previous_windows_version = previous_version.gsub('.', '_')
 
+  previous_link_version = previous_version.gsub('.', '-')
+
   # format to match  <a href='/2025/01/21/jruby-9-4-10-0'>release notes</a>
-  previous_link_re = %r{/\d+\/\d+\/\d+\/jruby\-#{major}\-#{second}\-#{previous_third}\-#{minor}}
+  previous_link_re = %r{/\d+\/\d+\/\d+\/jruby\-#{previous_link_version}}
   puts previous_link_re
 
   # We use full versions since we are doing simple text replacement.  Only
