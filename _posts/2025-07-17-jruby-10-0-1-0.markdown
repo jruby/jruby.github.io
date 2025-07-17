@@ -1,0 +1,155 @@
+---
+layout: post
+title: JRuby 10.0.1.0 Released
+---
+
+The JRuby community is pleased to announce the release of JRuby 10.0.1.0.
+
+* Homepage: [https://www.jruby.org/](https://www.jruby.org/)
+* Download: [https://www.jruby.org/download](https://www.jruby.org/download)
+
+JRuby 10.0.1.x targets Ruby 3.4 compatibility.
+
+Thank you to our contributors this release, you help keep JRuby moving forward! [@PChambino], [@kares], [@Earlopain]
+
+Compatibility
+-------------
+
+- Zeitwerk is now fully supported. ([#6781], [#8852], [#8853], [#8863], [#8777])
+
+Libraries
+---------
+
+- The net-imap library is updated from 0.5.4 to 0.5.8 ([#8826], [#8828])
+
+### 62 Issues and PRs resolved for 10.0.1.0
+
+- #6781 [Remaining Zeitwerk fixes][#6781]
+- #8624 [Inconsistent String behavior between MRI and JRuby][#8624]
+- #8690 [Using JSR223 ScriptEngine interface has no way to clean up resources][#8690]
+- #8740 [JRuby10: BigDecimal("0").to_java => Java::JavaLang::Long][#8740]
+- #8767 [`it` special block variable hides local variable sometimes][#8767]
+- #8769 [Fix `sprinf` with explicit zero precision and zero value][#8769]
+- #8772 [parameterless blocks must check for `it` outside the block in case it exists already][#8772]
+- #8776 [False positive syntax error on endless method definition on 10.0][#8776]
+- #8777 [Something wrong with requires on 10.0 (broken dry-validation gem for example)][#8777]
+- #8778 [== and === need to support endless method definitions][#8778]
+- #8780 [Fiddle test failing with JRuby 10][#8780]
+- #8781 [ffi LONG/ULONG call different value methods][#8781]
+- #8782 [`Date::Error` with `Date.parse` and JRuby 10][#8782]
+- #8783 [Failure in ruby/pp CI in JRuby 10][#8783]
+- #8785 [Rearrange kwargs logic][#8785]
+- #8787 [Frozen string literal warning with FFI and JRuby 10][#8787]
+- #8788 [`Time.new` nanosecond parsing][#8788]
+- #8793 [Fix more corner cases of kwargs from MRI test suite][#8793]
+- #8796 [Jruby 10.0: `it` is not working in REPL (irb/pry)][#8796]
+- #8798 [Keyword arguments arity error in drb tests][#8798]
+- #8799 [`it` broken in irb. Used wrong scope type field in parser.][#8799]
+- #8800 [Improve docs and some minor warns from IDE dealt with][#8800]
+- #8802 [Fixes to improve DRb tests][#8802]
+- #8803 [9-digit rational needs to be multiplied by 9 digits][#8803]
+- #8826 [Update net-imap from 0.5.4 to 0.5.8][#8826]
+- #8828 [Update to net-imap 0.5.8 for security fixes][#8828]
+- #8829 [Data fixes and improvements][#8829]
+- #8831 [Tweaks to further improve startup speed and memory use][#8831]
+- #8833 [Missing splatNode creation][#8833]
+- #8840 [Possible bugs found by SAST (Svace)][#8840]
+- #8846 [Deadlock occurs between main and Ruby-0-JIT-1 threads][#8846]
+- #8847 [Java::JavaLang::ClassCastException: class java.lang.Integer cannot be cast to class java.lang.String][#8847]
+- #8848 [Improvements for dynamic string invokedynamic site][#8848]
+- #8850 [single value makes kwargs hash.  Mark it as such][#8850]
+- #8852 [Fixes to improve Zeitwerk support][#8852]
+- #8853 [NameError: uninitialized constant MyGem::Foo::Bar when using Zeitwerk][#8853]
+- #8854 [Java::JavaLang::NullPointerException: Unable to find org.jruby.RubyTime.initialize(RubyTime.java to read failed line][#8854]
+- #8856 [Native (and fast) Time#xmlschema (iso8601)][#8856]
+- #8858 [Fix `Time.new` when using (empty) keywords (2 issues)][#8858]
+- #8860 [Time.new gives unexpected value][#8860]
+- #8861 [Using a string that has been mutated seems to result in a variable containing an unexpected value][#8861]
+- #8863 [Order-dependent Zeitwerk failures][#8863]
+- #8864 [[deps] update joda-time to 2.14.0][#8864]
+- #8865 [[deps] update bundler and rubygems to latest][#8865]
+- #8867 [Object.const_defined? not respecting namespace check.][#8867]
+- #8868 [Update snapshot deploy to use new maven infrastructure][#8868]
+- #8871 [Always remove the lock from pool on failure][#8871]
+- #8872 [String#encode replace option incorrectly handles value][#8872]
+- #8873 [Handle simple transcoding replacement correctly][#8873]
+- #8874 [Update to jruby-maven-plugins 3.0.6][#8874]
+- #8877 [Time fixes][#8877]
+- #8878 [Some specs fixes in ruby/spec/language][#8878]
+- #8880 [Time.new with Rational seconds performs invalid rounding to the next second][#8880]
+- #8881 [fix #8880.  Added a second with Rational][#8881]
+- #8882 [Always set chilled strings as sharing bytelist][#8882]
+- #8890 [Fix Time.new parsing (time/new_tags.txt)][#8890]
+- #8895 [Improvements based on SAST null reference reports][#8895]
+- #8896 [Fix an additional dstring indy optimization long bitfield bug][#8896]
+- #8905 [Implement ruby2_keywords_hash dumping][#8905]
+- #8907 [Symbol table tweaks][#8907]
+- #8908 [Update Hash#inspect logic for multibyte keys][#8908]
+- #8912 [Don't include Object for pathed constant searches][#8912]
+
+[#6781]:https://github.com/jruby/jruby/issues/6781
+[#8624]:https://github.com/jruby/jruby/issues/8624
+[#8690]:https://github.com/jruby/jruby/issues/8690
+[#8740]:https://github.com/jruby/jruby/issues/8740
+[#8767]:https://github.com/jruby/jruby/issues/8767
+[#8769]:https://github.com/jruby/jruby/pull/8769
+[#8772]:https://github.com/jruby/jruby/pull/8772
+[#8776]:https://github.com/jruby/jruby/issues/8776
+[#8777]:https://github.com/jruby/jruby/issues/8777
+[#8778]:https://github.com/jruby/jruby/pull/8778
+[#8780]:https://github.com/jruby/jruby/issues/8780
+[#8781]:https://github.com/jruby/jruby/pull/8781
+[#8782]:https://github.com/jruby/jruby/issues/8782
+[#8783]:https://github.com/jruby/jruby/issues/8783
+[#8785]:https://github.com/jruby/jruby/pull/8785
+[#8787]:https://github.com/jruby/jruby/issues/8787
+[#8788]:https://github.com/jruby/jruby/issues/8788
+[#8793]:https://github.com/jruby/jruby/pull/8793
+[#8796]:https://github.com/jruby/jruby/issues/8796
+[#8798]:https://github.com/jruby/jruby/issues/8798
+[#8799]:https://github.com/jruby/jruby/pull/8799
+[#8800]:https://github.com/jruby/jruby/pull/8800
+[#8802]:https://github.com/jruby/jruby/pull/8802
+[#8803]:https://github.com/jruby/jruby/pull/8803
+[#8826]:https://github.com/jruby/jruby/issues/8826
+[#8828]:https://github.com/jruby/jruby/pull/8828
+[#8829]:https://github.com/jruby/jruby/pull/8829
+[#8831]:https://github.com/jruby/jruby/pull/8831
+[#8833]:https://github.com/jruby/jruby/pull/8833
+[#8840]:https://github.com/jruby/jruby/issues/8840
+[#8846]:https://github.com/jruby/jruby/issues/8846
+[#8847]:https://github.com/jruby/jruby/issues/8847
+[#8848]:https://github.com/jruby/jruby/pull/8848
+[#8850]:https://github.com/jruby/jruby/pull/8850
+[#8852]:https://github.com/jruby/jruby/pull/8852
+[#8853]:https://github.com/jruby/jruby/issues/8853
+[#8854]:https://github.com/jruby/jruby/issues/8854
+[#8856]:https://github.com/jruby/jruby/pull/8856
+[#8858]:https://github.com/jruby/jruby/pull/8858
+[#8860]:https://github.com/jruby/jruby/issues/8860
+[#8861]:https://github.com/jruby/jruby/issues/8861
+[#8863]:https://github.com/jruby/jruby/issues/8863
+[#8864]:https://github.com/jruby/jruby/pull/8864
+[#8865]:https://github.com/jruby/jruby/pull/8865
+[#8867]:https://github.com/jruby/jruby/issues/8867
+[#8868]:https://github.com/jruby/jruby/pull/8868
+[#8871]:https://github.com/jruby/jruby/pull/8871
+[#8872]:https://github.com/jruby/jruby/issues/8872
+[#8873]:https://github.com/jruby/jruby/pull/8873
+[#8874]:https://github.com/jruby/jruby/pull/8874
+[#8877]:https://github.com/jruby/jruby/pull/8877
+[#8878]:https://github.com/jruby/jruby/pull/8878
+[#8880]:https://github.com/jruby/jruby/issues/8880
+[#8881]:https://github.com/jruby/jruby/pull/8881
+[#8882]:https://github.com/jruby/jruby/pull/8882
+[#8890]:https://github.com/jruby/jruby/pull/8890
+[#8895]:https://github.com/jruby/jruby/pull/8895
+[#8896]:https://github.com/jruby/jruby/pull/8896
+[#8905]:https://github.com/jruby/jruby/pull/8905
+[#8907]:https://github.com/jruby/jruby/pull/8907
+[#8908]:https://github.com/jruby/jruby/pull/8908
+[#8912]:https://github.com/jruby/jruby/pull/8912
+
+[@PChambino]:https://github.com/PChambino
+[@kares]:https://github.com/kares
+[@Earlopain]:https://github.com/Earlopain
