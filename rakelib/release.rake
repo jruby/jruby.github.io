@@ -181,7 +181,7 @@ def change_versions_in(filename, version, post_link)
   File.write(filename, new_content)
 end
 
-def boiler_top(version, compat="3.1")=<<~"EOS"
+def boiler_top(version, compat="3.4")=<<~"EOS"
     ---
     layout: post
     title: JRuby #{version} Released
