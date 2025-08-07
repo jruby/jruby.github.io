@@ -1,0 +1,32 @@
+---
+layout: post
+title: JRuby 10.0.2.0 Released
+---
+
+The JRuby community is pleased to announce the release of JRuby 10.0.2.0.
+
+* Homepage: [https://www.jruby.org/](https://www.jruby.org/)
+* Download: [https://www.jruby.org/download](https://www.jruby.org/download)
+
+JRuby 10.0.2.x targets Ruby 3.4 compatibility.
+
+Thank you to our contributors this release, you help keep JRuby moving forward!
+
+
+### 7 Issues and PRs resolved for 10.0.2.0
+
+- #8920 [KWargs issue with mustermann gem preventing JRuby 10.0.1.0 upgrade][#8920]
+- #8922 [Don't clear callInfo for Ruby methods][#8922]
+- #8929 [Update ArgumentError for missing file to match CRuby][#8929]
+- #8930 [Run specs repeatedly with forced JIT][#8930]
+- #8943 [Make closure to method conversion more conservative][#8943]
+- #8948 [SassC - array size too big][#8948]
+- #8950 [Fixes #8948. SassC - array size too big][#8950]
+
+[#8920]:https://github.com/jruby/jruby/issues/8920
+[#8922]:https://github.com/jruby/jruby/pull/8922
+[#8929]:https://github.com/jruby/jruby/pull/8929
+[#8930]:https://github.com/jruby/jruby/pull/8930
+[#8943]:https://github.com/jruby/jruby/pull/8943
+[#8948]:https://github.com/jruby/jruby/issues/8948
+[#8950]:https://github.com/jruby/jruby/pull/8950
