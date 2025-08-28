@@ -1,0 +1,104 @@
+---
+layout: post
+title: JRuby 9.4.14.0 Released
+---
+
+The JRuby community is pleased to announce the release of JRuby 9.4.14.0.
+
+* Homepage: [https://www.jruby.org/](https://www.jruby.org/)
+* Download: [https://www.jruby.org/download](https://www.jruby.org/download)
+
+JRuby 9.4.14.x targets Ruby 3.1 compatibility.
+
+Thank you to our contributors this release, you help keep JRuby moving forward! [@matthias-fratz-bsz], [@ikaronen-relex], [@ylecuyer]
+
+Compatibility
+-------------
+
+* Ruby version is now 3.1.7. ([#8966])
+
+Libraries
+---------
+
+* strscan is updated to 3.1.5. ([#8897])
+* cgi is updated to 0.3.7 to resolve CVE-2025-27220 and CVE-2025-27219 ([#8954], [#8966])
+* uri is updated to 0.12.4. ([#8966])
+* net-smtp is updated to 0.3.1.1. ([#8966])
+* rss is updated to 0.3.1. ([#8966])
+* Non-gem stdlib has been updated to Ruby 3.1.7 sources. ([#8966])
+
+Build
+-----
+
+* jruby-maven-plugins is updated to 3.0.6 to resolve issues with garbled gem poms. ([#8898])
+* The stdlib build scripts have been modified to work with latest polyglot-ruby. ([#8634], [#8963])
+
+Usability
+---------
+
+* bin/ruby and bin/ruby.bat are now shipped in the distribution, to make installation simpler. ([#8875])
+
+### 29 Issues and PRs resolved for 9.4.14.0
+
+- #8422 [ConcurrentLocalContextProvider leaks memory per thread][#8422]
+- #8634 [9.4.12.0 unable to build itself][#8634]
+- #8670 [Setting system property  'jruby.gem.home' works but outputs a warning][#8670]
+- #8779 [`Marshal.dump(binding)` behavior differs from CRuby][#8779]
+- #8823 [Failure in `StringScanner#scan_integer` when running the HexaPDF test suite][#8823]
+- #8859 [`bundle gem` does not fully run][#8859]
+- #8866 [JRuby 9.4.13.0 introduces `LoadError: no such file to load -- Win32API` via stdlib/net/http on Windows][#8866]
+- #8875 [Pregenerate bin/ruby and bin/ruby.bat][#8875]
+- #8883 [Normalize arch to universal-java-version][#8883]
+- #8884 [Require the correct case for this library][#8884]
+- #8885 [Coerce the chdir for popen][#8885]
+- #8897 [Update strscan to fix number scanning at nonzero offset][#8897]
+- #8898 [Update maven plugins to latest][#8898]
+- #8902 [Sporadic failure in TestArray#test_insert under indy][#8902]
+- #8904 [Always check array insert pos][#8904]
+- #8909 [Make Binding unmarshalable][#8909]
+- #8918 [Don't set callInfo when target does not use kwargs][#8918]
+- #8919 [Update vendored cgi gem][#8919]
+- #8933 [Output buffer size calculation for unpack('m') and unpack('u') can overflow for long inputs][#8933]
+- #8936 [Fix integer overflow in buffer length calculation for unpack('m') and unpack('u')][#8936]
+- #8954 [Secuity: Bump cgi to 0.4.2. CVE-2025-27220 CVE-2025-27219][#8954]
+- #8961 [Fix index -1 error while searching for feature path][#8961]
+- #8963 [Upgrade polyglot and remove openssl lib hack][#8963]
+- #8966 [Update stdlib to 3.1.7][#8966]
+- #8968 [Pass multi-elt array key for to_h using yieldArray][#8968]
+- #8969 [Fix memory leak in Concurrent/ThreadSafeLocalContextProvider][#8969]
+- #8970 [Move jruby.gem.home and jruby.gem.path to Options][#8970]
+- #8973 [Pathname::glob behavior changed with 9.4.13.0 and later][#8973]
+- #8980 [Additional fixes for scheme-based globbing (9.4)][#8980]
+
+[#8422]:https://github.com/jruby/jruby/issues/8422
+[#8634]:https://github.com/jruby/jruby/issues/8634
+[#8670]:https://github.com/jruby/jruby/issues/8670
+[#8779]:https://github.com/jruby/jruby/issues/8779
+[#8823]:https://github.com/jruby/jruby/issues/8823
+[#8859]:https://github.com/jruby/jruby/issues/8859
+[#8866]:https://github.com/jruby/jruby/issues/8866
+[#8875]:https://github.com/jruby/jruby/pull/8875
+[#8883]:https://github.com/jruby/jruby/pull/8883
+[#8884]:https://github.com/jruby/jruby/pull/8884
+[#8885]:https://github.com/jruby/jruby/pull/8885
+[#8897]:https://github.com/jruby/jruby/pull/8897
+[#8898]:https://github.com/jruby/jruby/pull/8898
+[#8902]:https://github.com/jruby/jruby/issues/8902
+[#8904]:https://github.com/jruby/jruby/pull/8904
+[#8909]:https://github.com/jruby/jruby/pull/8909
+[#8918]:https://github.com/jruby/jruby/pull/8918
+[#8919]:https://github.com/jruby/jruby/issues/8919
+[#8933]:https://github.com/jruby/jruby/issues/8933
+[#8936]:https://github.com/jruby/jruby/pull/8936
+[#8954]:https://github.com/jruby/jruby/pull/8954
+[#8961]:https://github.com/jruby/jruby/pull/8961
+[#8963]:https://github.com/jruby/jruby/pull/8963
+[#8966]:https://github.com/jruby/jruby/pull/8966
+[#8968]:https://github.com/jruby/jruby/pull/8968
+[#8969]:https://github.com/jruby/jruby/pull/8969
+[#8970]:https://github.com/jruby/jruby/pull/8970
+[#8973]:https://github.com/jruby/jruby/issues/8973
+[#8980]:https://github.com/jruby/jruby/pull/8980
+[@matthias-fratz-bsz]:https://github.com/matthias-fratz-bsz
+[@ikaronen-relex]:https://github.com/ikaronen-relex
+[@ylecuyer]:https://github.com/ylecuyer
