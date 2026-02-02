@@ -1,0 +1,217 @@
+---
+layout: post
+title: JRuby 10.0.3.0 Released
+---
+
+
+The JRuby community is pleased to announce the release of JRuby 10.0.3.0.
+
+* Homepage: [https://www.jruby.org/](https://www.jruby.org/)
+* Download: [https://www.jruby.org/download](https://www.jruby.org/download)
+
+JRuby 10.0.3.x targets Ruby 3.4 compatibility.
+
+Thank you to our contributors this release, you help keep JRuby moving forward! @mrnoname1000, @ngr-ilmarh, @Earlopain, @philr, @jotamartos, @kares, @aleksandrs-ledovskis, @trinistr, @katafrakt, @chadlwilson, @khasinski, @evaniainbrooks
+
+Compatibility
+-------------
+
+* JRuby now reports `RbConfig::CONFIG['arch']` without a version number, as `universal-java`. This allows using different JDK versions without triggering RubyGems missing extension warnings for installed gems. The host Java version is still available as `RbConfig::CONFIG['arch_version']`. [#9107]
+
+Standard Library
+----------------
+
+* The non-gem standard library is upgraded to Ruby 3.4.5 [#8967]
+* rexml is updated to 3.4.4 to address CVE-2025-58767. [#9011]
+* syslog is moved to a default gem at version 0.4.0. The syslog gem now includes JRuby support. [#9109], [ruby/syslog#1](https://github.com/ruby/syslog/1)
+* strscan is updated to 3.1.7. [#9159]
+
+Documentation
+-------------
+
+* Ruby ri documentation for core and standard library are now included in the release distribution. [#9049], [#9052]
+
+All Issues/PRs
+--------------
+
+- #8707 [WARNING: A terminally deprecated method in sun.misc.Unsafe has been called][#8707]
+- #8727 [Cannot install latest `rubocop`][#8727]
+- #8730 [Launcher: Defensive fixes][#8730]
+- #8758 [Require is not working for .class file if the class is inside a module since 9.3.0][#8758]
+- #8810 [Possible fix for 8809][#8810]
+- #8923 [`NameError` for autoloaded constant with `private_constant`][#8923]
+- #8934 [JRuby under Java 22+ always thinks it's running under a TTY][#8934]
+- #8940 [Verify to_s is string or fall back on anyToString][#8940]
+- #8947 [New check for System.console tty on JDK 22+][#8947]
+- #8955 [Range#count always returns size for Integer bounds][#8955]
+- #8956 [Handle argument or block passed to Range#count][#8956]
+- #8958 [Concurrent requires can lead to StringIndexOutOfBoundsException][#8958]
+- #8960 [Fix index -1 error while searching for feature path][#8960]
+- #8962 [Upgrade polyglot and remove openssl lib hack][#8962]
+- #8967 [Update stdlib to 3.4.5 and clean up old files][#8967]
+- #8975 [Use RuboCop to clean up poms (10.x)][#8975]
+- #8976 [Regression in keyword argument matching in JRuby v10.0.1.0][#8976]
+- #8978 [Additional fixes for scheme-based globbing][#8978]
+- #8984 [glob refactoring][#8984]
+- #8985 [Fix language spec where error string changed][#8985]
+- #8987 [InvokeDynamicSupport.findVirtual fails with IllegalAccessException: symbolic reference class is not accessible][#8987]
+- #8989 [Explicitly request access before Lookup.find*][#8989]
+- #8994 [autoload + private_constant do not play well together][#8994]
+- #8995 [private_constant should just update existing autoload][#8995]
+- #8996 [Avoid binding unreadable modules' classes][#8996]
+- #8998 [Time#localtime incorrectly treats zero offset as UTC (regression in v10.0.2.0)][#8998]
+- #9006 [Consider .class a source extension during search][#9006]
+- #9007 [Handle `warn(foo, uplevel: nil`)][#9007]
+- #9009 [Encoding a string with undefined chars fails with NoMethodError][#9009]
+- #9010 [Fix "+00:00" and 0 being treated as UTC by Time#localtime and Time.at][#9010]
+- #9011 [Update rexml gem to solve CVE-2025-58767][#9011]
+- #9016 [[fix] regression calling static hash() method on Java proxy][#9016]
+- #9017 [can not use Java class with static hash() method][#9017]
+- #9018 [Parser does not convert newlines reading \r\n on Windows][#9018]
+- #9019 [We need to remove \r from heredoc strings][#9019]
+- #9021 [Retire safe double processing utilities][#9021]
+- #9024 [Move all main classes to org.jruby.main package][#9024]
+- #9027 [Add "since" to bare Deprecated annotations][#9027]
+- #9035 [IO#read does not clear code-range for buffer argument][#9035]
+- #9036 [fix: clear code-range when re-using a string buffer][#9036]
+- #9038 [Add opens and native access to all jar manifests][#9038]
+- #9039 [Update all jnr dependencies][#9039]
+- #9041 [Migrate .java-version contents to .jruby.release][#9041]
+- #9049 [ri docs are not available for core][#9049]
+- #9050 [Marshal fails to load an encoding with an encoding ivar][#9050]
+- #9051 [Ignore encoding when unmarshaling an Encoding][#9051]
+- #9052 [Download and include in dist CRuby's rdoc data][#9052]
+- #9058 [Implement efficient unshifting][#9058]
+- #9059 [Reserve extra space before elements when unshifting][#9059]
+- #9063 [Hash's compare_by_identity state does not marshal][#9063]
+- #9065 [Preserve compare_by_identity for marshaled Hash][#9065]
+- #9068 [Windows CI spec runs][#9068]
+- #9073 [fix: Permit overriding of JSA file location using ENV variable][#9073]
+- #9084 [object_id improvements][#9084]
+- #9094 [Implement GC.config [Ruby 3.4]][#9094]
+- #9097 [Update jruby-openssl to v0.15.5 to resolve BouncyCastle 1.79 vulnerability (sonatype-2025-001911).][#9097]
+- #9098 [Fix CoverageData.mergeLines when coverage increases][#9098]
+- #9101 [Cached fixnums for immediate values][#9101]
+- #9103 [Update jruby-openssl to 0.15.5][#9103]
+- #9106 [Use smaller default size for many collections][#9106]
+- #9107 [Separate Java version out of rbconfig 'arch'][#9107]
+- #9108 [Tidy up default gems][#9108]
+- #9109 [Switch to syslog gem][#9109]
+- #9110 [Calling `inspect` on proc resets line in `source_location`][#9110]
+- #9112 [Prevent modifying state in RubyProc][#9112]
+- #9117 [Add file path to error message when unlinking non-existing file][#9117]
+- #9122 [Unexpected jruby.sh error messages on Windows][#9122]
+- #9127 [fix(launcher): correct parsing of java release files under Bash/msys2 etc on Windows][#9127]
+- #9138 [Copy Data type's var table manager with new realClass][#9138]
+- #9141 [refactorings and cleanup motivated by error-prone][#9141]
+- #9142 [Change GC's methods from module_function to metaclass methods][#9142]
+- #9145 [Never trust external content for FString][#9145]
+- #9152 [Marshal.dump corruption for large Array structures][#9152]
+- #9157 [bump included gems][#9157]
+- #9158 [Use same key match for containsKey][#9158]
+- #9159 [Update strscan to 3.1.7][#9159]
+- #9182 [Fix NoMethodError when encoding with invalid: :replace option][#9182]
+- #9188 [Different arguments for each.map vs each and map alone (10.0)][#9188]
+- #9189 [Fixes #8952. Nest `it` should be different `it`s][#9189]
+- #9190 [Backport implicit local variable fixes from 10.1][#9190]
+- #9191 [Fixes #8952.  Nested 'it' behavior broken][#9191]
+- #9192 [Stab at Fixing #8976][#9192]
+- #9194 [`BigDecimal#+`, `#-`, `#add`, `#sub` always try to cast result of coercion to `RubyBigDecimal`][#9194]
+- #9196 [`require "bigdecimal"` does not install `BigDecimal()` if it was called previously][#9196]
+- #9199 [Output formatting differences between jRuby 10.0.0.1 and Ruby 3.4 when converting Float to JSON][#9199]
+- #9200 [Extract float formatting into a static method to use with to_json][#9200]
+- #9203 [Invalidate method caches from generated populators][#9203]
+- #9204 [Fix BigDecimal#+, #-, #add, #sub failing when coercing doesn't return a BigDecimal][#9204]
+- #9205 [Fix encoding fallback error handling and error message formatting][#9205]
+
+[#8707]:https://github.com/jruby/jruby/issues/8707
+[#8727]:https://github.com/jruby/jruby/issues/8727
+[#8730]:https://github.com/jruby/jruby/pull/8730
+[#8758]:https://github.com/jruby/jruby/issues/8758
+[#8810]:https://github.com/jruby/jruby/pull/8810
+[#8923]:https://github.com/jruby/jruby/issues/8923
+[#8934]:https://github.com/jruby/jruby/issues/8934
+[#8940]:https://github.com/jruby/jruby/pull/8940
+[#8947]:https://github.com/jruby/jruby/pull/8947
+[#8952]:https://github.com/jruby/jruby/issues/8952
+[#8955]:https://github.com/jruby/jruby/issues/8955
+[#8956]:https://github.com/jruby/jruby/pull/8956
+[#8958]:https://github.com/jruby/jruby/issues/8958
+[#8960]:https://github.com/jruby/jruby/pull/8960
+[#8962]:https://github.com/jruby/jruby/pull/8962
+[#8967]:https://github.com/jruby/jruby/pull/8967
+[#8975]:https://github.com/jruby/jruby/pull/8975
+[#8976]:https://github.com/jruby/jruby/issues/8976
+[#8978]:https://github.com/jruby/jruby/pull/8978
+[#8984]:https://github.com/jruby/jruby/pull/8984
+[#8985]:https://github.com/jruby/jruby/pull/8985
+[#8987]:https://github.com/jruby/jruby/issues/8987
+[#8989]:https://github.com/jruby/jruby/pull/8989
+[#8994]:https://github.com/jruby/jruby/issues/8994
+[#8995]:https://github.com/jruby/jruby/pull/8995
+[#8996]:https://github.com/jruby/jruby/pull/8996
+[#8998]:https://github.com/jruby/jruby/issues/8998
+[#9006]:https://github.com/jruby/jruby/pull/9006
+[#9007]:https://github.com/jruby/jruby/pull/9007
+[#9009]:https://github.com/jruby/jruby/issues/9009
+[#9010]:https://github.com/jruby/jruby/pull/9010
+[#9011]:https://github.com/jruby/jruby/pull/9011
+[#9016]:https://github.com/jruby/jruby/pull/9016
+[#9017]:https://github.com/jruby/jruby/issues/9017
+[#9018]:https://github.com/jruby/jruby/issues/9018
+[#9019]:https://github.com/jruby/jruby/pull/9019
+[#9021]:https://github.com/jruby/jruby/pull/9021
+[#9024]:https://github.com/jruby/jruby/pull/9024
+[#9027]:https://github.com/jruby/jruby/pull/9027
+[#9035]:https://github.com/jruby/jruby/issues/9035
+[#9036]:https://github.com/jruby/jruby/pull/9036
+[#9038]:https://github.com/jruby/jruby/pull/9038
+[#9039]:https://github.com/jruby/jruby/pull/9039
+[#9041]:https://github.com/jruby/jruby/pull/9041
+[#9049]:https://github.com/jruby/jruby/issues/9049
+[#9050]:https://github.com/jruby/jruby/issues/9050
+[#9051]:https://github.com/jruby/jruby/pull/9051
+[#9052]:https://github.com/jruby/jruby/pull/9052
+[#9058]:https://github.com/jruby/jruby/issues/9058
+[#9059]:https://github.com/jruby/jruby/pull/9059
+[#9063]:https://github.com/jruby/jruby/issues/9063
+[#9065]:https://github.com/jruby/jruby/pull/9065
+[#9068]:https://github.com/jruby/jruby/pull/9068
+[#9073]:https://github.com/jruby/jruby/pull/9073
+[#9082]:https://github.com/jruby/jruby/pull/9082
+[#9084]:https://github.com/jruby/jruby/pull/9084
+[#9094]:https://github.com/jruby/jruby/pull/9094
+[#9097]:https://github.com/jruby/jruby/issues/9097
+[#9098]:https://github.com/jruby/jruby/pull/9098
+[#9101]:https://github.com/jruby/jruby/pull/9101
+[#9103]:https://github.com/jruby/jruby/pull/9103
+[#9106]:https://github.com/jruby/jruby/pull/9106
+[#9107]:https://github.com/jruby/jruby/pull/9107
+[#9108]:https://github.com/jruby/jruby/pull/9108
+[#9109]:https://github.com/jruby/jruby/pull/9109
+[#9110]:https://github.com/jruby/jruby/issues/9110
+[#9112]:https://github.com/jruby/jruby/pull/9112
+[#9117]:https://github.com/jruby/jruby/pull/9117
+[#9122]:https://github.com/jruby/jruby/issues/9122
+[#9127]:https://github.com/jruby/jruby/pull/9127
+[#9138]:https://github.com/jruby/jruby/pull/9138
+[#9141]:https://github.com/jruby/jruby/pull/9141
+[#9142]:https://github.com/jruby/jruby/pull/9142
+[#9145]:https://github.com/jruby/jruby/pull/9145
+[#9152]:https://github.com/jruby/jruby/issues/9152
+[#9157]:https://github.com/jruby/jruby/pull/9157
+[#9158]:https://github.com/jruby/jruby/pull/9158
+[#9159]:https://github.com/jruby/jruby/pull/9159
+[#9182]:https://github.com/jruby/jruby/pull/9182
+[#9188]:https://github.com/jruby/jruby/issues/9188
+[#9189]:https://github.com/jruby/jruby/pull/9189
+[#9190]:https://github.com/jruby/jruby/pull/9190
+[#9191]:https://github.com/jruby/jruby/pull/9191
+[#9192]:https://github.com/jruby/jruby/pull/9192
+[#9194]:https://github.com/jruby/jruby/issues/9194
+[#9196]:https://github.com/jruby/jruby/issues/9196
+[#9199]:https://github.com/jruby/jruby/issues/9199
+[#9200]:https://github.com/jruby/jruby/pull/9200
+[#9203]:https://github.com/jruby/jruby/pull/9203
+[#9204]:https://github.com/jruby/jruby/pull/9204
+[#9205]:https://github.com/jruby/jruby/pull/9205
