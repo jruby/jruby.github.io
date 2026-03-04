@@ -1,0 +1,112 @@
+---
+layout: post
+title: JRuby 10.0.4.0 Released
+---
+
+The JRuby community is pleased to announce the release of JRuby 10.0.4.0.
+
+* Homepage: [https://www.jruby.org/](https://www.jruby.org/)
+* Download: [https://www.jruby.org/download](https://www.jruby.org/download)
+
+JRuby 10.0.4.x targets Ruby 3.4 compatibility.
+
+Thank you to our contributors this release, you help keep JRuby moving forward! [@evaniainbrooks], [@katafrakt], [@mrnoname1000]
+
+Standard Library
+----------------
+
+* The syslog library moves to bundled gems. ([#9198])
+* The unicode_normalize library is now thread-safely loaded as an internal library ([#9231], [#9232])
+
+### 43 Issues and PRs resolved for 10.0.4.0
+
+- #8697 [Tracing `:call` doesn't work if the traced code is running on a different thread][#8697]
+- #8876 [`import_methods` doesn't allow calling another refined method][#8876]
+- #9120 [`File.path` doesn't raise `Encoding::CompatibilityError` for ASCII-incompatible string][#9120]
+- #9195 [Refactor keyword arguments logic][#9195]
+- #9198 [Move syslog to bundled gems][#9198]
+- #9206 [Fix exception message when calling import_methods without a Module][#9206]
+- #9208 [Inconsistency with block parameter default value][#9208]
+- #9211 [Fix block argument destructuring with optional parameters][#9211]
+- #9212 [Fix method owner when using import_methods][#9212]
+- #9213 [Make `refine` method of `Module` private][#9213]
+- #9214 [Data.define single-attribute class rejects positional arguments][#9214]
+- #9215 [Ignore empty kwrest in Data subtypes' constructors][#9215]
+- #9217 [Add an error for running jruby.sh from a broken JRUBY_HOME][#9217]
+- #9218 [JavaFX AnimationTimer + Mutex.synchronize triggers “deadlock; lock already owned by another fiber belonging to the same thread” on JRuby 10.0.3.0][#9218]
+- #9222 [String interpolation of `BasicObject` object raises `NameError` instead of `NoMethodError`][#9222]
+- #9224 [ClassCastException handling kwargs in Struct][#9224]
+- #9225 [Expand Data initialize empty kwargs fix to Struct][#9225]
+- #9226 [Narrow deadlock check for sibling fibers locking mutex][#9226]
+- #9227 [Version output may not accurately represent JIT mode][#9227]
+- #9228 [Fix version output to reflect current runtime][#9228]
+- #9230 [Use normal call type error for missing dynamic string to_s][#9230]
+- #9231 [Thread safety of require and implications on stdlib string.normalize()][#9231]
+- #9232 [Internalize and threadsafetify String#unicode_normalize][#9232]
+- #9237 [Fix for import_methods does not allow calling another refined method][#9237]
+- #9240 [Fix for File.path doesn't raise Encoding::CompatibilityError for ASCII incompatible string][#9240]
+- #9241 [`Data#to_h` and `Data#deconstruct` return values in wrong order when module overrides `initialize` in a subclassed Data class][#9241]
+- #9242 [Spurious Struct#initialize keyword argument warning (and crash) with `...` forwarding through `super`][#9242]
+- #9243 [`Data#==`/`Data#eql?` and `Struct#eql?` return false when instances are `extend`ed in `initialize`][#9243]
+- #9244 [Fix for ClassCastException inside Struct#initialize when delegating ... from a prepended module][#9244]
+- #9247 [Fix Array#slice raises a RangeError when the start index is out of range of Fixnum][#9247]
+- #9248 [Additional fixes for import_methods with JIT][#9248]
+- #9252 [Use prepared accessors to retrieve Data fields][#9252]
+- #9254 [Compare "real" classes for Data#== and eql?][#9254]
+- #9258 [`Kernel#respond_to?` fails if `#respond_to_missing?` is not defined][#9258]
+- #9259 [Only set locking thread once successful][#9259]
+- #9260 [Restore Cleaner API use for embedding cleanup][#9260]
+- #9272 [Avoid passing bogus -classpath when empty][#9272]
+- #9280 [Check if respond_to_missing? exists before respond_to?][#9280]
+- #9281 [unexpected ArgumentError: wrong number of arguments][#9281]
+- #9283 [Only localize TracePoint to thread if specified][#9283]
+- #9285 [Clear callInfo so it does not taint other calls][#9285]
+- #9289 [Include gem extension stubs in stdlib artifacts][#9289]
+- #9290 [Improve dist verification][#9290]
+
+[#8697]:https://github.com/jruby/jruby/issues/8697
+[#8876]:https://github.com/jruby/jruby/issues/8876
+[#9120]:https://github.com/jruby/jruby/issues/9120
+[#9195]:https://github.com/jruby/jruby/pull/9195
+[#9198]:https://github.com/jruby/jruby/pull/9198
+[#9206]:https://github.com/jruby/jruby/pull/9206
+[#9208]:https://github.com/jruby/jruby/issues/9208
+[#9211]:https://github.com/jruby/jruby/pull/9211
+[#9212]:https://github.com/jruby/jruby/pull/9212
+[#9213]:https://github.com/jruby/jruby/pull/9213
+[#9214]:https://github.com/jruby/jruby/issues/9214
+[#9215]:https://github.com/jruby/jruby/pull/9215
+[#9217]:https://github.com/jruby/jruby/pull/9217
+[#9218]:https://github.com/jruby/jruby/issues/9218
+[#9222]:https://github.com/jruby/jruby/issues/9222
+[#9224]:https://github.com/jruby/jruby/issues/9224
+[#9225]:https://github.com/jruby/jruby/pull/9225
+[#9226]:https://github.com/jruby/jruby/pull/9226
+[#9227]:https://github.com/jruby/jruby/issues/9227
+[#9228]:https://github.com/jruby/jruby/pull/9228
+[#9230]:https://github.com/jruby/jruby/pull/9230
+[#9231]:https://github.com/jruby/jruby/issues/9231
+[#9232]:https://github.com/jruby/jruby/pull/9232
+[#9237]:https://github.com/jruby/jruby/pull/9237
+[#9240]:https://github.com/jruby/jruby/pull/9240
+[#9241]:https://github.com/jruby/jruby/issues/9241
+[#9242]:https://github.com/jruby/jruby/issues/9242
+[#9243]:https://github.com/jruby/jruby/issues/9243
+[#9244]:https://github.com/jruby/jruby/pull/9244
+[#9247]:https://github.com/jruby/jruby/pull/9247
+[#9248]:https://github.com/jruby/jruby/pull/9248
+[#9252]:https://github.com/jruby/jruby/pull/9252
+[#9254]:https://github.com/jruby/jruby/pull/9254
+[#9258]:https://github.com/jruby/jruby/issues/9258
+[#9259]:https://github.com/jruby/jruby/pull/9259
+[#9260]:https://github.com/jruby/jruby/pull/9260
+[#9272]:https://github.com/jruby/jruby/pull/9272
+[#9280]:https://github.com/jruby/jruby/pull/9280
+[#9281]:https://github.com/jruby/jruby/issues/9281
+[#9283]:https://github.com/jruby/jruby/pull/9283
+[#9285]:https://github.com/jruby/jruby/pull/9285
+[#9289]:https://github.com/jruby/jruby/pull/9289
+[#9290]:https://github.com/jruby/jruby/pull/9290
+[@evaniainbrooks]:https://github.com/evaniainbrooks
+[@katafrakt]:https://github.com/katafrakt
+[@mrnoname1000]:https://github.com/mrnoname1000
