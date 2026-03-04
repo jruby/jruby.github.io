@@ -1,6 +1,10 @@
 # -*- ruby -*-
 
 source "http://rubygems.org/"
+
+gem 'rack', '~> 2.2'
+gem 'csv'
+gem 'observer'
 gem 'rouge'
 gem 'github-pages'
 gem 'rake'
