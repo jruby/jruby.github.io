@@ -1,0 +1,142 @@
+---
+layout: post
+title: JRuby 10.0.5.0 Released
+---
+
+The JRuby community is pleased to announce the release of JRuby 10.0.5.0.
+
+* Homepage: [https://www.jruby.org/](https://www.jruby.org/)
+* Download: [https://www.jruby.org/download](https://www.jruby.org/download)
+
+JRuby 10.0.5.x targets Ruby 3.4 compatibility.
+
+Thank you to our contributors this release, you help keep JRuby moving forward! [@evaniainbrooks], [@kares], [@chadlwilson], [#jimtng]
+
+Compatibility
+-------------
+
+* Fixed: Two bugs in the JIT compiler that broke certain super calls and defined_method yields. ([#8944], [#8946], [#9310], [#9349])
+* Fixed: Fiber#raise left the fiber in an resumable state by not correctly transfering control. ([#9297], [#9356])
+* Fixed: Connecting a socket using nonblocking operations failed to complete the establishment of the connection. This affected Redis users, among other cases. ([#9304], [#9305])
+* Fixed: Process#detach raised a NullPointerException if called from a non-main thread. ([#9314], [#9311])
+
+JVM Integration
+---------------
+
+* Java 26 is officially supported. ([#9332])
+
+Platform Integration
+--------------------
+
+* New platform support: The native library backend for JRuby, JNR, has been updated to include support for the RISCv64 architecture.
+* Fixed on Windows: File#flock used unsupported native operations on Windows, causing it to raise errors. This affected the "logger" library, among other cases. ([#9347], [#9348])
+* Fixed on Windows: IO#popen failed to pass keyword arguments if also given a leading environment hash. ([#9351], [#9352])
+
+Stability
+---------
+
+* Fixed: Several memory leaks that affected users running multiple JRuby instances in a single process. ([#9070], [#9092], [#9187], [#9359])
+
+### 43 Issues and PRs resolved for 10.0.5.0
+
+- #4213 [squiggly heredoc strip space between interpolation and line connector by mistake][#4213]
+- #8944 [Double unresolved super from aliased method when compiled with indy][#8944]
+- #8946 [define_method conversion fails to yield after indy JIT][#8946]
+- #9070 [Memory leak in jruby within openhab][#9070]
+- #9092 [ThreadLocal Memory Leak in JRuby 10.0.2.0 with ScriptingContainer][#9092]
+- #9187 [Memory leak running RubyGems in separate runtimes in a loop][#9187]
+- #9261 [Fix Time subsecond precision loss from floating point arithmetic][#9261]
+- #9292 [Reduce BigInteger construction][#9292]
+- #9293 [Incorrect caller_locations line for multi-line call with unless][#9293]
+- #9297 [Different behaviour than MRI on Fiber#raise][#9297]
+- #9302 [review call-info reset][#9302]
+- #9304 [Socket.tcp does not complete connection][#9304]
+- #9305 [Ensure connectable sockets finish][#9305]
+- #9307 [Time being returned as ASCII-8BIT encoding in JRuby 10][#9307]
+- #9310 [[fix] define_method captured block propagation in JIT mode][#9310]
+- #9311 [Push a frame for thread toplevel][#9311]
+- #9312 [Construct xmlschema string as US-ASCII][#9312]
+- #9314 [`Process.detach` raises ArrayIndexOutOfBoundsException if called from a thread that is not the main thread][#9314]
+- #9316 [[10.0] build: bump maven from 3.9.11 to 3.9.14 via script-only style][#9316]
+- #9317 [[10.0] build: improve build/maven consistency / bump github actions][#9317]
+- #9322 [Fix prepended module initialize not called for Ruby classes rooted in a Java superclass][#9322]
+- #9323 [[deps] bump jruby-openssl to latest][#9323]
+- #9324 [NPE retrieving IO channel][#9324]
+- #9326 [[fix] NullPointerException from closed IO][#9326]
+- #9330 [Sync with prism update so we can compile jruby-prism using 10.0 ][#9330]
+- #9332 [Support Java 26][#9332]
+- #9334 [[fix] Exception#dup: copy cause to the duplicated exception][#9334]
+- #9335 [[fix] MatchData#deconstruct_keys: include non-participating captures][#9335]
+- #9336 [[fix] Bignum#eql?: use type-strict comparison (not ==)][#9336]
+- #9337 [[fix] Bignum comparison with Float in <=> and ==][#9337]
+- #9338 [[fix] Bignum: use correct site for coerced comparisons][#9338]
+- #9339 [[fix] IO#reopen: copy encoding from source IO][#9339]
+- #9340 [Hash#rehash corrupts insertion-order when deduplicating keys][#9340]
+- #9341 [[fix] Hash#rehash: fix deduplicating keys (#9340)][#9341]
+- #9343 [[compat] Thread#native_thread_id: using Java thread-id][#9343]
+- #9344 [[fix] Digest::Base: synchronize MessageDigest mutation][#9344]
+- #9345 [[fix] Encoding.compatible?: check when swapping args][#9345]
+- #9347 [Use JDK for File#flock on Windows][#9347]
+- #9348 [ruby/logger gem broken after version 1.6.3 using JRuby on Windows][#9348]
+- #9349 [Disable AliasMethod direct binding for now][#9349]
+- #9352 [Issue with calling IO.popen(env, cmd, opts) on Windows][#9352]
+- #9351 [Fix non-native IO.popen env + kwargs handling][#9351]
+- #9354 [Update JNR dependencies][#9354]
+- #9355 [Propagate newline from if to bodies][#9355]
+- #9356 [Properly complete Fiber#raise transfer][#9356]
+- #9359 [Leak fixes redux][#9359]
+- #9364 [[fix] TCPServer#initialize: close channel on bind/init failure][#9364]
+
+[@evaniainbrooks]:https://github.com/evaniainbrooks
+[@kares]:https://github.com/kares
+[@chadlwilson]:https://github.com/chadlwilson
+[#jimtng]:https://github.com/jimtng
+
+
+[#4213]:https://github.com/jruby/jruby/issues/4213
+[#8944]:https://github.com/jruby/jruby/issues/8944
+[#8946]:https://github.com/jruby/jruby/issues/8946
+[#9070]:https://github.com/jruby/jruby/issues/9070
+[#9092]:https://github.com/jruby/jruby/issues/9092
+[#9187]:https://github.com/jruby/jruby/issues/9187
+[#9261]:https://github.com/jruby/jruby/pull/9261
+[#9292]:https://github.com/jruby/jruby/pull/9292
+[#9293]:https://github.com/jruby/jruby/issues/9293
+[#9297]:https://github.com/jruby/jruby/issues/9297
+[#9302]:https://github.com/jruby/jruby/pull/9302
+[#9304]:https://github.com/jruby/jruby/issues/9304
+[#9305]:https://github.com/jruby/jruby/pull/9305
+[#9307]:https://github.com/jruby/jruby/issues/9307
+[#9310]:https://github.com/jruby/jruby/pull/9310
+[#9311]:https://github.com/jruby/jruby/pull/9311
+[#9312]:https://github.com/jruby/jruby/pull/9312
+[#9314]:https://github.com/jruby/jruby/issues/9314
+[#9316]:https://github.com/jruby/jruby/pull/9316
+[#9317]:https://github.com/jruby/jruby/pull/9317
+[#9322]:https://github.com/jruby/jruby/pull/9322
+[#9323]:https://github.com/jruby/jruby/pull/9323
+[#9324]:https://github.com/jruby/jruby/issues/9324
+[#9326]:https://github.com/jruby/jruby/pull/9326
+[#9330]:https://github.com/jruby/jruby/pull/9330
+[#9332]:https://github.com/jruby/jruby/pull/9332
+[#9334]:https://github.com/jruby/jruby/pull/9334
+[#9335]:https://github.com/jruby/jruby/pull/9335
+[#9336]:https://github.com/jruby/jruby/pull/9336
+[#9337]:https://github.com/jruby/jruby/pull/9337
+[#9338]:https://github.com/jruby/jruby/pull/9338
+[#9339]:https://github.com/jruby/jruby/pull/9339
+[#9340]:https://github.com/jruby/jruby/issues/9340
+[#9341]:https://github.com/jruby/jruby/pull/9341
+[#9343]:https://github.com/jruby/jruby/pull/9343
+[#9344]:https://github.com/jruby/jruby/pull/9344
+[#9345]:https://github.com/jruby/jruby/pull/9345
+[#9347]:https://github.com/jruby/jruby/pull/9347
+[#9348]:https://github.com/jruby/jruby/issues/9348
+[#9349]:https://github.com/jruby/jruby/pull/9349
+[#9351]:https://github.com/jruby/jruby/pull/9351
+[#9352]:https://github.com/jruby/jruby/issues/9352
+[#9354]:https://github.com/jruby/jruby/issues/9354
+[#9355]:https://github.com/jruby/jruby/pull/9355
+[#9356]:https://github.com/jruby/jruby/pull/9356
+[#9359]:https://github.com/jruby/jruby/pull/9359
+[#9364]:https://github.com/jruby/jruby/pull/9364
