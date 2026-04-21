@@ -7,7 +7,7 @@ markdown:    kramdown
 permalink:   date
 # JRuby-specific info here; goes into the "site" jekyll variable
 release:
-  url: /2026/04/06/jruby-10-0-5-0.html
+  url: /2026/04/21/jruby-10-1-0-0.html
   version: 10.1.0.0
   tar: https://repo1.maven.org/maven2/org/jruby/jruby-dist/10.1.0.0/jruby-dist-10.1.0.0-bin.tar.gz
   zip: https://repo1.maven.org/maven2/org/jruby/jruby-dist/10.1.0.0/jruby-dist-10.1.0.0-bin.zip
