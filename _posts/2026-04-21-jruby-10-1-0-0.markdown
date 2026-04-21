@@ -1,0 +1,181 @@
+---
+layout: post
+title: JRuby 10.1.0.0 Released
+---
+
+The JRuby community is pleased to announce the release of JRuby 10.1.0.0.
+
+* Homepage: [https://www.jruby.org/](https://www.jruby.org/)
+* Download: [https://www.jruby.org/download](https://www.jruby.org/download)
+
+JRuby 10.1.0.x targets Ruby 4.0 compatibility.
+
+Thank you to our contributors this release, you help keep JRuby moving forward!
+
+JRuby 10.1: Experimenting and Evolving
+======================================
+
+JRuby 10.1.0.0 is our first major release since catching up with Ruby compatibility. We have used this opportunity to explore many experimental optimizations and improvements we have been chasing for many years. Ruby 4.0 compatibility is largely complete, but there will be additional features added in update releases. We also plan to continue with large scale experiments in subsequent updates, and recommend production users continue to use JRuby 10.0 while we work toward stabilization of the 10.1 series.
+
+Here's an overview of the major enhancments already in JRuby 10.1.0.0 and others planned for update releases in the coming months.
+
+Reduced Object Size
+-------------------
+
+In JRuby 10.1 all objects have been reduced in size by 8 bytes, bringing the base object size down from 32 bytes to 24 bytes. This translates into smaller objects across the system, reduced GC load, higher allocation throughput, and better cache locality.
+
+On JVM versions that support Compact Object Headers (JEP 450: "Project Lilliput") the base object size can be further reduced to 16 bytes, 40% smaller than objects in the standard Ruby implememtation.
+
+Evolving Strings, Arrays, and Hashes
+------------------------------------
+
+During the upcoming JRuby 10.1 update releases, we plan to introduce new versions of String, Array, and Hash that are optimized for memory compactness, concurrency, or integration with other JVM languages. To support these features, we have made the internal implementations RubyArray and RubyHash into abstract classes and deprecated the direct constructors for RubyString. Please test your JRuby extension code and make sure it does not call abstract or deprecated constructors.
+
+Smaller Numeric Representations
+-------------------------------
+
+JRuby's internal class for representing 64-bit signed Integer values, RubyFixnum, has been split into two versions: LongFixnum and ShortFixnum. Combined with the reduced size of objects overall, this reduces the size of these long and short-ranged Integer objects from 40 bytes to 32 bytes or 24 bytes (24 bytes or 16 bytes if using Compact Object Headers). The size of Float objects have similarly been reduced from 40 bytes to 32 bytes. These size reductions help improve the performance of numeric algorithms and reduce impact to the heap and GC of boxing numeric values.
+
+Cross-platform Prism Parser
+---------------------------
+
+JRuby 10.1 ships with support for the Prism Ruby parser, packaged as a set of pre-optimized native builds (for Windows, Linux, and MacOS on x86_64 or arm64) or as a WASM build on other platforms. We're still working out a few remaining features, but we encourage experimenters to enable it by passing `-Xparser.prism` to JRuby. We plan to make this the default parser once the remaining issues are solved.
+
+Direct Argument Passing
+-----------------------
+
+We have also laid the groundwork to start passing all forms of method arguments on the call stack, avoiding boxed collections for most optional and keyword arguments. In upcoming JRuby 10.1 releases, we will begin to connect these call paths up for both pure-Ruby and native (Java) method targets, eliminating box allocation and drastically improving the peformance of such forms. Watch this space for rapid improvements.
+
+New Policy for EOL and LTS Releases
+-----------------------------------
+
+With the release of JRuby 10.1, we are moving JRuby 9.4 into a "soft" EOL status. This means we will no longer be doing regular OSS release updates of JRuby 9.4, but users may get in contact with us to sponsor continued support. JRuby 10.0 will be our stable LTS release until April 2028 and we recommend all users upgrade or get in contact with us for assistance. JRuby 10.1 will be our "tip" release line, with many exciting optimizations and enhancements due to land over the next several months.
+
+Going forward, we will provide a new LTS baseline release every two years, starting in spring of 2027, and alternating years will be considered as edge or development versions without LTS guarantees. This will allow us a free hand to keep bringing you more experimental features while still providing a stable baseline for more conservative users.
+
+Try JRuby Today!
+----------------
+
+Users can install JRuby 10.1 through the usual means, and we encourage you to give it a try and let us know how it handles your applications and libraries. We have much more planned for the 10.1 updates and hope to move fast and push the edges of what's possible with Ruby on the JVM.
+
+### 59 Issues and PRs resolved for 10.1.0.0
+
+- #8716 [dup a lot][#8716]
+- #8747 [Launcher script chokes on GraalVM release file][#8747]
+- #9055 [Array experiments][#9055]
+- #9066 [Move Set to a core class [Ruby 4.0]][#9066]
+- #9069 [Implement Ruby 4.0 support][#9069]
+- #9074 [Avoid array allocation for *nil, by not calling nil.to_a][#9074]
+- #9075 [Selective inspect of instance variables][#9075]
+- #9077 [No numbered parameters in Binding#local_variables][#9077]
+- #9078 [Add Math.{expm1,log1p}][#9078]
+- #9079 [Align IO.select timeout logic with CRuby][#9079]
+- #9083 [Implement missing raise features][#9083]
+- #9085 [Specialize Fixnum][#9085]
+- #9090 [Reduce the size of the varTableStamp][#9090]
+- #9091 [Shrink varTableStamp][#9091]
+- #9095 [Eliminate global flags][#9095]
+- #9096 [Cache object ID and hash in low-count immediate values][#9096]
+- #9102 [Add a fast path for hashing numerics and immediates][#9102]
+- #9113 [Performance regression in RubyHash for large hashes (~8-10x slower than JRuby 1.7)][#9113]
+- #9119 [Implement fast-path builtin method flags][#9119]
+- #9123 [Fast builtin validation experiment][#9123]
+- #9124 [Reduce load factor for Hash from 5 to 2][#9124]
+- #9136 [Marshal.load 2.9x regression vs JRuby 1.7][#9136]
+- #9143 [Cache both hash forms for FString][#9143]
+- #9148 [Allow logical ops to begin on beginning of next line][#9148]
+- #9154 [Mask internal Ruby backtrace elements like native masking][#9154]
+- #9156 [Small marshal fixes][#9156]
+- #9174 [Add complete thread-local builtin tracking system (Issues #9116, #9119)][#9174]
+- #9180 [Implement implicit param logic for Binding][#9180]
+- #9181 [Fix Data subclasses with ivars][#9181]
+- #9202 [A Data object should be frozen even if it has no members][#9202]
+- #9209 [Add ruby_bug for spec of Data with no members being frozen][#9209]
+- #9210 [Remove Process::Status#& and Process::Status#>>][#9210]
+- #9233 [Load boot scripts from classloader URI][#9233]
+- #9235 [Use capitalized Class and Module for frozen errors][#9235]
+- #9236 [Properly handle keywords in {Kernel|Thread|Fiber}#raise][#9236]
+- #9238 [Cloned class's singleton class has too many classes in hierarchy][#9238]
+- #9239 [Fix for cloned class singleton class has too many ancestors][#9239]
+- #9250 [Update Unicode to Version 17.0.0 and Emoji Version 17.0][#9250]
+- #9262 [Abstract RubyHash][#9262]
+- #9263 [Implicit param fixes for proc and binding][#9263]
+- #9266 [Endless method with modifier method does not parse][#9266]
+- #9273 [Cleanup recursion guards][#9273]
+- #9277 [Use live counts for event hook stats][#9277]
+- #9279 [Move fiddle back to default temporarily for resolv][#9279]
+- #9286 [Proposing RISC-V architecture support][#9286]
+- #9287 [Add riscv64 platform support][#9287]
+- #9298 [Ensure we have a classloader to boot from][#9298]
+- #9299 [Delete methods deprecated prior to JRuby 9.4.0.0][#9299]
+- #9300 [Replace now-deprecated wait_timeout][#9300]
+- #9313 [Time being returned as ASCII-8BIT encoding in JRuby 10][#9313]
+- #9318 [`Process.detach` raises ArrayIndexOutOfBoundsException if called from a thread that is not the main thread][#9318]
+- #9325 [[fix] NullPointerException from closed IO][#9325]
+- #9362 [Allow endless methods to be an argument to methods like visibity][#9362]
+- #9365 [Marshal load perf][#9365]
+- #9371 [Deprecate all public RubyString constructors][#9371]
+- #9374 [Integrate WASM-based Prism parser into standard build][#9374]
+- #9383 [Disable IntFixnum][#9383]
+- #9384 [Set.new(a_set) throws LocalJumpError][#9384]
+- #9385 [Fixes #9384. Set.new(a_set) throws LocalJumpError][#9385]
+
+[#8716]:https://github.com/jruby/jruby/pull/8716
+[#8747]:https://github.com/jruby/jruby/issues/8747
+[#9055]:https://github.com/jruby/jruby/pull/9055
+[#9066]:https://github.com/jruby/jruby/pull/9066
+[#9069]:https://github.com/jruby/jruby/pull/9069
+[#9074]:https://github.com/jruby/jruby/pull/9074
+[#9075]:https://github.com/jruby/jruby/pull/9075
+[#9077]:https://github.com/jruby/jruby/pull/9077
+[#9078]:https://github.com/jruby/jruby/pull/9078
+[#9079]:https://github.com/jruby/jruby/pull/9079
+[#9083]:https://github.com/jruby/jruby/pull/9083
+[#9085]:https://github.com/jruby/jruby/pull/9085
+[#9090]:https://github.com/jruby/jruby/issues/9090
+[#9091]:https://github.com/jruby/jruby/pull/9091
+[#9095]:https://github.com/jruby/jruby/pull/9095
+[#9096]:https://github.com/jruby/jruby/issues/9096
+[#9102]:https://github.com/jruby/jruby/pull/9102
+[#9113]:https://github.com/jruby/jruby/issues/9113
+[#9119]:https://github.com/jruby/jruby/issues/9119
+[#9123]:https://github.com/jruby/jruby/pull/9123
+[#9124]:https://github.com/jruby/jruby/pull/9124
+[#9136]:https://github.com/jruby/jruby/issues/9136
+[#9143]:https://github.com/jruby/jruby/pull/9143
+[#9148]:https://github.com/jruby/jruby/pull/9148
+[#9154]:https://github.com/jruby/jruby/pull/9154
+[#9156]:https://github.com/jruby/jruby/pull/9156
+[#9174]:https://github.com/jruby/jruby/pull/9174
+[#9180]:https://github.com/jruby/jruby/pull/9180
+[#9181]:https://github.com/jruby/jruby/pull/9181
+[#9202]:https://github.com/jruby/jruby/pull/9202
+[#9209]:https://github.com/jruby/jruby/pull/9209
+[#9210]:https://github.com/jruby/jruby/pull/9210
+[#9233]:https://github.com/jruby/jruby/pull/9233
+[#9235]:https://github.com/jruby/jruby/pull/9235
+[#9236]:https://github.com/jruby/jruby/pull/9236
+[#9238]:https://github.com/jruby/jruby/issues/9238
+[#9239]:https://github.com/jruby/jruby/pull/9239
+[#9250]:https://github.com/jruby/jruby/issues/9250
+[#9262]:https://github.com/jruby/jruby/pull/9262
+[#9263]:https://github.com/jruby/jruby/pull/9263
+[#9266]:https://github.com/jruby/jruby/issues/9266
+[#9273]:https://github.com/jruby/jruby/pull/9273
+[#9277]:https://github.com/jruby/jruby/pull/9277
+[#9279]:https://github.com/jruby/jruby/pull/9279
+[#9286]:https://github.com/jruby/jruby/issues/9286
+[#9287]:https://github.com/jruby/jruby/pull/9287
+[#9298]:https://github.com/jruby/jruby/pull/9298
+[#9299]:https://github.com/jruby/jruby/pull/9299
+[#9300]:https://github.com/jruby/jruby/pull/9300
+[#9313]:https://github.com/jruby/jruby/issues/9313
+[#9318]:https://github.com/jruby/jruby/issues/9318
+[#9325]:https://github.com/jruby/jruby/pull/9325
+[#9362]:https://github.com/jruby/jruby/pull/9362
+[#9365]:https://github.com/jruby/jruby/pull/9365
+[#9371]:https://github.com/jruby/jruby/pull/9371
+[#9374]:https://github.com/jruby/jruby/pull/9374
+[#9383]:https://github.com/jruby/jruby/pull/9383
+[#9384]:https://github.com/jruby/jruby/issues/9384
+[#9385]:https://github.com/jruby/jruby/pull/9385

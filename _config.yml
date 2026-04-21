@@ -8,13 +8,13 @@ permalink:   date
 # JRuby-specific info here; goes into the "site" jekyll variable
 release:
   url: /2026/04/06/jruby-10-0-5-0.html
-  version: 10.0.5.0
-  tar: https://repo1.maven.org/maven2/org/jruby/jruby-dist/10.0.5.0/jruby-dist-10.0.5.0-bin.tar.gz
-  zip: https://repo1.maven.org/maven2/org/jruby/jruby-dist/10.0.5.0/jruby-dist-10.0.5.0-bin.zip
-  exe: https://github.com/jruby/jruby/releases/download/10.0.5.0/jruby_windows_10_0_5_0.exe
-  exe64: https://github.com/jruby/jruby/releases/download/10.0.5.0/jruby_windows_x64_10_0_5_0.exe
-  gem: https://rubygems.org/gems/jruby-jars/versions/10.0.5.0
-  gem_older: https://rubygems.org/gems/jruby-jars/versions/9.4.14.0
+  version: 10.1.0.0
+  tar: https://repo1.maven.org/maven2/org/jruby/jruby-dist/10.1.0.0/jruby-dist-10.1.0.0-bin.tar.gz
+  zip: https://repo1.maven.org/maven2/org/jruby/jruby-dist/10.1.0.0/jruby-dist-10.1.0.0-bin.zip
+  exe: https://github.com/jruby/jruby/releases/download/10.1.0.0/jruby_windows_10_1_0_0.exe
+  exe64: https://github.com/jruby/jruby/releases/download/10.1.0.0/jruby_windows_x64_10_1_0_0.exe
+  gem: https://rubygems.org/gems/jruby-jars/versions/10.1.0.0
+  gem_older: https://rubygems.org/gems/jruby-jars/versions/10.1.0.0
 urls:
   ghr: https://github.com/jruby/jruby/releases/download
   maven: https://repo1.maven.org/maven2/org/jruby
