@@ -1,0 +1,2 @@
+---
+BUNDLE_BUILD__OVIRT___ENGINE___SDK: "--with-cflags='-Wno-error=incompatible-function-pointer-types -Wno-error=implicit-function-declaration'"

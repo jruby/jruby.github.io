@@ -8,8 +8,9 @@ The site is generated with Jekyll, and while you can use the regular
 
 1. (One time only) Install Bundler (`gem install bundler`) and run
    `bundle install` once.
-1a. (env) export LANG="en_US.UTF-8"
-1b. (env) export LC_ALL="en_US.UTF-8"
+  a. (env) export LANG="en_US.UTF-8"
+  b. (env) export LC_ALL="en_US.UTF-8"
+  c. Note that there's extra build flags in .bundle/config for ovirt-engine-sdk
 2. Run rake to see the available tasks:
 
         JRuby.org documentation site. Available tasks:
