@@ -1,0 +1,97 @@
+---
+layout: post
+title: JRuby 9.4.15.0 Released
+---
+
+The JRuby community is pleased to announce the release of JRuby 9.4.15.0.
+
+* Homepage: [https://www.jruby.org/](https://www.jruby.org/)
+* Download: [https://www.jruby.org/download](https://www.jruby.org/download)
+
+JRuby 9.4.15.x targets Ruby 3.4 compatibility.
+
+Thank you to our contributors this release, you help keep JRuby moving forward!
+
+With this release, JRuby 9.4 moves into end-of-life ("EOL"). This means that future releases of 9.4.x will only be provided as needed by commercial JRuby users.
+
+Get in touch with us if you require long-term support options for the JRuby 9.4.x series.
+
+### 38 Issues and PRs resolved for 9.4.15.0
+
+- #8801 [ruby/logger gem broken after version 1.6.3 using JRuby on Windows][#8801]
+- #8924 [const_defined? returns false for External Constants in JRuby 10.0.1.0 and 9.4.14.0][#8924]
+- #8974 [Use RuboCop to clean up poms (9.4)][#8974]
+- #8990 [Launcher defensive fixes 9.4][#8990]
+- #9000 [JRuby 9.4.14.0 "wrong number of arguments" when jit.threshold=0][#9000]
+- #9001 [Backport indy ruby2_keywords ArgumentError fix][#9001]
+- #9002 [Backport ArgumentError message update from 2010][#9002]
+- #9012 [Rexml security updateUpdate rexml gem to solve CVE-2025-58767 (9.4)][#9012]
+- #9030 [Official JDK 25 support for JRuby 9.4][#9030]
+- #9031 [Don't restrict object search to modules][#9031]
+- #9032 [Different arguments for each.map vs each and map alone][#9032]
+- #9033 [Backport jruby.sh and .jruby.release changes from 10][#9033]
+- #9037 [fix: clear code-range when re-using a string buffer (#9035)][#9037]
+- #9044 [Difference in Float() hex parsing between JRuby and CRuby][#9044]
+- #9045 [Fixes basic float hex value strings for Kernel#Float][#9045]
+- #9054 [Migrate .java-version contents to .jruby.release (9.4)][#9054]
+- #9104 [[9.4] Update jruby-openssl to v0.15.5 to resolve BouncyCastle 1.79 vulnerability (sonatype-2025-001911).][#9104]
+- #9105 [[9.4] Update jruby-openssl to 0.15.5][#9105]
+- #9128 [[9.4] fix(launcher): correct parsing of java release files under Bash/msys2 etc on Windows ][#9128]
+- #9160 [Update strscan to 3.1.7][#9160]
+- #9186 [9032 Fix Different arguments for each.map vs each and map alone][#9186]
+- #9201 [Extract float formatting into a static method (9.4)][#9201]
+- #9295 [Issue with calling IO.popen(env, cmd, opts) on Windows][#9295]
+- #9308 [`Process.detach` raises ArrayIndexOutOfBoundsException if called from a thread that is not the main thread][#9308]
+- #9311 [Push a frame for thread toplevel][#9311]
+- #9347 [Use JDK for File#flock on Windows][#9347]
+- #9351 [Fix non-native IO.popen env + kwargs handling][#9351]
+- #9353 [Update JNR dependencies][#9353]
+- #9377 [Checking out aws-sdk-ruby creates a file with binary data.][#9377]
+- #9387 [[9.4] deps(stdlib): bump erb from 2.2.3 to 4.0.4.1 to resolve CVE-2026-41316][#9387]
+- #9391 [[9.4] [deps] bump jruby-openssl to 0.16.0][#9391]
+- #9415 [Don't read or write anything once length is zero][#9415]
+- #9443 [JRuby 9.4 does not generate bytecode for newer JDK versions][#9443]
+- #9444 [Allow bytecode version to be open-ended][#9444]
+- #9464 [[fix] escape shell metachars in chdir: to prevent injection][#9464]
+- #9467 [[9.4] backport [ji] support java.lang.Throwable#backtrace_locations (#9461)][#9467]
+- #9477 [Dist verification 9.4][#9477]
+- #9480 [[fix] @JRubyMethod error with required>=1 and var-args][#9480]
+
+[#8801]:https://github.com/jruby/jruby/issues/8801
+[#8924]:https://github.com/jruby/jruby/issues/8924
+[#8974]:https://github.com/jruby/jruby/pull/8974
+[#8990]:https://github.com/jruby/jruby/pull/8990
+[#9000]:https://github.com/jruby/jruby/issues/9000
+[#9001]:https://github.com/jruby/jruby/pull/9001
+[#9002]:https://github.com/jruby/jruby/pull/9002
+[#9012]:https://github.com/jruby/jruby/pull/9012
+[#9030]:https://github.com/jruby/jruby/pull/9030
+[#9031]:https://github.com/jruby/jruby/pull/9031
+[#9032]:https://github.com/jruby/jruby/issues/9032
+[#9033]:https://github.com/jruby/jruby/pull/9033
+[#9037]:https://github.com/jruby/jruby/pull/9037
+[#9044]:https://github.com/jruby/jruby/issues/9044
+[#9045]:https://github.com/jruby/jruby/pull/9045
+[#9054]:https://github.com/jruby/jruby/pull/9054
+[#9104]:https://github.com/jruby/jruby/issues/9104
+[#9105]:https://github.com/jruby/jruby/pull/9105
+[#9128]:https://github.com/jruby/jruby/pull/9128
+[#9160]:https://github.com/jruby/jruby/pull/9160
+[#9186]:https://github.com/jruby/jruby/pull/9186
+[#9201]:https://github.com/jruby/jruby/pull/9201
+[#9295]:https://github.com/jruby/jruby/issues/9295
+[#9308]:https://github.com/jruby/jruby/issues/9308
+[#9311]:https://github.com/jruby/jruby/pull/9311
+[#9347]:https://github.com/jruby/jruby/pull/9347
+[#9351]:https://github.com/jruby/jruby/pull/9351
+[#9353]:https://github.com/jruby/jruby/pull/9353
+[#9377]:https://github.com/jruby/jruby/issues/9377
+[#9387]:https://github.com/jruby/jruby/pull/9387
+[#9391]:https://github.com/jruby/jruby/pull/9391
+[#9415]:https://github.com/jruby/jruby/pull/9415
+[#9443]:https://github.com/jruby/jruby/issues/9443
+[#9444]:https://github.com/jruby/jruby/pull/9444
+[#9464]:https://github.com/jruby/jruby/pull/9464
+[#9467]:https://github.com/jruby/jruby/pull/9467
+[#9477]:https://github.com/jruby/jruby/pull/9477
+[#9480]:https://github.com/jruby/jruby/pull/9480
