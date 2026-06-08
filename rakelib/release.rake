@@ -19,6 +19,7 @@ def github_closed_issues(user, repo, milestone)
   mid = github_milestone_for(issues, user, repo, milestone)
 
   return nil if mid == -1
+  raise "no open milestone named #{milestone}" if mid.nil?
 
   options = { user: user, repo: repo, milestone: mid.to_s, state: 'closed', per_page: 100 }
 
