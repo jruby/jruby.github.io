@@ -1,0 +1,78 @@
+---
+layout: post
+title: JRuby 10.0.6.0 Released
+---
+
+The JRuby community is pleased to announce the release of JRuby 10.0.6.0.
+
+* Homepage: [https://www.jruby.org/](https://www.jruby.org/)
+* Download: [https://www.jruby.org/download](https://www.jruby.org/download)
+
+JRuby 10.0.6.x targets Ruby 3.4 compatibility.
+
+Thank you to our contributors this release, you help keep JRuby moving forward! [@chadlwilson], [@kares], [@sampokuokkanen]
+
+Notable Changes:
+----------------
+
+### Standard Library
+
+* erb has been updated to 4.0.4.1 to address CVE-2026-41316. ([#9389])
+* jruby-openssl has been updated to 0.16.0, fixing many long-standing issues with SSLSocket. ([#6455], [#8935], [#9390])
+
+### Java Integration
+
+* Performance and consistency improvements for passing a block or proc as the implementation of a Java interface. ([#1401], [#9401], [#9424])
+
+### 23 Issues and PRs resolved for 10.0.6.0
+
+- #1401 [Java interface using closure implementaion is slower than mixin implementation][#1401]
+- #6455 [Unhandled IOError --> SSLSocket.java:893:in `sysread_nonblock'][#6455]
+- #8935 [Error during `gem push` using jruby][#8935]
+- #9367 [review (wrong) asserts][#9367]
+- #9368 [[refactor] remove duplicate fallback in CallableSelector][#9368]
+- #9372 [Crash when AOT compiling rubocop-ast sources][#9372]
+- #9373 [Ensure the initial string has correct size][#9373]
+- #9389 [[10.0] deps(stdlib): bump erb from 4.0.4 to 4.0.4.1 to resolve CVE-2026-41316][#9389]
+- #9390 [[10.0] [deps] bump jruby-openssl to 0.16.0][#9390]
+- #9401 [improve performance for Java "block-to-interface" conversion][#9401]
+- #9416 [Checking out aws-sdk-ruby creates a file with binary data.][#9416]
+- #9421 [Fix missing frozen check in 1 and 2-element Array sort!/reverse!][#9421]
+- #9424 [proc to interface inconsistency with multiple args][#9424]
+- #9451 [[fix] escape shell metachars in chdir: to prevent injection][#9451]
+- #9457 [Deprecate and replace all RubyHash, RubyString, and RubyArray constructors][#9457]
+- #9458 [Support backtrace_locations with Java exceptions][#9458]
+- #9461 [[ji] support java.lang.Throwable#backtrace_locations][#9461]
+- #9474 [Deprecate RubyHash constructors for 10.1 abstraction][#9474]
+- #9476 [Backport extended dist verification to 10.0][#9476]
+- #9478 [[fix] @JRubyMethod error with required>=1 and var-args][#9478]
+- #9484 [Make JVM bytecode version detection more robust][#9484]
+- #9489 [Deprecate all public String constructors][#9489]
+- #9490 [Deprecate public RubyArray constructors][#9490]
+
+[#1401]:https://github.com/jruby/jruby/issues/1401
+[#6455]:https://github.com/jruby/jruby/issues/6455
+[#8935]:https://github.com/jruby/jruby/issues/8935
+[#9367]:https://github.com/jruby/jruby/pull/9367
+[#9368]:https://github.com/jruby/jruby/pull/9368
+[#9372]:https://github.com/jruby/jruby/issues/9372
+[#9373]:https://github.com/jruby/jruby/pull/9373
+[#9389]:https://github.com/jruby/jruby/pull/9389
+[#9390]:https://github.com/jruby/jruby/pull/9390
+[#9401]:https://github.com/jruby/jruby/pull/9401
+[#9416]:https://github.com/jruby/jruby/issues/9416
+[#9421]:https://github.com/jruby/jruby/pull/9421
+[#9424]:https://github.com/jruby/jruby/issues/9424
+[#9451]:https://github.com/jruby/jruby/pull/9451
+[#9457]:https://github.com/jruby/jruby/issues/9457
+[#9458]:https://github.com/jruby/jruby/issues/9458
+[#9461]:https://github.com/jruby/jruby/pull/9461
+[#9474]:https://github.com/jruby/jruby/pull/9474
+[#9476]:https://github.com/jruby/jruby/pull/9476
+[#9478]:https://github.com/jruby/jruby/pull/9478
+[#9484]:https://github.com/jruby/jruby/pull/9484
+[#9489]:https://github.com/jruby/jruby/pull/9489
+[#9490]:https://github.com/jruby/jruby/pull/9490
+[@chadlwilson]:https://github.com/chadlwilson
+[@kares]:https://github.com/kares
+[@sampokuokkanen]:https://github.com/sampokuokkanen
