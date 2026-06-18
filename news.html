@@ -3,10 +3,13 @@ layout: main
 title: News
 ---
 <h1>Recent News</h1>
-{% for post in site.posts %}
-<h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
-<h3>{{ post.date | date: "%A, %B %d %Y" }}</h3>
-<div class="body">
-  {{ post.content }}
+<p>Release announcements and project updates. <a href="/atom.xml">Atom Feed &rarr;</a></p>
+
+<div class="news-list">
+  {% for post in site.posts %}
+  <div class="news-list-item">
+    <span class="news-list-date">{{ post.date | date: "%b %-d, %Y" }}</span>
+    <span class="news-list-title"><a href="{{ post.url }}">{{ post.title }}</a></span>
+  </div>
+  {% endfor %}
 </div>
-{% endfor %}

@@ -1,29 +1,29 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   {% include head.html %}
 </head>
 <body>
   {% include menu.html %}
-
-  <div id="container">
-    <div id="header">
-      {% include banner.html %}
-      {% include release.html %}
-    </div>
-    <div id="content">
-      <div id="white">
-        <h2>{{ page.title }}</h>
-        <h3>{{ page.date | date: "%A, %B %d %Y" }}</h3>
-
-        <div class="body">
-          {{ content }}
-        </div>
+  <main>
+    {% include banner.html %}
+    {% include release.html %}
+    <article class="post">
+      <header class="post-header">
+        <h1>{{ page.title }}</h1>
+        <p class="post-meta">
+          <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time>
+        </p>
+      </header>
+      <div class="post-content">
+        {{ content }}
       </div>
-    </div>
-  </div>
-  {% include scripts.html %}
+      <footer class="post-footer">
+        <p><a href="/news">&larr; All news</a></p>
+      </footer>
+    </article>
+  </main>
+  {% include footer.html %}
   {% include tracking.html %}
 </body>
 </html>
