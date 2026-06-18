@@ -9,9 +9,7 @@ title: Documentation
 
 * [Browse JRuby API Javadocs online](https://javadoc.io/doc/org.jruby/jruby-base)
 
-We greatly appreciate patches and pull requests for documentation
-updates. Please visit the [**Contribute**](/contribute) page for more
-information on sending JRuby source patches.
+We greatly appreciate patches and pull requests for documentation updates. Please visit the [Contribute](/contribute) page for more information on sending JRuby source patches.
 
 ### Articles
 
@@ -22,4 +20,8 @@ information on sending JRuby source patches.
 
 ### Wiki
 
-* Visit the <a href="{{ site.urls.wiki }}">JRuby Wiki here</a>.
+Visit the [JRuby Wiki]({{ site.urls.wiki }}) &mdash; maintained by the community with guides, FAQs, and deep-dive articles.
+
+### JRuby 10 Series
+
+* [JRuby 10, Part 1: What's New](https://blog.jruby.org/2025/04/jruby-10-part-1-whats-new)

@@ -2,91 +2,51 @@
 layout: home
 title: Home
 ---
-<div id="hero">
-  <div id="carousel">
-    <div class="panelContainer">
-
-      <div class="panel" title="Why JRuby?" id="why_jruby">
-        <div class="wrapper">          
-          <div class="feature java" id="feature_1">
-            <h3>The Best of the JVM</h3>
-            <ul>
-              <li>High performance</li>
-              <li>Real threading</li>
-              <li>Vast array of libraries</li>
-            </ul>
-          </div>
-          <div class="feature ruby" id="feature_2">
-            <h3>It's Just Ruby</h3>
-            
-              Ruby 3.4 compatible
-            
-          </div>
-          <div class="feature platform" id="feature_3">
-            <h3>Platform Independent</h3>
-            <ul>
-              <li>Easy to install</li>
-              <li>Easy migration</li>
-              <li>No hassles</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <div class="panel" title="Get Started" id="download">
-        <div class="wrapper">
-          <div id="link">
-            <a href="/download"><img src="/images/download_icon_big.png"/></a>
-            <p class="trackDownloads"><a href="/download" class="button">&darr; Download JRuby</a></p>
-          </div>
-          <div id="instructions">
-            <ol>
-              <li>Extract JRuby into a directory.</li>
-
-              <li>Add that directory's bin subdirectory to 
-              the end of your path. </li>
-
-              <li>Test it: <code>jruby -v</code></li>
-            </ol>
-            <a href="/getting-started">Detailed instructions &rarr;</a>
-          </div>
-        </div>
-      </div>
-      
-      <div class="panel" title="Learn" id="learn">
-        <div class="wrapper">
-          
-          <div class="feature" id="feature_1">
-            <a href="{{ site.urls.wiki }}">
-              <img src="/images/wiki_thumb.png"/>
-              <h3>JRuby Wiki</h3>
-            </a>
-          </div>
-          <div class="feature" id="feature_2">
-            <a href="/blogs">
-              <img src="/images/blogs_thumb.png"/>
-              <h3>JRuby Blogs</h3>
-            </a>
-          </div>
-          <div class="feature" id="feature_3">
-            <a href="documentation">
-              <img src="/images/docs_thumb.png"/>
-              <h3>JavaDocs and RDocs</h3>
-            </a>
-          </div>                
-        </div>
-      </div>
-      
-      <div class="panel" title="Get Involved" id="get_involved">
-        <div class="wrapper">
-          <ul>
-            <li id="repo"><a href="{{ site.urls.github }}">Source Repo <img src="/images/outbound.png"/></a></li>
-            <li id="mailing_lists"><a href="{{ site.urls.wiki }}/MailingLists">Join the Mailing Lists <img src="/images/outbound.png"/></a></li>
-            <li id="issue_tracker"><a href="{{ site.urls.bugs }}">Issue Tracker <img src="/images/outbound.png"/></a></li>
-            <li id="irc"><a href="/chat">Chat with us</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
+<section class="hero">
+  <h1>JRuby {{ site.release.version }}</h1>
+  <p class="tagline">The Ruby Programming Language on the JVM &mdash; high performance, real threading, and the entire Java ecosystem at your fingertips.</p>
+  <div class="hero-cta">
+    <a href="/download" class="btn-primary">&darr; Download JRuby</a>
+    <a href="/getting-started" class="btn-secondary">Getting Started &rarr;</a>
   </div>
-</div>
+</section>
+
+<aside class="headius-banner">
+  <span class="headius-badge">Enterprise Support</span>
+  <h2>Keep JRuby running &mdash; without burning your team</h2>
+  <p>Running JRuby in production? Don't leave your engineers firefighting obscure JVM or Ruby compatibility issues alone. Headius Enterprises gives you direct access to the people who <em>wrote</em> JRuby &mdash; so your team ships features while the experts handle the hard stuff.</p>
+  <a href="https://headius.com/services/?utm_source=jruby.org&amp;utm_medium=referral&amp;utm_campaign=enterprise_support&amp;utm_content=homepage_banner" class="btn-headius" target="_blank" rel="noopener">
+    Talk to the JRuby Core Team &rarr;
+  </a>
+</aside>
+
+<section class="features">
+  <div class="feature-card">
+    <h3>The Best of the JVM</h3>
+    <ul>
+      <li>High performance</li>
+      <li>Real threading</li>
+      <li>Vast array of libraries</li>
+    </ul>
+  </div>
+  <div class="feature-card">
+    <h3>It's Just Ruby</h3>
+    <p>Ruby 3.4 compatible.<br>Drop-in replacement for MRI.</p>
+  </div>
+  <div class="feature-card">
+    <h3>Platform Independent</h3>
+    <ul>
+      <li>Easy to install</li>
+      <li>Easy migration</li>
+      <li>No hassles</li>
+    </ul>
+  </div>
+  <div class="feature-card">
+    <h3>Get Involved</h3>
+    <ul>
+      <li><a href="{{ site.urls.github }}">Source on GitHub</a></li>
+      <li><a href="{{ site.urls.bugs }}">Issue Tracker</a></li>
+      <li><a href="/chat">Chat with us</a></li>
+    </ul>
+  </div>
+</section>
