@@ -8,7 +8,7 @@ The JRuby community is pleased to announce the release of JRuby 10.1.1.0.
 * Homepage: [https://www.jruby.org/](https://www.jruby.org/)
 * Download: [https://www.jruby.org/download](https://www.jruby.org/download)
 
-JRuby 10.1.1.x targets Ruby 3.4 compatibility.
+JRuby 10.1.1.x targets Ruby 4.0 compatibility.
 
 Thank you to our contributors this release, you help keep JRuby moving forward! [@chadlwilson], [@kares], [@katafrakt], [@sampokuokkanen], [@segiddins], [@shugo]
 
@@ -34,7 +34,6 @@ Notable Changes
 * Optimized automatic interface implementation when calling Java with a block. [#5023]
 
 ### Packaging
-
 
 * Begin deprecating `jruby-complete` and `jruby-core` Maven artifacts. Prefer the `jruby` and `jruby-base` artifacts. [#9512]
 
