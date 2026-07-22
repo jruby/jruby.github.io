@@ -10,7 +10,7 @@ The JRuby community is pleased to announce the release of JRuby 10.1.1.0.
 
 JRuby 10.1.1.x targets Ruby 3.4 compatibility.
 
-Thank you to our contributors this release, you help keep JRuby moving forward!
+Thank you to our contributors this release, you help keep JRuby moving forward! [@chadlwilson], [@kares], [@katafrakt], [@sampokuokkanen], [@segiddins], [@shugo]
 
 Notable Changes
 ---------------
@@ -155,3 +155,10 @@ Notable Changes
 [#9545]:https://github.com/jruby/jruby/pull/9545
 [#9546]:https://github.com/jruby/jruby/issues/9546
 [#9547]:https://github.com/jruby/jruby/pull/9547
+
+[@kares]:https://github.com/kares
+[@segiddins]:https://github.com/segiddins
+[@sampokuokkanen]:https://github.com/sampokuokkanen
+[@chadlwilson]:https://github.com/chadlwilson
+[@katafrakt]:https://github.com/katafrakt
+[@shugo]:https://github.com/shugo
