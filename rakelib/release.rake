@@ -193,7 +193,7 @@ def boiler_top(version, ruby_version:)=<<~"EOS"
     * Homepage: [https://www.jruby.org/](https://www.jruby.org/)
     * Download: [https://www.jruby.org/download](https://www.jruby.org/download)
 
-    JRuby #{version.split('.')[0..2].join('.')}.x targets Ruby #{ruby_version} compatibility.
+    JRuby #{version.split('.')[0..1].join('.')}.x targets Ruby #{ruby_version} compatibility.
 
     Thank you to our contributors this release, you help keep JRuby moving forward!
 
