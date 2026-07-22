@@ -99,7 +99,8 @@ end
 
 task :update_for_version do
     version = ENV['JRUBY_VERSION'] || fail('No JRUBY_VERSION env set')
-    update_for_version(version)
+    ruby_version = ENV['JRUBY_RUBY_VERSION'] || fail('No JRUBY_RUBY_VERSION env set')
+    update_for_version(version, ruby_version:)
 end
 
 desc "Print a summary of yesterday's file downloads"

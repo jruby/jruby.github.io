@@ -76,8 +76,8 @@ def release_issues(version)
 end
 
 
-def update_for_version(version, major=true)
-  post_link = create_post(version)
+def update_for_version(version, major=true, ruby_version:)
+  post_link = create_post(version, ruby_version:)
   change_versions_in('_config.yml', version, post_link)
   change_versions_in('download.html', version, post_link)
   update_links(version)
@@ -137,13 +137,13 @@ EOS
   File.write index_file, contents
 end
 
-def create_post(version)
+def create_post(version, ruby_version:)
   v = version.gsub('.', '-')
   t = Time.now
   file = t.strftime("_posts/%Y-%m-%d-jruby-#{v}.markdown")
   
   File.open(file, 'w') do |io|
-    io.write(boiler_top(version))
+    io.write(boiler_top(version, ruby_version:))
     io.write(release_issues(version))
   end
 
@@ -182,7 +182,7 @@ def change_versions_in(filename, version, post_link)
   File.write(filename, new_content)
 end
 
-def boiler_top(version, compat="3.4")=<<~"EOS"
+def boiler_top(version, ruby_version:)=<<~"EOS"
     ---
     layout: post
     title: JRuby #{version} Released
@@ -193,7 +193,7 @@ def boiler_top(version, compat="3.4")=<<~"EOS"
     * Homepage: [https://www.jruby.org/](https://www.jruby.org/)
     * Download: [https://www.jruby.org/download](https://www.jruby.org/download)
 
-    JRuby #{version.split('.')[0..2].join('.')}.x targets Ruby #{compat} compatibility.
+    JRuby #{version.split('.')[0..2].join('.')}.x targets Ruby #{ruby_version} compatibility.
 
     Thank you to our contributors this release, you help keep JRuby moving forward!
 
