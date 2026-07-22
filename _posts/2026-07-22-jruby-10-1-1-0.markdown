@@ -1,0 +1,157 @@
+---
+layout: post
+title: JRuby 10.1.1.0 Released
+---
+
+The JRuby community is pleased to announce the release of JRuby 10.1.1.0.
+
+* Homepage: [https://www.jruby.org/](https://www.jruby.org/)
+* Download: [https://www.jruby.org/download](https://www.jruby.org/download)
+
+JRuby 10.1.1.x targets Ruby 3.4 compatibility.
+
+Thank you to our contributors this release, you help keep JRuby moving forward!
+
+Notable Changes
+---------------
+
+### Performance
+
+* Use [FastDoubleParser](https://github.com/wrandelshofer/FastDoubleParser) to improve performance of all string-to-double parsing. [#9150]
+* Only pack fixnum values for 16-bit signed by default, with optional 8-bit and 32-bit configs. [#9379]
+
+### Standard Library
+
+* jruby-openssl updated to 0.16.2 with several CVE fixes from BouncyCastle. [#9386], [#9504], [#9539]
+* erb updated to 6.0.1.1 to address CVE-2026-41316. [#9388]
+
+### Native Integration
+
+* Updated JRuby's native library backend with support for OpenBSD. [#9439]
+
+### Java Integration
+
+* Optimized automatic interface implementation when calling Java with a block. [#5023]
+
+### Packaging
+
+
+* Begin deprecating `jruby-complete` and `jruby-core` Maven artifacts. Prefer the `jruby` and `jruby-base` artifacts. [#9512]
+
+### 57 Issues and PRs resolved for 10.1.1.0
+
+- #5023 [excessive loading of same InterfaceImpl][#5023]
+- #8184 [remove deprecated (internal) Java code][#8184]
+- #9034 [unused variable warning for blocks][#9034]
+- #9061 [Ruby 4.0 support][#9061]
+- #9150 [Use FastDoubleParser where appropriate][#9150]
+- #9219 [True keyword arguments][#9219]
+- #9320 [Cannot run code that has large Integer in `when` clause][#9320]
+- #9375 [`instance_exec` block argument destructuring when default value passed][#9375]
+- #9376 [Fix destructuring of block argument with default value][#9376]
+- #9379 [Make fixnum packing configurable and disable ints][#9379]
+- #9381 [Shrink RubyHashLinkedBuckets][#9381]
+- #9386 [[deps] bump jruby-openssl to 0.16.0][#9386]
+- #9388 [deps(stdlib): bump erb from 6.0.1 to 6.0.1.1 to resolve CVE-2026-41316][#9388]
+- #9393 [[10.1.0.0] Java::JavaLang::IllegalArgumentException: argument type mismatch][#9393]
+- #9395 [Difference in what `caller` returns in JRuby 10.1 and Ruby 4.0][#9395]
+- #9396 [Remove Class#new from backtrace][#9396]
+- #9398 [JRuby 10.1 `circular causes` failures within nested rescue (e.g rspec's tests)][#9398]
+- #9400 [Don't warn about unused destructured block/method parameters (GH-9034)][#9400]
+- #9404 [Warn on class/const assign in condition][#9404]
+- #9405 [Marshal.load corrupts repeated object reference after Set appears earlier in payload][#9405]
+- #9407 [Refactor Kernel#raise and fix remaining specs][#9407]
+- #9408 [Fix last send_spec with correct message][#9408]
+- #9409 [Ensure core exceptions get raised with $! as cause][#9409]
+- #9410 [Fix Hash#inspect of Symbol keys with non-ASCII encoding][#9410]
+- #9417 [Checking out aws-sdk-ruby creates a file with binary data.][#9417]
+- #9418 [Fix recursive set marshal dump and load][#9418]
+- #9420 [Fix Method/UnboundMethod#original_name deep alias chains][#9420]
+- #9425 [ivarSet missing return after megamorphic fallback][#9425]
+- #9427 [regression for activerecord-jdbcsqlite3-adapter: java.lang.NoSuchMethodError: 'void org.jruby.RubyHash.<init>(org.jruby.Ruby, int)'][#9427]
+- #9435 [Fall back to standard case/when for out-of-int-range Fixnum literals (#9320)][#9435]
+- #9437 [Pathname provides differing error message from MRI in JRuby 10.1.0.0][#9437]
+- #9439 [Update jffi for aarch64 OpenBSD][#9439]
+- #9442 [Use proper error text for nulls in path name][#9442]
+- #9445 [Reject invalid $0-prefixed global variable names like $01, $0abc][#9445]
+- #9447 [Improve alias redefinition warnings][#9447]
+- #9450 [Reverse aliasing warns when it should not][#9450]
+- #9456 [Restore RubyHash(Ruby, int) for older ARJDBC versions][#9456]
+- #9459 [[fix] rename RubyHash#set(get) to avoid collision][#9459]
+- #9462 [Regression in JRuby 10.1 with Prawn][#9462]
+- #9470 [Clean up more divergent keyword logic][#9470]
+- #9473 [Shade redline to avoid conflicting with external versions][#9473]
+- #9488 [Support backtrace_locations with Java exceptions][#9488]
+- #9495 [No need to check for virtual thread API availability][#9495]
+- #9501 [Fix CALL_KEYWORD_EMPTY leaking from (...) forwards to native methods][#9501]
+- #9503 [avoid setting $! from RaiseException <init>][#9503]
+- #9504 [[deps] bump jruby-openssl to 0.16.1][#9504]
+- #9511 [Update jnr:* and asm to latest][#9511]
+- #9512 [Begin deprecating jruby-complete and jruby-core][#9512]
+- #9520 [defined?(...) in eval'd for loop fails with TypeError][#9520]
+- #9523 [Don't copy the singleton class in Proc#dup][#9523]
+- #9539 [Update jruby-openssl to 0.16.2][#9539]
+- #9540 [Merge 10.0][#9540]
+- #9541 [NoMatchingPatternError#=== doesn't match instance of NoMatchingPatternKeyError][#9541]
+- #9543 [Time.new(string, in: ...) raises TypeError on the third call at a call site (JIT only)][#9543]
+- #9545 [Add a warning for nonuniform keywords annotations][#9545]
+- #9546 [Prism backend raises wrong error for pattern key mismatch][#9546]
+- #9547 [Merge jruby-prism fix for NoPatternKeyError][#9547]
+
+[#5023]:https://github.com/jruby/jruby/issues/5023
+[#8184]:https://github.com/jruby/jruby/pull/8184
+[#9034]:https://github.com/jruby/jruby/issues/9034
+[#9061]:https://github.com/jruby/jruby/issues/9061
+[#9150]:https://github.com/jruby/jruby/pull/9150
+[#9219]:https://github.com/jruby/jruby/pull/9219
+[#9320]:https://github.com/jruby/jruby/issues/9320
+[#9375]:https://github.com/jruby/jruby/issues/9375
+[#9376]:https://github.com/jruby/jruby/pull/9376
+[#9379]:https://github.com/jruby/jruby/pull/9379
+[#9381]:https://github.com/jruby/jruby/pull/9381
+[#9386]:https://github.com/jruby/jruby/pull/9386
+[#9388]:https://github.com/jruby/jruby/pull/9388
+[#9393]:https://github.com/jruby/jruby/issues/9393
+[#9395]:https://github.com/jruby/jruby/issues/9395
+[#9396]:https://github.com/jruby/jruby/pull/9396
+[#9398]:https://github.com/jruby/jruby/issues/9398
+[#9400]:https://github.com/jruby/jruby/pull/9400
+[#9404]:https://github.com/jruby/jruby/pull/9404
+[#9405]:https://github.com/jruby/jruby/issues/9405
+[#9407]:https://github.com/jruby/jruby/pull/9407
+[#9408]:https://github.com/jruby/jruby/pull/9408
+[#9409]:https://github.com/jruby/jruby/pull/9409
+[#9410]:https://github.com/jruby/jruby/pull/9410
+[#9417]:https://github.com/jruby/jruby/issues/9417
+[#9418]:https://github.com/jruby/jruby/pull/9418
+[#9420]:https://github.com/jruby/jruby/pull/9420
+[#9425]:https://github.com/jruby/jruby/pull/9425
+[#9427]:https://github.com/jruby/jruby/issues/9427
+[#9435]:https://github.com/jruby/jruby/pull/9435
+[#9437]:https://github.com/jruby/jruby/issues/9437
+[#9439]:https://github.com/jruby/jruby/issues/9439
+[#9442]:https://github.com/jruby/jruby/pull/9442
+[#9445]:https://github.com/jruby/jruby/pull/9445
+[#9447]:https://github.com/jruby/jruby/pull/9447
+[#9450]:https://github.com/jruby/jruby/issues/9450
+[#9456]:https://github.com/jruby/jruby/pull/9456
+[#9459]:https://github.com/jruby/jruby/pull/9459
+[#9462]:https://github.com/jruby/jruby/issues/9462
+[#9470]:https://github.com/jruby/jruby/pull/9470
+[#9473]:https://github.com/jruby/jruby/pull/9473
+[#9488]:https://github.com/jruby/jruby/issues/9488
+[#9495]:https://github.com/jruby/jruby/pull/9495
+[#9501]:https://github.com/jruby/jruby/pull/9501
+[#9503]:https://github.com/jruby/jruby/pull/9503
+[#9504]:https://github.com/jruby/jruby/pull/9504
+[#9511]:https://github.com/jruby/jruby/pull/9511
+[#9512]:https://github.com/jruby/jruby/pull/9512
+[#9520]:https://github.com/jruby/jruby/issues/9520
+[#9523]:https://github.com/jruby/jruby/pull/9523
+[#9539]:https://github.com/jruby/jruby/issues/9539
+[#9540]:https://github.com/jruby/jruby/pull/9540
+[#9541]:https://github.com/jruby/jruby/issues/9541
+[#9543]:https://github.com/jruby/jruby/issues/9543
+[#9545]:https://github.com/jruby/jruby/pull/9545
+[#9546]:https://github.com/jruby/jruby/issues/9546
+[#9547]:https://github.com/jruby/jruby/pull/9547
