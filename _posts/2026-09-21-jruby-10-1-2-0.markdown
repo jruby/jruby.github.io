@@ -1,0 +1,231 @@
+---
+layout: post
+title: JRuby 10.1.2.0 Released
+---
+
+The JRuby community is pleased to announce the release of JRuby 10.1.2.0.
+
+* Homepage: [https://www.jruby.org/](https://www.jruby.org/)
+* Download: [https://www.jruby.org/download](https://www.jruby.org/download)
+
+JRuby 10.1.x targets Ruby 4.0 compatibility.
+
+Thank you to our contributors this release, you help keep JRuby moving forward! [@aminmansuri], [@drzaiusx11], [@evaniainbrooks], [@gillesbergerp], [@jcharaoui], [@jwils], [@kares], [@lloeki], [@makenowjust], [@nobu], [@sampokuokkanen], [@shugo]
+
+Notable Changes
+---------------
+
+### Compatibility
+
+* Multiple fixes for fibers and fiber scheduler support. [#9604], [#9607], [#9622], [#9645], [#9649], [#9656], [#9660]
+
+### Performance
+
+* Fixed a regression in startup time on MacOS by properly loading native JNR subsystem. [#9690]
+* Improve performance of Ruby subclasses of Java classes. [#9619], [#9557]
+* Improve performance of autoloads overridden by an actual require. [#9677]
+
+### Standard Library
+
+* Update to jar-dependencies 0.6.1 using mima for dependency resolution instead of the ruby-maven gem. [#9515], [#9720]
+* Update default and bundled standard library gems. [#9705]
+
+#### Default gems 
+
+* erb 6.0.7
+* error_highligh 0.7.2
+* ffi 1.17.4
+* io-console 0.9.4
+* ipaddr 1.2.9
+* json 2.21.2
+* net-protocol 0.4.0
+* pp 0.6.4
+* psych 5.5.0
+* resolv 0.8.0
+* strscan 3.1.8
+* syntax_suggest 3.0.0
+* timeout 0.6.1
+* win32-registry 0.1.2
+
+#### Bundled gems
+
+* bigdecimal 4.1.2 (ruby parts only)
+* csv 3.3.6
+* minitest 5.27.0
+* net-imap 0.6.7
+* nkf 0.3.0
+* pstore 0.2.1
+* rdoc 7.2.0
+* reline 0.7.0
+* resolv-replace 0.2.0
+* rss 0.3.3
+* test-unit 3.7.8
+
+### 76 Issues and PRs resolved for 10.1.2.0
+
+- #287 [Class does not inherit singleton_class's class methods][#287]
+- #6119 [shopify-api gem reporting NoMethodError: undefined method `threadsafe_attribute'][#6119]
+- #8743 [IO#wait updates for Ruby 3.2-3.4][#8743]
+- #9026 [`JRuby --help` fails if PAGER has an option][#9026]
+- #9301 [Find an alternative to shipping ruby-maven][#9301]
+- #9403 [add keyword arg support to callMethod directly][#9403]
+- #9441 [Fix original_name when two methods share a wrapper (like is_a? kind_of?)][#9441]
+- #9446 [Fix metaclass dispatch missing meta-metaclass methods][#9446]
+- #9448 [Use implementation class for protected check][#9448]
+- #9460 [Check argument definedness in defined?(receiver.method(arg))][#9460]
+- #9507 [IO::Buffer#read and #write treat length=0 as zero bytes instead of remaining buffer capacity][#9507]
+- #9515 [Switch to jar-deps based on mima][#9515]
+- #9551 [`circular causes` when re-raising an exception originally raised with the two-argument `raise Class, arg` form (regression in 10.1.1.0)][#9551]
+- #9554 [Raise fixes and additional spec permutations][#9554]
+- #9556 [Implement Proc#hash consistently with Proc#eql?][#9556]
+- #9557 [refactor and improve reification of java subclasses][#9557]
+- #9559 [dup of frozen class can't be extended][#9559]
+- #9560 [raise should re-populate exception trace set to nil][#9560]
+- #9565 [Socket address APIs return uncompressed IPv6 where Addrinfo#ip_address compresses, breaking Resolv::DNS with 2+ nameservers][#9565]
+- #9568 [`Kernel#sprintf` calls `Hash#default_proc` with incorrect args][#9568]
+- #9570 [fix dup for frozen class][#9570]
+- #9579 [JRuby can't pass `STDOUT` to child process when a different `IO` is given as `out:`][#9579]
+- #9582 [Data.define subclass fields are nil when module is included in define block][#9582]
+- #9585 [Marshaling incompatibility with cyclic objects?][#9585]
+- #9587 [`IO::Buffer#copy` and `#set_string` reject the documented source_offset fourth argument][#9587]
+- #9588 [Accept `source_offset` in `IO::Buffer#copy` and `#set_string`][#9588]
+- #9593 [Compiler gives a constant-folded ASCII String the code range CR_VALID, which breaks the `eql?` / `hash` contract][#9593]
+- #9595 [`IO#tty?` silently returns `true` for redirected stdio in embedded runtimes when `--add-opens` are missing][#9595]
+- #9599 [Kernel#require redefined inside a required file isn't seen by autoload dispatch after Kernel.prepend (CRuby 4.0 OK / JRuby 10 fails)][#9599]
+- #9600 [TracePoint does not support `fiber_switch` (Ruby 2.3+ compatibility)][#9600]
+- #9602 [FFI warning on when running jruby on OpenBSD/arm64, possible $$ issue as well][#9602]
+- #9603 [Implement :fiber_switch trace event][#9603]
+- #9604 [Fix Fiber.schedule inside a non-blocking Fiber][#9604]
+- #9607 [Fix Thread blocking count drifting across Fiber switches][#9607]
+- #9609 [No validation of unsetenv_others for Process.exec causes specs to execve() abruptly][#9609]
+- #9614 [Unreliable net-http tests][#9614]
+- #9618 [Resolve jar path if it's a symlink][#9618]
+- #9619 [refactor and improve reification of java subclasses (refactor only)][#9619]
+- #9622 [Defer Kernel#sleep to the Fiber scheduler][#9622]
+- #9626 [Handle nil-or-boolean arguments in popen kwargs][#9626]
+- #9627 [Use CRuby logic for exec][#9627]
+- #9628 [Fix IO::Buffer#read and #write, treat length=0 as remaining buffer capacity][#9628]
+- #9630 [Pass -1 for max arity when there's rest args][#9630]
+- #9631 [Eliminate all uses of unused "name" for arity errors][#9631]
+- #9634 [Report the errno that native exec actually returned][#9634]
+- #9638 [Bump bundled `resolv` default gem to 0.7.2][#9638]
+- #9640 [AppCDS usage causing sealing violations][#9640]
+- #9645 [Fix the Fiber scheduler IO path: negated errno, zero length, buffer size][#9645]
+- #9648 [Run pager commands through the platform shell][#9648]
+- #9649 [Mutex Deadlock fix: Track the fiber that owns a Mutex][#9649]
+- #9650 [Don't raise EBADF closing an IO whose channel NIO already closed][#9650]
+- #9653 [[Java 26 Leyden] AOT Cache breaks dynamic Ruby proxies for classes loaded from external JARs][#9653]
+- #9654 [Time.new(String) raises java.lang.ArrayIndexOutOfBoundsException when the string ends where a ':' is expected][#9654]
+- #9655 [NoSuchMethodError when a Ruby subclass of a Java class includes a module][#9655]
+- #9656 [Fix IO#wait arguments and return values, and defer it to Fiber.scheduler][#9656]
+- #9659 [\[ji\] resolve Java super \<init> through included modules][#9659]
+- #9660 [Fix where Fiber#transfer hands control back][#9660]
+- #9662 [Fix custom respond_to? handling: include_all, defined? lookup, deprecated signature][#9662]
+- #9665 [Data subclasses in net-imap are losing fields][#9665]
+- #9669 [jruby/vm integer messages fail on JRuby 10 due to Fixnum reference][#9669]
+- #9670 [Update tagged Data specs][#9670]
+- #9677 [Constant declared with `autoload` and then defined by a direct `require` keeps its UNDEF table slot; every later lookup re-enters LoadService (very slow inside a WAR)][#9677]
+- #9679 [Don't wrap an alias in another alias][#9679]
+- #9683 [Fix bin/* patterns in .gitignore][#9683]
+- #9685 [Fix setup sequence for cgi/escape][#9685]
+- #9690 [JFFI bad library load is a huge startup hit on MacOS][#9690]
+- #9691 [Support zero-size IO::Buffers][#9691]
+- #9695 [require "json" warns about redefined to_hash with -w in JRuby 10.1.1.0][#9695]
+- #9696 [Set the aliased flag on the real method, not the wrapper][#9696]
+- #9697 [ObjectSpace::WeakMap is double-weak in CRuby][#9697]
+- #9701 [Allow specifying AppCDS cache location and use safer default][#9701]
+- #9703 [`Redis::ConnectionError` with JRuby 10][#9703]
+- #9705 [Update stdlib][#9705]
+- #9709 [Additional stdlib updates][#9709]
+- #9719 [IO#accept raises NullPointerException instead of IOError when the socket is closed concurrently][#9719]
+- #9720 [Update jar-dependencies to 0.6.1][#9720]
+
+[#287]:https://github.com/jruby/jruby/issues/287
+[#6119]:https://github.com/jruby/jruby/issues/6119
+[#8743]:https://github.com/jruby/jruby/issues/8743
+[#9026]:https://github.com/jruby/jruby/issues/9026
+[#9301]:https://github.com/jruby/jruby/issues/9301
+[#9403]:https://github.com/jruby/jruby/pull/9403
+[#9441]:https://github.com/jruby/jruby/pull/9441
+[#9446]:https://github.com/jruby/jruby/pull/9446
+[#9448]:https://github.com/jruby/jruby/pull/9448
+[#9460]:https://github.com/jruby/jruby/pull/9460
+[#9507]:https://github.com/jruby/jruby/issues/9507
+[#9515]:https://github.com/jruby/jruby/pull/9515
+[#9551]:https://github.com/jruby/jruby/issues/9551
+[#9554]:https://github.com/jruby/jruby/pull/9554
+[#9556]:https://github.com/jruby/jruby/pull/9556
+[#9557]:https://github.com/jruby/jruby/pull/9557
+[#9559]:https://github.com/jruby/jruby/issues/9559
+[#9560]:https://github.com/jruby/jruby/issues/9560
+[#9565]:https://github.com/jruby/jruby/issues/9565
+[#9568]:https://github.com/jruby/jruby/issues/9568
+[#9570]:https://github.com/jruby/jruby/pull/9570
+[#9579]:https://github.com/jruby/jruby/issues/9579
+[#9582]:https://github.com/jruby/jruby/issues/9582
+[#9585]:https://github.com/jruby/jruby/issues/9585
+[#9587]:https://github.com/jruby/jruby/issues/9587
+[#9588]:https://github.com/jruby/jruby/pull/9588
+[#9593]:https://github.com/jruby/jruby/issues/9593
+[#9595]:https://github.com/jruby/jruby/issues/9595
+[#9599]:https://github.com/jruby/jruby/issues/9599
+[#9600]:https://github.com/jruby/jruby/issues/9600
+[#9602]:https://github.com/jruby/jruby/issues/9602
+[#9603]:https://github.com/jruby/jruby/pull/9603
+[#9604]:https://github.com/jruby/jruby/pull/9604
+[#9607]:https://github.com/jruby/jruby/pull/9607
+[#9609]:https://github.com/jruby/jruby/issues/9609
+[#9614]:https://github.com/jruby/jruby/issues/9614
+[#9618]:https://github.com/jruby/jruby/pull/9618
+[#9619]:https://github.com/jruby/jruby/pull/9619
+[#9622]:https://github.com/jruby/jruby/pull/9622
+[#9626]:https://github.com/jruby/jruby/pull/9626
+[#9627]:https://github.com/jruby/jruby/pull/9627
+[#9628]:https://github.com/jruby/jruby/pull/9628
+[#9630]:https://github.com/jruby/jruby/pull/9630
+[#9631]:https://github.com/jruby/jruby/pull/9631
+[#9634]:https://github.com/jruby/jruby/pull/9634
+[#9638]:https://github.com/jruby/jruby/issues/9638
+[#9640]:https://github.com/jruby/jruby/issues/9640
+[#9645]:https://github.com/jruby/jruby/pull/9645
+[#9648]:https://github.com/jruby/jruby/pull/9648
+[#9649]:https://github.com/jruby/jruby/pull/9649
+[#9650]:https://github.com/jruby/jruby/pull/9650
+[#9653]:https://github.com/jruby/jruby/issues/9653
+[#9654]:https://github.com/jruby/jruby/issues/9654
+[#9655]:https://github.com/jruby/jruby/issues/9655
+[#9656]:https://github.com/jruby/jruby/pull/9656
+[#9659]:https://github.com/jruby/jruby/pull/9659
+[#9660]:https://github.com/jruby/jruby/pull/9660
+[#9662]:https://github.com/jruby/jruby/pull/9662
+[#9665]:https://github.com/jruby/jruby/issues/9665
+[#9669]:https://github.com/jruby/jruby/issues/9669
+[#9670]:https://github.com/jruby/jruby/pull/9670
+[#9677]:https://github.com/jruby/jruby/issues/9677
+[#9679]:https://github.com/jruby/jruby/pull/9679
+[#9683]:https://github.com/jruby/jruby/pull/9683
+[#9685]:https://github.com/jruby/jruby/pull/9685
+[#9690]:https://github.com/jruby/jruby/issues/9690
+[#9691]:https://github.com/jruby/jruby/pull/9691
+[#9695]:https://github.com/jruby/jruby/issues/9695
+[#9696]:https://github.com/jruby/jruby/pull/9696
+[#9697]:https://github.com/jruby/jruby/issues/9697
+[#9701]:https://github.com/jruby/jruby/issues/9701
+[#9703]:https://github.com/jruby/jruby/issues/9703
+[#9705]:https://github.com/jruby/jruby/pull/9705
+[#9709]:https://github.com/jruby/jruby/pull/9709
+[#9719]:https://github.com/jruby/jruby/issues/9719
+[#9720]:https://github.com/jruby/jruby/pull/9720
+
+[@aminmansuri]:(https://github.com/aminmansuri)
+[@drzaiusx11]:(https://github.com/drzaiusx11)
+[@evaniainbrooks]:(https://github.com/evaniainbrooks)
+[@gillesbergerp]:(https://github.com/gillesbergerp)
+[@jcharaoui]:(https://github.com/jcharaoui)
+[@jwils]:(https://github.com/jwils)
+[@kares]:(https://github.com/kares)
+[@lloeki]:(https://github.com/lloeki)
+[@makenowjust]:(https://github.com/makenowjust)
+[@nobu]:(https://github.com/nobu)
+[@sampokuokkanen]:(https://github.com/sampokuokkanen)
+[@shugo]:(https://github.com/shugo)
