@@ -1,0 +1,149 @@
+---
+layout: post
+title: JRuby 10.0.7.0 Released
+---
+
+The JRuby community is pleased to announce the release of JRuby 10.0.7.0.
+
+* Homepage: [https://www.jruby.org/](https://www.jruby.org/)
+* Download: [https://www.jruby.org/download](https://www.jruby.org/download)
+
+JRuby 10.0.x targets Ruby 3.4 compatibility.
+
+Thank you to our contributors this release, you help keep JRuby moving forward! [@aminmansuri], [@evaniainbrooks], [@gillesbergerp], [@jwils], [@kares], [@lloeki]
+
+Notable Changes
+---------------
+
+### Performance
+
+* Fixed a regression in startup time on MacOS by properly loading native JNR subsystem. [#9688], [#9689]
+* Improve performance of autoloads overridden by an actual require. [#9677], [#9675]
+
+### Java Integration
+
+* The location of the AppCDS JSA file can now be specified with JRUBY_JSA_HOME. [#9667]
+
+### Standard Library
+
+### Default gems
+
+* jruby-openssl 0.16.2 [#9538], [#9561]
+* resolv 0.7.2 [#9637], [#9641]
+
+### 53 Issues and PRs resolved for 10.0.7.0
+
+- #8456 [ObjectSpace::WeakMap is double-weak in CRuby][#8456]
+- #8786 [`Redis::ConnectionError` with JRuby 10][#8786]
+- #9319 [[Java 26 Leyden] AOT Cache breaks dynamic Ruby proxies for classes loaded from external JARs][#9319]
+- #9327 [Data.define subclass fields are nil when module is included in define block][#9327]
+- #9491 [defined?(...) in eval'd for loop fails with TypeError][#9491]
+- #9498 [jruby/vm integer messages fail on JRuby 10 due to Fixnum reference][#9498]
+- #9499 [Use Integer for JRuby VM messages][#9499]
+- #9519 [Also set up the current module when in a for body][#9519]
+- #9525 [Marshaling incompatibility with cyclic objects?][#9525]
+- #9528 [raise should re-populate exception trace set to nil][#9528]
+- #9529 [starttls test in net-imap hangs the suite][#9529]
+- #9530 [Data subclasses in net-imap are losing fields][#9530]
+- #9531 [Time.new(string, in: ...) raises TypeError on the third call at a call site (JIT only)][#9531]
+- #9537 [NoMatchingPatternError#=== doesn't match instance of NoMatchingPatternKeyError][#9537]
+- #9538 [Update jruby-openssl to 0.16.2][#9538]
+- #9542 [Fix inheritance of NoMatchingPatternKeyError][#9542]
+- #9544 [Ensure uniform keywords flags in native method annotations][#9544]
+- #9548 [[fix] re-raising exception with nil backtrace][#9548]
+- #9550 [Socket address APIs return uncompressed IPv6 where Addrinfo#ip_address compresses, breaking Resolv::DNS with 2+ nameservers][#9550]
+- #9553 [FFI warning on when running jruby on OpenBSD/arm64, possible $$ issue as well][#9553]
+- #9558 [`Kernel#sprintf` calls `Hash#default_proc` with incorrect args][#9558]
+- #9561 [JRuby-openssl 0.16.2 not included in `10.0` series][#9561]
+- #9562 [fix Data.define subclass fields are nil when module is included in define block][#9562]
+- #9564 [Use SocketUtilsV6.getIPV6Address to normalize IPv6 here][#9564]
+- #9567 [Pass correct args for Hash#default_proc][#9567]
+- #9577 [JRuby can't pass `STDOUT` to child process when a different `IO` is given as `out:`][#9577]
+- #9578 [Fix spawn dup ordering][#9578]
+- #9586 [Register the "Hash" symbol when writing identity hash][#9586]
+- #9589 [Kernel#require redefined inside a required file isn't seen by autoload dispatch after Kernel.prepend (CRuby 4.0 OK / JRuby 10 fails)][#9589]
+- #9590 [`IO#tty?` silently returns `true` for redirected stdio in embedded runtimes when `--add-opens` are missing][#9590]
+- #9591 [Compiler gives a constant-folded ASCII String the code range CR_VALID, which breaks the `eql?` / `hash` contract][#9591]
+- #9592 [Scan the code range when folding a compound string][#9592]
+- #9594 [More accurate TTY checking for IO][#9594]
+- #9598 [Invalidate prepended origin module as well as subclasses][#9598]
+- #9601 [Update JNR dependencies for jnr-release 1.2][#9601]
+- #9608 [AppCDS usage causing sealing violations][#9608]
+- #9623 [Time.new(String) raises java.lang.ArrayIndexOutOfBoundsException when the string ends where a ':' is expected][#9623]
+- #9624 [Fix out-of-bounds read building Time.new parse errors][#9624]
+- #9625 [Read unnamed modules of the loaders JRuby loads Java classes from][#9625]
+- #9637 [Bump bundled `resolv` default gem to 0.7.2][#9637]
+- #9639 [Resolve jar path if it's a symlink][#9639]
+- #9641 [Update resolv to 0.7.2][#9641]
+- #9661 [Report a failed non-blocking connect through select and SO_ERROR (#8786)][#9661]
+- #9663 [Set up Data subclass metaclass correctly][#9663]
+- #9667 [Allow specifying AppCDS cache location and use safer default][#9667]
+- #9674 [Constant declared with `autoload` and then defined by a direct `require` keeps its UNDEF table slot; every later lookup re-enters LoadService (very slow inside a WAR)][#9674]
+- #9675 [Release the autoload claim when Autoload#load has nothing to load][#9675]
+- #9687 [Hold ObjectSpace::WeakMap keys weakly, by identity][#9687]
+- #9688 [JFFI bad library load is a huge startup hit on MacOS][#9688]
+- #9689 [Update JFFI to get the startup library fix][#9689]
+- #9698 [Allow configuring the home location for JSA files][#9698]
+- #9714 [IO#accept raises NullPointerException instead of IOError when the socket is closed concurrently][#9714]
+- #9716 [Raise IOError, not NullPointerException, when an IO is closed during accept][#9716]
+
+[#8456]:https://github.com/jruby/jruby/issues/8456
+[#8786]:https://github.com/jruby/jruby/issues/8786
+[#9319]:https://github.com/jruby/jruby/issues/9319
+[#9327]:https://github.com/jruby/jruby/issues/9327
+[#9491]:https://github.com/jruby/jruby/issues/9491
+[#9498]:https://github.com/jruby/jruby/issues/9498
+[#9499]:https://github.com/jruby/jruby/pull/9499
+[#9519]:https://github.com/jruby/jruby/pull/9519
+[#9525]:https://github.com/jruby/jruby/issues/9525
+[#9528]:https://github.com/jruby/jruby/issues/9528
+[#9529]:https://github.com/jruby/jruby/issues/9529
+[#9530]:https://github.com/jruby/jruby/issues/9530
+[#9531]:https://github.com/jruby/jruby/issues/9531
+[#9537]:https://github.com/jruby/jruby/issues/9537
+[#9538]:https://github.com/jruby/jruby/pull/9538
+[#9542]:https://github.com/jruby/jruby/pull/9542
+[#9544]:https://github.com/jruby/jruby/pull/9544
+[#9548]:https://github.com/jruby/jruby/pull/9548
+[#9550]:https://github.com/jruby/jruby/issues/9550
+[#9553]:https://github.com/jruby/jruby/issues/9553
+[#9558]:https://github.com/jruby/jruby/issues/9558
+[#9561]:https://github.com/jruby/jruby/issues/9561
+[#9562]:https://github.com/jruby/jruby/pull/9562
+[#9564]:https://github.com/jruby/jruby/pull/9564
+[#9567]:https://github.com/jruby/jruby/pull/9567
+[#9577]:https://github.com/jruby/jruby/issues/9577
+[#9578]:https://github.com/jruby/jruby/pull/9578
+[#9586]:https://github.com/jruby/jruby/pull/9586
+[#9589]:https://github.com/jruby/jruby/issues/9589
+[#9590]:https://github.com/jruby/jruby/issues/9590
+[#9591]:https://github.com/jruby/jruby/issues/9591
+[#9592]:https://github.com/jruby/jruby/pull/9592
+[#9594]:https://github.com/jruby/jruby/pull/9594
+[#9598]:https://github.com/jruby/jruby/pull/9598
+[#9601]:https://github.com/jruby/jruby/pull/9601
+[#9608]:https://github.com/jruby/jruby/issues/9608
+[#9623]:https://github.com/jruby/jruby/issues/9623
+[#9624]:https://github.com/jruby/jruby/pull/9624
+[#9625]:https://github.com/jruby/jruby/pull/9625
+[#9637]:https://github.com/jruby/jruby/issues/9637
+[#9639]:https://github.com/jruby/jruby/pull/9639
+[#9641]:https://github.com/jruby/jruby/pull/9641
+[#9661]:https://github.com/jruby/jruby/pull/9661
+[#9663]:https://github.com/jruby/jruby/pull/9663
+[#9667]:https://github.com/jruby/jruby/issues/9667
+[#9674]:https://github.com/jruby/jruby/issues/9674
+[#9675]:https://github.com/jruby/jruby/pull/9675
+[#9687]:https://github.com/jruby/jruby/pull/9687
+[#9688]:https://github.com/jruby/jruby/issues/9688
+[#9689]:https://github.com/jruby/jruby/pull/9689
+[#9698]:https://github.com/jruby/jruby/pull/9698
+[#9714]:https://github.com/jruby/jruby/issues/9714
+[#9716]:https://github.com/jruby/jruby/pull/9716
+
+[@aminmansuri]:(https://github.com/aminmansuri)
+[@evaniainbrooks]:(https://github.com/evaniainbrooks)
+[@gillesbergerp]:(https://github.com/gillesbergerp)
+[@jwils]:(https://github.com/jwils)
+[@kares]:(https://github.com/kares)
+[@lloeki]:(https://github.com/lloeki)
