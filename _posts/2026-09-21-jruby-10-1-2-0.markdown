@@ -25,6 +25,10 @@ Notable Changes
 * Improve performance of Ruby subclasses of Java classes. [#9619], [#9557]
 * Improve performance of autoloads overridden by an actual require. [#9677]
 
+### Java Integration
+
+* The location of the AppCDS JSA file can now be specified with JRUBY_JSA_HOME. [#9667]
+
 ### Standard Library
 
 * Update to jar-dependencies 0.6.1 using mima for dependency resolution instead of the ruby-maven gem. [#9515], [#9720]
@@ -37,6 +41,7 @@ Notable Changes
 * ffi 1.17.4
 * io-console 0.9.4
 * ipaddr 1.2.9
+* jruby-openssl 0.16.2
 * json 2.21.2
 * net-protocol 0.4.0
 * pp 0.6.4
@@ -122,6 +127,7 @@ Notable Changes
 - #9660 [Fix where Fiber#transfer hands control back][#9660]
 - #9662 [Fix custom respond_to? handling: include_all, defined? lookup, deprecated signature][#9662]
 - #9665 [Data subclasses in net-imap are losing fields][#9665]
+- #9667 [Allow specifying AppCDS cache location and use safer default][#9667]
 - #9669 [jruby/vm integer messages fail on JRuby 10 due to Fixnum reference][#9669]
 - #9670 [Update tagged Data specs][#9670]
 - #9677 [Constant declared with `autoload` and then defined by a direct `require` keeps its UNDEF table slot; every later lookup re-enters LoadService (very slow inside a WAR)][#9677]
