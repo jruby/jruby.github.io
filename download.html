@@ -1,89 +1,66 @@
 ---
-layout: main
+layout: default
 title: Downloads
 ---
-<h1 id='jruby_downloads'>JRuby Downloads</h1>
+<div class="content-page">
+  <h1>Download JRuby</h1>
 
-<div class="release-card release-card--current">
-<h2 id='current_release_jruby'>Current Release: JRuby 10.1.2.0</h2>
+  <p>JRuby is available in several packaging formats. Choose the latest stable release for new projects.</p>
 
-<p>JRuby 10.1.2.0 is our point release of our Ruby 4.0 support. Please check out our <a href='/2026/09/21/jruby-10-1-2-0'>release notes</a> for more information.</p>
+  {% for release in site.releases %}
+  {% assign v = release.version %}
+  {% assign w = v | replace: ".", "_" %}
+  {% assign dist = site.urls.maven | append: "/jruby-dist/" | append: v | append: "/jruby-dist-" | append: v %}
+  {% assign ghr = site.urls.ghr | append: "/" | append: v | append: "/jruby_windows_" %}
+  {% assign post_title = "JRuby " | append: v | append: " Released" %}
+  {% assign post = site.posts | where: "title", post_title | first %}
+  <div class="release-section">
+    <div class="release-header">
+      <h2>JRuby {{ v }}</h2>
+      {% if forloop.first %}
+        <span class="release-badge">Latest</span>
+      {% endif %}
+      <span class="release-meta">Ruby {{ release.ruby_version }} &bull; {{ post.date | date: "%B %-d, %Y" }}</span>
+    </div>
+    <div class="release-body">
+      <p class="release-description">{{ release.description }} <a href="{{ post.url }}">Release notes &rarr;</a></p>
+      <table class="download-table">
+        <thead>
+          <tr>
+            <th>Package</th>
+            <th>Size</th>
+            <th>Checksum</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% assign u = dist | append: "-bin.tar.gz" %}{% include download_row.html label="Binary (tar.gz)" url=u size=release.sizes.tar sha256=true %}
+          {% assign u = dist | append: "-bin.zip" %}{% include download_row.html label="Binary (zip)" url=u size=release.sizes.zip sha256=true %}
+          {% assign u = ghr | append: "x64_" | append: w | append: ".exe" %}{% include download_row.html label="Windows Installer (x64)" url=u size=release.sizes.exe64 %}
+          {% assign u = ghr | append: w | append: ".exe" %}{% include download_row.html label="Windows Installer" url=u size=release.sizes.exe %}
+          {% assign u = dist | append: "-src.zip" %}{% include download_row.html label="Source (zip)" url=u size=release.sizes.src sha256=true %}
+          {% assign u = site.urls.maven | append: "/jruby-complete/" | append: v | append: "/jruby-complete-" | append: v | append: ".jar" %}{% include download_row.html label="Complete JAR" url=u size=release.sizes.jar sha256=true %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+  {% endfor %}
 
-<p class="trackDownloads">
-<a href='{{ site.urls.maven }}/jruby-dist/10.1.2.0/jruby-dist-10.1.2.0-bin.tar.gz'>JRuby 10.1.2.0 Binary .tar.gz</a>
-(<a href='{{ site.urls.maven }}/jruby-dist/10.1.2.0/jruby-dist-10.1.2.0-bin.tar.gz.md5'>md5</a>, <a href='{{ site.urls.maven }}/jruby-dist/10.1.2.0/jruby-dist-10.1.2.0-bin.tar.gz.sha1'>sha1</a>, <a href='{{ site.urls.maven }}/jruby-dist/10.1.2.0/jruby-dist-10.1.2.0-bin.tar.gz.sha256'>sha256</a>)<br />
-<a href='{{ site.urls.maven }}/jruby-dist/10.1.2.0/jruby-dist-10.1.2.0-bin.zip'>JRuby 10.1.2.0 Binary .zip</a>
-(<a href='{{ site.urls.maven }}/jruby-dist/10.1.2.0/jruby-dist-10.1.2.0-bin.zip.md5'>md5</a>, <a href='{{ site.urls.maven }}/jruby-dist/10.1.2.0/jruby-dist-10.1.2.0-bin.zip.sha1'>sha1</a>, <a href='{{ site.urls.maven }}/jruby-dist/10.1.2.0/jruby-dist-10.1.2.0-bin.zip.sha256'>sha256</a> )<br />
-<a href='{{ site.urls.ghr }}/10.1.2.0/jruby_windows_10_1_2_0.exe'>JRuby 10.1.2.0 Windows Executable</a>
-(<a href='{{ site.urls.ghr }}/10.1.2.0/jruby_windows_10_1_2_0.exe.md5'>md5</a>, <a href='{{ site.urls.ghr }}/10.1.2.0/jruby_windows_10_1_2_0.exe.sha1'>sha1</a>, <a href='{{ site.urls.ghr }}/10.1.2.0/jruby_windows_10_1_2_0.exe.sha256'>sha256</a>)<br />
-<a href='{{ site.urls.ghr }}/10.1.2.0/jruby_windows_x64_10_1_2_0.exe'>JRuby 10.1.2.0 Windows Executable (x64)</a>
-(<a href='{{ site.urls.ghr }}/10.1.2.0/jruby_windows_x64_10_1_2_0.exe.md5'>md5</a>, <a href='{{ site.urls.ghr }}/10.1.2.0/jruby_windows_x64_10_1_2_0.exe.sha1'>sha1</a>, <a href='{{ site.urls.ghr }}/10.1.2.0/jruby_windows_x64_10_1_2_0.exe.sha256'>sha256</a>)<br />
-<!-- we do not push source tarballs to maven yet
-<a href='{{ site.urls.maven }}/jruby-dist/10.1.2.0/jruby-dist-10.1.2.0-src.tar.gz'>JRuby 10.1.2.0 Source .tar.gz</a>
-(<a href='{{ site.urls.maven }}/jruby-dist/10.1.2.0/jruby-dist-10.1.2.0-src.tar.gz.md5'>md5</a>, <a href='{{ site.urls.maven }}/jruby-dist/10.1.2.0/jruby-dist-10.1.2.0-src.tar.gz.sha1'>sha1</a>, <a href='{{ site.urls.maven }}/jruby-dist/10.1.2.0/jruby-dist-10.1.2.0-src.tar.gz.sha256'>sha256</a>)<br />
--->
-<a href='{{ site.urls.maven }}/jruby-dist/10.1.2.0/jruby-dist-10.1.2.0-src.zip'>JRuby 10.1.2.0 Source .zip</a>
-(<a href='{{ site.urls.maven }}/jruby-dist/10.1.2.0/jruby-dist-10.1.2.0-src.zip.md5'>md5</a>, <a href='{{ site.urls.maven }}/jruby-dist/10.1.2.0/jruby-dist-10.1.2.0-src.zip.sha1'>sha1</a>, <a href='{{ site.urls.maven }}/jruby-dist/10.1.2.0/jruby-dist-10.1.2.0-src.zip.sha256'>sha256</a>)<br />
-<a href='{{ site.urls.maven }}/jruby-complete/10.1.2.0/jruby-complete-10.1.2.0.jar'>JRuby 10.1.2.0 Complete .jar</a>
-(<a href='{{ site.urls.maven }}/jruby-complete/10.1.2.0/jruby-complete-10.1.2.0.jar.md5'>md5</a>, <a href='{{ site.urls.maven }}/jruby-complete/10.1.2.0/jruby-complete-10.1.2.0.jar.sha1'>sha1</a>, <a href='{{ site.urls.maven }}/jruby-complete/10.1.2.0/jruby-complete-10.1.2.0.jar.sha256'>sha256</a>)<br />
-<a href='{{ site.release.gem }}'>JRuby-jars 10.1.2.0.gem</a><br />
-</p>
+  <h2>Nightly Builds</h2>
+  <p>Nightly snapshots are available for testing upcoming features. See the <a href="/nightly">nightly builds page</a> for details.</p>
+
+  <h2>Archived Releases</h2>
+  <p>All historical JRuby releases are listed in the <a href="/files/downloads/index.html">release archive</a> and available on <a href="{{ site.urls.maven }}" target="_blank" rel="noopener">Maven Central</a>.</p>
+
+  <h2>Other Installation Methods</h2>
+
+  <h3>RVM</h3>
+  <pre><code>rvm install jruby</code></pre>
+
+  <h3>rbenv + ruby-build</h3>
+  <pre><code>rbenv install jruby-{{ site.release.version }}</code></pre>
+
+  <h3>Homebrew (macOS)</h3>
+  <pre><code>brew install jruby</code></pre>
+
+  <p>See <a href="{{ site.urls.wiki }}/JRubyDistributions" target="_blank" rel="noopener">JRuby Distributions</a> on the wiki for OS packages and other options.</p>
 </div>
-
-<div class="release-card">
-<p>JRuby 10.0.7.0 is our point release of our Ruby 3.4.x support. Please check out our <a href='/2026/09/21/jruby-10-0-7-0'>release notes</a> for more information.</p>
-
-<p class="trackDownloads">
-<a href='{{ site.urls.maven }}/jruby-dist/10.0.7.0/jruby-dist-10.0.7.0-bin.tar.gz'>JRuby 10.0.7.0 Binary .tar.gz</a>
-(<a href='{{ site.urls.maven }}/jruby-dist/10.0.7.0/jruby-dist-10.0.7.0-bin.tar.gz.md5'>md5</a>, <a href='{{ site.urls.maven }}/jruby-dist/10.0.7.0/jruby-dist-10.0.7.0-bin.tar.gz.sha1'>sha1</a>, <a href='{{ site.urls.maven }}/jruby-dist/10.0.7.0/jruby-dist-10.0.7.0-bin.tar.gz.sha256'>sha256</a>)<br />
-<a href='{{ site.urls.maven }}/jruby-dist/10.0.7.0/jruby-dist-10.0.7.0-bin.zip'>JRuby 10.0.7.0 Binary .zip</a>
-(<a href='{{ site.urls.maven }}/jruby-dist/10.0.7.0/jruby-dist-10.0.7.0-bin.zip.md5'>md5</a>, <a href='{{ site.urls.maven }}/jruby-dist/10.0.7.0/jruby-dist-10.0.7.0-bin.zip.sha1'>sha1</a>, <a href='{{ site.urls.maven }}/jruby-dist/10.0.7.0/jruby-dist-10.0.7.0-bin.zip.sha256'>sha256</a> )<br />
-<a href='{{ site.urls.ghr }}/10.0.7.0/jruby_windows_10_0_7_0.exe'>JRuby 10.0.7.0 Windows Executable</a>
-(<a href='{{ site.urls.ghr }}/10.0.7.0/jruby_windows_10_0_7_0.exe.md5'>md5</a>, <a href='{{ site.urls.ghr }}/10.0.7.0/jruby_windows_10_0_7_0.exe.sha1'>sha1</a>, <a href='{{ site.urls.ghr }}/10.0.7.0/jruby_windows_10_0_7_0.exe.sha256'>sha256</a>)<br />
-<a href='{{ site.urls.ghr }}/10.0.7.0/jruby_windows_x64_10_0_7_0.exe'>JRuby 10.0.7.0 Windows Executable (x64)</a>
-(<a href='{{ site.urls.ghr }}/10.0.7.0/jruby_windows_x64_10_0_7_0.exe.md5'>md5</a>, <a href='{{ site.urls.ghr }}/10.0.7.0/jruby_windows_x64_10_0_7_0.exe.sha1'>sha1</a>, <a href='{{ site.urls.ghr }}/10.0.7.0/jruby_windows_x64_10_0_7_0.exe.sha256'>sha256</a>)<br />
-<!-- we do not push source tarballs to maven yet
-<a href='{{ site.urls.maven }}/jruby-dist/10.0.7.0/jruby-dist-10.0.7.0-src.tar.gz'>JRuby 10.0.7.0 Source .tar.gz</a>
-(<a href='{{ site.urls.maven }}/jruby-dist/10.0.7.0/jruby-dist-10.0.7.0-src.tar.gz.md5'>md5</a>, <a href='{{ site.urls.maven }}/jruby-dist/10.0.7.0/jruby-dist-10.0.7.0-src.tar.gz.sha1'>sha1</a>, <a href='{{ site.urls.maven }}/jruby-dist/10.0.7.0/jruby-dist-10.0.7.0-src.tar.gz.sha256'>sha256</a>)<br />
--->
-<a href='{{ site.urls.maven }}/jruby-dist/10.0.7.0/jruby-dist-10.0.7.0-src.zip'>JRuby 10.0.7.0 Source .zip</a>
-(<a href='{{ site.urls.maven }}/jruby-dist/10.0.7.0/jruby-dist-10.0.7.0-src.zip.md5'>md5</a>, <a href='{{ site.urls.maven }}/jruby-dist/10.0.7.0/jruby-dist-10.0.7.0-src.zip.sha1'>sha1</a>, <a href='{{ site.urls.maven }}/jruby-dist/10.0.7.0/jruby-dist-10.0.7.0-src.zip.sha256'>sha256</a>)<br />
-<a href='{{ site.urls.maven }}/jruby-complete/10.0.7.0/jruby-complete-10.0.7.0.jar'>JRuby 10.0.7.0 Complete .jar</a>
-(<a href='{{ site.urls.maven }}/jruby-complete/10.0.7.0/jruby-complete-10.0.7.0.jar.md5'>md5</a>, <a href='{{ site.urls.maven }}/jruby-complete/10.0.7.0/jruby-complete-10.0.7.0.jar.sha1'>sha1</a>, <a href='{{ site.urls.maven }}/jruby-complete/10.0.7.0/jruby-complete-10.0.7.0.jar.sha256'>sha256</a>)<br />
-<a href='{{ site.release.gem }}'>JRuby-jars 10.0.7.0.gem</a><br />
-</p>
-</div>
-
-<div class="release-card">
-<p>JRuby 9.4.15.0 is our point release of our Ruby 3.1.x support. Please check out our <a href='/2026/06/08/jruby-9-4-15-0'>release notes</a> for more information.</p>
-
-<p class="trackDownloads">
-<a href='{{ site.urls.maven }}/jruby-dist/9.4.15.0/jruby-dist-9.4.15.0-bin.tar.gz'>JRuby 9.4.15.0 Binary .tar.gz</a>
-(<a href='{{ site.urls.maven }}/jruby-dist/9.4.15.0/jruby-dist-9.4.15.0-bin.tar.gz.md5'>md5</a>, <a href='{{ site.urls.maven }}/jruby-dist/9.4.15.0/jruby-dist-9.4.15.0-bin.tar.gz.sha1'>sha1</a>, <a href='{{ site.urls.maven }}/jruby-dist/9.4.15.0/jruby-dist-9.4.15.0-bin.tar.gz.sha256'>sha256</a>)<br />
-<a href='{{ site.urls.maven }}/jruby-dist/9.4.15.0/jruby-dist-9.4.15.0-bin.zip'>JRuby 9.4.15.0 Binary .zip</a>
-(<a href='{{ site.urls.maven }}/jruby-dist/9.4.15.0/jruby-dist-9.4.15.0-bin.zip.md5'>md5</a>, <a href='{{ site.urls.maven }}/jruby-dist/9.4.15.0/jruby-dist-9.4.15.0-bin.zip.sha1'>sha1</a>, <a href='{{ site.urls.maven }}/jruby-dist/9.4.15.0/jruby-dist-9.4.15.0-bin.zip.sha256'>sha256</a> )<br />
-<a href='{{ site.urls.ghr }}/9.4.15.0/jruby_windows_9_4_15_0.exe'>JRuby 9.4.15.0 Windows Executable</a>
-(<a href='{{ site.urls.ghr }}/9.4.15.0/jruby_windows_9_4_15_0.exe.md5'>md5</a>, <a href='{{ site.urls.ghr }}/9.4.15.0/jruby_windows_9_4_15_0.exe.sha1'>sha1</a>, <a href='{{ site.urls.ghr }}/9.4.15.0/jruby_windows_9_4_15_0.exe.sha256'>sha256</a>)<br />
-<a href='{{ site.urls.ghr }}/9.4.15.0/jruby_windows_x64_9_4_15_0.exe'>JRuby 9.4.15.0 Windows Executable (x64)</a>
-(<a href='{{ site.urls.ghr }}/9.4.15.0/jruby_windows_x64_9_4_15_0.exe.md5'>md5</a>, <a href='{{ site.urls.ghr }}/9.4.15.0/jruby_windows_x64_9_4_15_0.exe.sha1'>sha1</a>, <a href='{{ site.urls.ghr }}/9.4.15.0/jruby_windows_x64_9_4_15_0.exe.sha256'>sha256</a>)<br />
-<!-- we do not push source tarballs to maven yet
-<a href='{{ site.urls.maven }}/jruby-dist/9.4.15.0/jruby-dist-9.4.15.0-src.tar.gz'>JRuby 9.4.15.0 Source .<tar.gz</a>
-(<a href='{{ site.urls.maven }}/jruby-dist/9.4.15.0/jruby-dist-9.4.15.0-src.tar.gz.md5'>md5</a>, <a href='{{ site.urls.maven }}/jruby-dist/9.4.15.0/jruby-dist-9.4.15.0-src.tar.gz.sha1'>sha1</a>, <a href='{{ site.urls.maven }}/jruby-dist/9.4.15.0/jruby-dist-9.4.15.0-src.tar.gz.sha256'>sha256</a>)<br />
--->
-<a href='{{ site.urls.maven }}/jruby-dist/9.4.15.0/jruby-dist-9.4.15.0-src.zip'>JRuby 9.4.15.0 Source .zip</a>
-(<a href='{{ site.urls.maven }}/jruby-dist/9.4.15.0/jruby-dist-9.4.15.0-src.zip.md5'>md5</a>, <a href='{{ site.urls.maven }}/jruby-dist/9.4.15.0/jruby-dist-9.4.15.0-src.zip.sha1'>sha1</a>, <a href='{{ site.urls.maven }}/jruby-dist/9.4.15.0/jruby-dist-9.4.15.0-src.zip.sha256'>sha256</a>)<br />
-<a href='{{ site.urls.maven }}/jruby-complete/9.4.15.0/jruby-complete-9.4.15.0.jar'>JRuby 9.4.15.0 Complete .jar</a>
-(<a href='{{ site.urls.maven }}/jruby-complete/9.4.15.0/jruby-complete-9.4.15.0.jar.md5'>md5</a>, <a href='{{ site.urls.maven }}/jruby-complete/9.4.15.0/jruby-complete-9.4.15.0.jar.sha1'>sha1</a>, <a href='{{ site.urls.maven }}/jruby-complete/9.4.15.0/jruby-complete-9.4.15.0.jar.sha256'>sha256</a>)<br />
-<a href='{{ site.release.gem_older }}'>JRuby-jars 9.4.15.0.gem</a><br />
-</p>
-</div>
-
-<h2 id='nightly_builds'>Nightly Builds</h2>
-<p class="trackDownloads">
-<a href='/nightly'>Nightly builds of stable (10.0.x) and development (10.1.x)</a>
-</p>
-
-<h2 id='previous_release_all'>All Previous Releases</h2>
-<p class="trackDownloads">
-<a href="/files/downloads/index.html">All Releases</a>
-</p>

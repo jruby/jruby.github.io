@@ -1,18 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  {% include head.html %}
-</head>
-<body>
-  {% include menu.html %}
-  <main>
-    {% include banner.html %}
-    {% include release.html %}
-    <div class="content-page">
-      {{ content }}
-    </div>
-  </main>
-  {% include footer.html %}
-  {% include tracking.html %}
-</body>
-</html>
+---
+layout: default
+---
+<div class="content-page">
+{{ content }}
+</div>

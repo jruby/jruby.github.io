@@ -1,60 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   {% include head.html %}
   <meta name="description" content="JRuby is a high performance, stable, fully threaded Java implementation of the Ruby programming language." />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@idotj/mastodon-embed-timeline@4.4.2/dist/mastodon-timeline.min.css" integrity="sha256-1UGgxsonaMCfOEnVOL89aMKSo3GEAmaRP0ISbsWa6lU=" crossorigin="anonymous" />
 </head>
 <body class="home">
   {% include menu.html %}
+  {{ content }}
   <main>
-    {{ content }}
-
-    <section class="home-columns">
-      <div class="latest-news">
-        <h2>Recent News <a href="/atom.xml"><img src="/images/rss.png" alt="RSS" width="14" height="14"></a></h2>
-        {% assign post = site.posts.first %}
+    <div class="home-columns">
+      <section class="latest-news">
+        <h2>Latest News</h2>
+        {% for post in site.posts limit:5 %}
         <div class="news-item">
           <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
-          <p class="news-excerpt">{{ post.content | strip_html | truncate: 280 }}</p>
-          <p><a href="{{ post.url }}"><i>more&hellip;</i></a></p>
+          <p class="news-date">{{ post.date | date: "%B %-d, %Y" }}</p>
+          <p class="news-excerpt">{{ post.excerpt | strip_html | truncatewords: 35 }}</p>
         </div>
+        {% endfor %}
+        <p><a href="/news">All releases and news &rarr;</a></p>
+      </section>
 
-        <h3>Awards</h3>
-        <div class="news-item">
-          <a href="http://www.infoworld.com/d/open-source/bossie-awards-2010-the-best-open-source-application-development-software-140?source=rs">
-            <img src="/images/award-bossie2010.png" alt="InfoWorld 2010 Bossie Awards - Best of Open Source Software" width="120">
-            <h4>InfoWorld 2010 Bossie Awards: Best of Open Source Software</h4>
-          </a>
-          <p class="news-excerpt">InfoWorld's Best of Open Source Software Awards, chosen annually by Test Center editors and reviewers, recognize the best open source software for developers, IT organizations, and the business users they serve.</p>
+      <aside class="quick-links">
+        <h2>Quick Links</h2>
+        <ul>
+          <li><a href="/download">Download {{ site.release.version }}</a></li>
+          <li><a href="/getting-started">Getting Started</a></li>
+          <li><a href="{{ site.urls.wiki }}" target="_blank" rel="noopener">JRuby Wiki</a></li>
+          <li><a href="/documentation">Docs &amp; API</a></li>
+          <li><a href="/community">Community</a></li>
+          <li><a href="/contribute">Contribute</a></li>
+          <li><a href="/security">Security</a></li>
+          <li><a href="/nightly">Nightly Builds</a></li>
+          <li><a href="https://blog.jruby.org" target="_blank" rel="noopener">JRuby Team Blog</a></li>
+        </ul>
+        <div style="margin-top:1.5rem; padding:1rem; background:#fff0f5; border-radius:6px; border:1px solid #ffc0d0;">
+          <strong style="font-size:0.85rem; color:#c41e3a;">InfoWorld Bossie Award</strong>
+          <p style="font-size:0.82rem; color:#555; margin:0.25rem 0 0;">"Best of Open Source Software" — JRuby recognised for bringing Ruby's expressive power to the JVM.</p>
         </div>
-      </div>
-
-      <div class="quick-links">
-        <h2>Recent Toots <a href="https://ruby.social/@JRuby"><img src="/images/mastodon-logo-purple.svg" width="16" height="16" alt="Mastodon"></a></h2>
-        <div id="mt-container" class="mt-container">
-          <div class="mt-body" role="feed">
-            <div class="mt-loading-spinner"></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <p class="awards-row">Historical releases hosted by <a href="https://www.engineyard.com/"><img alt="Engine Yard" src="https://www.engineyard.com/wp-content/uploads/2021/10/Engine-Yard-Logo-4.svg" style="width: 140px; height: auto; vertical-align: middle;"></a></p>
+      </aside>
+    </div>
   </main>
   {% include footer.html %}
-
-  <script src="https://cdn.jsdelivr.net/npm/@idotj/mastodon-embed-timeline@4.4.2/dist/mastodon-timeline.umd.js" integrity="sha256-E6WPG6iq+qQIzvu3HPJJxoAeRdum5siq13x4ITjyxu8=" crossorigin="anonymous"></script>
-  <script>
-    const myTimeline = new MastodonTimeline.Init({
-      instanceUrl: "https://ruby.social",
-      timelineType: "profile",
-      userId: "109306378143906411",
-      profileName: "@jruby",
-      maxNbPostShow: 1,
-      hideCounterBar: true
-    });
-  </script>
   {% include tracking.html %}
 </body>
 </html>

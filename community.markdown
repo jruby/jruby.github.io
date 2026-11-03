@@ -12,7 +12,7 @@ JRuby has a large and active community. Here are the best ways to get in touch a
 <div class="community-card">
   <h3>&#x1F4AC; Chat</h3>
   <p>For quick, interactive help or just to hang out, join the official JRuby Matrix room.</p>
-  <a href="https://matrix.to/#/#jruby:matrix.org" class="card-link" target="_blank" rel="noopener">Join the Matrix Room &rarr;</a>
+  <a href="{{ site.urls.matrix }}" class="card-link" target="_blank" rel="noopener">Join the Matrix Room &rarr;</a>
 </div>
 
 <div class="community-card">
@@ -36,19 +36,13 @@ JRuby has a large and active community. Here are the best ways to get in touch a
 <div class="community-card">
   <h3>&#x1F4F0; Blogs</h3>
   <p>Release announcements, articles, and insights from the JRuby team and community.</p>
-  <a href="/blogs" class="card-link">JRuby Bloggers &rarr;</a>
-</div>
-
-<div class="community-card">
-  <h3>&#x1F426; Twitter</h3>
-  <p>Follow the JRuby team and project account for announcements and updates.</p>
-  <a href="/twitter" class="card-link">JRuby on Twitter &rarr;</a>
+  <a href="{{ '/blogs' | relative_url }}" class="card-link">JRuby Bloggers &rarr;</a>
 </div>
 
 <div class="community-card">
   <h3>&#x1F528; Nightly Builds</h3>
   <p>Test the latest development builds and help find bugs before release.</p>
-  <a href="/nightly" class="card-link">Nightly Builds &rarr;</a>
+  <a href="{{ '/nightly' | relative_url }}" class="card-link">Nightly Builds &rarr;</a>
 </div>
 
 </div>
@@ -60,4 +54,4 @@ JRuby's source code is hosted on GitHub and we welcome contributions of all kind
 * **Browse**: [github.com/jruby/jruby]({{ site.urls.github }})
 * **Clone**: `git clone https://github.com/jruby/jruby.git`
 
-See the [Contribute](/contribute) page for more details on getting started.
+See the [Contribute]({{ '/contribute' | relative_url }}) page for more details on getting started.

@@ -24,5 +24,23 @@ urls:
   wiki: https://github.com/jruby/jruby/wiki
   lists: https://github.com/jruby/jruby/wiki/MailingLists
   github: https://github.com/jruby/jruby
+  matrix: "https://matrix.to/#/#jruby:matrix.org"
 team_email: team@jruby.org
 domain: www.jruby.org
+
+# Drives download.html. rake's change_versions_in rewrites the versions here on
+# release; dates and release-notes links come from the matching post. Sizes are
+# approximate and are not updated automatically.
+releases:
+  - version: "10.1.2.0"
+    ruby_version: "4.0"
+    description: "Our latest point release of Ruby 4.0 support."
+    sizes: { tar: "~46MB", zip: "~51MB", exe64: "~107MB", exe: "~106MB", src: "~13MB", jar: "~46MB" }
+  - version: "10.0.7.0"
+    ruby_version: "3.4"
+    description: "Stable Ruby 3.4 support release."
+    sizes: { tar: "~36MB", zip: "~42MB", exe64: "~86MB", exe: "~86MB", src: "~15MB", jar: "~36MB" }
+  - version: "9.4.15.0"
+    ruby_version: "3.1"
+    description: "Latest Ruby 3.1 maintenance release."
+    sizes: { tar: "~31MB", zip: "~32MB", exe64: "~64MB", exe: "~64MB", src: "~13MB", jar: "~33MB" }

@@ -161,11 +161,6 @@ pre {
   text-decoration: none;
 }
 
-.nav-links li.on a {
-  background: rgba(255,255,255,0.12);
-  color: #fff;
-}
-
 .nav-hamburger {
   display: none;
   flex-direction: column;
@@ -204,6 +199,14 @@ pre {
   margin: 0 0 0.5rem;
   color: #fff;
   letter-spacing: -1px;
+}
+
+.hero-logo {
+  display: block;
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+  margin: 0 auto;
 }
 
 .hero p.tagline {
@@ -260,68 +263,6 @@ pre {
   background: rgba(255,255,255,0.1);
   border-color: rgba(255,255,255,0.7);
   color: #fff;
-  text-decoration: none;
-}
-
-/* ─── Page banner (main/post layouts) ─── */
-.page-banner {
-  background: linear-gradient(135deg, var(--jruby-dark) 0%, var(--jruby-dark-soft) 100%);
-  padding: 2.5rem 1.5rem 1.5rem;
-  text-align: center;
-  color: #fff;
-  --pico-color: #fff;
-}
-
-.page-banner h1 {
-  font-size: clamp(1.75rem, 4vw, 2.5rem);
-  font-weight: 800;
-  margin: 0 0 0.4rem;
-  color: #fff;
-  letter-spacing: -1px;
-}
-
-.page-banner-tagline {
-  font-size: 1rem;
-  color: rgba(255,255,255,0.9);
-  margin: 0;
-}
-
-.release-widget {
-  background: linear-gradient(135deg, var(--jruby-dark) 0%, var(--jruby-dark-soft) 100%);
-  padding: 0 1.5rem 1.75rem;
-  text-align: center;
-  color: #fff;
-  --pico-color: #fff;
-}
-
-.release-widget-label {
-  margin: 0 0 0.6rem;
-  font-size: 0.95rem;
-  color: rgba(255,255,255,0.9);
-}
-
-.release-widget-links {
-  display: flex;
-  list-style: none;
-  justify-content: center;
-  gap: 0.6rem;
-  margin: 0;
-  padding: 0;
-}
-
-.release-widget-links a {
-  display: inline-block;
-  background: rgba(255,255,255,0.12);
-  color: #fff;
-  padding: 0.35rem 0.9rem;
-  border-radius: 4px;
-  font-size: 0.85rem;
-  font-weight: 600;
-  text-decoration: none;
-}
-
-.release-widget-links a:hover {
-  background: rgba(255,255,255,0.22);
   text-decoration: none;
 }
 
@@ -541,26 +482,6 @@ pre {
 
 .quick-links a:hover {
   color: var(--jruby-red);
-}
-
-/* ─── Download page release cards ─── */
-.release-card {
-  border: 1px solid #e5e5e5;
-  border-radius: 8px;
-  padding: 1.25rem 1.5rem;
-  margin-bottom: 1.5rem;
-}
-
-.release-card--current {
-  border-color: var(--jruby-red);
-}
-
-.release-card .trackDownloads {
-  line-height: 2;
-}
-
-.release-card .trackDownloads a {
-  font-weight: 500;
 }
 
 /* ─── Download page ─── */
