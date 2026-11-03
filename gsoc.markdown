@@ -18,7 +18,7 @@ expect of students and mentors.
 Ideas
 -----
 
-[Ideas for JRuby's GSoC]((https://github.com/jruby/jruby/wiki/Google-Summer-of-Code-2013) fall into a few categories:
+[Ideas for JRuby's GSoC](https://github.com/jruby/jruby/wiki/Google-Summer-of-Code-2013) fall into a few categories:
 
 * Working on JRuby itself
 

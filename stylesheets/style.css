@@ -201,6 +201,12 @@ pre {
   letter-spacing: -1px;
 }
 
+.nav-logo {
+  display: block;
+  width: auto;
+  height: 34px;
+}
+
 .hero-logo {
   display: block;
   width: 100%;
@@ -886,6 +892,19 @@ pre {
 }
 
 @media (max-width: 768px) {
+  /* Keep long commands and wide tables from stretching the page on phones */
+  .content-page code,
+  .post-content code {
+    overflow-wrap: anywhere;
+  }
+
+  .content-page table:not(.download-table),
+  .post-content table {
+    display: block;
+    max-width: 100%;
+    overflow-x: auto;
+  }
+
   .features {
     grid-template-columns: 1fr 1fr;
     padding: 1.5rem;
