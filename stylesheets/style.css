@@ -845,7 +845,8 @@ pre {
 }
 
 /* ─── Responsive ─── */
-@media (max-width: 768px) {
+/* The nav no longer fits on one line below this width */
+@media (max-width: 960px) {
   .nav-hamburger {
     display: flex;
   }
@@ -882,7 +883,9 @@ pre {
   .site-header {
     position: relative;
   }
+}
 
+@media (max-width: 768px) {
   .features {
     grid-template-columns: 1fr 1fr;
     padding: 1.5rem;
