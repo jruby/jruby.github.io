@@ -27,6 +27,8 @@ urls:
   matrix: "https://matrix.to/#/#jruby:matrix.org"
 team_email: team@jruby.org
 domain: www.jruby.org
+tagline: The Ruby Programming Language on the JVM
+description: JRuby is a high performance, stable, fully threaded Java implementation of the Ruby programming language.
 
 # Drives download.html. rake's change_versions_in rewrites the versions here on
 # release; dates and release-notes links come from the matching post. Sizes are

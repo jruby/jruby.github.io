@@ -1,6 +1,7 @@
 ---
 layout: main
 title: Contributing to JRuby
+description: "Help improve JRuby: get the source, build it, report bugs, and submit code."
 ---
 
 # Contributing to JRuby

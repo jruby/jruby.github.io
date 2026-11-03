@@ -1,6 +1,7 @@
 ---
 layout: main
 title: Security
+description: "How to report JRuby security vulnerabilities, and a list of known issues."
 ---
 
 # Security

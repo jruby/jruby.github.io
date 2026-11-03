@@ -1,6 +1,7 @@
 ---
 layout: main
 title: Connect with the JRuby Community
+description: "Get help and get involved with JRuby through chat, mailing lists, the issue tracker, and more."
 ---
 
 # Connect with the JRuby Community

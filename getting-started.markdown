@@ -1,6 +1,7 @@
 ---
 layout: main
 title: Getting Started
+description: "Install JRuby and run your first program in a few steps, on any platform with a JVM."
 ---
 
 # Getting Started with JRuby

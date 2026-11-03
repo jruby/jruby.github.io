@@ -1,6 +1,7 @@
 ---
 layout: main
 title: Documentation
+description: "JRuby API docs, articles, and the community wiki."
 ---
 
 # Docs and Articles

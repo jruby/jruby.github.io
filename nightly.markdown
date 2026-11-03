@@ -1,6 +1,7 @@
 ---
 layout: main
 title: Nightly Builds
+description: "Download nightly JRuby snapshots to test upcoming features."
 ---
 # Nightly Builds
 

@@ -1,6 +1,7 @@
 ---
 layout: main
 title: Chat
+description: "Chat with the JRuby team and community on Matrix or IRC."
 ---
 
 # Chat with the JRuby Community

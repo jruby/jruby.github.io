@@ -1,6 +1,7 @@
 ---
 layout: main
 title: JRuby Bloggers
+description: "Read blogs from the JRuby team and its contributors."
 ---
 
 # Blogging about JRuby
