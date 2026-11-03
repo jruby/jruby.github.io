@@ -1,11 +1,27 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ page.title }} &mdash; JRuby.org</title>
-  {%- assign share_title = page.title -%}
+  {%- assign page_title = page.title -%}
+  {%- assign page_description = page.description -%}
+  {%- if page.url contains "/files/downloads/" -%}
+    {%- if page.title == "Files/downloads" -%}
+      {%- assign page_title = "All JRuby Releases" -%}
+      {%- assign page_description = "Download files and checksums for every JRuby release." -%}
+    {%- else -%}
+      {%- assign release_name = page.title | replace: "Files/downloads/", "JRuby " -%}
+      {%- assign page_title = release_name | append: " Downloads" -%}
+      {%- assign page_description = "Download files and checksums for " | append: release_name | append: "." -%}
+    {%- endif -%}
+  {%- endif -%}
+  {%- assign share_title = page_title -%}
   {%- if page.layout == "home" -%}{%- assign share_title = "JRuby: " | append: site.tagline -%}{%- endif -%}
   {%- unless share_title contains "JRuby" -%}{%- assign share_title = share_title | append: " | JRuby" -%}{%- endunless -%}
-  {%- assign share_description = page.description | default: page.excerpt | default: site.description | strip_html | strip_newlines | strip | truncate: 200 | escape -%}
+  {%- assign share_description = page_description | default: page.excerpt | default: site.description | strip_html | strip_newlines | strip | truncate: 200 | escape -%}
   {%- assign share_url = "https://" | append: site.domain | append: page.url | replace: "index.html", "" | replace: ".html", "" %}
+  {%- if page.layout == "home" %}
+  <title>{{ share_title | escape }}</title>
+  {%- else %}
+  <title>{{ page_title | escape }} &mdash; JRuby.org</title>
+  {%- endif %}
   <meta name="description" content="{{ share_description }}">
   {%- unless page.url == "/404.html" %}
   <link rel="canonical" href="{{ share_url }}">
@@ -28,6 +44,11 @@
   {%- endif %}
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@jruby">
+  {%- if page.layout == "home" %}
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"JRuby","url":"https://{{ site.domain }}/","description":{{ site.description | jsonify }},"applicationCategory":"DeveloperApplication","operatingSystem":"Any platform with a Java Virtual Machine","softwareVersion":{{ site.release.version | jsonify }},"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+  {%- elsif page.layout == "post" %}
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":{{ page.title | jsonify }},"description":{{ share_description | jsonify }},"datePublished":{{ page.date | date_to_xmlschema | jsonify }},"url":{{ share_url | jsonify }},"image":"https://{{ site.domain }}/images/og-image.png","author":{"@type":"Organization","name":"The JRuby Team"},"publisher":{"@type":"Organization","name":"JRuby","url":"https://{{ site.domain }}/"}}</script>
+  {%- endif %}
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">

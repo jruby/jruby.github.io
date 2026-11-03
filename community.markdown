@@ -11,37 +11,37 @@ JRuby has a large and active community. Here are the best ways to get in touch a
 <div class="community-grid">
 
 <div class="community-card">
-  <h3>&#x1F4AC; Chat</h3>
+  <h2>&#x1F4AC; Chat</h2>
   <p>For quick, interactive help or just to hang out, join the official JRuby Matrix room.</p>
   <a href="{{ site.urls.matrix }}" class="card-link" target="_blank" rel="noopener">Join the Matrix Room &rarr;</a>
 </div>
 
 <div class="community-card">
-  <h3>&#x1F4EC; Mailing Lists</h3>
+  <h2>&#x1F4EC; Mailing Lists</h2>
   <p>Discussion lists for users and developers. A great place for longer-form questions and announcements.</p>
   <a href="{{ site.urls.wiki }}/MailingLists" class="card-link" target="_blank" rel="noopener">View Mailing Lists &rarr;</a>
 </div>
 
 <div class="community-card">
-  <h3>&#x1F41B; Issue Tracker</h3>
+  <h2>&#x1F41B; Issue Tracker</h2>
   <p>Report bugs, request features, or browse the backlog on GitHub Issues.</p>
   <a href="{{ site.urls.bugs }}" class="card-link" target="_blank" rel="noopener">GitHub Issues &rarr;</a>
 </div>
 
 <div class="community-card">
-  <h3>&#x1F4D6; Wiki</h3>
+  <h2>&#x1F4D6; Wiki</h2>
   <p>User-editable documentation covering setup, compatibility, tips, and more.</p>
   <a href="{{ site.urls.wiki }}" class="card-link" target="_blank" rel="noopener">JRuby Wiki &rarr;</a>
 </div>
 
 <div class="community-card">
-  <h3>&#x1F4F0; Blogs</h3>
+  <h2>&#x1F4F0; Blogs</h2>
   <p>Release announcements, articles, and insights from the JRuby team and community.</p>
   <a href="{{ '/blogs' | relative_url }}" class="card-link">JRuby Bloggers &rarr;</a>
 </div>
 
 <div class="community-card">
-  <h3>&#x1F528; Nightly Builds</h3>
+  <h2>&#x1F528; Nightly Builds</h2>
   <p>Test the latest development builds and help find bugs before release.</p>
   <a href="{{ '/nightly' | relative_url }}" class="card-link">Nightly Builds &rarr;</a>
 </div>

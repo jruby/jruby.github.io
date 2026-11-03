@@ -5,14 +5,14 @@
 </head>
 <body class="home">
   {% include menu.html %}
+  <div role="main" id="main-content" tabindex="-1">
   {{ content }}
-  <main>
     <div class="home-columns">
       <section class="latest-news">
         <h2>Latest News</h2>
         {% for post in site.posts limit:5 %}
         <div class="news-item">
-          <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
+          <h3><a href="{{ post.url | replace: ".html", "" }}">{{ post.title }}</a></h3>
           <p class="news-date">{{ post.date | date: "%B %-d, %Y" }}</p>
           <p class="news-excerpt">{{ post.excerpt | strip_html | truncatewords: 35 }}</p>
         </div>
@@ -20,7 +20,7 @@
         <p><a href="/news">All releases and news &rarr;</a></p>
       </section>
 
-      <aside class="quick-links">
+      <aside class="quick-links" role="region" aria-label="Quick links">
         <h2>Quick Links</h2>
         <ul>
           <li><a href="/download">Download {{ site.release.version }}</a></li>
@@ -39,7 +39,7 @@
         </div>
       </aside>
     </div>
-  </main>
+  </div>
   {% include footer.html %}
   {% include tracking.html %}
 </body>

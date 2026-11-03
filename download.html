@@ -24,7 +24,7 @@ description: "Download the latest JRuby releases: binaries, Windows installers, 
       <span class="release-meta">Ruby {{ release.ruby_version }} &bull; {{ post.date | date: "%B %-d, %Y" }}</span>
     </div>
     <div class="release-body">
-      <p class="release-description">{{ release.description }} <a href="{{ post.url }}">Release notes &rarr;</a></p>
+      <p class="release-description">{{ release.description }} <a href="{{ post.url | replace: ".html", "" }}">Release notes &rarr;</a></p>
       <table class="download-table">
         <thead>
           <tr>
@@ -50,7 +50,7 @@ description: "Download the latest JRuby releases: binaries, Windows installers, 
   <p>Nightly snapshots are available for testing upcoming features. See the <a href="/nightly">nightly builds page</a> for details.</p>
 
   <h2>Archived Releases</h2>
-  <p>All historical JRuby releases are listed in the <a href="/files/downloads/index.html">release archive</a> and available on <a href="{{ site.urls.maven }}" target="_blank" rel="noopener">Maven Central</a>.</p>
+  <p>All historical JRuby releases are listed in the <a href="/files/downloads/">release archive</a> and available on <a href="{{ site.urls.maven }}" target="_blank" rel="noopener">Maven Central</a>.</p>
 
   <h2>Other Installation Methods</h2>
 

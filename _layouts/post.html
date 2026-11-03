@@ -9,7 +9,11 @@ layout: default
     </p>
   </header>
   <div class="post-content">
-    {{ content }}
+    {%- assign body = content -%}
+    {%- unless body contains "<h2" -%}
+      {%- assign body = body | replace: "<h3", '<h2 class="as-h3"' | replace: "</h3>", "</h2>" | replace: "<h4", "<h3" | replace: "</h4>", "</h3>" -%}
+    {%- endunless %}
+    {{ body }}
   </div>
   <footer class="post-footer">
     <p><a href="/news">&larr; All releases</a></p>

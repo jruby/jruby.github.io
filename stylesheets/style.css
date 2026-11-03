@@ -180,7 +180,7 @@ pre {
 }
 
 /* Mobile nav open state */
-.nav-toggle:checked ~ .site-header .nav-links {
+.nav-toggle:checked ~ .nav-links {
   display: flex;
 }
 
@@ -199,6 +199,39 @@ pre {
   margin: 0 0 0.5rem;
   color: #fff;
   letter-spacing: -1px;
+}
+
+.skip-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 300;
+  padding: 0.75rem 1rem;
+  background: #fff;
+  color: var(--jruby-dark);
+  font-weight: 700;
+  transform: translateY(-100%);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+#main-content:focus {
+  outline: none;
+}
+
+.brand-link:focus-visible,
+.nav-toggle:focus-visible ~ .nav-brand .nav-hamburger {
+  outline: 2px solid #fff;
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+#main-content pre:focus-visible,
+#main-content table:focus-visible {
+  outline: 2px solid var(--jruby-red);
+  outline-offset: 2px;
 }
 
 .nav-logo {
@@ -601,7 +634,8 @@ pre {
   padding-bottom: 1rem;
 }
 
-.post-content h3 {
+.post-content h3,
+.post-content h2.as-h3 {
   font-size: 1rem;
   font-weight: 700;
   color: var(--jruby-dark);
@@ -624,7 +658,7 @@ pre {
 }
 
 /* ─── News index ─── */
-.news-index h2 {
+.news-index h1 {
   font-size: 1.9rem;
   color: var(--jruby-dark);
   margin-bottom: 0.25rem;
@@ -812,7 +846,7 @@ pre {
   padding: 1.25rem;
 }
 
-.community-card h3 {
+.community-card h2 {
   font-size: 1rem;
   font-weight: 700;
   color: var(--jruby-dark);
@@ -853,6 +887,16 @@ pre {
 /* ─── Responsive ─── */
 /* The nav no longer fits on one line below this width */
 @media (max-width: 960px) {
+  /* Visually hidden but still keyboard operable; the label handles pointer input */
+  .nav-toggle {
+    display: block;
+    top: 8px;
+    left: 8px;
+    width: 44px;
+    height: 44px;
+    margin: 0;
+  }
+
   .nav-hamburger {
     display: flex;
   }

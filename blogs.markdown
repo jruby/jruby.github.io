@@ -6,11 +6,11 @@ description: "Read blogs from the JRuby team and its contributors."
 
 # Blogging about JRuby
 
-### JRuby Team
+## JRuby Team
 
 **[The JRuby Team Blog](https://blog.jruby.org/)** &mdash; Release announcements, news, conference dates, and other information go out through the JRuby Team Blog.
 
-### Team Members
+## Team Members
 
 Most of the JRuby team have blogs, as do many community members. Here's a listing of blogs you may want to check out.
 

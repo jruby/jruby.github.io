@@ -4,14 +4,14 @@ title: News
 description: "JRuby release announcements and project updates."
 ---
 <div class="content-page news-index">
-  <h2>JRuby News</h2>
+  <h1>JRuby News</h1>
   <p>Release announcements and project updates. <a href="/atom.xml">Atom Feed &rarr;</a></p>
 
   <div class="news-list">
     {% for post in site.posts %}
     <div class="news-list-item">
       <span class="news-list-date">{{ post.date | date: "%b %-d, %Y" }}</span>
-      <span class="news-list-title"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></span>
+      <span class="news-list-title"><a href="{{ post.url | replace: ".html", "" }}">{{ post.title }}</a></span>
     </div>
     {% endfor %}
   </div>

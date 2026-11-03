@@ -5,10 +5,11 @@
 </head>
 <body>
   {% include menu.html %}
-  <main>
+  <main id="main-content" tabindex="-1">
     {{ content }}
   </main>
   {% include footer.html %}
+  {% include scrollable.html %}
   {% include tracking.html %}
 </body>
 </html>

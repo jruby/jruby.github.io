@@ -1,0 +1,13 @@
+<script>
+  // Scrolling code blocks and tables need a tab stop so keyboard users can scroll them.
+  (function () {
+    function update() {
+      document.querySelectorAll("#main-content pre, #main-content table").forEach(function (el) {
+        if (el.scrollWidth > el.clientWidth) el.tabIndex = 0;
+        else el.removeAttribute("tabindex");
+      });
+    }
+    update();
+    addEventListener("resize", update);
+  })();
+</script>

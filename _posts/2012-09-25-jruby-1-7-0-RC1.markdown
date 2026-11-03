@@ -15,7 +15,7 @@ JRuby 1.7 is the first JRuby to support the new "invokedynamic" feature of the J
 
 Please, please, please test your applications against 1.7.0.RC1.  We want to make 1.7.0 a rock solid release and your contribution is extremely helpful.
 
-### Notable Changes:
+## Notable Changes:
 
 - 1\.9\.3 is now our default runtime mode (--1.8 is needed for 1.8.7 support)
 - Many 1.9.x compatibility fixes
@@ -23,10 +23,10 @@ Please, please, please test your applications against 1.7.0.RC1.  We want to mak
 - Improvements and fixes to Java integration
 - 113 issues resolved
 
-### Issues resolved:
+## Issues resolved:
 
-<h2>        Bug
-</h2>
+<h3>        Bug
+</h3>
 <ul>
 <li>[<a href='http://jira.codehaus.org/browse/JRUBY-3622'>JRUBY-3622</a>] -         newInstance and getDeclaredConstructor fail to respect class overridden in JRuby
 </li>
@@ -196,8 +196,8 @@ Please, please, please test your applications against 1.7.0.RC1.  We want to mak
 </li>
 </ul>
             
-<h2>        Improvement
-</h2>
+<h3>        Improvement
+</h3>
 <ul>
 <li>[<a href='http://jira.codehaus.org/browse/JRUBY-5380'>JRUBY-5380</a>] -         Use Hotspot-specific features for calculating CPU time when available
 </li>
@@ -213,8 +213,8 @@ Please, please, please test your applications against 1.7.0.RC1.  We want to mak
 </li>
 </ul>
     
-<h2>        New Feature
-</h2>
+<h3>        New Feature
+</h3>
 <ul>
 <li>[<a href='http://jira.codehaus.org/browse/JRUBY-4670'>JRUBY-4670</a>] -         Plug ruby2java java2ruby marshalling
 </li>
@@ -224,21 +224,21 @@ Please, please, please test your applications against 1.7.0.RC1.  We want to mak
 </li>
 </ul>
         
-<h2>        Task
-</h2>
+<h3>        Task
+</h3>
 <ul>
 <li>[<a href='http://jira.codehaus.org/browse/JRUBY-6466'>JRUBY-6466</a>] -         externalize build_lib dependencies
 </li>
 </ul>
     
-<h2>        Test
-</h2>
+<h3>        Test
+</h3>
 <ul>
 <li>[<a href='http://jira.codehaus.org/browse/JRUBY-6873'>JRUBY-6873</a>] -         jruby-1.7.0.preview2 much slower jruby-1.6.3 (192s vs.60s)
 </li>
 </ul>
 
-<h2>Github Issues</h2>
+<h3>Github Issues</h3>
 
 - #307 Specs for DirectedGraph Library
 - #306 removed snapshot in versions

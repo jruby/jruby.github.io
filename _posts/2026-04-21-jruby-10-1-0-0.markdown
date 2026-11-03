@@ -13,7 +13,7 @@ JRuby 10.1.0.x targets Ruby 4.0 compatibility.
 Thank you to our contributors this release, you help keep JRuby moving forward!
 
 JRuby 10.1: Experimenting and Evolving
-======================================
+--------------------------------------
 
 JRuby 10.1.0.0 is our first major release since catching up with Ruby compatibility. We have used this opportunity to explore many experimental optimizations and improvements we have been chasing for many years. Ruby 4.0 compatibility is largely complete, but there will be additional features added in update releases. We also plan to continue with large scale experiments in subsequent updates, and recommend production users continue to use JRuby 10.0 while we work toward stabilization of the 10.1 series.
 
