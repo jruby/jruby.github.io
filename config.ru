@@ -10,7 +10,9 @@ require 'rack/file'
 ### This section copied from bin/jekyll file
 require 'jekyll'
 
-options = Jekyll.configuration({})
+# PREVIEW_DOMAIN points absolute URLs, such as link preview images, at a tunnel
+overrides = ENV['PREVIEW_DOMAIN'] ? { 'domain' => ENV['PREVIEW_DOMAIN'] } : {}
+options = Jekyll.configuration(overrides)
 source      = options['source']
 destination = options['destination']
 
@@ -75,5 +77,7 @@ class DotHtmlRewriter
 end
 
 puts "Server running on http://localhost:9292"
+# GitHub Pages compresses responses in production; match that locally
+use Rack::Deflater
 use DotHtmlRewriter, "#{destination}/404.html"
 run Rack::File.new(destination)
