@@ -1,13 +1,29 @@
 ---
 layout: main
-title: Chat with the JRuby Community
+title: Chat
+description: "Chat with the JRuby team and community on Matrix or IRC."
 ---
-# JRuby on Matrix
 
-Most of the JRuby team and much of the community hangs out on Matrix, and we welcome everyone to join us!
+# Chat with the JRuby Community
 
-To join, visit the [Matrix #jruby room](https://matrix.to/#/#jruby:matrix.org) and select a client that suits you. The
-[Matrix #jruby logs](https://view.matrix.org/alias/%23jruby:matrix.org) are also publically readable.
+If you want quick, interactive help or just want to hang out, feel free to stop by!
 
-The Matrix room also bridges to the #jruby channel on [Libera IRC](https://libera.chat).
+## Matrix (Primary)
 
+The official JRuby community room is on [Matrix](https://matrix.org/):
+
+- **Room**: [#jruby:matrix.org]({{ site.urls.matrix }})
+- Any Matrix client will work — [Element](https://element.io/) is a popular choice.
+
+## IRC Bridge
+
+The Matrix room is bridged to IRC for those who prefer it:
+
+- **Server**: `irc.libera.chat`
+- **Channel**: `#jruby`
+
+## Tips
+
+- Don't ask to ask — just ask your question directly.
+- Include error messages and relevant code when asking for help.
+- Be patient — community members are in different time zones.

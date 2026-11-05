@@ -1,0 +1,5 @@
+<tr>
+  <td><a href="{{ include.url }}">{{ include.label }}</a></td>
+  <td>{{ include.size }}</td>
+  <td>{% if include.sha256 %}<a href="{{ include.url }}.sha256" class="checksum-link">SHA256</a>{% endif %}</td>
+</tr>

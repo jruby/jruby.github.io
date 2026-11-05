@@ -95,7 +95,7 @@ title: Files/downloads/#{version}
 ---
 <h1>Files/downloads/#{version}</h1>
 <p class="trackDownloads">
-  <a href='/files/downloads/index.html'>..</a><br/>
+  <a href='/files/downloads/'>..</a><br/>
   <a href='https://repo1.maven.org/maven2/org/jruby/jruby-dist/#{version}/jruby-dist-#{version}-bin.tar.gz'>jruby-bin-#{version}.tar.gz</a><br/>
   <a href='https://repo1.maven.org/maven2/org/jruby/jruby-dist/#{version}/jruby-dist-#{version}-bin.tar.gz.md5'>jruby-bin-#{version}.tar.gz.md5</a><br/>
   <a href='https://repo1.maven.org/maven2/org/jruby/jruby-dist/#{version}/jruby-dist-#{version}-bin.tar.gz.sha1'>jruby-bin-#{version}.tar.gz.sha1</a><br/>
@@ -130,7 +130,7 @@ EOS
   index_file = "#{downloads_dir}/index.html"
   contents = File.read(index_file)
   contents.gsub! /<!-- NEW_VERSION -->/, <<"EOS"
-  <a href='/files/downloads/#{version}/index.html'>#{version}</a><br/>
+  <a href='/files/downloads/#{version}/'>#{version}</a><br/>
   <!-- NEW_VERSION -->
 EOS
                  

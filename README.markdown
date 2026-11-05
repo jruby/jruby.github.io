@@ -24,6 +24,9 @@ The site is generated with Jekyll, and while you can use the regular
    It also emulates Jekyll's `--auto` mode so that files are refreshed
    as you save changes to them.
 
+   To test link previews through a tunnel such as ngrok, set its hostname:
+   `PREVIEW_DOMAIN=example.ngrok-free.app rake server`
+
 # Contributing
 
 If you wish to contribute content updates for jruby.org, please fork,

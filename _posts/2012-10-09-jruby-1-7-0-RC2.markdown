@@ -15,10 +15,10 @@ JRuby 1.7 is the first JRuby to support the new "invokedynamic" feature of the J
 
 Please, please, please test your applications against 1.7.0.RC2.  We want to make 1.7.0 a rock solid release and your contribution is extremely helpful.
 
-### Issues resolved:
+## Issues resolved:
 
-<h2>        Bug
-</h2>
+<h3>        Bug
+</h3>
 <ul>
 <li>[<a href='https://jira.codehaus.org/browse/JRUBY-5732'>JRUBY-5732</a>] -         Error with selector: java.nio.channels.ClosedChannelException
 </li>
@@ -40,8 +40,8 @@ Please, please, please test your applications against 1.7.0.RC2.  We want to mak
 </li>
 </ul>
             
-<h2>        Improvement
-</h2>
+<h3>        Improvement
+</h3>
 <ul>
 <li>[<a href='https://jira.codehaus.org/browse/JRUBY-5451'>JRUBY-5451</a>] -         Unessesary late error message when subclassing a packaged class with no public constructors. 
 </li>
@@ -49,7 +49,7 @@ Please, please, please test your applications against 1.7.0.RC2.  We want to mak
 </li>
 </ul>
 
-### Github Issues resolved: 
+## Github Issues resolved: 
 
 - #337: Fix indentation in: e2c3728.
 - #330: mprove performance of the Equals operator in the RubyComparable class for objects of different types

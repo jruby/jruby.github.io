@@ -26,6 +26,27 @@ task :deploy => [:generate] do
   sh "tar -C _site/ -zcf - . | ssh deploy@jruby.org 'cd /data/jruby.org && tar zxf -'"
 end
 
+namespace :deploy do
+  desc 'Deploy the site to the Spindle staging site (needs SPINDLE_API_KEY and SPINDLE_SLUG)'
+  task :staging do
+    api_key = ENV['SPINDLE_API_KEY'] || fail('No SPINDLE_API_KEY env set')
+    slug = ENV['SPINDLE_SLUG'] || fail('No SPINDLE_SLUG env set')
+    api_url = ENV.fetch('SPINDLE_API_URL', 'https://stats.fascinationworks.com')
+
+    ruby '-S bundle exec jekyll build'
+
+    require 'tmpdir'
+    Dir.mktmpdir do |dir|
+      archive = File.join(dir, 'dist.tar.gz')
+      sh 'tar', '-czf', archive, '-C', '_site', '.'
+      sh 'curl', '-fsS', '-H', "Authorization: Bearer #{api_key}", '-F', "archive=@#{archive}",
+         "#{api_url}/api/v1/sites/#{slug}/deployments", verbose: false do |ok, status|
+        ok or fail "Spindle deploy failed (curl exit #{status.exitstatus})"
+      end
+    end
+  end
+end
+
 desc 'Deploy jruby.org config changes'
 task :cookbooks do
   Bundler.with_clean_env do
