@@ -10,9 +10,33 @@ The JRuby community is pleased to announce the release of JRuby 10.0.8.0.
 
 JRuby 10.0.x targets Ruby 3.4 compatibility.
 
-Thank you to our contributors this release, you help keep JRuby moving forward!
+Thank you to our contributors this release, you help keep JRuby moving forward! This cycle we had several new contributors and hundreds of pull requests. Keep it coming, JRubyists! [@aminmansuri], [@kares], [@hiukkanen], [@evaniainbrooks], [@stefanlew-tractive], [@sampokuokkanen], [@zev], [@matrei], [@notsrch], [@sferik], [@RaphaelFakhri]
 
-JRuby activity has increased over the last several months, and this release contains dozens of bug fixes and performance improvements from new contributors. This page will be updated with targeted release notes later today.
+Notable Changes
+---------------
+
+### Security
+
+* The asm bytecode library was updated to 9.11.1 to fix recent CVEs (none of which affect JRuby). [#9858]
+
+### Standard Library
+
+* The standard library is updated to match or exceed Ruby 3.4.12. [#9747], [#10008] 
+* jruby-openssl is updated to 0.16.3. [#9726]
+* io-console is updated to 0.9.5. [#9923]
+* pstore is updated to 0.2.1. [#10008]
+* syntax_suggest is updated to 2.0.3. [#10008]
+* uri is updated to 1.0.4, addressing [CVE-2025-61594](https://www.ruby-lang.org/en/news/2025/10/07/uri-cve-2025-61594/). [#10008]
+* net-imap is updated to 0.5.15, addressing [several CVEs](https://github.com/ruby/net-imap/releases/tag/v0.5.15). [#10008]
+
+### Java Integration
+
+* Java 27 is now officially supported. [#9787]
+* Several fixes to reduce GC roots keeping the JRuby runtime or classloader from being collected after teardown. [#9781], [jnr/jffi#200](https://github.com/jnr/jffi/pull/200), [jnr/jffi#201](https://github.com/jnr/jffi/pull/201), [#9894], [#9927], [#9895], [#9922], [#9928]
+
+### Performance
+
+* Reduced maximum JIT-compilable method size to 500 instructions from 3000. [#9913]
 
 ### 54 Issues and PRs resolved for 10.0.8.0
 
@@ -125,3 +149,15 @@ JRuby activity has increased over the last several months, and this release cont
 [#10002]:https://github.com/jruby/jruby/issues/10002
 [#10003]:https://github.com/jruby/jruby/pull/10003
 [#10008]:https://github.com/jruby/jruby/pull/10008
+
+[@aminmansuri]:(https://github.com/aminmansuri)
+[@evaniainbrooks]:(https://github.com/evaniainbrooks)
+[@kares]:(https://github.com/kares)
+[@sampokuokkanen]:(https://github.com/sampokuokkanen)
+[@hiukkanen]:(https://github.com/hiukkanen)
+[@stefanlew-tractive]:(https://github.com/stefanlew-tractive)
+[@zev]:(https://github.com/zev)
+[@matrei]:(https://github.com/matrei)
+[@notsrch]:(https://github.com/notsrch)
+[@sferik]:(https://github.com/sferik)
+[@RaphaelFakhri]:(https://github.com/RaphaelFakhri)
