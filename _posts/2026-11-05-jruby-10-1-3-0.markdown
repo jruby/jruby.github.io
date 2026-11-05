@@ -1,0 +1,338 @@
+---
+layout: post
+title: JRuby 10.1.3.0 Released
+---
+
+The JRuby community is pleased to announce the release of JRuby 10.1.3.0.
+
+* Homepage: [https://www.jruby.org/](https://www.jruby.org/)
+* Download: [https://www.jruby.org/download](https://www.jruby.org/download)
+
+JRuby 10.1.x targets Ruby 4.0 compatibility.
+
+Thank you to our contributors this release, you help keep JRuby moving forward!
+JRuby activity has increased over the last several months, and this release contains dozens of bug fixes and performance improvements from new contributors. This page will be updated with targeted release notes later today.
+
+### 160 Issues and PRs resolved for 10.1.3.0
+
+- #1958 [Attribute loss with `#raise` and several arguments][#1958]
+- #2515 [openssl net-ssh camellia192 tests fails with jruby9k][#2515]
+- #3242 [BigDecimal initializer does not mirror YARV behavior][#3242]
+- #6446 [Date parse not working for strings with week number but no day number or year][#6446]
+- #8034 [DateTime.jd ignores fractional seconds][#8034]
+- #9329 [Wrong union-by-value argument passing in JRuby][#9329]
+- #9500 [Fix __dir__ for eval filenames][#9500]
+- #9606 [Impossible to ``eval`` with ``require_relative``][#9606]
+- #9611 [Missing --help strings][#9611]
+- #9647 [upgrade jruby-openssl to 0.19.x line][#9647]
+- #9671 [Preserve incoming callInfo when forwarding arguments][#9671]
+- #9676 [Implement method coverage][#9676]
+- #9680 [Using `set_temporary_name` makes Class#name ignore nesting][#9680]
+- #9682 [Fix line coverage of statements inside string interpolation and heredocs][#9682]
+- #9686 [Merge Prism parser binding and compiler into core][#9686]
+- #9693 [Pass unions by value with the C ABI's register classes][#9693]
+- #9699 [Wrong union-by-value argument passing in JRuby][#9699]
+- #9702 [Pass unions by value with the C ABI's register classes][#9702]
+- #9708 [Read nonblocking when the fiber scheduler has no io_read][#9708]
+- #9727 [Jar resources issues with IO#seek #pos or #pread][#9727]
+- #9733 [Pass IO::WRITABLE, not FMODE_WRITABLE, to the scheduler's io_wait][#9733]
+- #9734 [Fiber#raise: transfer into transferred fibers instead of resuming][#9734]
+- #9741 [Reduce cost of some runtime helper calls][#9741]
+- #9742 [Method defined on a class stays invisible to indy call sites while another thread runs a module's bulk invalidation][#9742]
+- #9743 [JRuby mistakes != for a setter][#9743]
+- #9744 [JRuby 10.0/CRuby 3.4+ compat: assignment to an outer local variable named `it` inside a block seems to assume/create a block level shadow][#9744]
+- #9745 [Use implicit defined check supported by JRuby 10.1][#9745]
+- #9748 [Update 10.1 to latest 4.0 stdlib and tests][#9748]
+- #9749 [Release the IO lock while a write waits through the fiber scheduler][#9749]
+- #9750 [Yield socket pairs to a block and close them afterwards][#9750]
+- #9751 [Implement branch coverage][#9751]
+- #9752 [Fully read jar URL resources to make them seekable][#9752]
+- #9758 [Array#-, #&, #| call #hash on elements where MRI does not][#9758]
+- #9759 [Concurrent reads of a frozen two-item array can permanently replace its elements with `nil`][#9759]
+- #9760 [Interrupt fibers waiting through the scheduler when their IO closes][#9760]
+- #9761 [Replace Ant in rake helpers with Ruby process launching][#9761]
+- #9765 [Only refuse to resume fibers suspended by a transfer][#9765]
+- #9766 [Remove the org.jruby.ant Ant tasks and the Ant build dependency][#9766]
+- #9768 [IO#close raises Errno::EBADF after Thread#kill closed the channel underneath it][#9768]
+- #9769 [Join threads through the Fiber Scheduler][#9769]
+- #9770 [Match CRuby’s line coverage and branch locations][#9770]
+- #9782 [Add @CRuby annotation linking Java code to CRuby functions][#9782]
+- #9786 [Migrate error-prone primitive packing to a single util][#9786]
+- #9788 [Support JDK 27][#9788]
+- #9790 [Block on Mutex and ConditionVariable through the fiber scheduler][#9790]
+- #9791 [Wake Queue#pop(timeout:) waiters when the queue is closed][#9791]
+- #9793 [Parse proc call shorthand .() and ::() after a command with a do block][#9793]
+- #9794 [SWAR and Arrays.mismatches optimizations for StringSupport.searchNonAscii, ByteList.memcmp, and ByteList.startsWIth.][#9794]
+- #9795 [Keep coverage source positions off AST nodes when Coverage isn't in use][#9795]
+- #9796 [fix(string): prevent ArrayIndexOutOfBoundsException in strip on 4-byte GB18030 strings][#9796]
+- #9797 [fix(module): clear temporary name when module assigned to constant in named parent][#9797]
+- #9798 [[fix] preserve DateTime#jd fractional sec][#9798]
+- #9799 [[fix] omit absent date fragments in parser][#9799]
+- #9800 [[fix] preserve exception attributes when replacing message][#9800]
+- #9801 [Honor AI_NUMERICHOST in Socket.getaddrinfo][#9801]
+- #9802 [[compat] undefine BigDecimal.new][#9802]
+- #9803 [Wait for child processes through the fiber scheduler][#9803]
+- #9804 [Convert MRI comments to @CRuby][#9804]
+- #9805 [Let Queue#pop and SizedQueue#push wait through the fiber scheduler][#9805]
+- #9806 [Hand the scheduler's io_read the caller's part of the read buffer][#9806]
+- #9810 [Replace deprecated Ruby#newTypeError(String) in IRRuntimeHelpers][#9810]
+- #9812 [Use SOURCE retention for @CRuby][#9812]
+- #9813 [Make socket "accept" methods dont block fibers (Fiber::Scheduler support)][#9813]
+- #9815 [Fall back to normal call path for non-symbol keyword keys][#9815]
+- #9816 [[compat] match BigDecimal float comparison (#5904)][#9816]
+- #9817 [[compat] BigDecimal precision with trailing zeros (#3242)][#9817]
+- #9820 [JIT emits invalid bytecode for a call with keyword arguments and a block-pass argument (VerifyError)][#9820]
+- #9821 [Check that the JIT can compile every method and block][#9821]
+- #9822 [JIT can’t compile a range with one string literal endpoint and one non-literal endpoint (IllegalArgumentException: value null)][#9822]
+- #9823 [JIT emits invalid bytecode for a range literal with an Integer begin and a non-Integer literal end, such as (1..10.0)][#9823]
+- #9824 [JIT can't compile an operator call on self with a literal Integer or Float argument, such as self + 1 or self == 0][#9824]
+- #9825 [JIT can't compile `__ENCODING__` on one side of a branch (ArrayIndexOutOfBoundsException in ASM frame computation)][#9825]
+- #9826 [JIT can't compile a for loop body that contains a block (NullPointerException in prepareBlock)][#9826]
+- #9827 [JIT can't compile `when *array` in a file that uses refinements (NullPointerException in invokeEQQ)][#9827]
+- #9829 [With Java assertions on, the JIT can't compile a block containing a case/in with more than one in clause (AssertionError: Somehow EQQ is the last instr in the scope)][#9829]
+- #9830 [Don't assert that an eqq is followed by another instruction][#9830]
+- #9831 [Don't load the context twice for __ENCODING__][#9831]
+- #9832 [Pass the scope field to refined call sites for splatted when][#9832]
+- #9833 [Push a range for every end when the begin is a Fixnum][#9833]
+- #9837 [Read the instructions array patterns use from persisted IR][#9837]
+- #9838 [Give string range endpoints the scope's file name][#9838]
+- #9839 [Check visibility of the operator in self[i] op= value][#9839]
+- #9840 [Convert block-pass arguments in the direct keyword call path][#9840]
+- #9841 [Give a block its parent scope when compiling a for body on its own][#9841]
+- #9842 [Fix compiled operator calls on self with a literal argument][#9842]
+- #9843 [Raise TypeError in system when the fiber scheduler's process_wait returns nil][#9843]
+- #9846 [Fix Range#include? of an empty range of single characters][#9846]
+- #9848 [Keep file and line on compiled string range endpoints][#9848]
+- #9849 [Binding#local_variable_get fails inside a block in a for loop][#9849]
+- #9850 [Fix Binding#local_variable_get inside a block in a for loop][#9850]
+- #9851 [Build literal ranges that can raise with an instruction][#9851]
+- #9852 [Offer buffered writes to the fiber scheduler's io_write too][#9852]
+- #9854 [AOT-compiled array pattern raises NoMatchingPatternKeyError message for a length mismatch][#9854]
+- #9855 [Fix local_variables at the top level and in methods][#9855]
+- #9856 [Push the Symbol class for BuiltinClass in AOT bytecode][#9856]
+- #9859 [Update asm to get recent security fixes][#9859]
+- #9861 [Consider lowering JIT_MAXSIZE][#9861]
+- #9862 [Wait for TCPSocket connects through the fiber scheduler][#9862]
+- #9864 [Resolve host names through the fiber scheduler's address_resolve][#9864]
+- #9867 [Reduce default max JIT size to 500][#9867]
+- #9878 [Keep waiting for a resumed fiber when Thread#raise is deferred][#9878]
+- #9884 [Zlib::GzipReader#read does not accept an outbuf argument][#9884]
+- #9885 [Only mark stdio as TTY when it is a terminal][#9885]
+- #9888 [Module#name keeps an anonymous-rooted name after the module is assigned to a named constant][#9888]
+- #9890 [Update Joni for expansion limits][#9890]
+- #9891 [Give a module rooted at an anonymous module a permanent name][#9891]
+- #9893 [Pass a module's name on to the modules nested in it][#9893]
+- #9896 [Cap heap buffer writes at 2MB per call][#9896]
+- #9897 [[deps] bump jruby-openssl to 0.19.4][#9897]
+- #9901 [Calculate a module's name without building lists][#9901]
+- #9904 [A runtime in a disposable class loader can't be garbage collected after tearDown][#9904]
+- #9906 [Fix GzipReader.read/readpartial with outbuf][#9906]
+- #9909 [Resolve require_relative against eval filenames][#9909]
+- #9910 [Document missing options in jruby --help][#9910]
+- #9911 [Fix Thread#backtrace for a new thread][#9911]
+- #9914 [Build Integer Range#to_a arrays at their final size][#9914]
+- #9915 [Compare Fixnums and Floats by value in Array#== and #eql?][#9915]
+- #9916 [Use the shortest round-trip digits in Float#to_s][#9916]
+- #9917 [Compare Integer and Float search arguments directly in Array][#9917]
+- #9918 [Select on FIFOs and devices with their own jnr-enxio selector][#9918]
+- #9919 [Write files in full instead of capping heap writes][#9919]
+- #9920 [Support buffer size and keepalive socket options on UNIX sockets][#9920]
+- #9924 [Update io-console for isatty alias fix][#9924]
+- #9926 [Make the Builtins redefinition bits catch prepends and inherited methods][#9926]
+- #9929 [Treat not-implemented methods as undefined in method_defined? and defined?][#9929]
+- #9930 [Fix tests excluded during the Ruby 4.0.9 test sync][#9930]
+- #9931 [Add Socket::ResolutionError and fix TCPSocket.new timeouts and local binding][#9931]
+- #9932 [Fix several argument and syntax bugs found in excluded MRI tests][#9932]
+- #9933 [Raise more of CRuby's syntax errors][#9933]
+- #9935 [Fix IO, ARGF, Zlib and Tempfile behavior behind 19 excluded MRI tests][#9935]
+- #9936 [Fix multibyte character literals and other String behavior behind 15 excluded MRI tests][#9936]
+- #9938 [Treat 0 from a fiber scheduler's io_wait as no events ready][#9938]
+- #9939 [Keep IO::Buffer.for's string as an external source][#9939]
+- #9941 [Resolve every socket host through the fiber scheduler's address_resolve][#9941]
+- #9943 [Give CRuby's warnings for method redefinition, visibility calls and more][#9943]
+- #9946 [Optimize Complex and Rational literal values][#9946]
+- #9948 [Remove SLEEP status update from Regexp matches][#9948]
+- #9955 [Add an ASCII fast path for String#casecmp?][#9955]
+- #9957 [Fill in a Fiber#raise backtrace in the fiber it is raised in][#9957]
+- #9961 [Add a single-byte fast path for String#capitalize and fix :ascii case mapping][#9961]
+- #9964 [Use the passed context for to_str checks in Array#join][#9964]
+- #9966 [Preserve buffered socket input when writing][#9966]
+- #9970 [`Float#to_r` returns an Integer for floats >= 2**52][#9970]
+- #9971 [Return every socket type getaddrinfo(3) gives for an IP address][#9971]
+- #9974 [Keep $~ and $_ per fiber][#9974]
+- #9975 [Faster String#dump, #scrub and #codepoints on ASCII-heavy strings][#9975]
+- #9976 [Raise instead of clobbering in File.rename onto a directory][#9976]
+- #9978 [Raise a copy of a frozen exception instead of mutating it][#9978]
+- #9979 [Fix RubyGems defaults triggering redefinition warnings][#9979]
+- #9982 [Process::CLOCK_MONOTONIC stops while macOS sleeps, but Thread#join timeouts keep counting][#9982]
+- #9985 [Count time asleep in CLOCK_MONOTONIC on macOS][#9985]
+- #9986 [Mutex#synchronize can still exit with the lock held after Thread#raise / Timeout (contended path, follow-up to #8585)][#9986]
+- #9988 [Update joni to 2.2.9][#9988]
+- #9992 [Return a Rational from Float#to_r for floats of magnitude 2**52 or more][#9992]
+- #9993 [Report arity -2 for Symbol#to_proc like CRuby][#9993]
+- #9995 [Fix targeted thread events on shared monitors][#9995]
+- #9997 [Return false from String#== for an object without respond_to?][#9997]
+- #9998 [Treat a one-character range in tr as that character][#9998]
+- #9999 [Signal.trap with numeric USR1 value traps SIGBUS on Linux][#9999]
+- #10004 [Update jar-dependencies to 0.6.2][#10004]
+
+[#1958]:https://github.com/jruby/jruby/issues/1958
+[#2515]:https://github.com/jruby/jruby/issues/2515
+[#3242]:https://github.com/jruby/jruby/issues/3242
+[#6446]:https://github.com/jruby/jruby/issues/6446
+[#8034]:https://github.com/jruby/jruby/issues/8034
+[#9329]:https://github.com/jruby/jruby/issues/9329
+[#9500]:https://github.com/jruby/jruby/pull/9500
+[#9606]:https://github.com/jruby/jruby/issues/9606
+[#9611]:https://github.com/jruby/jruby/issues/9611
+[#9647]:https://github.com/jruby/jruby/pull/9647
+[#9671]:https://github.com/jruby/jruby/pull/9671
+[#9676]:https://github.com/jruby/jruby/pull/9676
+[#9680]:https://github.com/jruby/jruby/issues/9680
+[#9682]:https://github.com/jruby/jruby/pull/9682
+[#9686]:https://github.com/jruby/jruby/pull/9686
+[#9693]:https://github.com/jruby/jruby/pull/9693
+[#9699]:https://github.com/jruby/jruby/issues/9699
+[#9702]:https://github.com/jruby/jruby/pull/9702
+[#9708]:https://github.com/jruby/jruby/pull/9708
+[#9727]:https://github.com/jruby/jruby/issues/9727
+[#9733]:https://github.com/jruby/jruby/pull/9733
+[#9734]:https://github.com/jruby/jruby/pull/9734
+[#9741]:https://github.com/jruby/jruby/pull/9741
+[#9742]:https://github.com/jruby/jruby/issues/9742
+[#9743]:https://github.com/jruby/jruby/issues/9743
+[#9744]:https://github.com/jruby/jruby/issues/9744
+[#9745]:https://github.com/jruby/jruby/pull/9745
+[#9748]:https://github.com/jruby/jruby/issues/9748
+[#9749]:https://github.com/jruby/jruby/pull/9749
+[#9750]:https://github.com/jruby/jruby/pull/9750
+[#9751]:https://github.com/jruby/jruby/pull/9751
+[#9752]:https://github.com/jruby/jruby/pull/9752
+[#9758]:https://github.com/jruby/jruby/issues/9758
+[#9759]:https://github.com/jruby/jruby/issues/9759
+[#9760]:https://github.com/jruby/jruby/pull/9760
+[#9761]:https://github.com/jruby/jruby/pull/9761
+[#9765]:https://github.com/jruby/jruby/pull/9765
+[#9766]:https://github.com/jruby/jruby/pull/9766
+[#9768]:https://github.com/jruby/jruby/issues/9768
+[#9769]:https://github.com/jruby/jruby/pull/9769
+[#9770]:https://github.com/jruby/jruby/pull/9770
+[#9782]:https://github.com/jruby/jruby/pull/9782
+[#9786]:https://github.com/jruby/jruby/pull/9786
+[#9788]:https://github.com/jruby/jruby/issues/9788
+[#9790]:https://github.com/jruby/jruby/pull/9790
+[#9791]:https://github.com/jruby/jruby/pull/9791
+[#9793]:https://github.com/jruby/jruby/pull/9793
+[#9794]:https://github.com/jruby/jruby/pull/9794
+[#9795]:https://github.com/jruby/jruby/pull/9795
+[#9796]:https://github.com/jruby/jruby/pull/9796
+[#9797]:https://github.com/jruby/jruby/pull/9797
+[#9798]:https://github.com/jruby/jruby/pull/9798
+[#9799]:https://github.com/jruby/jruby/pull/9799
+[#9800]:https://github.com/jruby/jruby/pull/9800
+[#9801]:https://github.com/jruby/jruby/pull/9801
+[#9802]:https://github.com/jruby/jruby/pull/9802
+[#9803]:https://github.com/jruby/jruby/pull/9803
+[#9804]:https://github.com/jruby/jruby/pull/9804
+[#9805]:https://github.com/jruby/jruby/pull/9805
+[#9806]:https://github.com/jruby/jruby/pull/9806
+[#9810]:https://github.com/jruby/jruby/pull/9810
+[#9812]:https://github.com/jruby/jruby/pull/9812
+[#9813]:https://github.com/jruby/jruby/pull/9813
+[#9815]:https://github.com/jruby/jruby/pull/9815
+[#9816]:https://github.com/jruby/jruby/pull/9816
+[#9817]:https://github.com/jruby/jruby/pull/9817
+[#9820]:https://github.com/jruby/jruby/issues/9820
+[#9821]:https://github.com/jruby/jruby/pull/9821
+[#9822]:https://github.com/jruby/jruby/issues/9822
+[#9823]:https://github.com/jruby/jruby/issues/9823
+[#9824]:https://github.com/jruby/jruby/issues/9824
+[#9825]:https://github.com/jruby/jruby/issues/9825
+[#9826]:https://github.com/jruby/jruby/issues/9826
+[#9827]:https://github.com/jruby/jruby/issues/9827
+[#9829]:https://github.com/jruby/jruby/issues/9829
+[#9830]:https://github.com/jruby/jruby/pull/9830
+[#9831]:https://github.com/jruby/jruby/pull/9831
+[#9832]:https://github.com/jruby/jruby/pull/9832
+[#9833]:https://github.com/jruby/jruby/pull/9833
+[#9837]:https://github.com/jruby/jruby/pull/9837
+[#9838]:https://github.com/jruby/jruby/pull/9838
+[#9839]:https://github.com/jruby/jruby/pull/9839
+[#9840]:https://github.com/jruby/jruby/pull/9840
+[#9841]:https://github.com/jruby/jruby/pull/9841
+[#9842]:https://github.com/jruby/jruby/pull/9842
+[#9843]:https://github.com/jruby/jruby/pull/9843
+[#9846]:https://github.com/jruby/jruby/pull/9846
+[#9848]:https://github.com/jruby/jruby/pull/9848
+[#9849]:https://github.com/jruby/jruby/issues/9849
+[#9850]:https://github.com/jruby/jruby/pull/9850
+[#9851]:https://github.com/jruby/jruby/pull/9851
+[#9852]:https://github.com/jruby/jruby/pull/9852
+[#9854]:https://github.com/jruby/jruby/issues/9854
+[#9855]:https://github.com/jruby/jruby/pull/9855
+[#9856]:https://github.com/jruby/jruby/pull/9856
+[#9859]:https://github.com/jruby/jruby/issues/9859
+[#9861]:https://github.com/jruby/jruby/issues/9861
+[#9862]:https://github.com/jruby/jruby/pull/9862
+[#9864]:https://github.com/jruby/jruby/pull/9864
+[#9867]:https://github.com/jruby/jruby/pull/9867
+[#9878]:https://github.com/jruby/jruby/pull/9878
+[#9884]:https://github.com/jruby/jruby/issues/9884
+[#9885]:https://github.com/jruby/jruby/pull/9885
+[#9888]:https://github.com/jruby/jruby/issues/9888
+[#9890]:https://github.com/jruby/jruby/issues/9890
+[#9891]:https://github.com/jruby/jruby/pull/9891
+[#9893]:https://github.com/jruby/jruby/pull/9893
+[#9896]:https://github.com/jruby/jruby/pull/9896
+[#9897]:https://github.com/jruby/jruby/pull/9897
+[#9901]:https://github.com/jruby/jruby/pull/9901
+[#9904]:https://github.com/jruby/jruby/issues/9904
+[#9906]:https://github.com/jruby/jruby/pull/9906
+[#9909]:https://github.com/jruby/jruby/pull/9909
+[#9910]:https://github.com/jruby/jruby/pull/9910
+[#9911]:https://github.com/jruby/jruby/pull/9911
+[#9914]:https://github.com/jruby/jruby/pull/9914
+[#9915]:https://github.com/jruby/jruby/pull/9915
+[#9916]:https://github.com/jruby/jruby/pull/9916
+[#9917]:https://github.com/jruby/jruby/pull/9917
+[#9918]:https://github.com/jruby/jruby/pull/9918
+[#9919]:https://github.com/jruby/jruby/pull/9919
+[#9920]:https://github.com/jruby/jruby/pull/9920
+[#9924]:https://github.com/jruby/jruby/issues/9924
+[#9926]:https://github.com/jruby/jruby/pull/9926
+[#9929]:https://github.com/jruby/jruby/pull/9929
+[#9930]:https://github.com/jruby/jruby/pull/9930
+[#9931]:https://github.com/jruby/jruby/pull/9931
+[#9932]:https://github.com/jruby/jruby/pull/9932
+[#9933]:https://github.com/jruby/jruby/pull/9933
+[#9935]:https://github.com/jruby/jruby/pull/9935
+[#9936]:https://github.com/jruby/jruby/pull/9936
+[#9938]:https://github.com/jruby/jruby/pull/9938
+[#9939]:https://github.com/jruby/jruby/pull/9939
+[#9941]:https://github.com/jruby/jruby/pull/9941
+[#9943]:https://github.com/jruby/jruby/pull/9943
+[#9946]:https://github.com/jruby/jruby/pull/9946
+[#9948]:https://github.com/jruby/jruby/pull/9948
+[#9955]:https://github.com/jruby/jruby/pull/9955
+[#9957]:https://github.com/jruby/jruby/pull/9957
+[#9961]:https://github.com/jruby/jruby/pull/9961
+[#9964]:https://github.com/jruby/jruby/pull/9964
+[#9966]:https://github.com/jruby/jruby/pull/9966
+[#9970]:https://github.com/jruby/jruby/issues/9970
+[#9971]:https://github.com/jruby/jruby/pull/9971
+[#9974]:https://github.com/jruby/jruby/pull/9974
+[#9975]:https://github.com/jruby/jruby/pull/9975
+[#9976]:https://github.com/jruby/jruby/pull/9976
+[#9978]:https://github.com/jruby/jruby/pull/9978
+[#9979]:https://github.com/jruby/jruby/pull/9979
+[#9982]:https://github.com/jruby/jruby/issues/9982
+[#9985]:https://github.com/jruby/jruby/pull/9985
+[#9986]:https://github.com/jruby/jruby/issues/9986
+[#9988]:https://github.com/jruby/jruby/pull/9988
+[#9992]:https://github.com/jruby/jruby/pull/9992
+[#9993]:https://github.com/jruby/jruby/pull/9993
+[#9995]:https://github.com/jruby/jruby/pull/9995
+[#9997]:https://github.com/jruby/jruby/pull/9997
+[#9998]:https://github.com/jruby/jruby/pull/9998
+[#9999]:https://github.com/jruby/jruby/issues/9999
+[#10004]:https://github.com/jruby/jruby/pull/10004

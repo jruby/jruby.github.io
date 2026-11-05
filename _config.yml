@@ -7,14 +7,14 @@ markdown:    kramdown
 permalink:   date
 # JRuby-specific info here; goes into the "site" jekyll variable
 release:
-  url: /2026/09/21/jruby-10-1-2-0.html
-  version: 10.1.2.0
-  tar: https://repo1.maven.org/maven2/org/jruby/jruby-dist/10.1.2.0/jruby-dist-10.1.2.0-bin.tar.gz
-  zip: https://repo1.maven.org/maven2/org/jruby/jruby-dist/10.1.2.0/jruby-dist-10.1.2.0-bin.zip
-  exe: https://github.com/jruby/jruby/releases/download/10.1.2.0/jruby_windows_10_1_2_0.exe
-  exe64: https://github.com/jruby/jruby/releases/download/10.1.2.0/jruby_windows_x64_10_1_2_0.exe
-  gem: https://rubygems.org/gems/jruby-jars/versions/10.1.2.0
-  gem_older: https://rubygems.org/gems/jruby-jars/versions/10.1.2.0
+  url: /2026/11/05/jruby-10-1-3-0.html
+  version: 10.1.3.0
+  tar: https://repo1.maven.org/maven2/org/jruby/jruby-dist/10.1.3.0/jruby-dist-10.1.3.0-bin.tar.gz
+  zip: https://repo1.maven.org/maven2/org/jruby/jruby-dist/10.1.3.0/jruby-dist-10.1.3.0-bin.zip
+  exe: https://github.com/jruby/jruby/releases/download/10.1.3.0/jruby_windows_10_1_3_0.exe
+  exe64: https://github.com/jruby/jruby/releases/download/10.1.3.0/jruby_windows_x64_10_1_3_0.exe
+  gem: https://rubygems.org/gems/jruby-jars/versions/10.1.3.0
+  gem_older: https://rubygems.org/gems/jruby-jars/versions/10.1.3.0
 urls:
   ghr: https://github.com/jruby/jruby/releases/download
   maven: https://repo1.maven.org/maven2/org/jruby
@@ -34,11 +34,11 @@ description: JRuby is a high performance, stable, fully threaded Java implementa
 # release; dates and release-notes links come from the matching post. Sizes are
 # approximate and are not updated automatically.
 releases:
-  - version: "10.1.2.0"
+  - version: "10.1.3.0"
     ruby_version: "4.0"
     description: "Our latest point release of Ruby 4.0 support."
     sizes: { tar: "~46MB", zip: "~51MB", exe64: "~107MB", exe: "~106MB", src: "~13MB", jar: "~46MB" }
-  - version: "10.0.7.0"
+  - version: "10.0.8.0"
     ruby_version: "3.4"
     description: "Stable Ruby 3.4 support release."
     sizes: { tar: "~36MB", zip: "~42MB", exe64: "~86MB", exe: "~86MB", src: "~15MB", jar: "~36MB" }

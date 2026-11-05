@@ -1,0 +1,127 @@
+---
+layout: post
+title: JRuby 10.0.8.0 Released
+---
+
+The JRuby community is pleased to announce the release of JRuby 10.0.8.0.
+
+* Homepage: [https://www.jruby.org/](https://www.jruby.org/)
+* Download: [https://www.jruby.org/download](https://www.jruby.org/download)
+
+JRuby 10.0.x targets Ruby 3.4 compatibility.
+
+Thank you to our contributors this release, you help keep JRuby moving forward!
+
+JRuby activity has increased over the last several months, and this release contains dozens of bug fixes and performance improvements from new contributors. This page will be updated with targeted release notes later today.
+
+### 54 Issues and PRs resolved for 10.0.8.0
+
+- #9328 [Spurious Struct#initialize keyword argument warning re-occurring][#9328]
+- #9510 [Signal.trap with numeric USR1 value traps SIGBUS on Linux][#9510]
+- #9524 [Array#-, #&, #| call #hash on elements where MRI does not][#9524]
+- #9651 [JRuby 10.0/CRuby 3.4+ compat: assignment to an outer local variable named `it` inside a block seems to assume/create a block level shadow][#9651]
+- #9681 [JRuby mistakes != for a setter][#9681]
+- #9722 [IO#close raises Errno::EBADF after Thread#kill closed the channel underneath it][#9722]
+- #9723 [Do not report a channel closed underneath us as EBADF on close][#9723]
+- #9726 [[deps] bump jruby-openssl to 0.16.3][#9726]
+- #9729 [Allow endless definition of comparison operators (Fixes #9681)][#9729]
+- #9731 [Fixes #9651. Write to outer it variable from inside blocks][#9731]
+- #9735 [Fix Ripper endless method definitions rejecting operator methods ending in =][#9735]
+- #9737 [Method defined on a class stays invisible to indy call sites while another thread runs a module's bulk invalidation][#9737]
+- #9738 [Keep SwitchPoints live until bulk invalidation has run][#9738]
+- #9739 [Disallow unknown keywords][#9739]
+- #9747 [Update 10.0 to latest 3.4 stdlib and tests][#9747]
+- #9755 [Concurrent reads of a frozen two-item array can permanently replace its elements with `nil`][#9755]
+- #9756 [align small array behavior with MRI][#9756]
+- #9757 [Atomically transition to unpacked][#9757]
+- #9764 [Wait for another thread's require of an autoload's file][#9764]
+- #9777 [With invokedynamic, class_attribute writes can leak into the superclass after define_method on the subclass's singleton class][#9777]
+- #9781 [A runtime in a disposable class loader can't be garbage collected after tearDown][#9781]
+- #9783 [Pass keyword arguments to IO.foreach, IO#each and IO#each_line enumerators][#9783]
+- #9784 [Accept separator, limit and keywords in ARGF line methods][#9784]
+- #9785 [Fix ClassCastException in ARGF.gets and readline when $stdin is not an IO][#9785]
+- #9787 [Support JDK 27][#9787]
+- #9808 [Route Kernel#readline through ARGF.readline][#9808]
+- #9809 [Use MonomorphicCallSite for ARGF forwarding sites][#9809]
+- #9835 [Replace deprecated calls where context is already in scope][#9835]
+- #9858 [Update asm to get recent security fixes][#9858]
+- #9863 [Mark overrides of deprecated methods as @Deprecated][#9863]
+- #9889 [Update Joni for expansion limits][#9889]
+- #9894 [Don't cache LibrarySearcher's index wrappers in thread-locals][#9894]
+- #9895 [Store MethodGatherer's filtered methods as JDK types][#9895]
+- #9898 [Update joni for invalid unicode fix][#9898]
+- #9902 [Update io-console for isatty alias fix][#9902]
+- #9903 [Update JNR for jffi cleaner fix][#9903]
+- #9913 [Reduce default max JIT size to 500][#9913]
+- #9922 [Remove StableClassValue values from their classes when cleared][#9922]
+- #9923 [Update io-console to 0.9.5][#9923]
+- #9925 [Update Java Native Runtime][#9925]
+- #9927 [Hold the fstring dedup wrapper weakly in its thread-local][#9927]
+- #9944 [Avoid calling a Regexp match during signal handling][#9944]
+- #9945 [Test the nested jar temp dir cleanup][#9945]
+- #9951 [Keep PosixShim's errno as an ordinal][#9951]
+- #9965 [Use String.getBytes and new String for UTF-8 conversion of Java strings][#9965]
+- #9969 [Keep a deduplicated string's table entry while the string lives][#9969]
+- #9972 [Mutex#synchronize can still exit with the lock held after Thread#raise / Timeout (contended path, follow-up to #8585)][#9972]
+- #9980 [Release mutex for any throwable][#9980]
+- #9984 [Don't wake selectors after they go back to the pool][#9984]
+- #9991 [Decode raw bytes without a thread-local buffer][#9991]
+- #9996 [Use the platform's signal numbers in Signal.trap][#9996]
+- #10002 [Backport #9470 to 10.0.x (Hash duplicated through (...) forwarding in JIT-compiled methods)][#10002]
+- #10003 [Backport small kwargs fixes][#10003]
+- #10008 [[10.0] Update standard library to Ruby 3.4.12][#10008]
+
+[#9328]:https://github.com/jruby/jruby/issues/9328
+[#9510]:https://github.com/jruby/jruby/issues/9510
+[#9524]:https://github.com/jruby/jruby/issues/9524
+[#9651]:https://github.com/jruby/jruby/issues/9651
+[#9681]:https://github.com/jruby/jruby/issues/9681
+[#9722]:https://github.com/jruby/jruby/issues/9722
+[#9723]:https://github.com/jruby/jruby/pull/9723
+[#9726]:https://github.com/jruby/jruby/pull/9726
+[#9729]:https://github.com/jruby/jruby/pull/9729
+[#9731]:https://github.com/jruby/jruby/pull/9731
+[#9735]:https://github.com/jruby/jruby/pull/9735
+[#9737]:https://github.com/jruby/jruby/issues/9737
+[#9738]:https://github.com/jruby/jruby/pull/9738
+[#9739]:https://github.com/jruby/jruby/pull/9739
+[#9747]:https://github.com/jruby/jruby/issues/9747
+[#9755]:https://github.com/jruby/jruby/issues/9755
+[#9756]:https://github.com/jruby/jruby/pull/9756
+[#9757]:https://github.com/jruby/jruby/pull/9757
+[#9764]:https://github.com/jruby/jruby/pull/9764
+[#9777]:https://github.com/jruby/jruby/issues/9777
+[#9781]:https://github.com/jruby/jruby/issues/9781
+[#9783]:https://github.com/jruby/jruby/pull/9783
+[#9784]:https://github.com/jruby/jruby/pull/9784
+[#9785]:https://github.com/jruby/jruby/pull/9785
+[#9787]:https://github.com/jruby/jruby/pull/9787
+[#9808]:https://github.com/jruby/jruby/pull/9808
+[#9809]:https://github.com/jruby/jruby/pull/9809
+[#9835]:https://github.com/jruby/jruby/pull/9835
+[#9858]:https://github.com/jruby/jruby/pull/9858
+[#9863]:https://github.com/jruby/jruby/pull/9863
+[#9889]:https://github.com/jruby/jruby/issues/9889
+[#9894]:https://github.com/jruby/jruby/pull/9894
+[#9895]:https://github.com/jruby/jruby/pull/9895
+[#9898]:https://github.com/jruby/jruby/pull/9898
+[#9902]:https://github.com/jruby/jruby/issues/9902
+[#9903]:https://github.com/jruby/jruby/issues/9903
+[#9913]:https://github.com/jruby/jruby/pull/9913
+[#9922]:https://github.com/jruby/jruby/pull/9922
+[#9923]:https://github.com/jruby/jruby/pull/9923
+[#9925]:https://github.com/jruby/jruby/pull/9925
+[#9927]:https://github.com/jruby/jruby/pull/9927
+[#9944]:https://github.com/jruby/jruby/pull/9944
+[#9945]:https://github.com/jruby/jruby/pull/9945
+[#9951]:https://github.com/jruby/jruby/pull/9951
+[#9965]:https://github.com/jruby/jruby/pull/9965
+[#9969]:https://github.com/jruby/jruby/pull/9969
+[#9972]:https://github.com/jruby/jruby/issues/9972
+[#9980]:https://github.com/jruby/jruby/pull/9980
+[#9984]:https://github.com/jruby/jruby/pull/9984
+[#9991]:https://github.com/jruby/jruby/pull/9991
+[#9996]:https://github.com/jruby/jruby/pull/9996
+[#10002]:https://github.com/jruby/jruby/issues/10002
+[#10003]:https://github.com/jruby/jruby/pull/10003
+[#10008]:https://github.com/jruby/jruby/pull/10008
