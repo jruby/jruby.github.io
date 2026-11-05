@@ -10,8 +10,48 @@ The JRuby community is pleased to announce the release of JRuby 10.1.3.0.
 
 JRuby 10.1.x targets Ruby 4.0 compatibility.
 
-Thank you to our contributors this release, you help keep JRuby moving forward!
-JRuby activity has increased over the last several months, and this release contains dozens of bug fixes and performance improvements from new contributors. This page will be updated with targeted release notes later today.
+Thank you to our contributors this release, you help keep JRuby moving forward! This cycle we had several new contributors and hundreds of pull requests. This list includes contributors to [JRuby 10.0.8.0](https://www.jruby.org/2026/11/05/jruby-10-0-8-0). Keep it coming, JRubyists! [@samuel-williams-shopify], [@aminmansuri], [@kares], [@hiukkanen], [@evaniainbrooks], [@stefanlew-tractive], [@sampokuokkanen], [@edipofederle], [@samyron], [@reginaldalfret], [@albertalef], [@taxor03], [@zev], [@matrei], [@notsrch], 
+[@sferik], [@RaphaelFakhri]
+
+Notable Changes
+---------------
+
+See also the [JRuby 10.0.8.0 release notes](https://www.jruby.org/2026/11/05/jruby-10-0-8-0). We merge the jruby-10.0 branch forward for 10.1, so the same fixes are shipped with this release.
+
+### Compatibility
+
+* The Coverage module now supports method and branch coverage testing. [#9676], [#9682], [#9751], [#9770]
+* Support for the Fiber Scheduler and IO::Buffer APIs have been improved through dozens of fixes.
+
+### Standard Library
+
+* Ant/Rake integration has been removed from JRuby. Users should install the [rake-ant](https://github.com/jruby/rake-ant/) gem. [#9766], [#9761]
+* The standard library is updated to match or exceed Ruby 4.0.9. [#9747], [#9912]
+* jruby-openssl is updated to 0.19.5. The 0.19 series introduces FIPS support and fixes many long-standing issues. See the [jruby-openssl releases](https://github.com/jruby/jruby-openssl/releases) for more details. [#9726]
+* jar-dependencies is updated to 0.6.2, restoring support for Jarfile overrides. [#10004]
+* Default gems
+  * rubygems and bundler are updated to 4.0.23.[#9912]
+  * delegate is updated to 0.7.0.[#9912]
+  * digest is updated to 3.3.0.[#9912]
+  * fileutils is updated to 1.8.1.[#9912]
+  * io-console is updated to 0.9.5.[#9912]
+  * ipaddr is updated to 1.3.0.[#9912]
+  * net-http is updated to 0.10.0.[#9912]
+  * open3 is updated to 0.3.0.[#9912]
+  * prettyprint is updated to 0.2.1.[#9912]
+  * resolv is updated to 0.8.1.[#9912]
+  * tempfile is updated to 0.3.2.[#9912]
+  * time is updated to 0.5.0.[#9912]
+  * uri is updated to 1.1.2.[#9912]
+* Bundled gems
+  * net-imap is updated to 0.6.8[#9912]
+  * net-smtp is updated to 0.5.2[#9912]
+  * pstore is updated to 0.3.0[#9912]
+
+### Java Integration
+
+* Java 27 is now officially supported. [#9788]
+* New JIT testing found several behavior and performance fixes.
 
 ### 160 Issues and PRs resolved for 10.1.3.0
 
@@ -336,3 +376,21 @@ JRuby activity has increased over the last several months, and this release cont
 [#9998]:https://github.com/jruby/jruby/pull/9998
 [#9999]:https://github.com/jruby/jruby/issues/9999
 [#10004]:https://github.com/jruby/jruby/pull/10004
+
+[@aminmansuri]:(https://github.com/aminmansuri)
+[@evaniainbrooks]:(https://github.com/evaniainbrooks)
+[@kares]:(https://github.com/kares)
+[@sampokuokkanen]:(https://github.com/sampokuokkanen)
+[@hiukkanen]:(https://github.com/hiukkanen)
+[@stefanlew-tractive]:(https://github.com/stefanlew-tractive)
+[@zev]:(https://github.com/zev)
+[@matrei]:(https://github.com/matrei)
+[@notsrch]:(https://github.com/notsrch)
+[@sferik]:(https://github.com/sferik)
+[@RaphaelFakhri]:(https://github.com/RaphaelFakhri)
+[@samuel-williams-shopify]:(https://github.com/samuel-williams-shopify)
+[@edipofederle]:(https://github.com/edipofederle)
+[@samyron]:(https://github.com/samyron)
+[@reginaldalfret]:(https://github.com/reginaldalfret)
+[@albertalef]:(https://github.com/albertalef)
+[@taxor03]:(https://github.com/taxor03)
