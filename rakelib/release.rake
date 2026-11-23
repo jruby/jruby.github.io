@@ -129,7 +129,7 @@ EOS
   # intermittent error occurs
   index_file = "#{downloads_dir}/index.html"
   contents = File.read(index_file)
-  contents.gsub! /<!-- NEW_VERSION -->/, <<"EOS"
+  contents.gsub! /<!-- NEW_VERSION -->\n/, <<"EOS"
   <a href='/files/downloads/#{version}/index.html'>#{version}</a><br/>
   <!-- NEW_VERSION -->
 EOS
