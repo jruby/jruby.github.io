@@ -1,0 +1,52 @@
+---
+layout: post
+title: JRuby 9.4.16.0 Released
+---
+
+The JRuby community is pleased to announce the release of JRuby 9.4.16.0.
+
+* Homepage: [https://www.jruby.org/](https://www.jruby.org/)
+* Download: [https://www.jruby.org/download](https://www.jruby.org/download)
+
+JRuby 9.4.x targets Ruby 3.1 compatibility.
+
+Thank you to our contributors this release, you help keep JRuby moving forward! [@jessecai33], [@mnpoonia]
+
+Notable Changes
+---------------
+
+### Security
+
+* Updated several dependencies to pick up security fixes.
+  * jruby-opensl 0.16.3 with [Bouncy Castle 1.86](https://www.bouncycastle.org/resources/new-release-bouncy-castle-java-1-86/). [#9730]
+  * rdoc 6.6.3.1, fixing [sonatype-2022-6090](https://hackerone.com/reports/1187156). [#9730]
+  * uri 0.12.5, fixing [CVE-2025-61594](https://github.com/advisories/GHSA-j4pr-3wm6-xx2r). [#9730]
+  * net-imap 0.6.7, with over 15 years of bug and security updates. [#9730]
+  * asm bytecode library 9.11.1, fixing several potential DoS [security issues](https://asm.ow2.io/versions.html). [#10119]
+  * resolv equivalent to 0.7.2 (vendored) for hostname-length and generic-resource fixes. [#10119]
+
+### Compatibility
+
+* Improved handling of ruby2_keywords argument passing. [#9517]
+* Marshal dump and load of an identity hash no longer loses identity bit. [#9584]
+
+### Java Integration
+
+* JVM bytecode output will now better match the current JVM, up to the limits of the ASM bytecode library. [#9483]
+
+### 5 Issues and PRs resolved for 9.4.16.0
+
+- #9483 [Make JVM bytecode version detection more robust][#9483]
+- #9517 [Preserve ruby2_keywords hash passed as positional argument][#9517]
+- #9584 [Fix identity hash dumping and loading][#9584]
+- #9730 [Bump default gem pins to fix known CVEs in bundled jars][#9730]
+- #10119 [Update ASM and JNR dependencies; harden bundled resolv][#10119]
+
+[#9483]:https://github.com/jruby/jruby/pull/9483
+[#9517]:https://github.com/jruby/jruby/pull/9517
+[#9584]:https://github.com/jruby/jruby/pull/9584
+[#9730]:https://github.com/jruby/jruby/pull/9730
+[#10119]:https://github.com/jruby/jruby/pull/10119
+
+[@mnpoonia]:https://github.com/mnpoonia
+[@jessecai33]:https://github.com/jessecai33
